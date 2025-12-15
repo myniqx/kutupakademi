@@ -1,4 +1,10 @@
 {
+  "metadata": {
+    "siteName": "Kutup Akademi",
+    "title": "Kutup Akademi - Akademik Çalışma Desteği ve Veri Analizi",
+    "description": "Tez, makale, proje danışmanlığı, SPSS veri analizi, yapısal eşitlik modellemesi, nitel veri analizi ve akademik İngilizce destek hizmetleri. Profesyonel akademik danışmanlık.",
+    "keywords": "veri analizi, SPSS analizi, tez danışmanlığı, akademik danışmanlık, yapısal eşitlik modellemesi, nitel veri analizi, MAXQDA, bibliyometrik analiz, meta analiz, akademik çalışma desteği"
+  },
   "common": {
     "readMore": "Devamını Oku",
     "contactUs": "İletişime Geç",

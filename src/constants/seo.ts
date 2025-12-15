@@ -102,8 +102,9 @@ export function generateMeta({
     alternates: {
       canonical: url,
       languages: {
-        'tr-TR': `${SITE_CONFIG.url}/tr${path}`,
-        'en-US': `${SITE_CONFIG.url}/en${path}`,
+        'tr': locale === 'tr' ? url : `${SITE_CONFIG.url}${path}`,
+        'en': locale === 'en' ? url : `${SITE_CONFIG.url}/en${path}`,
+        'x-default': `${SITE_CONFIG.url}${path}`,
       },
     },
   };

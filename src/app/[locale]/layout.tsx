@@ -7,6 +7,8 @@ import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
+import { generateMeta } from '@/constants/seo';
+import { SITE_CONFIG } from '@/constants/site';
 import "../globals.css";
 
 const geistSans = Geist({
@@ -19,10 +21,21 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: "Kutup Akademi - Akademik Çalışma Desteği",
-  description: "Tez, makale, proje danışmanlığı, SPSS analizi ve akademik İngilizce destek hizmetleri",
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+
+  return {
+    ...generateMeta({
+      locale: locale as 'tr' | 'en',
+      path: locale === 'en' ? '/en' : '',
+    }),
+    metadataBase: new URL(SITE_CONFIG.url),
+  };
+}
 
 type LocaleLayoutProps = {
   children: React.ReactNode;
