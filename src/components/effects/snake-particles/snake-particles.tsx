@@ -2,11 +2,10 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
-import { AnimationConfig, Snake, Point } from './types';
+import { AnimationConfig, Snake } from './types';
 import {
   getStartAndEndPoints,
   calculateSquaresOnPath,
-  getRandomColor,
 } from './utils';
 
 interface SnakeParticlesProps {
@@ -18,10 +17,17 @@ export function SnakeParticles({ config, showDebug = false }: SnakeParticlesProp
   const containerRef = useRef<HTMLDivElement>(null);
   const configRef = useRef(config);
   const [snakes, setSnakes] = useState<Snake[]>([]);
-  const [mousePos, setMousePos] = useState<Point | null>(null);
-  const mousePosRef = useRef<Point | null>(null);
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
   const spawnIntervalRef = useRef<NodeJS.Timeout | null>(null);
+  const [currentTime, setCurrentTime] = useState(() => Date.now());
+
+  useEffect(() => {
+    if (!showDebug) return;
+    const interval = setInterval(() => {
+      setCurrentTime(Date.now());
+    }, 100);
+    return () => clearInterval(interval);
+  }, [showDebug]);
 
   useEffect(() => {
     configRef.current = config;
@@ -42,34 +48,6 @@ export function SnakeParticles({ config, showDebug = false }: SnakeParticlesProp
     return () => window.removeEventListener('resize', updateDimensions);
   }, []);
 
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      if (containerRef.current) {
-        const rect = containerRef.current.getBoundingClientRect();
-        const newPos = {
-          x: e.clientX - rect.left,
-          y: e.clientY - rect.top,
-        };
-        mousePosRef.current = newPos;
-        setMousePos(newPos);
-      }
-    };
-
-    const handleMouseLeave = () => {
-      mousePosRef.current = null;
-      setMousePos(null);
-    };
-
-    const container = containerRef.current;
-    if (container) {
-      container.addEventListener('mousemove', handleMouseMove);
-      container.addEventListener('mouseleave', handleMouseLeave);
-      return () => {
-        container.removeEventListener('mousemove', handleMouseMove);
-        container.removeEventListener('mouseleave', handleMouseLeave);
-      };
-    }
-  }, []);
 
   useEffect(() => {
     if (dimensions.width === 0 || dimensions.height === 0) return;
@@ -77,64 +55,58 @@ export function SnakeParticles({ config, showDebug = false }: SnakeParticlesProp
     const spawnSnake = () => {
       const currentConfig = configRef.current;
 
-      const { start, end } = getStartAndEndPoints(
-        dimensions.width,
-        dimensions.height,
-        mousePosRef.current,
-        currentConfig.mouseProximity
-      );
+      setSnakes(prev => {
+        const maxBeams = currentConfig.maxConcurrentBeams ?? 12;
+        if (prev.length >= maxBeams) {
+          return prev;
+        }
 
-      const squares = calculateSquaresOnPath(
-        start,
-        end,
-        currentConfig.particleSize,
-        currentConfig.particleGap
-      );
+        const { start, end } = getStartAndEndPoints(
+          dimensions.width,
+          dimensions.height
+        );
 
-      const snakeConfig = {
-        fadeInDuration: currentConfig.fadeInDuration,
-        holdDuration: currentConfig.holdDuration,
-        fadeOutDuration: currentConfig.fadeOutDuration,
-        segmentDelay: currentConfig.segmentDelay,
-        particleSize: currentConfig.particleSize,
-        opacityPeak: currentConfig.opacityPeak,
-        blurStart: currentConfig.blurStart,
-        blurEnd: currentConfig.blurEnd,
-        scaleStart: currentConfig.scaleStart,
-        scaleEnd: currentConfig.scaleEnd,
-      };
+        const squares = calculateSquaresOnPath(start, end);
 
-      const newSnake: Snake = {
-        id: `snake-${Date.now()}-${Math.random()}`,
-        squares,
-        color: `black`,
-        startTime: Date.now(),
-        config: snakeConfig,
-      };
+        const snakeConfig = {
+          fadeInDuration: currentConfig.fadeInDuration,
+          holdDuration: currentConfig.holdDuration,
+          fadeOutDuration: currentConfig.fadeOutDuration,
+          particleSize: currentConfig.particleSize,
+          opacityPeak: currentConfig.opacityPeak,
+          blurEnd: currentConfig.blurEnd,
+        };
 
-      setSnakes(prev => [...prev, newSnake]);
+        const newSnake: Snake = {
+          id: `snake-${Date.now()}-${Math.random()}`,
+          squares,
+          color: `black`,
+          startTime: Date.now(),
+          config: snakeConfig,
+        };
 
-      const totalSquares = squares.length;
-      const threshold95Index = Math.floor(totalSquares * 0.95);
-      const waitUntil95 = Math.max(
-        0,
-        (threshold95Index * snakeConfig.segmentDelay + snakeConfig.fadeInDuration) - snakeConfig.fadeInDuration
-      );
-      const adjustedHold = snakeConfig.holdDuration + waitUntil95;
-      const totalDuration = snakeConfig.fadeInDuration + adjustedHold + snakeConfig.fadeOutDuration;
-      const lastSquareDelay = (totalSquares - 1) * snakeConfig.segmentDelay;
-      const lastSquareEnd = lastSquareDelay + totalDuration;
+        const totalDuration = snakeConfig.fadeInDuration + snakeConfig.holdDuration + snakeConfig.fadeOutDuration;
 
-      setTimeout(() => {
-        setSnakes(prev => prev.filter(s => s.id !== newSnake.id));
-      }, lastSquareEnd);
+        setTimeout(() => {
+          setSnakes(current => current.filter(s => s.id !== newSnake.id));
+        }, totalDuration);
+
+        return [...prev, newSnake];
+      });
     };
 
     if (spawnIntervalRef.current) {
       clearInterval(spawnIntervalRef.current);
     }
 
-    spawnIntervalRef.current = setInterval(spawnSnake, configRef.current.spawnInterval);
+    const currentConfig = configRef.current;
+    const totalDuration = currentConfig.fadeInDuration + currentConfig.holdDuration + currentConfig.fadeOutDuration;
+    const maxBeams = currentConfig.maxConcurrentBeams ?? 12;
+    const minBeams = Math.ceil(maxBeams / 2);
+
+    const targetInterval = totalDuration / minBeams;
+
+    spawnIntervalRef.current = setInterval(spawnSnake, targetInterval);
 
     return () => {
       if (spawnIntervalRef.current) {
@@ -142,7 +114,7 @@ export function SnakeParticles({ config, showDebug = false }: SnakeParticlesProp
         spawnIntervalRef.current = null;
       }
     };
-  }, [dimensions.width, dimensions.height]);
+  }, [dimensions.width, dimensions.height, config]);
 
   return (
     <div
@@ -150,87 +122,141 @@ export function SnakeParticles({ config, showDebug = false }: SnakeParticlesProp
       className="absolute inset-0 w-screen h-screen pointer-events-none overflow-hidden"
       style={{ zIndex: 0 }}
     >
-      {snakes.map((snake, snakeIndex) => {
+      {snakes.map((snake) => {
         const snakeConfig = snake.config || config;
+        const start = snake.squares[0];
+        const end = snake.squares[snake.squares.length - 1];
+
+        if (!start || !end) return null;
+
+        const isHorizontal = Math.abs(end.x - start.x) > Math.abs(end.y - start.y);
+        const distance = Math.sqrt(
+          Math.pow(end.x - start.x, 2) + Math.pow(end.y - start.y, 2)
+        );
+
+        const leftToRight = isHorizontal && end.x > start.x;
+        const topToBottom = !isHorizontal && end.y > start.y;
+
+        const beamWidth = isHorizontal ? distance * 3 : snakeConfig.particleSize;
+        const beamHeight = isHorizontal ? snakeConfig.particleSize : distance * 3;
+
+        const totalDuration =
+          snakeConfig.fadeInDuration + snakeConfig.holdDuration + snakeConfig.fadeOutDuration;
 
         return (
           <div key={snake.id} className="contents">
-            {showDebug && (
-              <div
-                className="absolute pointer-events-none z-100 text-xs font-mono bg-black/80 text-white px-2 py-1 rounded whitespace-nowrap"
+            <motion.div
+              className="absolute rounded-lg overflow-hidden"
+              style={{
+                left: Math.min(start.x, end.x),
+                top: Math.min(start.y, end.y),
+                width: beamWidth,
+                height: beamHeight,
+              }}
+            >
+              <motion.div
+                className="absolute"
                 style={{
-                  left: snake.squares[0]?.x || 0,
-                  top: (snake.squares[0]?.y || 0) - 30,
+                  width: beamWidth,
+                  height: beamHeight,
+                  background: `linear-gradient(
+                    ${isHorizontal ? 'to right' : 'to bottom'},
+                    transparent 0%,
+                    ${snake.color} 50%,
+                    transparent 100%
+                  )`,
+                  filter: `blur(${snakeConfig.blurEnd}px)`,
                 }}
-              >
-                S{snakeIndex + 1} ({snake.squares.length}p)
-              </div>
-            )}
-            {snake.squares.map((square, index) => {
-              const totalSquares = snake.squares.length;
-              const delay = index * snakeConfig.segmentDelay;
-
-              const visibilityThreshold = 0.95;
-              const threshold95Index = Math.floor(totalSquares * visibilityThreshold);
-
-              const waitUntil95PercentFadesIn = Math.max(
-                0,
-                (threshold95Index * snakeConfig.segmentDelay + snakeConfig.fadeInDuration) - (delay + snakeConfig.fadeInDuration)
-              );
-
-              const adjustedHoldDuration = snakeConfig.holdDuration + waitUntil95PercentFadesIn;
-
-              const totalDuration =
-                snakeConfig.fadeInDuration + adjustedHoldDuration + snakeConfig.fadeOutDuration;
-
-              return (
-                <motion.div
-                  key={`${snake.id}-${index}`}
-                  className="absolute rounded-sm"
-                  style={{
-                    left: square.x - snakeConfig.particleSize / 2,
-                    top: square.y - snakeConfig.particleSize / 2,
-                    width: snakeConfig.particleSize,
-                    height: snakeConfig.particleSize,
-                    backgroundColor: snake.color,
-                  }}
-                  initial={{
-                    opacity: 0,
-                    filter: `blur(${snakeConfig.blurStart}px)`,
-                    scale: snakeConfig.scaleStart,
-                  }}
-                  animate={{
-                    opacity: [0, snakeConfig.opacityPeak, snakeConfig.opacityPeak, 0],
-                    filter: [
-                      `blur(${snakeConfig.blurStart}px)`,
-                      `blur(${snakeConfig.blurEnd}px)`,
-                      `blur(${snakeConfig.blurEnd}px)`,
-                      `blur(${snakeConfig.blurStart}px)`,
-                    ],
-                    scale: [
-                      snakeConfig.scaleStart,
-                      snakeConfig.scaleEnd,
-                      snakeConfig.scaleEnd,
-                      0.1,
-                    ],
-                  }}
-                  transition={{
-                    duration: totalDuration / 1000,
-                    delay: delay / 1000,
-                    times: [
-                      0,
-                      snakeConfig.fadeInDuration / totalDuration,
-                      (snakeConfig.fadeInDuration + adjustedHoldDuration) / totalDuration,
-                      1,
-                    ],
-                    ease: 'easeInOut',
-                  }}
-                />
-              );
-            })}
+                initial={{
+                  [isHorizontal ? 'left' : 'top']: leftToRight || topToBottom ? -beamWidth : beamWidth,
+                  opacity: 0,
+                }}
+                animate={{
+                  [isHorizontal ? 'left' : 'top']: [
+                    leftToRight || topToBottom ? -beamWidth : beamWidth,
+                    0,
+                    0,
+                    leftToRight || topToBottom ? beamWidth : -beamWidth,
+                  ],
+                  opacity: [0, snakeConfig.opacityPeak, snakeConfig.opacityPeak, 0],
+                }}
+                transition={{
+                  duration: totalDuration / 1000,
+                  times: [
+                    0,
+                    snakeConfig.fadeInDuration / totalDuration,
+                    (snakeConfig.fadeInDuration + snakeConfig.holdDuration) / totalDuration,
+                    1,
+                  ],
+                  ease: 'easeInOut',
+                }}
+              />
+            </motion.div>
           </div>
         );
       })}
+
+      {showDebug && snakes.length > 0 && (
+        <div className="fixed top-40 right-4 bg-black/90 backdrop-blur-md text-white p-4 rounded-lg shadow-2xl border border-white/10 z-200 min-w-75">
+          <h3 className="text-sm font-bold mb-3 border-b border-white/20 pb-2">
+            Active Beams ({snakes.length})
+          </h3>
+          <div className="space-y-2 text-xs font-mono max-h-[60vh] overflow-y-auto">
+            {snakes.map((snake, idx) => {
+              const snakeConfig = snake.config || config;
+              const elapsed = currentTime - snake.startTime;
+              const totalDuration =
+                snakeConfig.fadeInDuration + snakeConfig.holdDuration + snakeConfig.fadeOutDuration;
+              const remaining = Math.max(0, totalDuration - elapsed);
+              const progress = Math.min(100, (elapsed / totalDuration) * 100);
+
+              let status = 'Active';
+              let statusColor = 'text-green-400';
+
+              if (elapsed < snakeConfig.fadeInDuration) {
+                status = 'Fading In';
+                statusColor = 'text-blue-400';
+              } else if (elapsed >= snakeConfig.fadeInDuration + snakeConfig.holdDuration) {
+                status = 'Fading Out';
+                statusColor = 'text-orange-400';
+              }
+
+              const start = snake.squares[0];
+              const end = snake.squares[snake.squares.length - 1];
+              const isHorizontal = Math.abs(end.x - start.x) > Math.abs(end.y - start.y);
+              const leftToRight = isHorizontal && end.x > start.x;
+              const topToBottom = !isHorizontal && end.y > start.y;
+              const direction = isHorizontal
+                ? (leftToRight ? 'L→R' : 'R→L')
+                : (topToBottom ? 'T→B' : 'B→T');
+
+              return (
+                <div
+                  key={snake.id}
+                  className="bg-white/5 p-2 rounded border border-white/10"
+                >
+                  <div className="flex items-center justify-between mb-1">
+                    <span className="text-white/60">Beam #{idx + 1} ({direction})</span>
+                    <span className={statusColor}>{status}</span>
+                  </div>
+                  <div className="w-full bg-white/10 h-1.5 rounded-full overflow-hidden mb-1">
+                    <div
+                      className="bg-linear-to-r from-blue-500 to-purple-500 h-full transition-all"
+                      style={{ width: `${progress}%` }}
+                    />
+                  </div>
+                  <div className="grid grid-cols-2 gap-x-3 gap-y-0.5 text-[10px] text-white/50">
+                    <span>Active: {(elapsed / 1000).toFixed(2)}s</span>
+                    <span>Remaining: {(remaining / 1000).toFixed(2)}s</span>
+                    <span>Total: {(totalDuration / 1000).toFixed(2)}s</span>
+                    <span>Progress: {progress.toFixed(0)}%</span>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      )}
     </div>
   );
 }

@@ -55,237 +55,130 @@ export function ControlPanel({ config, onChange, showDebug, onDebugToggle }: Con
               </label>
             </div>
 
-            <div className="space-y-2">
-              <label className="text-sm font-medium">
-                Particle Count: {config.particleCount}
-              </label>
-              <input
-                type="range"
-                min="5"
-                max="20"
-                value={config.particleCount}
-                onChange={e => updateConfig('particleCount', parseInt(e.target.value))}
-                className="w-full"
-              />
+            <div className="border-t border-white/10 pt-4">
+              <h3 className="text-xs font-semibold text-white/60 mb-3">BEAM SETTINGS</h3>
+
+              <div className="space-y-2">
+                <label className="text-sm font-medium">
+                  Beam Thickness: {config.particleSize}px
+                </label>
+                <input
+                  type="range"
+                  min="4"
+                  max="40"
+                  value={config.particleSize}
+                  onChange={e => updateConfig('particleSize', parseInt(e.target.value))}
+                  className="w-full"
+                />
+              </div>
+
+              <div className="space-y-2">
+                <label className="text-sm font-medium">
+                  Blur Amount: {config.blurEnd}px
+                </label>
+                <input
+                  type="range"
+                  min="0"
+                  max="20"
+                  value={config.blurEnd}
+                  onChange={e => updateConfig('blurEnd', parseInt(e.target.value))}
+                  className="w-full"
+                />
+              </div>
+
+              <div className="space-y-2">
+                <label className="text-sm font-medium">
+                  Opacity: {config.opacityPeak}
+                </label>
+                <input
+                  type="range"
+                  min="0.05"
+                  max="0.5"
+                  step="0.05"
+                  value={config.opacityPeak}
+                  onChange={e => updateConfig('opacityPeak', parseFloat(e.target.value))}
+                  className="w-full"
+                />
+              </div>
             </div>
 
-            <div className="space-y-2">
-              <label className="text-sm font-medium">
-                Particle Size: {config.particleSize}px
-              </label>
-              <input
-                type="range"
-                min="4"
-                max="20"
-                value={config.particleSize}
-                onChange={e => updateConfig('particleSize', parseInt(e.target.value))}
-                className="w-full"
-              />
-            </div>
+            <div className="border-t border-white/10 pt-4">
+              <h3 className="text-xs font-semibold text-white/60 mb-3">TIMING</h3>
 
-            <div className="space-y-2">
-              <label className="text-sm font-medium">
-                Particle Gap: {config.particleGap}px
-              </label>
-              <input
-                type="range"
-                min="4"
-                max="30"
-                value={config.particleGap}
-                onChange={e => updateConfig('particleGap', parseInt(e.target.value))}
-                className="w-full"
-              />
-            </div>
+              <div className="space-y-2">
+                <label className="text-sm font-medium">
+                  Max Concurrent Beams: {config.maxConcurrentBeams ?? 12}
+                </label>
+                <input
+                  type="range"
+                  min="8"
+                  max="32"
+                  step="1"
+                  value={config.maxConcurrentBeams ?? 12}
+                  onChange={e => updateConfig('maxConcurrentBeams', parseInt(e.target.value))}
+                  className="w-full"
+                />
+              </div>
 
-            <div className="space-y-2">
-              <label className="text-sm font-medium">
-                Base Speed: {config.baseSpeed}x
-              </label>
-              <input
-                type="range"
-                min="0.1"
-                max="3"
-                step="0.1"
-                value={config.baseSpeed}
-                onChange={e => updateConfig('baseSpeed', parseFloat(e.target.value))}
-                className="w-full"
-              />
-            </div>
+              <div className="space-y-2">
+                <label className="text-sm font-medium">
+                  Spawn Interval: {config.spawnInterval}ms
+                </label>
+                <input
+                  type="range"
+                  min="200"
+                  max="5000"
+                  step="100"
+                  value={config.spawnInterval}
+                  onChange={e => updateConfig('spawnInterval', parseInt(e.target.value))}
+                  className="w-full"
+                />
+              </div>
 
-            <div className="space-y-2">
-              <label className="text-sm font-medium">
-                Mouse Speed Multiplier: {config.mouseSpeedMultiplier}x
-              </label>
-              <input
-                type="range"
-                min="1"
-                max="3"
-                step="0.1"
-                value={config.mouseSpeedMultiplier}
-                onChange={e => updateConfig('mouseSpeedMultiplier', parseFloat(e.target.value))}
-                className="w-full"
-              />
-            </div>
+              <div className="space-y-2">
+                <label className="text-sm font-medium">
+                  Fade In: {config.fadeInDuration}ms
+                </label>
+                <input
+                  type="range"
+                  min="100"
+                  max="2000"
+                  step="50"
+                  value={config.fadeInDuration}
+                  onChange={e => updateConfig('fadeInDuration', parseInt(e.target.value))}
+                  className="w-full"
+                />
+              </div>
 
-            <div className="space-y-2">
-              <label className="text-sm font-medium">
-                Mouse Proximity: {config.mouseProximity}px
-              </label>
-              <input
-                type="range"
-                min="50"
-                max="300"
-                value={config.mouseProximity}
-                onChange={e => updateConfig('mouseProximity', parseInt(e.target.value))}
-                className="w-full"
-              />
-            </div>
+              <div className="space-y-2">
+                <label className="text-sm font-medium">
+                  Hold: {config.holdDuration}ms
+                </label>
+                <input
+                  type="range"
+                  min="0"
+                  max="2000"
+                  step="50"
+                  value={config.holdDuration}
+                  onChange={e => updateConfig('holdDuration', parseInt(e.target.value))}
+                  className="w-full"
+                />
+              </div>
 
-            <div className="space-y-2">
-              <label className="text-sm font-medium">
-                Blur Start: {config.blurStart}px
-              </label>
-              <input
-                type="range"
-                min="3"
-                max="30"
-                value={config.blurStart}
-                onChange={e => updateConfig('blurStart', parseInt(e.target.value))}
-                className="w-full"
-              />
-            </div>
-
-            <div className="space-y-2">
-              <label className="text-sm font-medium">
-                Blur End: {config.blurEnd}px
-              </label>
-              <input
-                type="range"
-                min="0"
-                max="15"
-                value={config.blurEnd}
-                onChange={e => updateConfig('blurEnd', parseInt(e.target.value))}
-                className="w-full"
-              />
-            </div>
-
-            <div className="space-y-2">
-              <label className="text-sm font-medium">
-                Scale Start: {config.scaleStart}x
-              </label>
-              <input
-                type="range"
-                min="1"
-                max="20"
-                value={config.scaleStart}
-                onChange={e => updateConfig('scaleStart', parseInt(e.target.value))}
-                className="w-full"
-              />
-            </div>
-
-            <div className="space-y-2">
-              <label className="text-sm font-medium">
-                Scale End: {config.scaleEnd}x
-              </label>
-              <input
-                type="range"
-                min="0.5"
-                max="3"
-                step="0.1"
-                value={config.scaleEnd}
-                onChange={e => updateConfig('scaleEnd', parseFloat(e.target.value))}
-                className="w-full"
-              />
-            </div>
-
-            <div className="space-y-2">
-              <label className="text-sm font-medium">
-                Opacity Peak: {config.opacityPeak}
-              </label>
-              <input
-                type="range"
-                min="0.1"
-                max="1"
-                step="0.05"
-                value={config.opacityPeak}
-                onChange={e => updateConfig('opacityPeak', parseFloat(e.target.value))}
-                className="w-full"
-              />
-            </div>
-
-            <div className="space-y-2">
-              <label className="text-sm font-medium">
-                Spawn Interval: {config.spawnInterval}ms
-              </label>
-              <input
-                type="range"
-                min="500"
-                max="10000"
-                step="100"
-                value={config.spawnInterval}
-                onChange={e => updateConfig('spawnInterval', parseInt(e.target.value))}
-                className="w-full"
-              />
-            </div>
-
-            <div className="space-y-2">
-              <label className="text-sm font-medium">
-                Segment Delay: {config.segmentDelay}ms
-              </label>
-              <input
-                type="range"
-                min="10"
-                max="200"
-                step="10"
-                value={config.segmentDelay}
-                onChange={e => updateConfig('segmentDelay', parseInt(e.target.value))}
-                className="w-full"
-              />
-            </div>
-
-            <div className="space-y-2">
-              <label className="text-sm font-medium">
-                Fade In Duration: {config.fadeInDuration}ms
-              </label>
-              <input
-                type="range"
-                min="100"
-                max="1000"
-                step="50"
-                value={config.fadeInDuration}
-                onChange={e => updateConfig('fadeInDuration', parseInt(e.target.value))}
-                className="w-full"
-              />
-            </div>
-
-            <div className="space-y-2">
-              <label className="text-sm font-medium">
-                Hold Duration: {config.holdDuration}ms
-              </label>
-              <input
-                type="range"
-                min="0"
-                max="500"
-                step="50"
-                value={config.holdDuration}
-                onChange={e => updateConfig('holdDuration', parseInt(e.target.value))}
-                className="w-full"
-              />
-            </div>
-
-            <div className="space-y-2">
-              <label className="text-sm font-medium">
-                Fade Out Duration: {config.fadeOutDuration}ms
-              </label>
-              <input
-                type="range"
-                min="100"
-                max="1000"
-                step="50"
-                value={config.fadeOutDuration}
-                onChange={e => updateConfig('fadeOutDuration', parseInt(e.target.value))}
-                className="w-full"
-              />
+              <div className="space-y-2">
+                <label className="text-sm font-medium">
+                  Fade Out: {config.fadeOutDuration}ms
+                </label>
+                <input
+                  type="range"
+                  min="100"
+                  max="2000"
+                  step="50"
+                  value={config.fadeOutDuration}
+                  onChange={e => updateConfig('fadeOutDuration', parseInt(e.target.value))}
+                  className="w-full"
+                />
+              </div>
             </div>
 
             <div className="pt-4 space-y-2 border-t border-white/10">
