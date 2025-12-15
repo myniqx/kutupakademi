@@ -31,17 +31,17 @@ export function HeroSection({
   return (
     <section className={cn('relative min-h-screen flex items-center py-20 md:py-32 overflow-hidden', className)}>
       {/* Background gradient effects */}
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-primary/20 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-primary/15 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl" />
+      <div className="absolute inset-0">
+        <div className="absolute top-1/4 left-1/4 w-125 h-125 bg-primary/20 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-1/4 right-1/4 w-100 h-100 bg-primary/15 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-150 h-150 bg-primary/5 rounded-full blur-3xl" />
       </div>
 
       <div className="container mx-auto px-4 w-full">
         <div className="max-w-4xl mx-auto text-center space-y-8">
           {/* Main title with gradient */}
           <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight">
-            <span className="bg-gradient-to-r from-foreground via-foreground/90 to-foreground/80 bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-foreground via-foreground/90 to-foreground/80 bg-clip-text text-transparent">
               {title}
             </span>
           </h1>
