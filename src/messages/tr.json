@@ -1,0 +1,67 @@
+{
+  "common": {
+    "readMore": "Devamını Oku",
+    "contactUs": "İletişime Geç",
+    "learnMore": "Daha Fazla Bilgi",
+    "getStarted": "Başlayın",
+    "viewAll": "Tümünü Gör"
+  },
+  "nav": {
+    "home": "Ana Sayfa",
+    "about": "Hakkımızda",
+    "services": "Hizmetler",
+    "blog": "Blog",
+    "contact": "İletişim",
+    "priceRequest": "Fiyat Talebi"
+  },
+  "home": {
+    "hero": {
+      "title": "Veri Analizi, Eğitim & Danışmanlık",
+      "subtitle": "En kaliteli eğitimleri ve en etkin çözümleri en hızlı bulabileceğiniz yerdesiniz",
+      "description": "Kutup yıldızı olmayı ilke edinen ekibimiz, bu isimle sizlere akademik alanda hizmet sunmak için hazırdır.",
+      "cta": {
+        "primary": "Bize Ulaşın",
+        "secondary": "Hizmetlerimiz",
+        "getFreeInfo": "Ücretsiz Bilgi Alın"
+      }
+    },
+    "partners": {
+      "title": "Teknoloji Ortaklarımız",
+      "subtitle": "Güvenilir çözüm ortaklarımızla birlikte çalışıyoruz"
+    },
+    "about": {
+      "title": "Küresel Ölçekte Veri Analizi ve Yabancı Dil Eğitimi Hizmeti",
+      "description": "Akademik çalışmalarınızda size profesyonel destek sağlıyoruz. Veri analizi, istatistiksel danışmanlık ve yabancı dil eğitimi konularında uzman ekibimizle yanınızdayız."
+    },
+    "services": {
+      "title": "Hizmetlerimiz",
+      "subtitle": "Akademik başarınız için kapsamlı hizmetler sunuyoruz"
+    },
+    "process": {
+      "title": "Çalışma Sürecimiz",
+      "subtitle": "Projenizi baştan sona profesyonelce yönetiyoruz"
+    },
+    "stats": {
+      "title": "Rakamlarla Kutup Akademi",
+      "subtitle": "Yıllardır süren deneyimimiz ve müşteri memnuniyetimiz"
+    },
+    "testimonials": {
+      "title": "Müşterilerimiz Ne Diyor?",
+      "subtitle": "Hizmetlerimizden yararlanan akademisyen ve öğrencilerin görüşleri"
+    },
+    "blog": {
+      "title": "Blog & Haberler",
+      "subtitle": "Akademik dünyadan son gelişmeler ve faydalı bilgiler",
+      "comingSoon": "Blog bölümümüz yakında yayında olacak"
+    }
+  },
+  "contact": {
+    "title": "İletişime Geçin",
+    "name": "Ad Soyad",
+    "email": "E-posta",
+    "message": "Mesaj",
+    "submit": "Gönder",
+    "success": "Mesajınız başarıyla gönderildi!",
+    "error": "Bir hata oluştu. Lütfen tekrar deneyin."
+  }
+}

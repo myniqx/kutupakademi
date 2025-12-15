@@ -1,0 +1,67 @@
+{
+  "common": {
+    "readMore": "Read More",
+    "contactUs": "Contact Us",
+    "learnMore": "Learn More",
+    "getStarted": "Get Started",
+    "viewAll": "View All"
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About Us",
+    "services": "Services",
+    "blog": "Blog",
+    "contact": "Contact",
+    "priceRequest": "Price Request"
+  },
+  "home": {
+    "hero": {
+      "title": "Data Analysis, Education & Consulting",
+      "subtitle": "Your destination for the highest quality education and most effective solutions in the shortest time",
+      "description": "Our team, which adopts being the North Star as a principle, is ready to serve you in the academic field with this name.",
+      "cta": {
+        "primary": "Contact Us",
+        "secondary": "Our Services",
+        "getFreeInfo": "Get Free Information"
+      }
+    },
+    "partners": {
+      "title": "Our Technology Partners",
+      "subtitle": "We work together with our trusted solution partners"
+    },
+    "about": {
+      "title": "Global Scale Data Analysis and Foreign Language Education Services",
+      "description": "We provide professional support for your academic studies. We are with you with our expert team in data analysis, statistical consulting and foreign language education."
+    },
+    "services": {
+      "title": "Our Services",
+      "subtitle": "We offer comprehensive services for your academic success"
+    },
+    "process": {
+      "title": "Our Work Process",
+      "subtitle": "We manage your project professionally from start to finish"
+    },
+    "stats": {
+      "title": "Kutup Akademi in Numbers",
+      "subtitle": "Our years of experience and customer satisfaction"
+    },
+    "testimonials": {
+      "title": "What Our Clients Say",
+      "subtitle": "Opinions of academics and students who benefited from our services"
+    },
+    "blog": {
+      "title": "Blog & News",
+      "subtitle": "Latest developments and useful information from the academic world",
+      "comingSoon": "Our blog section will be available soon"
+    }
+  },
+  "contact": {
+    "title": "Get in Touch",
+    "name": "Name",
+    "email": "Email",
+    "message": "Message",
+    "submit": "Send Message",
+    "success": "Your message has been sent successfully!",
+    "error": "An error occurred. Please try again."
+  }
+}
