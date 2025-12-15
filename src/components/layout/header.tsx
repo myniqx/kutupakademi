@@ -9,6 +9,7 @@ import { LanguageSwitcher } from './language-switcher';
 import { ThemeToggle } from './theme-toggle';
 import { GlowButton } from '@/components/ui/glow-button';
 import { Button } from '@/components/ui/button';
+import { Logo } from '@/components/ui/logo';
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -32,14 +33,12 @@ export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-backdrop-filter:bg-background/60">
       <div className="container mx-auto px-4">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2">
-            <span className="text-xl font-bold text-foreground">
-              {SITE_CONFIG.name[locale]}
-            </span>
+          <Link href="/" className="flex items-center space-x-3">
+            <Logo w={120} />
           </Link>
 
           {/* Desktop Navigation */}
@@ -53,12 +52,12 @@ export function Header() {
                         {item.label[locale]}
                       </NavigationMenuTrigger>
                       <NavigationMenuContent>
-                        <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
+                        <ul className="columns-2 w-125 gap-3 p-4 md:w-150">
                           {item.children.map((child) => (
-                            <li key={child.href}>
+                            <li key={child.href} className="break-inside-avoid mb-3">
                               {child.children ? (
-                                <div className="space-y-2">
-                                  <p className="text-sm font-medium leading-none text-foreground">
+                                <div className="rounded-lg border border-border bg-card p-3 space-y-2">
+                                  <p className="text-sm font-semibold text-foreground">
                                     {child.label[locale]}
                                   </p>
                                   <ul className="space-y-1">
@@ -67,7 +66,7 @@ export function Header() {
                                         <NavigationMenuLink asChild>
                                           <Link
                                             href={subChild.href}
-                                            className="block select-none space-y-1 rounded-md p-2 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground text-sm"
+                                            className="block select-none rounded-md px-2 py-1.5 text-sm leading-tight no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                                           >
                                             {subChild.label[locale]}
                                           </Link>
@@ -80,11 +79,9 @@ export function Header() {
                                 <NavigationMenuLink asChild>
                                   <Link
                                     href={child.href}
-                                    className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                                    className="block select-none rounded-lg border border-border bg-card p-3 text-sm font-medium leading-tight no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                                   >
-                                    <div className="text-sm font-medium leading-none">
-                                      {child.label[locale]}
-                                    </div>
+                                    {child.label[locale]}
                                   </Link>
                                 </NavigationMenuLink>
                               )}
@@ -124,7 +121,7 @@ export function Header() {
                   <Menu className="h-5 w-5" />
                 </Button>
               </SheetTrigger>
-              <SheetContent side="right" className="w-[300px] sm:w-[400px]">
+              <SheetContent side="right" className="w-75 sm:w-100">
                 <SheetHeader>
                   <SheetTitle>{SITE_CONFIG.name[locale]}</SheetTitle>
                 </SheetHeader>

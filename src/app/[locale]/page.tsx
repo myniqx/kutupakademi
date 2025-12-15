@@ -30,25 +30,28 @@ export default function Home() {
         }}
       />
 
-      {/* Technology Partners - Section 2 */}
-      <TechnologyPartners className="bg-muted/20" />
+      {/* Combined Section 2 & 3 */}
+      <section className="min-h-screen flex flex-col bg-muted/30">
+        {/* Technology Partners - 50% height */}
+        <TechnologyPartners className="min-h-[50vh]" />
 
-      {/* About Section - Section 3 */}
-      <section className="min-h-screen flex items-center py-16 md:py-24">
-        <div className="container mx-auto px-4 w-full">
-          <div className="max-w-4xl mx-auto text-center space-y-6">
-            <h2 className="text-3xl md:text-4xl font-bold">
-              {t('about.title')}
-            </h2>
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              {t('about.description')}
-            </p>
+        {/* About Section - 50% height */}
+        <div className="min-h-[50vh] flex items-center py-16 md:py-24">
+          <div className="container mx-auto px-4 w-full">
+            <div className="max-w-4xl mx-auto text-center space-y-6">
+              <h2 className="text-3xl md:text-4xl font-bold">
+                {t('about.title')}
+              </h2>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                {t('about.description')}
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Services Section - Section 4 */}
-      <section className="min-h-screen flex items-center py-16 md:py-24 bg-muted/20">
+      <section className="min-h-screen flex items-center py-16 md:py-24">
         <div className="container mx-auto px-4 w-full">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
@@ -78,13 +81,13 @@ export default function Home() {
       <ProcessSteps className="bg-muted/30" />
 
       {/* Stats Section - Section 6 */}
-      <StatsSection className="bg-muted/20" />
+      <StatsSection />
 
       {/* Testimonials - Section 7 */}
-      <Testimonials />
+      <Testimonials className="bg-muted/30" />
 
       {/* Blog Section Stub (TODO) - Section 8 */}
-      <section className="min-h-screen flex items-center py-16 md:py-24 bg-muted/20">
+      <section className="min-h-screen flex items-center py-16 md:py-24">
         <div className="container mx-auto px-4 w-full">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">

@@ -26,9 +26,9 @@ export function TechnologyPartners({ className }: TechnologyPartnersProps) {
           {HOMEPAGE.partners.list.map((partner, index) => (
             <div
               key={index}
-              className="group relative w-full max-w-[160px] aspect-[3/2] flex items-center justify-center"
+              className="group relative w-full max-w-40 aspect-3/2 flex items-center justify-center"
             >
-              <div className="relative w-full h-full transition-all duration-300 grayscale hover:grayscale-0 opacity-60 hover:opacity-100">
+              <div className="relative w-full h-full border-primary transition-all duration-300 grayscale hover:grayscale-0 opacity-60 hover:opacity-100">
                 <Image
                   src={partner.logo}
                   alt={partner.name}
