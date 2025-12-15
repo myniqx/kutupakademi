@@ -24,7 +24,7 @@ export function ProcessSteps({ className }: ProcessStepsProps) {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 relative">
           {/* Connection lines for desktop */}
-          <div className="hidden lg:block absolute top-20 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
+          <div className="hidden lg:block absolute top-20 left-0 right-0 h-0.5 bg-linear-to-r from-transparent via-primary/30 to-transparent" />
 
           {HOMEPAGE.process.steps.map((step, index) => {
             const Icon = PhosphorIcons[step.icon] as React.ComponentType<{

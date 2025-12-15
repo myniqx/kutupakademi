@@ -9,12 +9,17 @@ import { HOMEPAGE } from '@/constants/homepage';
 import { GlowCard } from '@/components/ui/glow-card';
 import { CardContent } from '@/components/ui/card';
 import { Book } from '@phosphor-icons/react/dist/ssr';
+import { LogoPlaceholder } from '@/components/ui/logo-placeholder';
+import { AnimatedLogo } from '@/components/ui/animated-logo';
+import { LogoDebugPanel } from '@/components/ui/logo-debug-panel';
 
 export default function Home() {
   const t = useTranslations('home');
 
   return (
     <div className="flex min-h-screen flex-col bg-background">
+      <AnimatedLogo />
+
       {/* Hero Section */}
       <HeroSection
         title={t('hero.title')}
@@ -31,12 +36,15 @@ export default function Home() {
       />
 
       {/* Combined Section 2 & 3 */}
-      <section className="min-h-screen flex flex-col bg-muted/30">
+      <section className="min-h-screen flex flex-col bg-muted/30 relative">
+        {/* Single centered logo placeholder */}
+        <LogoPlaceholder id="partners-logo" w={240} className="absolute top-1/2 left-16 -translate-y-1/2 md:left-12" />
+
         {/* Technology Partners - 50% height */}
         <TechnologyPartners className="min-h-[50vh]" />
 
         {/* About Section - 50% height */}
-        <div className="min-h-[50vh] flex items-center py-16 md:py-24">
+        <div className="min-h-[50vh] flex items-center py-16 md:py-24 relative">
           <div className="container mx-auto px-4 w-full">
             <div className="max-w-4xl mx-auto text-center space-y-6">
               <h2 className="text-3xl md:text-4xl font-bold">
@@ -51,7 +59,8 @@ export default function Home() {
       </section>
 
       {/* Services Section - Section 4 */}
-      <section className="min-h-screen flex items-center py-16 md:py-24">
+      <section className="min-h-screen flex items-center py-16 md:py-24 relative">
+        <LogoPlaceholder id="services-logo" w={65} className="absolute bottom-8 left-4 md:bottom-12 md:left-8" />
         <div className="container mx-auto px-4 w-full">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
@@ -78,16 +87,26 @@ export default function Home() {
       </section>
 
       {/* Process Steps - Section 5 */}
-      <ProcessSteps className="bg-muted/30" />
+      <div className="relative">
+        <LogoPlaceholder id="process-logo" w={55} className="absolute top-8 right-4 md:top-12 md:right-8" />
+        <ProcessSteps className="bg-muted/30" />
+      </div>
 
       {/* Stats Section - Section 6 */}
-      <StatsSection />
+      <div className="relative">
+        <LogoPlaceholder id="stats-logo" w={60} className="absolute top-4 left-8 md:top-8 md:left-12" />
+        <StatsSection />
+      </div>
 
       {/* Testimonials - Section 7 */}
-      <Testimonials className="bg-muted/30" />
+      <div className="relative">
+        <LogoPlaceholder id="testimonials-logo" w={70} className="absolute top-8 right-8 md:top-12 md:right-16" />
+        <Testimonials className="bg-muted/30" />
+      </div>
 
       {/* Blog Section Stub (TODO) - Section 8 */}
-      <section className="min-h-screen flex items-center py-16 md:py-24">
+      <section className="min-h-screen flex items-center py-16 md:py-24 relative">
+        <LogoPlaceholder id="blog-logo" w={50} className="absolute bottom-8 left-1/2 -translate-x-1/2 md:bottom-12" />
         <div className="container mx-auto px-4 w-full">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
