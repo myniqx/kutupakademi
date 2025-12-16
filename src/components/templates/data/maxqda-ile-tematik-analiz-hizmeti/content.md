@@ -244,5 +244,3 @@ Tematik analiz, içerik analizi, söylem analizi ve anlatı analizi MAXQDA ile u
 MAXQDA, **nitel veri analizi ve tematik analiz** için güçlü araçlar sunar. **MAXQDA ile tematik analiz yaptırmak**, verilerinizi daha sistematik bir şekilde işlemenize ve akademik çalışmalarınızın güvenilirliğini artırmanıza yardımcı olur.
 
 **Siz de profesyonel bir tematik analiz yaptırmak veya [nitel veri analizi](https://kutupakademi.com/nitel-veri-analizi-yaptirma/) desteği almak istiyorsanız hemen bizimle iletişime geçin!** Profesyonel bir tematik analiz örneği görmek isterseniz mutlaka bize ulaşın!
-
-Hızlı İletişim Hattı

@@ -5,7 +5,7 @@ import { getContentMetadata, getContentMarkdown } from '@/components/templates/l
 import type { Metadata } from 'next';
 
 type ServicePageProps = {
-  params: Promise<{ locale: string; service: string }>;
+  params: Promise<{ locale: 'tr' | 'en'; service: string }>;
 };
 
 const SERVICE_SLUGS = [
@@ -38,15 +38,15 @@ export async function generateMetadata({
   params,
 }: ServicePageProps): Promise<Metadata> {
   const { locale, service } = await params;
-  const metadata = await getContentMetadata(service);
+  const metadata = await getContentMetadata(service, locale);
 
   if (!metadata) {
     return {};
   }
 
   return generateMeta({
-    title: metadata.title,
-    description: metadata.description || '',
+    title: metadata[locale].title,
+    description: metadata[locale].description || '',
     locale: locale as 'tr' | 'en',
     path: `/${service}`,
   });
@@ -57,14 +57,8 @@ export default async function ServicePage({ params }: ServicePageProps) {
 
   const [metadata, content] = await Promise.all([
     getContentMetadata(service),
-    getContentMarkdown(service),
+    getContentMarkdown(service, locale),
   ]);
-
-  console.log('📦 Fetched data:', {
-    hasMetadata: !!metadata,
-    hasContent: !!content,
-    metadataTitle: metadata?.title
-  });
 
   if (!metadata || !content) {
     notFound();

@@ -141,5 +141,3 @@ Eğer siz de çalışmanızda kapsamlı, görsel ve bilimsel bir literatür anal
 VOSviewer ile hazırlanmış görsel haritalar, alan analizleri ve akademik uyumlu raporlarla desteklenen çalışmanızla fark yaratın!
 
 **Hemen bizimle [fiyat talebi formu](https://www.kutupakademi.com/fiyat-talebi/) doldurarak ya da whatsapp hattı üzerinden iletişime geçin, analiz sürecinizi birlikte başlatalım.**
-
-Hızlı İletişim Hattı

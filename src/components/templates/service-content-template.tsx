@@ -7,6 +7,7 @@ import { extractHeadings } from '@/lib/markdown/extract-headings';
 import Image from 'next/image';
 import { Clock, Calendar } from 'lucide-react';
 import { ContentMetaData } from './types';
+import remarkGfm from 'remark-gfm';
 
 type ServiceContentTemplateProps = {
   metadata: ContentMetaData;
@@ -163,8 +164,22 @@ export async function ServiceContentTemplate({
             prose-blockquote:border-l-4 prose-blockquote:border-primary/50
             prose-blockquote:bg-muted/30 prose-blockquote:py-4 prose-blockquote:px-6
             prose-blockquote:rounded-r-lg prose-blockquote:italic
-            prose-blockquote:text-foreground/70">
-                <MDXRemote source={content} components={components} />
+            prose-blockquote:text-foreground/70
+
+            prose-table:my-8 prose-table:border-collapse
+            prose-th:bg-muted/50 prose-th:border prose-th:border-border prose-th:px-4 prose-th:py-3 prose-th:text-left prose-th:font-semibold
+            prose-td:border prose-td:border-border prose-td:px-4 prose-td:py-3
+            prose-thead:border-b-2 prose-thead:border-border
+            prose-tr:hover:bg-muted/30 prose-tr:transition-colors">
+                <MDXRemote
+                  source={content}
+                  components={components}
+                  options={{
+                    mdxOptions: {
+                      remarkPlugins: [remarkGfm],
+                    },
+                  }}
+                />
               </div>
             </article>
           </div>

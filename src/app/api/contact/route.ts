@@ -1,30 +1,37 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { Resend } from 'resend';
-import { ContactEmailTemplate } from '@/lib/email/templates';
-import { z } from 'zod';
+import { generateEmailHTML, generateEmailSubject } from '@/lib/email/templates';
+import { SITE_CONFIG } from '@/constants/site';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-const contactSchema = z.object({
-  name: z.string().min(2, 'Name must be at least 2 characters'),
-  email: z.string().email('Invalid email address'),
-  message: z.string().min(10, 'Message must be at least 10 characters'),
-});
-
 export async function POST(request: NextRequest) {
   try {
-    const body = await request.json();
-    const { name, email, message } = contactSchema.parse(body);
+    const data = await request.json();
 
-    const { data, error } = await resend.emails.send({
-      from: 'Kutup Akademi <onboarding@resend.dev>',
-      to: [process.env.CONTACT_EMAIL || 'info@kutupakademi.com'],
-      subject: `New Contact Form Submission from ${name}`,
-      react: ContactEmailTemplate({ name, email, message }),
-      replyTo: email,
+    // Validate required fields
+    if (!data.name || !data.email) {
+      return NextResponse.json(
+        { error: 'Name and email are required' },
+        { status: 400 }
+      );
+    }
+
+    // Generate email HTML and subject
+    const emailHTML = generateEmailHTML(data);
+    const subject = generateEmailSubject(data);
+
+    // Send email via Resend
+    const result = await resend.emails.send({
+      from: 'Kutup Akademi Website <onboarding@resend.dev>', // You'll need to configure your domain
+      to: SITE_CONFIG.contact.email,
+      subject: subject,
+      html: emailHTML,
+      replyTo: data.email, // Allow replying directly to the sender
     });
 
-    if (error) {
+    if (result.error) {
+      console.error('Resend error:', result.error);
       return NextResponse.json(
         { error: 'Failed to send email' },
         { status: 500 }
@@ -32,17 +39,11 @@ export async function POST(request: NextRequest) {
     }
 
     return NextResponse.json(
-      { success: true, data },
+      { success: true, messageId: result.data?.id },
       { status: 200 }
     );
   } catch (error) {
-    if (error instanceof z.ZodError) {
-      return NextResponse.json(
-        { error: 'Validation error', details: error.errors },
-        { status: 400 }
-      );
-    }
-
+    console.error('API error:', error);
     return NextResponse.json(
       { error: 'Internal server error' },
       { status: 500 }

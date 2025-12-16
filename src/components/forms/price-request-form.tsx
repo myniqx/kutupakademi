@@ -41,7 +41,7 @@ export function PriceRequestForm({ locale }: PriceRequestFormProps) {
     setSubmitStatus(null);
 
     try {
-      const response = await fetch('/api/price-request', {
+      const response = await fetch('/api/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
