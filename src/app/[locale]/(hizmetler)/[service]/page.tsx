@@ -55,8 +55,6 @@ export async function generateMetadata({
 export default async function ServicePage({ params }: ServicePageProps) {
   const { locale, service } = await params;
 
-  console.log('🔍 ServicePage called with:', { locale, service });
-
   const [metadata, content] = await Promise.all([
     getContentMetadata(service),
     getContentMarkdown(service),
@@ -69,11 +67,9 @@ export default async function ServicePage({ params }: ServicePageProps) {
   });
 
   if (!metadata || !content) {
-    console.log('❌ No metadata or content, returning 404');
     notFound();
   }
 
-  console.log('✅ Rendering ServiceContentTemplate');
   return (
     <ServiceContentTemplate
       metadata={metadata}

@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import { useTheme } from 'next-themes';
 import { motion } from 'framer-motion';
 import { AnimationConfig, Snake } from './types';
 import {
@@ -14,6 +15,7 @@ interface SnakeParticlesProps {
 }
 
 export function SnakeParticles({ config, showDebug = false }: SnakeParticlesProps) {
+  const { theme } = useTheme();
   const containerRef = useRef<HTMLDivElement>(null);
   const configRef = useRef(config);
   const [snakes, setSnakes] = useState<Snake[]>([]);
@@ -77,10 +79,18 @@ export function SnakeParticles({ config, showDebug = false }: SnakeParticlesProp
           blurEnd: currentConfig.blurEnd,
         };
 
+        // Theme-aware colors with occasional accent waves
+        const isDark = theme === 'dark';
+        const useAccentColor = Math.random() < 0.3; // 30% chance for accent wave
+
+        const color = isDark
+          ? (useAccentColor ? 'black' : 'white') // Dark mode: mainly white, some black
+          : (useAccentColor ? 'white' : 'black'); // Light mode: mainly black, some white
+
         const newSnake: Snake = {
           id: `snake-${Date.now()}-${Math.random()}`,
           squares,
-          color: `black`,
+          color,
           startTime: Date.now(),
           config: snakeConfig,
         };

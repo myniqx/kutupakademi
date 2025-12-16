@@ -43,7 +43,3 @@ export async function getContentMarkdown(slug: string): Promise<string | null> {
     return null;
   }
 }
-
-export function getImageUrl(slug: string, imageName: string): string {
-  return `/api/data?slug=${slug}&image=${imageName}`;
-}

@@ -18,7 +18,6 @@ export default function Home() {
 
   return (
     <div className="flex min-h-screen flex-col bg-background">
-      <AnimatedLogo />
 
       {/* Hero Section */}
       <HeroSection

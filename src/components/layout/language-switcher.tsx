@@ -12,8 +12,8 @@ import { Button } from '@/components/ui/button';
 import { Globe } from 'lucide-react';
 
 const LANGUAGES = [
-  { code: 'tr', label: 'Türkçe', flag: '🇹🇷' },
-  { code: 'en', label: 'English', flag: '🇬🇧' },
+  { code: 'tr', label: 'Türkçe' },
+  { code: 'en', label: 'English' },
 ] as const;
 
 export function LanguageSwitcher() {
@@ -33,9 +33,8 @@ export function LanguageSwitcher() {
         <Button variant="ghost" size="sm" className="gap-2">
           <Globe className="h-4 w-4" />
           <span className="hidden sm:inline">
-            {currentLanguage?.flag} {currentLanguage?.label}
+            {currentLanguage?.label}
           </span>
-          <span className="sm:hidden">{currentLanguage?.flag}</span>
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
@@ -45,7 +44,6 @@ export function LanguageSwitcher() {
             onClick={() => handleLanguageChange(lang.code)}
             className={locale === lang.code ? 'bg-accent' : ''}
           >
-            <span className="mr-2">{lang.flag}</span>
             {lang.label}
           </DropdownMenuItem>
         ))}

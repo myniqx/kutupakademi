@@ -1,6 +1,7 @@
 import { type ServiceData } from '@/constants/services';
 import { GlowCard } from '@/components/ui/glow-card';
 import { GlowButton } from '@/components/ui/glow-button';
+import { CTASection } from '@/components/sections/cta-section';
 import { Link } from '@/i18n/routing';
 import { Check, ArrowRight } from 'lucide-react';
 
@@ -110,30 +111,25 @@ export function ServiceTemplate({ service, locale }: ServiceTemplateProps) {
           )}
 
           {/* CTA Section */}
-          <section className="bg-muted/50 rounded-lg p-8 md:p-12 text-center">
-            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
-              {locale === 'tr'
+          <CTASection
+            locale={locale}
+            title={
+              locale === 'tr'
                 ? 'Hizmetimiz hakkında daha fazla bilgi almak ister misiniz?'
-                : 'Would you like more information about our service?'}
-            </h2>
-            <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
-              {locale === 'tr'
+                : 'Would you like more information about our service?'
+            }
+            description={
+              locale === 'tr'
                 ? 'Size özel fiyat teklifi almak ve detaylı bilgi için bizimle iletişime geçin.'
-                : 'Contact us for a personalized quote and detailed information.'}
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <GlowButton asChild mode="border" intensity="medium" size="lg">
-                <Link href="/fiyat-talebi">
-                  {locale === 'tr' ? 'Fiyat Teklifi Al' : 'Get Quote'}
-                </Link>
-              </GlowButton>
-              <GlowButton asChild mode="background" intensity="low" size="lg" variant="outline">
-                <Link href="/iletisim">
-                  {locale === 'tr' ? 'İletişime Geç' : 'Contact Us'}
-                </Link>
-              </GlowButton>
-            </div>
-          </section>
+                : 'Contact us for a personalized quote and detailed information.'
+            }
+            primaryButton={{
+              text: locale === 'tr' ? 'Fiyat Teklifi Al' : 'Get Quote',
+            }}
+            secondaryButton={{
+              text: locale === 'tr' ? 'İletişime Geç' : 'Contact Us',
+            }}
+          />
         </div>
       </div>
     </div>

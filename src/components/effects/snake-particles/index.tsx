@@ -11,12 +11,6 @@ export function SnakeParticlesEffect() {
 
   return (
     <>
-      <ControlPanel
-        config={config}
-        onChange={setConfig}
-        showDebug={showDebug}
-        onDebugToggle={setShowDebug}
-      />
       <SnakeParticles config={config} showDebug={showDebug} />
     </>
   );

@@ -2,12 +2,13 @@ import { MDXRemote } from 'next-mdx-remote/rsc';
 import { MDXImage } from '@/components/mdx/mdx-image';
 import { H2, H3 } from '@/components/mdx/mdx-headings';
 import { TableOfContents } from '@/components/ui/table-of-contents';
-import { GlowButton } from '@/components/ui/glow-button';
-import { Link } from '@/i18n/routing';
-import { ArrowRight, Sparkles, Clock, Calendar } from 'lucide-react';
+import { CTASection } from '@/components/sections/cta-section';
 import type { ContentMetadata } from '@/components/templates/libs/content';
 import { extractHeadings } from '@/lib/markdown/extract-headings';
 import Image from 'next/image';
+import { Clock, Calendar, ArrowRight } from 'lucide-react';
+import { GlowButton } from '../ui/glow-button';
+import Link from 'next/link';
 
 type ServiceContentTemplateProps = {
   metadata: any;
@@ -173,61 +174,7 @@ export async function ServiceContentTemplate({
       </div>
 
       {/* Premium CTA Section */}
-      <section className="relative overflow-hidden border-t border-border/50">
-        {/* Gradient Background */}
-        <div className="absolute inset-0 bg-linear-to-br from-primary/5 via-background to-background" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,hsl(var(--primary)/0.1),transparent_50%)]" />
-
-        <div className="container relative mx-auto px-4 py-20 md:py-28">
-          <div className="max-w-4xl mx-auto text-center">
-            {/* Premium Heading */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 backdrop-blur-sm border border-primary/20 mb-6">
-              <Sparkles className="h-4 w-4 text-primary" />
-              <span className="text-sm font-medium text-primary">
-                {locale === 'tr' ? 'Profesyonel Destek' : 'Professional Support'}
-              </span>
-            </div>
-
-            <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-6 bg-linear-to-br from-foreground to-foreground/70 bg-clip-text text-transparent">
-              {locale === 'tr'
-                ? 'Projeniz İçin Hemen Başlayın'
-                : 'Get Started on Your Project'}
-            </h2>
-
-            <p className="text-lg md:text-xl text-muted-foreground/90 mb-10 max-w-2xl mx-auto font-light leading-relaxed">
-              {locale === 'tr'
-                ? 'Uzman ekibimiz size özel çözümler sunmak için hazır. Detaylı bilgi ve fiyat teklifi için iletişime geçin.'
-                : 'Our expert team is ready to provide customized solutions. Contact us for detailed information and quotes.'}
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <GlowButton asChild mode="border" intensity="high" size="lg" className="text-base">
-                <Link href="/fiyat-talebi">
-                  {locale === 'tr' ? 'Ücretsiz Teklif Alın' : 'Get Free Quote'}
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Link>
-              </GlowButton>
-              <GlowButton asChild mode="background" intensity="medium" size="lg" variant="outline" className="text-base">
-                <Link href="/iletisim">
-                  {locale === 'tr' ? 'Bize Ulaşın' : 'Contact Us'}
-                </Link>
-              </GlowButton>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Sticky CTA Bar - Mobile */}
-      <div className="fixed bottom-0 left-0 right-0 lg:hidden border-t border-border/50 bg-background/95 backdrop-blur-lg p-4 z-50">
-        <div className="container mx-auto">
-          <GlowButton asChild mode="border" intensity="medium" size="lg" className="w-full">
-            <Link href="/fiyat-talebi">
-              {locale === 'tr' ? 'Teklif Al' : 'Get Quote'}
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Link>
-          </GlowButton>
-        </div>
-      </div>
+      <CTASection locale={locale} />
     </div>
   );
 }

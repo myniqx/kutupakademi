@@ -33,7 +33,7 @@ export function HeroSection({
   return (
     <section className={cn('relative min-h-screen flex items-center py-20 md:py-32 overflow-hidden z-10', className)}>
       {/* Snake particles effect */}
-      <SnakeParticlesEffect className="z-20" />
+      <SnakeParticlesEffect />
 
       {/* Logo Placeholder - Right Side */}
       <div className="absolute right-0 top-1/2 -translate-y-1/2 w-1/2 hidden lg:flex items-center justify-center z-30">

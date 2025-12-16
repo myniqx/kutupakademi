@@ -45,7 +45,7 @@ export function Header() {
           <NavigationMenu className="hidden lg:flex">
             <NavigationMenuList>
               {MAIN_MENU.map((item) => (
-                <NavigationMenuItem key={item.href}>
+                <NavigationMenuItem key={item.href === '#' ? item.label[locale] : item.href}>
                   {item.children ? (
                     <>
                       <NavigationMenuTrigger>
@@ -56,7 +56,7 @@ export function Header() {
                           {item.children.map((child) => (
                             <li key={child.href} className="break-inside-avoid mb-3">
                               {child.children ? (
-                                <div className="rounded-lg border border-border bg-card p-3 space-y-2">
+                                <div className="rounded-lg border border-border bg-card/60 backdrop-blur-sm p-3 space-y-2">
                                   <p className="text-sm font-semibold text-foreground">
                                     {child.label[locale]}
                                   </p>
@@ -79,7 +79,7 @@ export function Header() {
                                 <NavigationMenuLink asChild>
                                   <Link
                                     href={child.href}
-                                    className="block select-none rounded-lg border border-border bg-card p-3 text-sm font-medium leading-tight no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                                    className="block select-none rounded-lg border border-border bg-card/60 backdrop-blur-sm p-3 text-sm font-medium leading-tight no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                                   >
                                     {child.label[locale]}
                                   </Link>
@@ -93,7 +93,7 @@ export function Header() {
                   ) : (
                     <Link
                       href={item.href}
-                      className="group inline-flex h-9 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50"
+                      className="group inline-flex h-9 w-max items-center justify-center rounded-xl bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50"
                     >
                       {item.label[locale]}
                     </Link>

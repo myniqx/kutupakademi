@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { cn } from '@/lib/utils';
 import type { Heading } from '@/lib/markdown/extract-headings';
+import { useLocale } from 'next-intl';
 
 interface TableOfContentsProps {
   headings: Heading[];
@@ -10,6 +11,7 @@ interface TableOfContentsProps {
 
 export function TableOfContents({ headings }: TableOfContentsProps) {
   const [activeId, setActiveId] = useState<string>('');
+  const locale = useLocale();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -67,7 +69,9 @@ export function TableOfContents({ headings }: TableOfContentsProps) {
       <div className="space-y-2">
         <div className="flex items-center gap-2 mb-4 pb-2 border-b border-border/50">
           <div className="h-1 w-1 rounded-full bg-primary animate-pulse" />
-          <p className="text-xs font-semibold text-foreground/90 uppercase tracking-wide">İçindekiler</p>
+          <p className="text-xs font-semibold text-foreground/90 uppercase tracking-wide">
+            {locale === 'tr' ? 'İçindekiler' : 'Contents'}
+          </p>
         </div>
         <ul className="space-y-1 max-h-[75vh] overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-border scrollbar-track-transparent">
           {headings.map((heading) => (
@@ -82,7 +86,7 @@ export function TableOfContents({ headings }: TableOfContentsProps) {
                 href={`#${heading.id}`}
                 onClick={(e) => handleClick(e, heading.id)}
                 className={cn(
-                  'block py-1.5 px-2.5 rounded-md text-xs transition-all duration-200',
+                  'block py-0.5 px-2.5 rounded-md text-xs transition-all duration-200',
                   'hover:bg-muted/50 hover:text-foreground',
                   'border-l-2 transition-colors',
                   activeId === heading.id
