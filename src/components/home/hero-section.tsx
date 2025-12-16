@@ -31,26 +31,26 @@ export function HeroSection({
   className,
 }: HeroSectionProps) {
   return (
-    <section className={cn('relative min-h-screen flex items-center py-20 md:py-32 overflow-hidden', className)}>
+    <section className={cn('relative min-h-screen flex items-center py-20 md:py-32 overflow-hidden z-10', className)}>
       {/* Snake particles effect */}
-      <SnakeParticlesEffect />
+      <SnakeParticlesEffect className="z-20" />
 
       {/* Logo Placeholder - Right Side */}
-      <div className="absolute right-0 top-1/2 -translate-y-1/2 w-1/2 hidden lg:flex items-center justify-center" style={{ zIndex: 2 }}>
+      <div className="absolute right-0 top-1/2 -translate-y-1/2 w-1/2 hidden lg:flex items-center justify-center z-30">
         <LogoPlaceholder id="hero-logo" w={400} className="relative" />
       </div>
 
       {/* Mobile Logo Placeholder */}
-      <LogoPlaceholder id="hero-logo-mobile" w={150} className="absolute top-8 right-8 lg:hidden" />
+      <LogoPlaceholder id="hero-logo-mobile" w={150} className="absolute top-8 right-8 lg:hidden z-30" />
 
       {/* Background gradient effects */}
-      <div className="absolute inset-0" style={{ zIndex: 1 }}>
+      <div className="absolute inset-0 z-0">
         <div className="absolute top-1/4 left-1/4 w-125 h-125 bg-primary/20 rounded-full blur-3xl animate-pulse" />
         <div className="absolute bottom-1/4 right-1/4 w-100 h-100 bg-primary/15 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-150 h-150 bg-primary/5 rounded-full blur-3xl" />
       </div>
 
-      <div className="container mx-auto px-4 w-full relative" style={{ zIndex: 2 }}>
+      <div className="container mx-auto px-4 w-full relative z-50">
         <div className="max-w-4xl lg:max-w-none lg:w-1/2 space-y-8">
           {/* Main title with gradient */}
           <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight text-center lg:text-left">

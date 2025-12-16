@@ -18,7 +18,7 @@ export const LogoPlaceholder = forwardRef<HTMLDivElement, LogoPlaceholderProps>(
         ref={ref}
         id={id}
         data-logo-placeholder
-        className={cn('pointer-events-none opacity-40 bg-green-300 flex items-center justify-center text-[8px] font-mono text-black p-1 overflow-hidden', className)}
+        className={cn('pointer-events-none opacity-0 bg-green-300 flex items-center justify-center text-[8px] font-mono text-black p-1 overflow-hidden', className)}
         style={{
           width: `${w}px`,
           height: `${w}px`,

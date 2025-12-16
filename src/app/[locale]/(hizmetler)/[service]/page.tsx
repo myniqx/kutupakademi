@@ -1,15 +1,29 @@
 import { notFound } from 'next/navigation';
-import { getService, SERVICE_SLUGS, type ServiceSlug } from '@/constants/services';
 import { generateMeta } from '@/constants/seo';
-import { ServiceTemplate } from '@/components/templates/service-template';
+import { ServiceContentTemplate } from '@/components/templates/service-content-template';
+import { getContentMetadata, getContentMarkdown } from '@/lib/api/content';
 import type { Metadata } from 'next';
 
 type ServicePageProps = {
   params: Promise<{ locale: string; service: string }>;
 };
 
+const SERVICE_SLUGS = [
+  'yapisal-esitlik-modellemesi-analizi',
+  'spss-veri-analizi-yaptirma-2',
+  'spss-odevi-yaptirma',
+  'spss-egitimi-ile-veri-analizi',
+  'spss-ile-olcek-gelistirme-ve-uyarlama-hizmeti',
+  'maxqda-ile-tematik-analiz-hizmeti',
+  'vosviewer-ile-bibliyometrik-analiz-yaptirma',
+  'g-power-ile-orneklem-buyuklugu-hesaplama-analizi',
+  'meta-analiz-yaptirma',
+  'tez-danismanligi',
+  'tez-duzenleme-hizmetleri',
+];
+
 export async function generateStaticParams() {
-  const params: { locale: string; service: ServiceSlug }[] = [];
+  const params: { locale: string; service: string }[] = [];
 
   for (const locale of ['tr', 'en'] as const) {
     for (const service of SERVICE_SLUGS) {
@@ -24,15 +38,15 @@ export async function generateMetadata({
   params,
 }: ServicePageProps): Promise<Metadata> {
   const { locale, service } = await params;
-  const serviceData = getService(service);
+  const metadata = await getContentMetadata(service);
 
-  if (!serviceData) {
+  if (!metadata) {
     return {};
   }
 
   return generateMeta({
-    title: serviceData.title[locale as 'tr' | 'en'],
-    description: serviceData.description[locale as 'tr' | 'en'],
+    title: metadata.title,
+    description: metadata.description || '',
     locale: locale as 'tr' | 'en',
     path: `/${service}`,
   });
@@ -40,11 +54,31 @@ export async function generateMetadata({
 
 export default async function ServicePage({ params }: ServicePageProps) {
   const { locale, service } = await params;
-  const serviceData = getService(service);
 
-  if (!serviceData) {
+  console.log('🔍 ServicePage called with:', { locale, service });
+
+  const [metadata, content] = await Promise.all([
+    getContentMetadata(service),
+    getContentMarkdown(service),
+  ]);
+
+  console.log('📦 Fetched data:', {
+    hasMetadata: !!metadata,
+    hasContent: !!content,
+    metadataTitle: metadata?.title
+  });
+
+  if (!metadata || !content) {
+    console.log('❌ No metadata or content, returning 404');
     notFound();
   }
 
-  return <ServiceTemplate service={serviceData} locale={locale as 'tr' | 'en'} />;
+  console.log('✅ Rendering ServiceContentTemplate');
+  return (
+    <ServiceContentTemplate
+      metadata={metadata}
+      content={content}
+      locale={locale as 'tr' | 'en'}
+    />
+  );
 }
