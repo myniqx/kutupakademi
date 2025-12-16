@@ -4,15 +4,31 @@ import { H2, H3 } from '@/components/mdx/mdx-headings';
 import { TableOfContents } from '@/components/ui/table-of-contents';
 import { GlowButton } from '@/components/ui/glow-button';
 import { Link } from '@/i18n/routing';
-import { ArrowRight, Sparkles } from 'lucide-react';
-import type { ContentMetadata } from '@/lib/api/content';
+import { ArrowRight, Sparkles, Clock, Calendar } from 'lucide-react';
+import type { ContentMetadata } from '@/components/templates/libs/content';
 import { extractHeadings } from '@/lib/markdown/extract-headings';
+import Image from 'next/image';
 
 type ServiceContentTemplateProps = {
-  metadata: ContentMetadata;
+  metadata: any;
   content: string;
   locale: 'tr' | 'en';
 };
+
+function calculateReadingTime(content: string, locale: 'tr' | 'en'): string {
+  const wordsPerMinute = 200;
+  const words = content.trim().split(/\s+/).length;
+  const minutes = Math.ceil(words / wordsPerMinute);
+  return locale === 'tr' ? `${minutes} dk okuma` : `${minutes} min read`;
+}
+
+function getCoverImagePath(metadata: any, locale: 'tr' | 'en'): string {
+  const slug = metadata[locale]?.slug;
+  if (metadata.cover && slug) {
+    return `/blogs/${slug}/${metadata.cover}`;
+  }
+  return '/blogs/blog-cover.webp';
+}
 
 export async function ServiceContentTemplate({
   metadata,
@@ -20,49 +36,82 @@ export async function ServiceContentTemplate({
   locale,
 }: ServiceContentTemplateProps) {
   const headings = extractHeadings(content);
+  const coverImage = getCoverImagePath(metadata, locale);
+  const readingTime = calculateReadingTime(content, locale);
+  const title = metadata[locale]?.title || metadata.title;
+  const description = metadata[locale]?.description || metadata.description;
 
   const components = {
-    img: (props: any) => <MDXImage {...props} slug={metadata.slug} />,
+    img: (props: object) => <MDXImage {...props} slug={metadata[locale]?.slug || metadata.slug} />,
     h2: H2,
     h3: H3,
+    table: (props: object) => (
+      <div className="overflow-x-auto my-8">
+        <table className="min-w-full divide-y divide-border border border-border rounded-lg" {...props} />
+      </div>
+    ),
+    thead: (props: object) => <thead className="bg-muted/50" {...props} />,
+    tbody: (props: object) => <tbody className="divide-y divide-border bg-background" {...props} />,
+    tr: (props: object) => <tr className="hover:bg-muted/30 transition-colors" {...props} />,
+    th: (props: object) => (
+      <th className="px-4 py-3 text-left text-sm font-semibold text-foreground" {...props} />
+    ),
+    td: (props: object) => (
+      <td className="px-4 py-3 text-sm text-foreground/80" {...props} />
+    ),
   };
 
   const formattedDate = metadata.date
-    ? new Date(metadata.date).toLocaleDateString('tr-TR', {
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric',
-      })
+    ? new Date(metadata.date).toLocaleDateString(locale === 'tr' ? 'tr-TR' : 'en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    })
     : null;
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Premium Hero Section */}
-      <section className="relative overflow-hidden border-b border-border/50">
-        {/* Gradient Background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-background" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,hsl(var(--primary)/0.1),transparent_50%)]" />
+      {/* Cover Image Section */}
+      <section className="relative w-full h-[50vh] md:h-[60vh] overflow-hidden">
+        <Image
+          src={coverImage}
+          alt={title}
+          fill
+          className="object-cover"
+          priority
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-linear-to-t from-background via-background/50 to-transparent" />
+      </section>
 
-        <div className="container relative mx-auto px-4 py-20 md:py-32">
-          <div className="max-w-5xl mx-auto text-center">
-            {/* Premium Title with Gradient */}
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 bg-gradient-to-br from-foreground via-foreground to-foreground/70 bg-clip-text text-transparent leading-tight">
-              {metadata.title}
+      {/* Title and Meta Information */}
+      <section className="relative -mt-32 md:-mt-40">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            {/* Title */}
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6 text-foreground leading-tight">
+              {title}
             </h1>
 
-            {/* Elegant Description */}
-            {metadata.description && (
-              <p className="text-xl md:text-2xl text-muted-foreground/90 max-w-3xl mx-auto font-light leading-relaxed">
-                {metadata.description}
-              </p>
-            )}
-
-            {/* Metadata Pills */}
-            {formattedDate && (
-              <div className="mt-8 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-muted/50 backdrop-blur-sm border border-border/50">
-                <Sparkles className="h-4 w-4 text-primary" />
-                <span className="text-sm text-muted-foreground">{formattedDate}</span>
+            {/* Meta Information */}
+            <div className="flex flex-wrap items-center gap-4 md:gap-6 text-muted-foreground mb-8">
+              {formattedDate && (
+                <div className="flex items-center gap-2">
+                  <Calendar className="h-4 w-4" />
+                  <span className="text-sm">{formattedDate}</span>
+                </div>
+              )}
+              <div className="flex items-center gap-2">
+                <Clock className="h-4 w-4" />
+                <span className="text-sm">{readingTime}</span>
               </div>
+            </div>
+
+            {/* Description */}
+            {description && (
+              <p className="text-lg md:text-xl text-muted-foreground/90 leading-relaxed mb-12">
+                {description}
+              </p>
             )}
           </div>
         </div>
@@ -73,7 +122,7 @@ export async function ServiceContentTemplate({
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
             {/* Table of Contents - Left Sidebar */}
-            <aside className="lg:col-span-3">
+            <aside className="lg:col-span-3 mt-20">
               <TableOfContents headings={headings} />
             </aside>
 
@@ -86,11 +135,11 @@ export async function ServiceContentTemplate({
             prose-headings:tracking-tight
 
             prose-h1:text-5xl prose-h1:mb-8 prose-h1:mt-16
-            prose-h1:bg-gradient-to-br prose-h1:from-foreground prose-h1:to-foreground/70
+            prose-h1:bg-linear-to-br prose-h1:from-foreground prose-h1:to-foreground/70
             prose-h1:bg-clip-text prose-h1:text-transparent
 
             prose-h2:text-4xl prose-h2:mb-6 prose-h2:mt-16
-            prose-h2:bg-gradient-to-br prose-h2:from-foreground prose-h2:to-foreground/80
+            prose-h2:bg-linear-to-br prose-h2:from-foreground prose-h2:to-foreground/80
             prose-h2:bg-clip-text prose-h2:text-transparent
             prose-h2:border-b prose-h2:border-border/50 prose-h2:pb-4
 
@@ -126,7 +175,7 @@ export async function ServiceContentTemplate({
       {/* Premium CTA Section */}
       <section className="relative overflow-hidden border-t border-border/50">
         {/* Gradient Background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-background" />
+        <div className="absolute inset-0 bg-linear-to-br from-primary/5 via-background to-background" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,hsl(var(--primary)/0.1),transparent_50%)]" />
 
         <div className="container relative mx-auto px-4 py-20 md:py-28">
@@ -139,7 +188,7 @@ export async function ServiceContentTemplate({
               </span>
             </div>
 
-            <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-6 bg-gradient-to-br from-foreground to-foreground/70 bg-clip-text text-transparent">
+            <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-6 bg-linear-to-br from-foreground to-foreground/70 bg-clip-text text-transparent">
               {locale === 'tr'
                 ? 'Projeniz İçin Hemen Başlayın'
                 : 'Get Started on Your Project'}

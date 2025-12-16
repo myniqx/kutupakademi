@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation';
 import { generateMeta } from '@/constants/seo';
 import { ServiceContentTemplate } from '@/components/templates/service-content-template';
-import { getContentMetadata, getContentMarkdown } from '@/lib/api/content';
+import { getContentMetadata, getContentMarkdown } from '@/components/templates/libs/content';
 import type { Metadata } from 'next';
 
 type ServicePageProps = {

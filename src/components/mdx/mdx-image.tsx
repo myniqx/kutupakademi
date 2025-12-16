@@ -14,7 +14,7 @@ export function MDXImage({ src, alt = '', slug, ...props }: MDXImageProps) {
 
   if (src.startsWith('http')) {
     return (
-      <img
+      <Image
         src={src}
         alt={alt}
         className="rounded-lg w-full h-auto"
@@ -24,7 +24,7 @@ export function MDXImage({ src, alt = '', slug, ...props }: MDXImageProps) {
   }
 
   const imageName = src.replace('./', '');
-  const imageUrl = `/api/data?slug=${slug}&image=${imageName}`;
+  const imageUrl = `/blogs/${slug}/${imageName}`;
 
   return (
     <span className="block my-8">

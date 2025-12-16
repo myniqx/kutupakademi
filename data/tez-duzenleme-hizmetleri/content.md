@@ -1,5 +1,0 @@
-Akademik çalışmalarınızın en zahmetli kısımlarından birisi de hazırlanmış çalışmanın baştan sona hem içerik uygunluğunun kontrol edilmesidir. Bu işlem biraz Microsoft Office Word programı bilgisi gerektirdiğinden, biraz da uzun çalışma sonucu araştırmacının odaklanma düzeyi düştüğünden, yorucu görünmektedir. 
-
-Kapak sayfası hazırlama, içindekiler, tablo boyutları, roma rakamı ve kullandığımız rakamlarla sayfa numaraları ayarlama, intihal oranı düşürme, kaynakça hazırlama ve metin içi atıfları düzenleme gibi tez düzenleme işleri ciddi bir detaycılık ve titizlik gerektirmektedir.
-
-Aynı zamanda, çalışmanın istediğiniz bölümlerinin İngilizce’ye çevrilmesi de yine sizlere sunduğumuz hizmetler arasındadır. Akademik İngilizce’ye hakim uzman personelimiz tarafından ihtiyaç duyduğunuz çeviri hizmetlerini de sunmaktayız.
