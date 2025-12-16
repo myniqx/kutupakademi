@@ -42,7 +42,12 @@ export function BlogList({ blogs }: BlogListProps) {
     return (
       <Card className="p-8 text-center">
         <p className="text-muted-foreground">Henüz blog yazısı yok.</p>
-        <Button className="mt-4">Yeni Blog Yazısı Oluştur</Button>
+        <Button
+          className="mt-4"
+          onClick={() => router.push('/dashboard/blog/new')}
+        >
+          Yeni Blog Yazısı Oluştur
+        </Button>
       </Card>
     )
   }

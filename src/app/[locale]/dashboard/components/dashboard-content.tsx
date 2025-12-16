@@ -65,7 +65,9 @@ export function DashboardContent({ user, blogs }: DashboardContentProps) {
         <div className="mb-6">
           <div className="flex justify-between items-center">
             <h2 className="text-2xl font-bold">Blog Posts</h2>
-            <Button>Create New Post</Button>
+            <Button onClick={() => router.push('/dashboard/blog/new')}>
+              Create New Post
+            </Button>
           </div>
         </div>
 
