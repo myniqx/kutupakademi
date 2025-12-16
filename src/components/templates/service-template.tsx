@@ -113,22 +113,6 @@ export function ServiceTemplate({ service, locale }: ServiceTemplateProps) {
           {/* CTA Section */}
           <CTASection
             locale={locale}
-            title={
-              locale === 'tr'
-                ? 'Hizmetimiz hakkında daha fazla bilgi almak ister misiniz?'
-                : 'Would you like more information about our service?'
-            }
-            description={
-              locale === 'tr'
-                ? 'Size özel fiyat teklifi almak ve detaylı bilgi için bizimle iletişime geçin.'
-                : 'Contact us for a personalized quote and detailed information.'
-            }
-            primaryButton={{
-              text: locale === 'tr' ? 'Fiyat Teklifi Al' : 'Get Quote',
-            }}
-            secondaryButton={{
-              text: locale === 'tr' ? 'İletişime Geç' : 'Contact Us',
-            }}
           />
         </div>
       </div>

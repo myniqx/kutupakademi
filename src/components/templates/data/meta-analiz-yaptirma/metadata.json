@@ -2,16 +2,15 @@
 	"date": "2025-10-28T10:39:30+00:00",
 	"lastModified": "2025-10-28T10:39:30+00:00",
 
+	"slug": "meta-analiz-yaptirma",
 	"cover": "featured-image.webp",
 	"tr": {
 		"title": "Meta Analiz Yaptırma",
-		"slug": "meta-analiz-yaptirma",
 		"description": "Meta analiz yaptırma hizmetiyle literatürdeki çalışmaları birleştirip güçlü sonuçlara ulaşın. Profesyonel destek alın, araştırmanı yükselt.",
 		"url": "https://kutupakademi.com/meta-analiz-yaptirma/"
 	},
 	"en": {
 		"title": "Meta-Analysis Service",
-		"slug": "meta-analysis-service",
 		"description": "Combine studies from the literature and reach powerful results with meta-analysis service. Get professional support, elevate your research.",
 		"url": "https://kutupakademi.com/en/meta-analysis-service/"
 	}

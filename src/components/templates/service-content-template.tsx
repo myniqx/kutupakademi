@@ -3,15 +3,13 @@ import { MDXImage } from '@/components/mdx/mdx-image';
 import { H2, H3 } from '@/components/mdx/mdx-headings';
 import { TableOfContents } from '@/components/ui/table-of-contents';
 import { CTASection } from '@/components/sections/cta-section';
-import type { ContentMetadata } from '@/components/templates/libs/content';
 import { extractHeadings } from '@/lib/markdown/extract-headings';
 import Image from 'next/image';
-import { Clock, Calendar, ArrowRight } from 'lucide-react';
-import { GlowButton } from '../ui/glow-button';
-import Link from 'next/link';
+import { Clock, Calendar } from 'lucide-react';
+import { ContentMetaData } from './types';
 
 type ServiceContentTemplateProps = {
-  metadata: any;
+  metadata: ContentMetaData;
   content: string;
   locale: 'tr' | 'en';
 };
@@ -23,8 +21,8 @@ function calculateReadingTime(content: string, locale: 'tr' | 'en'): string {
   return locale === 'tr' ? `${minutes} dk okuma` : `${minutes} min read`;
 }
 
-function getCoverImagePath(metadata: any, locale: 'tr' | 'en'): string {
-  const slug = metadata[locale]?.slug;
+function getCoverImagePath(metadata: ContentMetaData): string {
+  const slug = metadata?.slug;
   if (metadata.cover && slug) {
     return `/blogs/${slug}/${metadata.cover}`;
   }
@@ -37,13 +35,13 @@ export async function ServiceContentTemplate({
   locale,
 }: ServiceContentTemplateProps) {
   const headings = extractHeadings(content);
-  const coverImage = getCoverImagePath(metadata, locale);
+  const coverImage = getCoverImagePath(metadata);
   const readingTime = calculateReadingTime(content, locale);
-  const title = metadata[locale]?.title || metadata.title;
-  const description = metadata[locale]?.description || metadata.description;
+  const title = metadata[locale]?.title || (locale === 'tr' ? 'Blog' : 'Blog');
+  const description = metadata[locale]?.description || '';
 
   const components = {
-    img: (props: object) => <MDXImage {...props} slug={metadata[locale]?.slug || metadata.slug} />,
+    img: (props: object) => <MDXImage {...props} slug={metadata.slug} />,
     h2: H2,
     h3: H3,
     table: (props: object) => (

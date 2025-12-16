@@ -1,16 +1,15 @@
 {
-  "date": "2025-10-28T10:40:26+00:00",
-  "lastModified": "2025-10-28T10:40:26+00:00",
-  "tr": {
-    "title": "Tez Düzenleme Hizmetleri",
-    "slug": "tez-duzenleme-hizmetleri",
-    "description": "Tez düzenleme hizmetleri ile çalışmanızı üniversitenizin yazım kılavuzuna uygun, hatasız ve profesyonel şekilde tamamlayın. Hemen destek alın.",
-    "url": "https://kutupakademi.com/tez-duzenleme-hizmetleri/"
-  },
-  "en": {
-    "title": "Thesis Editing Services",
-    "slug": "thesis-editing-services",
-    "description": "Complete your work in accordance with your university's writing guide, error-free and professionally with thesis editing services. Get support now.",
-    "url": "https://kutupakademi.com/en/thesis-editing-services/"
-  }
+	"date": "2025-10-28T10:40:26+00:00",
+	"lastModified": "2025-10-28T10:40:26+00:00",
+	"slug": "tez-duzenleme-hizmetleri",
+	"tr": {
+		"title": "Tez Düzenleme Hizmetleri",
+		"description": "Tez düzenleme hizmetleri ile çalışmanızı üniversitenizin yazım kılavuzuna uygun, hatasız ve profesyonel şekilde tamamlayın. Hemen destek alın.",
+		"url": "https://kutupakademi.com/tez-duzenleme-hizmetleri/"
+	},
+	"en": {
+		"title": "Thesis Editing Services",
+		"description": "Complete your work in accordance with your university's writing guide, error-free and professionally with thesis editing services. Get support now.",
+		"url": "https://kutupakademi.com/en/thesis-editing-services/"
+	}
 }

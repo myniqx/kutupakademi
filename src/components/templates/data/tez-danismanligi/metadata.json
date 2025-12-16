@@ -1,16 +1,13 @@
 {
-  "date": "2025-10-28T10:38:22+00:00",
-  "lastModified": "2025-10-28T10:38:22+00:00",
-  "tr": {
-    "title": "Tez Danışmanlığı",
-    "slug": "tez-danismanligi",
-    "description": "Tez danışmanlığı hizmetiyle araştırma sürecinizi hızlandırın. Konu seçimi, literatür taraması ve yazım aşamalarında profesyonel destek alın.",
-    "url": "https://kutupakademi.com/tez-danismanligi/"
-  },
-  "en": {
-    "title": "Thesis Consulting",
-    "slug": "thesis-consulting",
-    "description": "Speed up your research process with thesis consulting service. Get professional support in topic selection, literature review and writing stages.",
-    "url": "https://kutupakademi.com/en/thesis-consulting/"
-  }
+	"date": "2025-10-28T10:38:22+00:00",
+	"lastModified": "2025-10-28T10:38:22+00:00",
+	"slug": "tez-danismanligi",
+	"tr": {
+		"title": "Tez Danışmanlığı",
+		"description": "Tez danışmanlığı hizmetiyle araştırma sürecinizi hızlandırın. Konu seçimi, literatür taraması ve yazım aşamalarında profesyonel destek alın."
+	},
+	"en": {
+		"title": "Thesis Consulting",
+		"description": "Speed up your research process with thesis consulting service. Get professional support in topic selection, literature review and writing stages."
+	}
 }

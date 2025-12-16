@@ -125,22 +125,32 @@ export default async function AboutPage({ params }: AboutPageProps) {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Hero Section */}
-      <section className="relative overflow-hidden border-b border-border/50">
-        <div className="absolute inset-0 bg-linear-to-br from-primary/5 via-background to-background" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,hsl(var(--primary)/0.1),transparent_50%)]" />
+      {/* Cover Image Section */}
+      <section className="relative w-full h-[50vh] md:h-[60vh] overflow-hidden">
+        <Image
+          src="/hakkimizda.webp"
+          alt={t.hero.greeting}
+          fill
+          className="object-cover"
+          priority
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-linear-to-t from-background via-background/50 to-transparent" />
+      </section>
 
-        <div className="container relative mx-auto px-4 py-10 md:py-12">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Text Content */}
-            <div className="space-y-6">
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight bg-linear-to-br from-foreground to-foreground/70 bg-clip-text text-transparent leading-tight">
-                {t.hero.greeting}
-              </h1>
-              <p className="text-xl md:text-2xl text-muted-foreground font-light">
-                {t.hero.subtitle}
-              </p>
-            </div>
+      {/* Title and Hero Info */}
+      <section className="relative -mt-32 md:-mt-40">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            {/* Title */}
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6 text-foreground leading-tight">
+              {t.hero.greeting}
+            </h1>
+
+            {/* Subtitle */}
+            <p className="text-lg md:text-xl text-muted-foreground/90 leading-relaxed mb-12">
+              {t.hero.subtitle}
+            </p>
           </div>
         </div>
       </section>
