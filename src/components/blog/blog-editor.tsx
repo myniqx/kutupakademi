@@ -15,7 +15,8 @@ interface BlogEditorProps {
 
 export function BlogEditor({ blog, mode }: BlogEditorProps) {
   const router = useRouter()
-  const [isSaving, setIsSaving] = useState<false | 'draft' | 'publish'>(false)
+  const [isSaving, setIsSaving] = useState<false | 'draft' | 'publish' | 'auto'>(false)
+  const [lastSaved, setLastSaved] = useState<Date | null>(null)
   const [formData, setFormData] = useState({
     slug: blog?.slug || '',
     title_tr: blog?.title_tr || '',
@@ -53,8 +54,8 @@ export function BlogEditor({ blog, mode }: BlogEditorProps) {
     )
   }
 
-  const handleSave = async (publish: boolean = false) => {
-    setIsSaving(publish ? 'publish' : 'draft')
+  const handleSave = async (publish: boolean = false, isAutoSave: boolean = false) => {
+    setIsSaving(isAutoSave ? 'auto' : (publish ? 'publish' : 'draft'))
 
     const payload = {
       ...formData,
@@ -69,8 +70,11 @@ export function BlogEditor({ blog, mode }: BlogEditorProps) {
       })
 
       if (response.ok) {
-        router.push('/dashboard')
-        router.refresh()
+        setLastSaved(new Date())
+        if (!isAutoSave) {
+          router.push('/dashboard')
+          router.refresh()
+        }
       }
     } catch (error) {
       console.error('Failed to save blog:', error)
@@ -78,6 +82,16 @@ export function BlogEditor({ blog, mode }: BlogEditorProps) {
       setIsSaving(false)
     }
   }
+
+  useEffect(() => {
+    if (mode === 'edit' && formData.title_tr) {
+      const interval = setInterval(() => {
+        handleSave(false, true)
+      }, 30000)
+
+      return () => clearInterval(interval)
+    }
+  }, [formData, mode])
 
   return (
     <div className="min-h-screen p-8">
@@ -91,9 +105,20 @@ export function BlogEditor({ blog, mode }: BlogEditorProps) {
             >
               ← Back
             </Button>
-            <h1 className="text-3xl font-bold">
-              {mode === 'new' ? 'Create New Blog Post' : 'Edit Blog Post'}
-            </h1>
+            <div className="flex items-center gap-3">
+              <h1 className="text-3xl font-bold">
+                {mode === 'new' ? 'Create New Blog Post' : 'Edit Blog Post'}
+              </h1>
+              {mode === 'edit' && (
+                <span className="text-sm text-muted-foreground">
+                  {isSaving === 'auto' ? (
+                    <span className="text-blue-600">Saving...</span>
+                  ) : lastSaved ? (
+                    <span>Saved {new Date(lastSaved).toLocaleTimeString()}</span>
+                  ) : null}
+                </span>
+              )}
+            </div>
           </div>
 
           <div className="flex gap-3">
@@ -175,6 +200,7 @@ export function BlogEditor({ blog, mode }: BlogEditorProps) {
               label="Content"
               required
               markdown
+              showPreview
               rows={20}
               value_tr={formData.content_tr}
               value_en={formData.content_en}

@@ -1,59 +1,55 @@
-import { getPostBySlug, getAllPosts } from '@/lib/mdx/utils';
-import { MDXContent } from '@/components/mdx-content';
-import { notFound } from 'next/navigation';
+import { db } from '@/db'
+import { blogs } from '@/db/schema'
+import { eq, and } from 'drizzle-orm'
+import { notFound } from 'next/navigation'
+import { ServiceContentTemplate } from '@/components/templates/service-content-template'
 
 type BlogPostPageProps = {
-  params: Promise<{ locale: string; slug: string }>;
-};
+  params: Promise<{ locale: string; slug: string }>
+}
 
 export async function generateStaticParams() {
-  const trPosts = getAllPosts('tr');
-  const enPosts = getAllPosts('en');
+  const allBlogs = await db.select().from(blogs).where(eq(blogs.published, true))
 
-  return [
-    ...trPosts.map((post) => ({ locale: 'tr', slug: post.slug })),
-    ...enPosts.map((post) => ({ locale: 'en', slug: post.slug })),
-  ];
+  return allBlogs.map((blog) => ({
+    slug: blog.slug,
+  }))
 }
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
-  const { locale, slug } = await params;
-  const post = getPostBySlug(slug, locale);
+  const { locale, slug } = await params
+  const [blog] = await db
+    .select()
+    .from(blogs)
+    .where(and(eq(blogs.slug, slug), eq(blogs.published, true)))
+    .limit(1)
 
-  if (!post) {
-    notFound();
+  if (!blog) {
+    notFound()
+  }
+
+  const isTurkish = locale === 'tr'
+  const content = isTurkish ? blog.content_tr : blog.content_en || blog.content_tr
+
+  const metadata = {
+    slug: blog.slug,
+    date: blog.createdAt.toISOString(),
+    cover: blog.coverImage || undefined,
+    tr: {
+      title: blog.title_tr,
+      description: blog.description_tr || undefined,
+    },
+    en: {
+      title: blog.title_en || blog.title_tr,
+      description: blog.description_en || blog.description_tr || undefined,
+    },
   }
 
   return (
-    <div className="min-h-screen bg-background py-16">
-      <article className="container mx-auto px-4 max-w-3xl">
-        <header className="mb-8">
-          <h1 className="text-4xl font-bold mb-4 text-foreground">
-            {post.title}
-          </h1>
-          <div className="flex items-center gap-4 text-sm text-muted-foreground">
-            <time dateTime={post.date}>
-              {new Date(post.date).toLocaleDateString(locale)}
-            </time>
-            {post.author && <span>• {post.author}</span>}
-          </div>
-          {post.tags && post.tags.length > 0 && (
-            <div className="flex gap-2 mt-4">
-              {post.tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="px-3 py-1 text-xs bg-secondary text-secondary-foreground rounded-full"
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
-          )}
-        </header>
-        <div className="prose prose-lg max-w-none">
-          <MDXContent source={post.content} />
-        </div>
-      </article>
-    </div>
-  );
+    <ServiceContentTemplate
+      metadata={metadata}
+      content={content}
+      locale={locale as 'tr' | 'en'}
+    />
+  )
 }

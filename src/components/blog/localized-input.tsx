@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { Button } from '@/components/ui/button'
+import { MarkdownEditor } from './markdown-editor'
 
 type Locale = 'tr' | 'en'
 
@@ -10,6 +11,7 @@ interface LocalizedInputProps {
   label: string
   required?: boolean
   markdown?: boolean
+  showPreview?: boolean
   rows?: number
   value_tr?: string
   value_en?: string
@@ -21,6 +23,7 @@ export function LocalizedInput({
   label,
   required = false,
   markdown = false,
+  showPreview = false,
   rows = 4,
   value_tr = '',
   value_en = '',
@@ -90,14 +93,13 @@ export function LocalizedInput({
         {isActive('tr') && (
           <div>
             {markdown ? (
-              <textarea
+              <MarkdownEditor
                 name={`${name}_tr`}
                 value={value_tr}
-                onChange={(e) => onChange(`${name}_tr`, e.target.value)}
+                onChange={(value) => onChange(`${name}_tr`, value)}
                 rows={rows}
                 required={required}
                 placeholder={`${label} (Turkish)${required ? ' *' : ''}`}
-                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary font-mono text-sm"
               />
             ) : (
               <input
@@ -116,13 +118,12 @@ export function LocalizedInput({
         {isActive('en') && (
           <div>
             {markdown ? (
-              <textarea
+              <MarkdownEditor
                 name={`${name}_en`}
                 value={value_en}
-                onChange={(e) => onChange(`${name}_en`, e.target.value)}
+                onChange={(value) => onChange(`${name}_en`, value)}
                 rows={rows}
                 placeholder={`${label} (English)`}
-                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary font-mono text-sm"
               />
             ) : (
               <input
