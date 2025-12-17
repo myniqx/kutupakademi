@@ -17,6 +17,8 @@ export function MDXImage({ src, alt = '', slug, ...props }: MDXImageProps) {
       <Image
         src={src}
         alt={alt}
+        width={1200}
+        height={675}
         className="rounded-lg w-full h-auto"
         {...props}
       />

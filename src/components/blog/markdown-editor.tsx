@@ -4,7 +4,9 @@ import { useRef, useState } from 'react'
 import { MarkdownToolbar } from './markdown-toolbar'
 import { MarkdownPreview } from './markdown-preview'
 import { Button } from '@/components/ui/button'
+import { MediaDialog } from '@/app/[locale]/dashboard/components/MediaDialog'
 import { X } from 'lucide-react'
+import type { Image } from '@/db/schema'
 
 interface MarkdownEditorProps {
   value: string
@@ -26,6 +28,7 @@ export function MarkdownEditor({
   const textareaRef = useRef<HTMLTextAreaElement>(null)
   const [isFullscreen, setIsFullscreen] = useState(false)
   const [viewMode, setViewMode] = useState<'edit' | 'split' | 'preview'>('split')
+  const [isImageDialogOpen, setIsImageDialogOpen] = useState(false)
 
   const handleInsert = (before: string, after: string = '', placeholder: string = '') => {
     const textarea = textareaRef.current
@@ -54,6 +57,11 @@ export function MarkdownEditor({
 
   const toggleFullscreen = () => {
     setIsFullscreen(!isFullscreen)
+  }
+
+  const handleImageSelect = (image: Image) => {
+    const imageMarkdown = `![${image.filename}](${image.url})`
+    handleInsert(imageMarkdown, '', '')
   }
 
   return (
@@ -113,6 +121,7 @@ export function MarkdownEditor({
             <div className="flex-1 flex flex-col overflow-hidden">
               <MarkdownToolbar
                 onInsert={handleInsert}
+                onImageInsert={() => setIsImageDialogOpen(true)}
                 onToggleFullscreen={toggleFullscreen}
                 isFullscreen={isFullscreen}
               />
@@ -162,6 +171,7 @@ export function MarkdownEditor({
         <div className="border rounded-lg overflow-hidden">
           <MarkdownToolbar
             onInsert={handleInsert}
+            onImageInsert={() => setIsImageDialogOpen(true)}
             onToggleFullscreen={toggleFullscreen}
             isFullscreen={isFullscreen}
           />
@@ -178,6 +188,13 @@ export function MarkdownEditor({
           />
         </div>
       )}
+
+      {/* Media Dialog for Image Selection */}
+      <MediaDialog
+        open={isImageDialogOpen}
+        onOpenChange={setIsImageDialogOpen}
+        onSelect={handleImageSelect}
+      />
     </>
   )
 }

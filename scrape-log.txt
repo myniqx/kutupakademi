@@ -1,0 +1,342 @@
+Scraping: https://kutupakademi.com/ortopedi-arastirmalarinda-spss-analizi-yaptirmak/
+Created directory: /home/myniqx/react-projects/kutupakademi/data/ortopedi-arastirmalarinda-spss-analizi-yaptirmak
+Downloaded & converted: featured-image.webp
+Saved: content.md
+Saved: blog-data.json
+
+Successfully scraped: Ortopedi Araştırmalarında SPSS Analizi Yaptırmak
+Data saved to: /home/myniqx/react-projects/kutupakademi/data/ortopedi-arastirmalarinda-spss-analizi-yaptirmak
+Images downloaded: 1
+Word count: 1122
+Scraping: https://kutupakademi.com/spss-ile-saglik-psikolojisi-testleri-analizleri/
+Created directory: /home/myniqx/react-projects/kutupakademi/data/spss-ile-saglik-psikolojisi-testleri-analizleri
+Downloaded & converted: featured-image.webp
+Saved: content.md
+Saved: blog-data.json
+
+Successfully scraped: SPSS ile Sağlık Psikolojisi Testleri Analizleri
+Data saved to: /home/myniqx/react-projects/kutupakademi/data/spss-ile-saglik-psikolojisi-testleri-analizleri
+Images downloaded: 1
+Word count: 1214
+Scraping: https://kutupakademi.com/spss-ile-psikolojide-benlik-algisi-testi-veri-analizi/
+Created directory: /home/myniqx/react-projects/kutupakademi/data/spss-ile-psikolojide-benlik-algisi-testi-veri-analizi
+Downloaded & converted: featured-image.webp
+Saved: content.md
+Saved: blog-data.json
+
+Successfully scraped: SPSS ile Psikolojide Benlik Algısı Testi Veri Analizi
+Data saved to: /home/myniqx/react-projects/kutupakademi/data/spss-ile-psikolojide-benlik-algisi-testi-veri-analizi
+Images downloaded: 1
+Word count: 1099
+Scraping: https://kutupakademi.com/spss-ile-psikolojik-motivasyon-testi-veri-analizi-nasil-yapilir/
+Created directory: /home/myniqx/react-projects/kutupakademi/data/spss-ile-psikolojik-motivasyon-testi-veri-analizi-nasil-yapilir
+Downloaded & converted: featured-image.webp
+Saved: content.md
+Saved: blog-data.json
+
+Successfully scraped: SPSS ile Psikolojik Motivasyon Testi Veri Analizi Nasıl Yapılır?
+Data saved to: /home/myniqx/react-projects/kutupakademi/data/spss-ile-psikolojik-motivasyon-testi-veri-analizi-nasil-yapilir
+Images downloaded: 1
+Word count: 1172
+Scraping: https://kutupakademi.com/spss-ile-zeka-ve-yetenek-testleri-arastirmalarinda-veri-analizi-nasil-yapilir/
+Created directory: /home/myniqx/react-projects/kutupakademi/data/spss-ile-zeka-ve-yetenek-testleri-arastirmalarinda-veri-analizi-nasil-yapilir
+Downloaded & converted: featured-image.webp
+Saved: content.md
+Saved: blog-data.json
+
+Successfully scraped: SPSS ile Zeka ve Yetenek Testleri Araştırmalarında Veri Analizi Nasıl Yapılır?
+Data saved to: /home/myniqx/react-projects/kutupakademi/data/spss-ile-zeka-ve-yetenek-testleri-arastirmalarinda-veri-analizi-nasil-yapilir
+Images downloaded: 1
+Word count: 1037
+Scraping: https://kutupakademi.com/spss-ile-duygularin-analizi/
+Created directory: /home/myniqx/react-projects/kutupakademi/data/spss-ile-duygularin-analizi
+Downloaded & converted: featured-image.webp
+Saved: content.md
+Saved: blog-data.json
+
+Successfully scraped: SPSS ile Duyguların Analizi
+Data saved to: /home/myniqx/react-projects/kutupakademi/data/spss-ile-duygularin-analizi
+Images downloaded: 1
+Word count: 1407
+Scraping: https://kutupakademi.com/spss-ile-stres-ve-basa-cikma-stratejileri-analizi/
+Created directory: /home/myniqx/react-projects/kutupakademi/data/spss-ile-stres-ve-basa-cikma-stratejileri-analizi
+Downloaded & converted: featured-image.webp
+Saved: content.md
+Saved: blog-data.json
+
+Successfully scraped: SPSS ile Stres ve Başa Çıkma Stratejileri Analizi
+Data saved to: /home/myniqx/react-projects/kutupakademi/data/spss-ile-stres-ve-basa-cikma-stratejileri-analizi
+Images downloaded: 1
+Word count: 1729
+Scraping: https://kutupakademi.com/spss-ile-sosyal-beceriler-ve-etkilesim-analizi/
+Created directory: /home/myniqx/react-projects/kutupakademi/data/spss-ile-sosyal-beceriler-ve-etkilesim-analizi
+Downloaded & converted: featured-image.webp
+Saved: content.md
+Saved: blog-data.json
+
+Successfully scraped: SPSS ile Sosyal Beceriler ve Etkileşim Analizi
+Data saved to: /home/myniqx/react-projects/kutupakademi/data/spss-ile-sosyal-beceriler-ve-etkilesim-analizi
+Images downloaded: 1
+Word count: 1353
+Scraping: https://kutupakademi.com/spss-ile-egitimde-ogrenme-duzeylerini-analiz-etme/
+Created directory: /home/myniqx/react-projects/kutupakademi/data/spss-ile-egitimde-ogrenme-duzeylerini-analiz-etme
+Downloaded & converted: featured-image.webp
+Saved: content.md
+Saved: blog-data.json
+
+Successfully scraped: SPSS ile Eğitimde Öğrenme Düzeylerini Analiz Etme
+Data saved to: /home/myniqx/react-projects/kutupakademi/data/spss-ile-egitimde-ogrenme-duzeylerini-analiz-etme
+Images downloaded: 1
+Word count: 1332
+Scraping: https://kutupakademi.com/spss-ile-kaygi-duzeyi-analizi/
+Created directory: /home/myniqx/react-projects/kutupakademi/data/spss-ile-kaygi-duzeyi-analizi
+Downloaded & converted: featured-image.webp
+Downloaded & converted: image-1.webp
+Downloaded & converted: image-2.webp
+Downloaded & converted: image-3.webp
+Downloaded & converted: image-4.webp
+Downloaded & converted: image-5.webp
+Downloaded & converted: image-6.webp
+Saved: content.md
+Saved: blog-data.json
+
+Successfully scraped: SPSS ile Kaygı Düzeyi Analizi
+Data saved to: /home/myniqx/react-projects/kutupakademi/data/spss-ile-kaygi-duzeyi-analizi
+Images downloaded: 7
+Word count: 2030
+Scraping: https://kutupakademi.com/spss-ile-isletmeniz-uzerine-analizler/
+Created directory: /home/myniqx/react-projects/kutupakademi/data/spss-ile-isletmeniz-uzerine-analizler
+Downloaded & converted: featured-image.webp
+Saved: content.md
+Saved: blog-data.json
+
+Successfully scraped: SPSS ile İşletmeniz Üzerine Analizler
+Data saved to: /home/myniqx/react-projects/kutupakademi/data/spss-ile-isletmeniz-uzerine-analizler
+Images downloaded: 1
+Word count: 1397
+Scraping: https://kutupakademi.com/spss-ile-firmanizin-verimlilik-analizleri/
+Created directory: /home/myniqx/react-projects/kutupakademi/data/spss-ile-firmanizin-verimlilik-analizleri
+Downloaded & converted: featured-image.webp
+Saved: content.md
+Saved: blog-data.json
+
+Successfully scraped: SPSS ile Firmanızın Verimlilik Analizleri
+Data saved to: /home/myniqx/react-projects/kutupakademi/data/spss-ile-firmanizin-verimlilik-analizleri
+Images downloaded: 1
+Word count: 1427
+Scraping: https://kutupakademi.com/spss-ile-rakip-firma-analizleri/
+Created directory: /home/myniqx/react-projects/kutupakademi/data/spss-ile-rakip-firma-analizleri
+Downloaded & converted: featured-image.webp
+Saved: content.md
+Saved: blog-data.json
+
+Successfully scraped: SPSS ile Rakip Firma Analizleri
+Data saved to: /home/myniqx/react-projects/kutupakademi/data/spss-ile-rakip-firma-analizleri
+Images downloaded: 1
+Word count: 2605
+Scraping: https://kutupakademi.com/piyasa-arastirmasi-icin-spss-analizi/
+Created directory: /home/myniqx/react-projects/kutupakademi/data/piyasa-arastirmasi-icin-spss-analizi
+Downloaded & converted: featured-image.webp
+Downloaded & converted: image-1.webp
+Saved: content.md
+Saved: blog-data.json
+
+Successfully scraped: Piyasa Araştırması İçin SPSS Analizi
+Data saved to: /home/myniqx/react-projects/kutupakademi/data/piyasa-arastirmasi-icin-spss-analizi
+Images downloaded: 2
+Word count: 3723
+Scraping: https://kutupakademi.com/tuketici-arastirmalari-icin-spss-analizi/
+Created directory: /home/myniqx/react-projects/kutupakademi/data/tuketici-arastirmalari-icin-spss-analizi
+Downloaded & converted: featured-image.webp
+Saved: content.md
+Saved: blog-data.json
+
+Successfully scraped: Tüketici Araştırmaları İçin SPSS Analizi
+Data saved to: /home/myniqx/react-projects/kutupakademi/data/tuketici-arastirmalari-icin-spss-analizi
+Images downloaded: 1
+Word count: 3385
+Scraping: https://kutupakademi.com/spss-anket-verisi-analizi/
+Created directory: /home/myniqx/react-projects/kutupakademi/data/spss-anket-verisi-analizi
+Downloaded & converted: featured-image.webp
+Saved: content.md
+Saved: blog-data.json
+
+Successfully scraped: SPSS Anket Verisi Analizi
+Data saved to: /home/myniqx/react-projects/kutupakademi/data/spss-anket-verisi-analizi
+Images downloaded: 1
+Word count: 1274
+Scraping: https://kutupakademi.com/ingilizce-odev-yaptirma/
+Created directory: /home/myniqx/react-projects/kutupakademi/data/ingilizce-odev-yaptirma
+Downloaded & converted: featured-image.webp
+Saved: content.md
+Saved: blog-data.json
+
+Successfully scraped: İngilizce Ödev Yaptırma
+Data saved to: /home/myniqx/react-projects/kutupakademi/data/ingilizce-odev-yaptirma
+Images downloaded: 1
+Word count: 1238
+Scraping: https://kutupakademi.com/yapay-zeka-bypass/
+Created directory: /home/myniqx/react-projects/kutupakademi/data/yapay-zeka-bypass
+Downloaded & converted: featured-image.webp
+Saved: content.md
+Saved: blog-data.json
+
+Successfully scraped: Yapay Zeka Bypass
+Data saved to: /home/myniqx/react-projects/kutupakademi/data/yapay-zeka-bypass
+Images downloaded: 1
+Word count: 1472
+Scraping: https://kutupakademi.com/biyoistatistik-odevi-yapma/
+Created directory: /home/myniqx/react-projects/kutupakademi/data/biyoistatistik-odevi-yapma
+Downloaded & converted: featured-image.webp
+Saved: content.md
+Saved: blog-data.json
+
+Successfully scraped: Biyoistatistik Ödevi Yapma
+Data saved to: /home/myniqx/react-projects/kutupakademi/data/biyoistatistik-odevi-yapma
+Images downloaded: 1
+Word count: 1063
+Scraping: https://kutupakademi.com/intihal-dusurme/
+Created directory: /home/myniqx/react-projects/kutupakademi/data/intihal-dusurme
+Downloaded & converted: featured-image.webp
+Saved: content.md
+Saved: blog-data.json
+
+Successfully scraped: İntihal Düşürme
+Data saved to: /home/myniqx/react-projects/kutupakademi/data/intihal-dusurme
+Images downloaded: 1
+Word count: 1015
+Scraping: https://kutupakademi.com/tez-sunumu-hazirlama/
+Created directory: /home/myniqx/react-projects/kutupakademi/data/tez-sunumu-hazirlama
+Downloaded & converted: featured-image.webp
+Saved: content.md
+Saved: blog-data.json
+
+Successfully scraped: Tez Sunumu Hazırlama
+Data saved to: /home/myniqx/react-projects/kutupakademi/data/tez-sunumu-hazirlama
+Images downloaded: 1
+Word count: 1226
+Scraping: https://kutupakademi.com/seminer-odevi-yaptirma/
+Created directory: /home/myniqx/react-projects/kutupakademi/data/seminer-odevi-yaptirma
+Downloaded & converted: featured-image.webp
+Saved: content.md
+Saved: blog-data.json
+
+Successfully scraped: Seminer Ödevi Yaptırma
+Data saved to: /home/myniqx/react-projects/kutupakademi/data/seminer-odevi-yaptirma
+Images downloaded: 1
+Word count: 1111
+Scraping: https://kutupakademi.com/ingilizce-tez-yazma/
+Created directory: /home/myniqx/react-projects/kutupakademi/data/ingilizce-tez-yazma
+Downloaded & converted: featured-image.webp
+Saved: content.md
+Saved: blog-data.json
+
+Successfully scraped: İngilizce Tez Yazma
+Data saved to: /home/myniqx/react-projects/kutupakademi/data/ingilizce-tez-yazma
+Images downloaded: 1
+Word count: 1005
+Scraping: https://kutupakademi.com/yapay-zeka-ile-odev-yaptirma/
+Created directory: /home/myniqx/react-projects/kutupakademi/data/yapay-zeka-ile-odev-yaptirma
+Downloaded & converted: featured-image.webp
+Saved: content.md
+Saved: blog-data.json
+
+Successfully scraped: Yapay Zeka ile Ödev Yaptırma
+Data saved to: /home/myniqx/react-projects/kutupakademi/data/yapay-zeka-ile-odev-yaptirma
+Images downloaded: 1
+Word count: 1051
+Scraping: https://kutupakademi.com/aracilik-etkisi-analizi-yaptirma/
+Created directory: /home/myniqx/react-projects/kutupakademi/data/aracilik-etkisi-analizi-yaptirma
+Downloaded & converted: featured-image.webp
+Downloaded & converted: image-1.webp
+Downloaded & converted: image-2.webp
+Saved: content.md
+Saved: blog-data.json
+
+Successfully scraped: Aracılık Etkisi Analizi Yaptırma
+Data saved to: /home/myniqx/react-projects/kutupakademi/data/aracilik-etkisi-analizi-yaptirma
+Images downloaded: 3
+Word count: 1996
+Scraping: https://kutupakademi.com/spss-process-makro-odev/
+Created directory: /home/myniqx/react-projects/kutupakademi/data/spss-process-makro-odev
+Downloaded & converted: featured-image.webp
+Saved: content.md
+Saved: blog-data.json
+
+Successfully scraped: SPSS Process Makro Ödev
+Data saved to: /home/myniqx/react-projects/kutupakademi/data/spss-process-makro-odev
+Images downloaded: 1
+Word count: 944
+Scraping: https://kutupakademi.com/spss-odevi-yapanlar/
+Created directory: /home/myniqx/react-projects/kutupakademi/data/spss-odevi-yapanlar
+Downloaded & converted: featured-image.webp
+Saved: content.md
+Saved: blog-data.json
+
+Successfully scraped: SPSS Ödevi Yapanlar
+Data saved to: /home/myniqx/react-projects/kutupakademi/data/spss-odevi-yapanlar
+Images downloaded: 1
+Word count: 1113
+Scraping: https://kutupakademi.com/yuksek-lisans-odev-yaptirma/
+Created directory: /home/myniqx/react-projects/kutupakademi/data/yuksek-lisans-odev-yaptirma
+Downloaded & converted: featured-image.webp
+Saved: content.md
+Saved: blog-data.json
+
+Successfully scraped: Yüksek Lisans Ödev Yaptırma
+Data saved to: /home/myniqx/react-projects/kutupakademi/data/yuksek-lisans-odev-yaptirma
+Images downloaded: 1
+Word count: 1202
+Scraping: https://kutupakademi.com/duzenleyici-degisken-analizi/
+Created directory: /home/myniqx/react-projects/kutupakademi/data/duzenleyici-degisken-analizi
+Downloaded & converted: featured-image.webp
+Downloaded & converted: image-1.webp
+Downloaded & converted: image-2.webp
+Downloaded & converted: image-3.webp
+Downloaded & converted: image-4.webp
+Downloaded & converted: image-5.webp
+Downloaded & converted: image-6.webp
+Downloaded & converted: image-7.webp
+Downloaded & converted: image-8.webp
+Downloaded & converted: image-9.webp
+Saved: content.md
+Saved: blog-data.json
+
+Successfully scraped: Düzenleyici Değişken Analizi
+Data saved to: /home/myniqx/react-projects/kutupakademi/data/duzenleyici-degisken-analizi
+Images downloaded: 10
+Word count: 1151
+Scraping: https://kutupakademi.com/spss-analizi-yaptirma/
+Created directory: /home/myniqx/react-projects/kutupakademi/data/spss-analizi-yaptirma
+Downloaded & converted: featured-image.webp
+Downloaded & converted: image-1.webp
+Downloaded & converted: image-2.webp
+Downloaded & converted: image-3.webp
+Saved: content.md
+Saved: blog-data.json
+
+Successfully scraped: SPSS Analizi Yaptırma
+Data saved to: /home/myniqx/react-projects/kutupakademi/data/spss-analizi-yaptirma
+Images downloaded: 4
+Word count: 2430
+Scraping: https://kutupakademi.com/spss-analiz-ucretleri/
+Created directory: /home/myniqx/react-projects/kutupakademi/data/spss-analiz-ucretleri
+Downloaded & converted: featured-image.webp
+Downloaded & converted: image-1.webp
+Saved: content.md
+Saved: blog-data.json
+
+Successfully scraped: SPSS Analiz Ücretleri
+Data saved to: /home/myniqx/react-projects/kutupakademi/data/spss-analiz-ucretleri
+Images downloaded: 2
+Word count: 1657
+Scraping: https://kutupakademi.com/norolojik-rehabilitasyon-arastirmalarinda-spss-analizi-yaptirmak/
+Created directory: /home/myniqx/react-projects/kutupakademi/data/norolojik-rehabilitasyon-arastirmalarinda-spss-analizi-yaptirmak
+Downloaded & converted: featured-image.webp
+Saved: content.md
+Saved: blog-data.json
+
+Successfully scraped: Nörolojik Rehabilitasyon Araştırmalarında SPSS Analizi Yaptırmak
+Data saved to: /home/myniqx/react-projects/kutupakademi/data/norolojik-rehabilitasyon-arastirmalarinda-spss-analizi-yaptirmak
+Images downloaded: 1
+Word count: 1067

@@ -1,4 +1,8 @@
-import { MDXRemote } from 'next-mdx-remote/rsc'
+'use client'
+
+import { MDXRemote } from 'next-mdx-remote'
+import { serialize } from 'next-mdx-remote/serialize'
+import { useState, useEffect } from 'react'
 import { MDXImage } from '@/components/mdx/mdx-image'
 import { H2, H3 } from '@/components/mdx/mdx-headings'
 import { TableOfContents } from '@/components/ui/table-of-contents'
@@ -9,8 +13,29 @@ interface BlogPreviewTemplateProps {
   content: string
 }
 
-export async function BlogPreviewTemplate({ content }: BlogPreviewTemplateProps) {
+export function BlogPreviewTemplate({ content }: BlogPreviewTemplateProps) {
+  const [mdxSource, setMdxSource] = useState<any>(null)
   const headings = extractHeadings(content)
+
+  useEffect(() => {
+    const compileMdx = async () => {
+      const compiled = await serialize(content, {
+        mdxOptions: {
+          remarkPlugins: [remarkGfm],
+        },
+      })
+      setMdxSource(compiled)
+    }
+    compileMdx()
+  }, [content])
+
+  if (!mdxSource) {
+    return (
+      <div className="flex items-center justify-center h-full text-muted-foreground p-8">
+        <p className="text-sm">Compiling preview...</p>
+      </div>
+    )
+  }
 
   const components = {
     img: (props: object) => <MDXImage {...props} slug="preview" />,
@@ -86,15 +111,7 @@ export async function BlogPreviewTemplate({ content }: BlogPreviewTemplateProps)
             prose-td:border prose-td:border-border prose-td:px-4 prose-td:py-3
             prose-thead:border-b-2 prose-thead:border-border
             prose-tr:hover:bg-muted/30 prose-tr:transition-colors">
-                <MDXRemote
-                  source={content}
-                  components={components}
-                  options={{
-                    mdxOptions: {
-                      remarkPlugins: [remarkGfm],
-                    },
-                  }}
-                />
+                <MDXRemote {...mdxSource} components={components} />
               </div>
             </article>
           </div>

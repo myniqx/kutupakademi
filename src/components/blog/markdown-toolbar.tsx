@@ -19,12 +19,14 @@ import {
 
 interface MarkdownToolbarProps {
   onInsert: (before: string, after: string, placeholder?: string) => void
+  onImageInsert?: () => void
   onToggleFullscreen?: () => void
   isFullscreen?: boolean
 }
 
 export function MarkdownToolbar({
   onInsert,
+  onImageInsert,
   onToggleFullscreen,
   isFullscreen = false,
 }: MarkdownToolbarProps) {
@@ -74,7 +76,7 @@ export function MarkdownToolbar({
     {
       icon: Image,
       label: 'Image',
-      action: () => onInsert('![', '](url)', 'alt text'),
+      action: onImageInsert || (() => onInsert('![', '](url)', 'alt text')),
     },
     { type: 'separator' },
     {

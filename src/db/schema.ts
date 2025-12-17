@@ -3,6 +3,8 @@ import { pgTable, text, timestamp, boolean, uuid, jsonb } from 'drizzle-orm/pg-c
 export const blogs = pgTable('blogs', {
   id: uuid('id').defaultRandom().primaryKey(),
   slug: text('slug').notNull().unique(),
+  author: text('author'),
+  keywords: text('keywords'),
   title_tr: text('title_tr').notNull(),
   title_en: text('title_en'),
   description_tr: text('description_tr'),

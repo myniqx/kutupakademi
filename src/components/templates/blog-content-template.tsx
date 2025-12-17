@@ -1,13 +1,17 @@
 import { BlogPreviewTemplate } from '@/components/blog/blog-preview-template';
+import { BlogGrid } from '@/components/blog/blog-grid';
 import { CTASection } from '@/components/sections/cta-section';
 import Image from 'next/image';
-import { Clock, Calendar } from 'lucide-react';
+import { Clock, Calendar, User } from 'lucide-react';
 import { ContentMetaData } from './types';
+import type { Blog } from '@/db/schema';
 
-type ServiceContentTemplateProps = {
+type BlogContentTemplateProps = {
   metadata: ContentMetaData;
   content: string;
   locale: 'tr' | 'en';
+  author?: string | null;
+  relatedBlogs?: Blog[];
 };
 
 function calculateReadingTime(content: string, locale: 'tr' | 'en'): string {
@@ -32,15 +36,18 @@ function getCoverImagePath(metadata: ContentMetaData): string {
   return '/blogs/blog-cover.webp';
 }
 
-export async function ServiceContentTemplate({
+export async function BlogContentTemplate({
   metadata,
   content,
   locale,
-}: ServiceContentTemplateProps) {
+  author,
+  relatedBlogs = [],
+}: BlogContentTemplateProps) {
   const coverImage = getCoverImagePath(metadata);
   const readingTime = calculateReadingTime(content, locale);
   const title = metadata[locale]?.title || (locale === 'tr' ? 'Blog' : 'Blog');
   const description = metadata[locale]?.description || '';
+  const authorName = author || 'KutupAkademi';
 
   const formattedDate = metadata.date
     ? new Date(metadata.date).toLocaleDateString(locale === 'tr' ? 'tr-TR' : 'en-US', {
@@ -49,6 +56,9 @@ export async function ServiceContentTemplate({
       day: 'numeric',
     })
     : null;
+
+  const relatedPostsTitle = locale === 'tr' ? 'İlgili Blog Yazıları' : 'Related Posts';
+  const authorLabel = locale === 'tr' ? 'Yazar:' : 'Author:';
 
   return (
     <div className="min-h-screen bg-background">
@@ -86,6 +96,10 @@ export async function ServiceContentTemplate({
                 <Clock className="h-4 w-4" />
                 <span className="text-sm">{readingTime}</span>
               </div>
+              <div className="flex items-center gap-2">
+                <User className="h-4 w-4" />
+                <span className="text-sm">{authorLabel} {authorName}</span>
+              </div>
             </div>
 
             {/* Description */}
@@ -103,6 +117,18 @@ export async function ServiceContentTemplate({
 
       {/* Premium CTA Section */}
       <CTASection locale={locale} />
+
+      {/* Related Blog Posts */}
+      {relatedBlogs.length > 0 && (
+        <section className="py-16 md:py-24 bg-muted/30">
+          <div className="container mx-auto px-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
+              {relatedPostsTitle}
+            </h2>
+            <BlogGrid blogs={relatedBlogs} locale={locale} max={3} />
+          </div>
+        </section>
+      )}
     </div>
   );
 }

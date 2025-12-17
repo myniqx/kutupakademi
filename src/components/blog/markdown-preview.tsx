@@ -1,7 +1,6 @@
 'use client'
 
 import { BlogPreviewTemplate } from './blog-preview-template'
-import { Suspense } from 'react'
 
 interface MarkdownPreviewProps {
   content: string
@@ -16,15 +15,5 @@ export function MarkdownPreview({ content }: MarkdownPreviewProps) {
     )
   }
 
-  return (
-    <Suspense
-      fallback={
-        <div className="flex items-center justify-center h-full text-muted-foreground p-8">
-          <p className="text-sm">Rendering preview...</p>
-        </div>
-      }
-    >
-      <BlogPreviewTemplate content={content} />
-    </Suspense>
-  )
+  return <BlogPreviewTemplate content={content} />
 }

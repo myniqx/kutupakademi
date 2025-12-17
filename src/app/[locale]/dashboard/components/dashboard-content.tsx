@@ -3,9 +3,10 @@
 import { useRouter } from 'next/navigation'
 import { logout } from '@/app/actions/auth'
 import { Button } from '@/components/ui/button'
-import { Card } from '@/components/ui/card'
+import { Card, CardContent } from '@/components/ui/card'
 import { BlogList } from './blog-list'
 import type { Blog } from '@/db/schema'
+import { GlowCard } from '@/components/ui/glow-card'
 
 interface DashboardContentProps {
   user: {
@@ -43,23 +44,29 @@ export function DashboardContent({ user, blogs }: DashboardContentProps) {
         </div>
 
         <div className="grid gap-6 md:grid-cols-3 mb-8">
-          <Card className="p-6">
-            <h3 className="text-lg font-semibold mb-2">Total Posts</h3>
-            <p className="text-3xl font-bold text-primary">{blogs.length}</p>
-            <p className="text-sm text-muted-foreground mt-2">All blog posts</p>
-          </Card>
+          <GlowCard>
+            <CardContent className='p-6'>
+              <h3 className="text-lg font-semibold mb-2">Total Posts</h3>
+              <p className="text-3xl font-bold text-primary">{blogs.length}</p>
+              <p className="text-sm text-muted-foreground mt-2">All blog posts</p>
+            </CardContent>
+          </GlowCard>
 
-          <Card className="p-6">
-            <h3 className="text-lg font-semibold mb-2">Published</h3>
-            <p className="text-3xl font-bold text-green-600">{publishedCount}</p>
-            <p className="text-sm text-muted-foreground mt-2">Live posts</p>
-          </Card>
+          <GlowCard>
+            <CardContent className='p-6'>
+              <h3 className="text-lg font-semibold mb-2">Published</h3>
+              <p className="text-3xl font-bold text-green-600">{publishedCount}</p>
+              <p className="text-sm text-muted-foreground mt-2">Live posts</p>
+            </CardContent>
+          </GlowCard>
 
-          <Card className="p-6">
-            <h3 className="text-lg font-semibold mb-2">Drafts</h3>
-            <p className="text-3xl font-bold text-orange-500">{draftCount}</p>
-            <p className="text-sm text-muted-foreground mt-2">Unpublished posts</p>
-          </Card>
+          <GlowCard>
+            <CardContent className='p-6'>
+              <h3 className="text-lg font-semibold mb-2">Drafts</h3>
+              <p className="text-3xl font-bold text-orange-500">{draftCount}</p>
+              <p className="text-sm text-muted-foreground mt-2">Unpublished posts</p>
+            </CardContent>
+          </GlowCard>
         </div>
 
         <div className="mb-6">

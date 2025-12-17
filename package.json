@@ -9,6 +9,7 @@
 		"lint": "eslint",
 		"generate:theme": "node scripts/generate-theme.js",
 		"scrape": "tsx scripts/scrape-content.ts",
+		"import:blogs": "tsx scripts/import-blogs-to-db.ts",
 		"db:generate": "drizzle-kit generate",
 		"db:migrate": "drizzle-kit migrate",
 		"db:push": "drizzle-kit push",
@@ -41,6 +42,7 @@
 		"react-hook-form": "^7.68.0",
 		"resend": "^6.6.0",
 		"tailwind-merge": "^3.4.0",
+		"vaul": "^1.1.2",
 		"zod": "^4.1.13"
 	},
 	"devDependencies": {
