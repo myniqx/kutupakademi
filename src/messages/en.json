@@ -63,5 +63,8 @@
     "submit": "Send Message",
     "success": "Your message has been sent successfully!",
     "error": "An error occurred. Please try again."
+  },
+  "blog": {
+    "summarize": "Summarize"
   }
 }

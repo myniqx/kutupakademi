@@ -1,25 +1,24 @@
 import { BlogPreviewTemplate } from '@/components/blog/blog-preview-template';
 import { BlogGrid } from '@/components/blog/blog-grid';
 import { CTASection } from '@/components/sections/cta-section';
+import { BlogSummary } from '@/components/blog/blog-summary';
 import Image from 'next/image';
 import { Clock, Calendar, User } from 'lucide-react';
 import { ContentMetaData } from './types';
 import type { Blog } from '@/db/schema';
+import { getTranslations } from 'next-intl/server';
+import { SummaryButton } from './provider/summary-button';
+import { SummaryProvider } from './provider/summary-provider';
 
 type BlogContentTemplateProps = {
   metadata: ContentMetaData;
   content: string;
+  summary: string | null;
   locale: 'tr' | 'en';
   author?: string | null;
   relatedBlogs?: Blog[];
 };
 
-function calculateReadingTime(content: string, locale: 'tr' | 'en'): string {
-  const wordsPerMinute = 200;
-  const words = content.trim().split(/\s+/).length;
-  const minutes = Math.ceil(words / wordsPerMinute);
-  return locale === 'tr' ? `${minutes} dk okuma` : `${minutes} min read`;
-}
 
 function getCoverImagePath(metadata: ContentMetaData): string {
   // If cover is a full URL (starts with http/https), use it directly
@@ -41,10 +40,12 @@ export async function BlogContentTemplate({
   content,
   locale,
   author,
+  summary,
   relatedBlogs = [],
 }: BlogContentTemplateProps) {
+  const t = await getTranslations('blog');
   const coverImage = getCoverImagePath(metadata);
-  const readingTime = calculateReadingTime(content, locale);
+  const readingTime = metadata.readingTime;
   const title = metadata[locale]?.title || (locale === 'tr' ? 'Blog' : 'Blog');
   const description = metadata[locale]?.description || '';
   const authorName = author || 'KutupAkademi';
@@ -78,42 +79,55 @@ export async function BlogContentTemplate({
       {/* Title and Meta Information */}
       <section className="relative -mt-32 md:-mt-40">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            {/* Title */}
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6 text-foreground leading-tight">
-              {title}
-            </h1>
+          <SummaryProvider>
+            <div className="max-w-4xl mx-auto">
+              {/* Title */}
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6 text-foreground leading-tight">
+                {title}
+              </h1>
 
-            {/* Meta Information */}
-            <div className="flex flex-wrap items-center gap-4 md:gap-6 text-muted-foreground mb-8">
-              {formattedDate && (
-                <div className="flex items-center gap-2">
-                  <Calendar className="h-4 w-4" />
-                  <span className="text-sm">{formattedDate}</span>
+              {/* Meta Information */}
+              <div className="flex flex-wrap items-center justify-between gap-4 md:gap-6 text-muted-foreground mb-8">
+                <div className="flex flex-wrap items-center gap-4 md:gap-6">
+                  {formattedDate && (
+                    <div className="flex items-center gap-2">
+                      <Calendar className="h-4 w-4" />
+                      <span className="text-sm">{formattedDate}</span>
+                    </div>
+                  )}
+                  <div className="flex items-center gap-2">
+                    <Clock className="h-4 w-4" />
+                    <span className="text-sm">{readingTime}</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <User className="h-4 w-4" />
+                    <span className="text-sm">{authorLabel} {authorName}</span>
+                  </div>
+                </div>
+
+                {summary && <SummaryButton label={t('summarize')} />}
+              </div>
+
+              {/* Description */}
+              {description && (
+                <p className="text-lg md:text-xl text-muted-foreground/90 leading-relaxed mb-12">
+                  {description}
+                </p>
+              )}
+
+              {/* Summary Button */}
+              {summary && (
+                <div className="ml-auto">
+                  <BlogSummary summary={summary} />
                 </div>
               )}
-              <div className="flex items-center gap-2">
-                <Clock className="h-4 w-4" />
-                <span className="text-sm">{readingTime}</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <User className="h-4 w-4" />
-                <span className="text-sm">{authorLabel} {authorName}</span>
-              </div>
             </div>
-
-            {/* Description */}
-            {description && (
-              <p className="text-lg md:text-xl text-muted-foreground/90 leading-relaxed mb-12">
-                {description}
-              </p>
-            )}
-          </div>
+          </SummaryProvider>
         </div>
       </section>
 
       {/* Content Section */}
-      <BlogPreviewTemplate content={content} />
+      <BlogPreviewTemplate content={content} headings={metadata.headings} slug={metadata.slug} />
 
       {/* Premium CTA Section */}
       <CTASection locale={locale} />

@@ -4,6 +4,7 @@ import { eq, and, ne, sql } from 'drizzle-orm'
 import { notFound } from 'next/navigation'
 import { BlogContentTemplate } from '@/components/templates/blog-content-template'
 import type { Metadata } from 'next'
+import { extractHeadings } from '@/lib/markdown/extract-headings'
 
 type BlogPostPageProps = {
   params: Promise<{ locale: string; slug: string }>
@@ -66,25 +67,34 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     notFound()
   }
 
-  // Fetch 4 random published blogs excluding current one
   const randomBlogs = await db
     .select()
     .from(blogs)
     .where(and(eq(blogs.published, true), ne(blogs.id, blog.id)))
     .orderBy(sql`RANDOM()`)
-    .limit(4)
+    .limit(3)
 
-  // If we got less than 4, just use what we have (up to 3)
-  const relatedBlogs = randomBlogs.slice(0, 3)
 
   const isTurkish = locale === 'tr'
   const content = isTurkish ? blog.content_tr : blog.content_en || blog.content_tr
+  const summary = isTurkish ? blog.summary_tr : blog.summary_en
+
+  // Calculate reading time from raw content
+  const wordsPerMinute = 200
+  const words = content.trim().split(/\s+/).length
+  const minutes = Math.ceil(words / wordsPerMinute)
+  const readingTime = isTurkish ? `${minutes} dk okuma` : `${minutes} min read`
+
+  // Extract headings from raw content
+  const headings = extractHeadings(content)
 
   const metadata = {
     slug: blog.slug,
     date: blog.createdAt.toISOString(),
     lastModified: blog.updatedAt.toISOString(),
     cover: blog.coverImage || undefined,
+    readingTime,
+    headings,
     tr: {
       title: blog.title_tr,
       description: blog.description_tr || '',
@@ -99,9 +109,10 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     <BlogContentTemplate
       metadata={metadata}
       content={content}
+      summary={summary}
       locale={locale as 'tr' | 'en'}
       author={blog.author}
-      relatedBlogs={relatedBlogs}
+      relatedBlogs={randomBlogs}
     />
   )
 }

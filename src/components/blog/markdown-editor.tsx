@@ -15,6 +15,7 @@ interface MarkdownEditorProps {
   rows?: number
   required?: boolean
   name?: string
+  slug: string
 }
 
 export function MarkdownEditor({
@@ -24,6 +25,7 @@ export function MarkdownEditor({
   rows = 20,
   required,
   name,
+  slug,
 }: MarkdownEditorProps) {
   const textareaRef = useRef<HTMLTextAreaElement>(null)
   const [isFullscreen, setIsFullscreen] = useState(false)
@@ -76,33 +78,30 @@ export function MarkdownEditor({
                   <button
                     type="button"
                     onClick={() => setViewMode('edit')}
-                    className={`px-3 py-1 text-sm transition-colors ${
-                      viewMode === 'edit'
-                        ? 'bg-primary text-primary-foreground'
-                        : 'bg-background hover:bg-muted'
-                    }`}
+                    className={`px-3 py-1 text-sm transition-colors ${viewMode === 'edit'
+                      ? 'bg-primary text-primary-foreground'
+                      : 'bg-background hover:bg-muted'
+                      }`}
                   >
                     Edit
                   </button>
                   <button
                     type="button"
                     onClick={() => setViewMode('split')}
-                    className={`px-3 py-1 text-sm transition-colors ${
-                      viewMode === 'split'
-                        ? 'bg-primary text-primary-foreground'
-                        : 'bg-background hover:bg-muted'
-                    }`}
+                    className={`px-3 py-1 text-sm transition-colors ${viewMode === 'split'
+                      ? 'bg-primary text-primary-foreground'
+                      : 'bg-background hover:bg-muted'
+                      }`}
                   >
                     Split
                   </button>
                   <button
                     type="button"
                     onClick={() => setViewMode('preview')}
-                    className={`px-3 py-1 text-sm transition-colors ${
-                      viewMode === 'preview'
-                        ? 'bg-primary text-primary-foreground'
-                        : 'bg-background hover:bg-muted'
-                    }`}
+                    className={`px-3 py-1 text-sm transition-colors ${viewMode === 'preview'
+                      ? 'bg-primary text-primary-foreground'
+                      : 'bg-background hover:bg-muted'
+                      }`}
                   >
                     Preview
                   </button>
@@ -151,14 +150,14 @@ export function MarkdownEditor({
                       className="w-full h-full p-4 border-r font-mono text-sm focus:outline-none resize-none"
                     />
                     <div className="overflow-auto p-4">
-                      <MarkdownPreview content={value} />
+                      <MarkdownPreview content={value} slug={slug} />
                     </div>
                   </div>
                 )}
 
                 {viewMode === 'preview' && (
                   <div className="h-full overflow-auto p-4">
-                    <MarkdownPreview content={value} />
+                    <MarkdownPreview content={value} slug={slug} />
                   </div>
                 )}
               </div>

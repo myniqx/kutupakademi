@@ -1,7 +1,6 @@
 import { GlowButton } from '@/components/ui/glow-button';
 import { Link } from '@/i18n/routing';
 import { ArrowRight, Sparkles } from 'lucide-react';
-import { SnakeParticles } from '../effects/snake-particles/snake-particles';
 import { SnakeParticlesEffect } from '../effects/snake-particles';
 
 type CTASectionProps = {

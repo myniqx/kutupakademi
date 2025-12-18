@@ -15,6 +15,7 @@ interface LocalizedInputProps {
   rows?: number
   value_tr?: string
   value_en?: string
+  slug: string
   onChange: (field: string, value: string) => void
 }
 
@@ -27,6 +28,7 @@ export function LocalizedInput({
   rows = 4,
   value_tr = '',
   value_en = '',
+  slug,
   onChange,
 }: LocalizedInputProps) {
   const [activeLocales, setActiveLocales] = useState<Locale[]>(['tr'])
@@ -54,22 +56,20 @@ export function LocalizedInput({
             <button
               type="button"
               onClick={() => toggleLocale('tr')}
-              className={`px-3 py-1 text-xs font-medium transition-colors ${
-                isActive('tr')
-                  ? 'bg-primary text-primary-foreground'
-                  : 'bg-background hover:bg-muted'
-              }`}
+              className={`px-3 py-1 text-xs font-medium transition-colors ${isActive('tr')
+                ? 'bg-primary text-primary-foreground'
+                : 'bg-background hover:bg-muted'
+                }`}
             >
               TR
             </button>
             <button
               type="button"
               onClick={() => toggleLocale('en')}
-              className={`px-3 py-1 text-xs font-medium transition-colors ${
-                isActive('en')
-                  ? 'bg-primary text-primary-foreground'
-                  : 'bg-background hover:bg-muted'
-              }`}
+              className={`px-3 py-1 text-xs font-medium transition-colors ${isActive('en')
+                ? 'bg-primary text-primary-foreground'
+                : 'bg-background hover:bg-muted'
+                }`}
             >
               EN
             </button>
@@ -100,6 +100,7 @@ export function LocalizedInput({
                 rows={rows}
                 required={required}
                 placeholder={`${label} (Turkish)${required ? ' *' : ''}`}
+                slug={slug}
               />
             ) : (
               <input
@@ -124,6 +125,7 @@ export function LocalizedInput({
                 onChange={(value) => onChange(`${name}_en`, value)}
                 rows={rows}
                 placeholder={`${label} (English)`}
+                slug={slug}
               />
             ) : (
               <input

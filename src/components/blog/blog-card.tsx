@@ -34,7 +34,7 @@ export function BlogCard({ blog, locale }: BlogCardProps) {
         <div className="flex flex-col flex-1 overflow-hidden">
           {/* Cover Image */}
           {blog.coverImage && (
-            <div className="relative h-48 flex-shrink-0 overflow-hidden bg-muted">
+            <div className="relative h-48 shrink-0 overflow-hidden bg-muted">
               <Image
                 src={blog.coverImage}
                 alt={title}
@@ -42,7 +42,7 @@ export function BlogCard({ blog, locale }: BlogCardProps) {
                 className="object-cover transition-transform duration-500 group-hover:scale-110"
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent" />
+              <div className="absolute inset-0 bg-linear-to-t from-background/80 via-background/20 to-transparent" />
             </div>
           )}
 

@@ -69,5 +69,8 @@
     "submit": "Gönder",
     "success": "Mesajınız başarıyla gönderildi!",
     "error": "Bir hata oluştu. Lütfen tekrar deneyin."
+  },
+  "blog": {
+    "summarize": "Özetle"
   }
 }

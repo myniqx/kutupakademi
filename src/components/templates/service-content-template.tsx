@@ -3,6 +3,7 @@ import { CTASection } from '@/components/sections/cta-section';
 import Image from 'next/image';
 import { Clock, Calendar } from 'lucide-react';
 import { ContentMetaData } from './types';
+import { extractHeadings } from '@/lib/markdown/extract-headings';
 
 type ServiceContentTemplateProps = {
   metadata: ContentMetaData;
@@ -39,6 +40,7 @@ export async function ServiceContentTemplate({
 }: ServiceContentTemplateProps) {
   const coverImage = getCoverImagePath(metadata);
   const readingTime = calculateReadingTime(content, locale);
+  const headings = extractHeadings(content);
   const title = metadata[locale]?.title || (locale === 'tr' ? 'Blog' : 'Blog');
   const description = metadata[locale]?.description || '';
 
@@ -99,7 +101,7 @@ export async function ServiceContentTemplate({
       </section>
 
       {/* Content Section */}
-      <BlogPreviewTemplate content={content} />
+      <BlogPreviewTemplate content={content} headings={headings} slug={metadata.slug} />
 
       {/* Premium CTA Section */}
       <CTASection locale={locale} />

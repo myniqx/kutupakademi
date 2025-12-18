@@ -42,6 +42,7 @@ export function BlogEditor({ blog, mode }: BlogEditorProps) {
     ? formData.keywords.split(',').map(k => k.trim()).filter(Boolean)
     : []
 
+  const slug = formData.slug || ''
   const isDevelopment = process.env.NODE_ENV === 'development'
 
   useEffect(() => {
@@ -326,7 +327,7 @@ ${sourceText}
                 className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
               />
               <p className="text-xs text-muted-foreground mt-1">
-                Leave empty to use "KutupAkademi" as default
+                Leave empty to use &quot;KutupAkademi&quot; as default
               </p>
             </div>
 
@@ -429,11 +430,13 @@ ${sourceText}
               value_tr={formData.title_tr}
               value_en={formData.title_en}
               onChange={handleFieldChange}
+              slug={slug}
             />
 
             <LocalizedInput
               name="description"
               label="Description"
+              slug={slug}
               value_tr={formData.description_tr}
               value_en={formData.description_en}
               onChange={handleFieldChange}
@@ -484,6 +487,7 @@ ${sourceText}
                 value_tr={formData.summary_tr}
                 value_en={formData.summary_en}
                 onChange={handleFieldChange}
+                slug={slug}
               />
             </div>
 
@@ -520,6 +524,7 @@ ${sourceText}
                 value_tr={formData.content_tr}
                 value_en={formData.content_en}
                 onChange={handleFieldChange}
+                slug={slug}
               />
             </div>
           </div>
