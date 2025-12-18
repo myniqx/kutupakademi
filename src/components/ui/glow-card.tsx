@@ -33,8 +33,8 @@ const GlowCard = React.forwardRef<HTMLDivElement, GlowCardProps>(
   ({
     className,
     mode = 'border',
-    intensity = 'medium',
-    smoothness = 'normal',
+    intensity = 'high',
+    smoothness = 'slow',
     enableGlow = true,
     cardClassName,
     glowColor = '100, 80, 220', // Primary purple/blue from theme
@@ -90,7 +90,7 @@ const GlowCard = React.forwardRef<HTMLDivElement, GlowCardProps>(
         {(mode === 'border' || mode === 'both') && (
           <div
             className={cn(
-              "pointer-events-none absolute -inset-4 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity z-0",
+              "pointer-events-none absolute -inset-1 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity z-0",
               transitionClass
             )}
             style={{
