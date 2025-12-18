@@ -14,6 +14,7 @@ interface GlowCardProps extends Omit<CardProps, 'ref'> {
   smoothness?: Smoothness;
   enableGlow?: boolean;
   glowColor?: string;
+  cardClassName?: string;
 }
 
 const INTENSITY_BLUR = {
@@ -35,6 +36,7 @@ const GlowCard = React.forwardRef<HTMLDivElement, GlowCardProps>(
     intensity = 'medium',
     smoothness = 'normal',
     enableGlow = true,
+    cardClassName,
     glowColor = '100, 80, 220', // Primary purple/blue from theme
     children,
     ...props
@@ -134,6 +136,7 @@ const GlowCard = React.forwardRef<HTMLDivElement, GlowCardProps>(
           className={cn(
             "relative z-20 transition-all",
             mode === 'border' && "group-hover:border-[rgba(var(--primary),0.3)]",
+            cardClassName
           )}
           {...props}
         >

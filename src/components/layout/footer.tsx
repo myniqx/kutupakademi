@@ -140,6 +140,12 @@ export function Footer() {
             </p>
             <div className="flex gap-4">
               <Link
+                href="/dashboard"
+                className="text-sm text-muted-foreground hover:text-primary transition-colors"
+              >
+                Dashboard
+              </Link>
+              <Link
                 href="/gizlilik-politikasi"
                 className="text-sm text-muted-foreground hover:text-primary transition-colors"
               >

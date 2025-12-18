@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { Calendar, Clock, ArrowRight } from 'lucide-react'
 import { GlowCard } from '@/components/ui/glow-card'
 import type { Blog } from '@/db/schema'
+import { CardContent } from '../ui/card'
 
 interface BlogCardProps {
   blog: Blog
@@ -30,6 +31,7 @@ export function BlogCard({ blog, locale }: BlogCardProps) {
         intensity="medium"
         smoothness="normal"
         className="h-full flex flex-col"
+        cardClassName="p-0 overflow-hidden"
       >
         <div className="flex flex-col flex-1 overflow-hidden">
           {/* Cover Image */}

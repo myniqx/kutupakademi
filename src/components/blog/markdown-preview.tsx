@@ -1,7 +1,6 @@
 'use client'
 
 import { extractHeadings } from '@/lib/markdown/extract-headings'
-import { BlogPreviewTemplate } from './blog-preview-template'
 import { TableOfContents } from '../ui/table-of-contents'
 import { MDXContentClient } from '../mdx/mdx-content-client'
 
@@ -26,7 +25,7 @@ export function MarkdownPreview({ content, slug }: MarkdownPreviewProps) {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
             {/* Table of Contents - Left Sidebar */}
-            <aside className="lg:col-span-3">
+            <aside className="lg:col-span-3 pt-20">
               <TableOfContents headings={headings} />
             </aside>
 

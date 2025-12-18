@@ -1,4 +1,4 @@
-import { useTranslations } from 'next-intl';
+import { getTranslations } from 'next-intl/server';
 import { HeroSection } from '@/components/home/hero-section';
 import { TechnologyPartners } from '@/components/home/technology-partners';
 import { ServiceCard } from '@/components/home/service-card';
@@ -6,15 +6,31 @@ import { ProcessSteps } from '@/components/home/process-steps';
 import { StatsSection } from '@/components/home/stats-section';
 import { Testimonials } from '@/components/home/testimonials';
 import { HOMEPAGE } from '@/constants/homepage';
-import { GlowCard } from '@/components/ui/glow-card';
-import { CardContent } from '@/components/ui/card';
-import { Book } from '@phosphor-icons/react/dist/ssr';
 import { LogoPlaceholder } from '@/components/ui/logo-placeholder';
 import { AnimatedLogo } from '@/components/ui/animated-logo';
 import { LogoDebugPanel } from '@/components/ui/logo-debug-panel';
+import { BlogGrid } from '@/components/blog/blog-grid';
+import { db } from '@/db';
+import { blogs } from '@/db/schema';
+import { eq, desc } from 'drizzle-orm';
+import { Link } from '@/i18n/routing';
+import { ArrowRight } from 'lucide-react';
 
-export default function Home() {
-  const t = useTranslations('home');
+type HomeProps = {
+  params: Promise<{ locale: string }>;
+};
+
+export default async function Home({ params }: HomeProps) {
+  const { locale } = await params;
+  const t = await getTranslations('home');
+  const tCommon = await getTranslations('common');
+
+  const recentBlogs = await db
+    .select()
+    .from(blogs)
+    .where(eq(blogs.published, true))
+    .orderBy(desc(blogs.createdAt))
+    .limit(3);
 
   return (
     <div className="flex min-h-screen flex-col bg-background">
@@ -104,31 +120,36 @@ export default function Home() {
         <Testimonials className="bg-muted/30 relative z-50" />
       </div>
 
-      {/* Blog Section Stub (TODO) - Section 8 */}
-      <section className="min-h-screen flex items-center py-16 md:py-24 relative z-10">
-        <LogoPlaceholder id="blog-logo" w={110} className="absolute top-[50%] left-1/2 -translate-x-1/2 -translate-y-1/2" />
-        <div className="container mx-auto px-4 w-full relative z-50">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              {t('blog.title')}
-            </h2>
-            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              {t('blog.subtitle')}
-            </p>
-          </div>
+      {/* Blog Section - Section 8 */}
+      {recentBlogs.length > 0 && (
+        <section className="min-h-screen flex items-center py-16 md:py-24 relative z-10">
+          <LogoPlaceholder id="blog-logo" w={110} className="absolute top-[50%] left-1/2 -translate-x-1/2 -translate-y-1/2" />
+          <div className="container mx-auto px-4 w-full relative z-50">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">
+                {t('blog.title')}
+              </h2>
+              <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+                {t('blog.subtitle')}
+              </p>
+            </div>
 
-          <div className="max-w-2xl mx-auto">
-            <GlowCard mode="border" intensity="low" className="text-center">
-              <CardContent className="py-12">
-                <Book size={64} weight="duotone" className="mx-auto mb-4 text-primary/40" />
-                <p className="text-lg text-muted-foreground">
-                  {t('blog.comingSoon')}
-                </p>
-              </CardContent>
-            </GlowCard>
+            <div className="max-w-7xl mx-auto">
+              <BlogGrid blogs={recentBlogs} locale={locale as 'tr' | 'en'} max={3} />
+
+              <div className="text-center mt-12">
+                <Link
+                  href="/blog"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-colors"
+                >
+                  <span>{tCommon('viewAll')}</span>
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+              </div>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
     </div>
   );
 }
