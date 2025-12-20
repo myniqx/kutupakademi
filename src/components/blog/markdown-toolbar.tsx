@@ -108,7 +108,7 @@ export function MarkdownToolbar({
           )
         }
 
-        const Icon = tool.icon
+        const Icon = tool.icon!
         return (
           <Button
             key={tool.label}

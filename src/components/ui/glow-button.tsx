@@ -1,20 +1,9 @@
 "use client";
 
 import * as React from "react";
-import { Button, ButtonProps } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-
-type GlowMode = 'border' | 'background' | 'both';
-type ColorIntensity = 'low' | 'medium' | 'high';
-type Smoothness = 'slow' | 'normal' | 'fast';
-
-interface GlowButtonProps extends Omit<ButtonProps, 'ref'> {
-  mode?: GlowMode;
-  intensity?: ColorIntensity;
-  smoothness?: Smoothness;
-  enableGlow?: boolean;
-  glowColor?: string;
-}
+import { VariantProps } from "class-variance-authority";
 
 const INTENSITY_BLUR = {
   low: { outer: 0.2, inner: 0.3 },
@@ -27,6 +16,23 @@ const SMOOTHNESS_DURATION = {
   normal: 'duration-300',
   fast: 'duration-150',
 } as const;
+
+
+type GlowMode = 'border' | 'background' | 'both';
+type ColorIntensity = keyof typeof INTENSITY_BLUR;
+type Smoothness = keyof typeof SMOOTHNESS_DURATION;
+
+interface GlowButtonProps extends Omit<React.ComponentProps<"button"> &
+  VariantProps<typeof buttonVariants> & {
+    asChild?: boolean
+  }, 'ref'> {
+  mode?: GlowMode;
+  intensity?: ColorIntensity;
+  smoothness?: Smoothness;
+  enableGlow?: boolean;
+  glowColor?: string;
+}
+
 
 const GlowButton = React.forwardRef<HTMLButtonElement, GlowButtonProps>(
   ({

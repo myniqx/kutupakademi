@@ -7,22 +7,13 @@ interface MDXImageProps extends Omit<ComponentProps<'img'>, 'src' | 'alt'> {
   slug: string;
 }
 
-export function MDXImage({ src, alt = '', slug, ...props }: MDXImageProps) {
+export function MDXImage({ src, alt = '', slug }: MDXImageProps) {
   if (!src) {
     return null;
   }
 
   if (src.startsWith('http')) {
-    return (
-      <Image
-        src={src}
-        alt={alt}
-        width={1200}
-        height={675}
-        className="rounded-lg w-full h-auto"
-        {...props}
-      />
-    );
+    return <Image src={src} alt={alt} width={1200} height={675} className="rounded-lg w-full h-auto" />;
   }
 
   const imageName = src.replace('./', '');

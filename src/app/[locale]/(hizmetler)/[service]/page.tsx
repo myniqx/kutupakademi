@@ -38,7 +38,7 @@ export async function generateMetadata({
   params,
 }: ServicePageProps): Promise<Metadata> {
   const { locale, service } = await params;
-  const metadata = await getContentMetadata(service, locale);
+  const metadata = await getContentMetadata(service);
 
   if (!metadata) {
     return {};

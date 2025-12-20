@@ -57,7 +57,7 @@ export function generateMeta({
 }: MetadataParams = {}): Metadata {
   const siteTitle = title || DEFAULT_SEO.title[locale];
   const siteDescription = description || DEFAULT_SEO.description[locale];
-  const siteKeywords = keywords.length > 0 ? keywords : DEFAULT_SEO.keywords[locale];
+  const siteKeywords = keywords.length > 0 ? keywords : [...DEFAULT_SEO.keywords[locale]];
   const url = `${SITE_CONFIG.url}${path}`;
   const ogImage = image || `${SITE_CONFIG.url}/og-image.jpg`;
 

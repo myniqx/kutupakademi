@@ -1,19 +1,12 @@
 'use client';
 
-import { useState } from 'react';
 import { SnakeParticles } from './snake-particles';
-import { ControlPanel } from './control-panel';
-import { AnimationConfig, DEFAULT_CONFIG } from './types';
+import { DEFAULT_CONFIG } from './types';
 
 export function SnakeParticlesEffect() {
-  const [config, setConfig] = useState<AnimationConfig>(DEFAULT_CONFIG);
-  const [showDebug, setShowDebug] = useState(false);
 
-  return (
-    <>
-      <SnakeParticles config={config} showDebug={showDebug} />
-    </>
-  );
+  return <SnakeParticles config={DEFAULT_CONFIG} showDebug={false} />
+
 }
 
 export * from './types';

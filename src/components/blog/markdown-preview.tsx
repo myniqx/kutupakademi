@@ -6,10 +6,10 @@ import { MDXContentClient } from '../mdx/mdx-content-client'
 
 interface MarkdownPreviewProps {
   content: string
-  slug: string
+  slug: string | undefined
 }
 
-export function MarkdownPreview({ content, slug }: MarkdownPreviewProps) {
+export function MarkdownPreview({ content, slug = "" }: MarkdownPreviewProps) {
   if (!content) {
     return (
       <div className="flex items-center justify-center h-full text-muted-foreground p-8">

@@ -11,7 +11,7 @@ function getTextFromChildren(children: React.ReactNode): string {
     } else if (typeof child === 'number') {
       text += child.toString()
     } else if (child && typeof child === 'object' && 'props' in child) {
-      text += getTextFromChildren(child.props.children)
+      text += getTextFromChildren((child.props as { children: React.ReactNode }).children)
     }
   })
   return text

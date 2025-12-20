@@ -5,7 +5,6 @@ import { cn } from '@/lib/utils';
 import { GlowButton } from '@/components/ui/glow-button';
 import { ArrowRight, ChatCircle } from '@phosphor-icons/react';
 import { SnakeParticlesEffect } from '@/components/effects/snake-particles';
-import { LogoPlaceholder } from '@/components/ui/logo-placeholder';
 
 interface HeroSectionProps {
   title: string;
@@ -35,14 +34,6 @@ export function HeroSection({
       {/* Snake particles effect */}
       <SnakeParticlesEffect />
 
-      {/* Logo Placeholder - Right Side */}
-      <div className="absolute right-0 top-1/2 -translate-y-1/2 w-1/2 hidden lg:flex items-center justify-center z-30">
-        <LogoPlaceholder id="hero-logo" w={400} className="relative" />
-      </div>
-
-      {/* Mobile Logo Placeholder */}
-      <LogoPlaceholder id="hero-logo-mobile" w={150} className="absolute top-8 right-8 lg:hidden z-30" />
-
       {/* Background gradient effects */}
       <div className="absolute inset-0 z-0">
         <div className="absolute top-1/4 left-1/4 w-125 h-125 bg-primary/20 rounded-full blur-3xl animate-pulse" />
@@ -50,7 +41,7 @@ export function HeroSection({
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-150 h-150 bg-primary/5 rounded-full blur-3xl" />
       </div>
 
-      <div className="container mx-auto px-4 w-full relative z-50">
+      <div className="container mx-auto px-4 w-full pt-16 relative z-50">
         <div className="max-w-4xl lg:max-w-none lg:w-1/2 space-y-8">
           {/* Main title with gradient */}
           <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight text-center lg:text-left">
@@ -74,8 +65,6 @@ export function HeroSection({
           {/* CTA buttons */}
           <div className="flex flex-col sm:flex-row items-center lg:items-start lg:justify-start justify-center gap-4 pt-4">
             <GlowButton
-              mode="background"
-              intensity="high"
               size="lg"
               asChild
             >
@@ -92,8 +81,7 @@ export function HeroSection({
 
             {secondaryCta && (
               <GlowButton
-                mode="border"
-                intensity="medium"
+                mode="both"
                 variant="outline"
                 size="lg"
                 asChild

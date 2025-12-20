@@ -1,14 +1,14 @@
 "use client";
 
 import * as React from "react";
-import { Card, CardProps } from "@/components/ui/card";
+import { Card } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 
 type GlowMode = 'border' | 'background' | 'both';
 type ColorIntensity = 'low' | 'medium' | 'high';
 type Smoothness = 'slow' | 'normal' | 'fast';
 
-interface GlowCardProps extends Omit<CardProps, 'ref'> {
+interface GlowCardProps extends Omit<React.ComponentProps<"div">, 'ref'> {
   mode?: GlowMode;
   intensity?: ColorIntensity;
   smoothness?: Smoothness;
