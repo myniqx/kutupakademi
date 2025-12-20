@@ -9,9 +9,12 @@ import {
   DialogTitle,
 } from '@/components/ui/dialog'
 import { Button } from '@/components/ui/button'
-import { Pencil } from 'lucide-react'
-import { BlogContentTemplate } from '@/components/templates/blog-content-template'
+import { Pencil, Calendar, Clock, User } from 'lucide-react'
+import Image from 'next/image'
+import { BlogPreviewTemplate } from '@/components/blog/blog-preview-template'
+import { MDXContentClient } from '@/components/mdx/mdx-content-client'
 import type { Blog } from '@/db/schema'
+import { MarkdownPreview } from '@/components/blog/markdown-preview'
 
 interface BlogPreviewDialogProps {
   blog: Blog | null
@@ -51,30 +54,26 @@ export function BlogPreviewDialog({ blog, open, onOpenChange }: BlogPreviewDialo
 
   const localizedContent = getLocalizedContent()
 
-  // Create metadata for BlogContentTemplate
-  const metadata = {
-    slug: blog.slug,
-    cover: blog.coverImage || undefined,
-    readingTime: selectedLocale === 'tr' ? '5 dk okuma' : '5 min read',
-    date: blog.createdAt,
-    headings: [],
-    tr: {
-      title: localizedContent.title,
-      description: localizedContent.description,
-    },
-    en: {
-      title: localizedContent.title,
-      description: localizedContent.description,
-    },
-  }
+  // Format date
+  const formattedDate = new Date(blog.createdAt).toLocaleDateString(
+    selectedLocale === 'tr' ? 'tr-TR' : 'en-US',
+    { year: 'numeric', month: 'long', day: 'numeric' }
+  )
+
+  // Labels
+  const readingTime = selectedLocale === 'tr' ? '5 dk okuma' : '5 min read'
+  const authorLabel = selectedLocale === 'tr' ? 'Yazar:' : 'Author:'
+  const authorName = blog.author || 'KutupAkademi'
+  const summaryLabel = selectedLocale === 'tr' ? 'Özet' : 'Summary'
+  const coverImage = blog.coverImage || '/blogs/blog-cover.webp'
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-6xl max-h-[90vh] overflow-y-auto">
+      <DialogContent className="min-w-6xl max-h-[90vh] overflow-y-auto">
         <DialogHeader>
           <div className="flex items-center justify-between">
             <DialogTitle>Blog Preview</DialogTitle>
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 mr-6">
               {/* Language Toggle */}
               <Button
                 size="sm"
@@ -105,15 +104,72 @@ export function BlogPreviewDialog({ blog, open, onOpenChange }: BlogPreviewDialo
           </div>
         </DialogHeader>
 
-        {/* Blog Content */}
-        <div className="mt-4">
-          <BlogContentTemplate
-            metadata={metadata}
+        {/* Blog Preview Content */}
+        <div className="min-h-screen bg-background -mx-6 -mb-6">
+          {/* Cover Image Section */}
+          <section className="relative w-full h-[50vh] md:h-[60vh] overflow-hidden">
+            <Image
+              src={coverImage}
+              alt={localizedContent.title}
+              fill
+              className="object-cover"
+              priority
+              sizes="100vw"
+            />
+            <div className="absolute inset-0 bg-linear-to-t from-background via-background/50 to-transparent" />
+          </section>
+
+          {/* Title and Meta Information */}
+          <section className="relative -mt-32 md:-mt-40">
+            <div className="container mx-auto px-4">
+              <div className="max-w-4xl mx-auto">
+                {/* Title */}
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6 text-foreground leading-tight">
+                  {localizedContent.title}
+                </h1>
+
+                {/* Meta Information */}
+                <div className="flex flex-wrap items-center gap-4 md:gap-6 text-muted-foreground mb-8">
+                  <div className="flex items-center gap-2">
+                    <Calendar className="h-4 w-4" />
+                    <span className="text-sm">{formattedDate}</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Clock className="h-4 w-4" />
+                    <span className="text-sm">{readingTime}</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <User className="h-4 w-4" />
+                    <span className="text-sm">{authorLabel} {authorName}</span>
+                  </div>
+                </div>
+
+                {/* Description */}
+                {localizedContent.description && localizedContent.description !== 'Henüz veri girilmedi' && localizedContent.description !== 'No data entered yet' && (
+                  <p className="text-lg md:text-xl text-muted-foreground/90 leading-relaxed mb-12">
+                    {localizedContent.description}
+                  </p>
+                )}
+
+                {/* Summary - Always Open */}
+                {localizedContent.summary && localizedContent.summary !== 'Henüz veri girilmedi' && localizedContent.summary !== 'No data entered yet' && (
+                  <div className="mb-12 p-6 bg-muted/30 rounded-lg">
+                    <h3 className="text-xl font-semibold mb-4">
+                      {summaryLabel}
+                    </h3>
+                    <div className="prose prose-sm max-w-none dark:prose-invert">
+                      <MDXContentClient source={localizedContent.summary} slug={blog.slug} />
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+          </section>
+
+          {/* Content Section */}
+          <MarkdownPreview
             content={localizedContent.content}
-            summary={localizedContent.summary}
-            locale={selectedLocale}
-            author={blog.author}
-            preview={true}
+            slug={blog.slug}
           />
         </div>
       </DialogContent>

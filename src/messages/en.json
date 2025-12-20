@@ -57,6 +57,13 @@
   },
   "contact": {
     "title": "Get in Touch",
+    "heroTitle": "Contact",
+    "heroSubtitle": "Get in touch with us, we would be happy to help you.",
+    "contactInfo": "Contact Information",
+    "sendMessage": "Send Message",
+    "emailLabel": "Email",
+    "phoneLabel": "Phone",
+    "addressLabel": "Address",
     "name": "Name",
     "email": "Email",
     "message": "Message",
@@ -65,6 +72,8 @@
     "error": "An error occurred. Please try again."
   },
   "blog": {
-    "summarize": "Summarize"
+    "summarize": "Summarize",
+    "heroTitle": "Blog",
+    "heroSubtitle": "Latest insights from the academic world, data analysis tips and useful information"
   }
 }

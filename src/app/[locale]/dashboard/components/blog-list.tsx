@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation'
 import { deleteBlog, togglePublish } from '@/app/actions/blog'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
-import { ExternalLink, Eye, EyeOff, Trash2, ArrowUpDown, Pencil } from 'lucide-react'
+import { Eye, EyeOff, Trash2, ArrowUpDown, Pencil } from 'lucide-react'
 import { BlogPreviewDialog } from './blog-preview-dialog'
 import type { Blog } from '@/db/schema'
 

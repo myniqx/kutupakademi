@@ -63,6 +63,13 @@
   },
   "contact": {
     "title": "İletişime Geçin",
+    "heroTitle": "İletişim",
+    "heroSubtitle": "Bizimle iletişime geçin, size yardımcı olmaktan mutluluk duyarız.",
+    "contactInfo": "İletişim Bilgileri",
+    "sendMessage": "Mesaj Gönderin",
+    "emailLabel": "E-posta",
+    "phoneLabel": "Telefon",
+    "addressLabel": "Adres",
     "name": "Ad Soyad",
     "email": "E-posta",
     "message": "Mesaj",
@@ -71,6 +78,8 @@
     "error": "Bir hata oluştu. Lütfen tekrar deneyin."
   },
   "blog": {
-    "summarize": "Özetle"
+    "summarize": "Özetle",
+    "heroTitle": "Blog",
+    "heroSubtitle": "Akademik dünyadan son gelişmeler, veri analizi ipuçları ve faydalı bilgiler"
   }
 }

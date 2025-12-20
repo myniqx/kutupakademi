@@ -1,5 +1,5 @@
-import Image from 'next/image';
 import { CTASection } from '@/components/sections/cta-section';
+import { HeroMiddle } from '@/components/sections/hero-middle';
 import { GlowCard } from '@/components/ui/glow-card';
 import { Users, CheckCircle2, TrendingUp } from 'lucide-react';
 import { generateMeta } from '@/constants/seo';
@@ -125,35 +125,13 @@ export default async function AboutPage({ params }: AboutPageProps) {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Cover Image Section */}
-      <section className="relative w-full h-[50vh] md:h-[60vh] overflow-hidden">
-        <Image
-          src="/hakkimizda.webp"
-          alt={t.hero.greeting}
-          fill
-          className="object-cover"
-          priority
-          sizes="100vw"
-        />
-        <div className="absolute inset-0 bg-linear-to-t from-background via-background/50 to-transparent" />
-      </section>
-
-      {/* Title and Hero Info */}
-      <section className="relative -mt-32 md:-mt-40">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            {/* Title */}
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6 text-foreground leading-tight">
-              {t.hero.greeting}
-            </h1>
-
-            {/* Subtitle */}
-            <p className="text-lg md:text-xl text-muted-foreground/90 leading-relaxed mb-12">
-              {t.hero.subtitle}
-            </p>
-          </div>
-        </div>
-      </section>
+      {/* Hero Section */}
+      <HeroMiddle
+        imageSrc="/hakkimizda.webp"
+        imageAlt={t.hero.greeting}
+        title={t.hero.greeting}
+        subtitle={t.hero.subtitle}
+      />
 
       {/* About Section */}
       <section className="container mx-auto px-4 py-20 md:py-28">
