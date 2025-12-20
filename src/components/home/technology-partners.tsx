@@ -28,12 +28,12 @@ export function TechnologyPartners({ className }: TechnologyPartnersProps) {
               key={index}
               className="group relative w-full max-w-40 aspect-3/2 flex items-center justify-center"
             >
-              <div className="relative w-full h-full border-primary transition-all duration-300 grayscale hover:grayscale-0 opacity-60 hover:opacity-100">
+              <div className="relative w-full h-full rounded-lg border border-border/50 dark:bg-white/5 dark:border-white/10 p-6 backdrop-blur-sm transition-all duration-300 grayscale hover:grayscale-0 opacity-70 hover:opacity-100">
                 <Image
                   src={partner.logo}
                   alt={partner.name}
                   fill
-                  className="object-contain"
+                  className="object-contain p-2 dark:invert"
                   sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 20vw"
                 />
               </div>
