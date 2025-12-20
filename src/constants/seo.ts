@@ -74,7 +74,7 @@ export function generateMeta({
   const defaultKeywords = DEFAULT_SEO.keywords[validLocale];
   const siteKeywords = keywords.length > 0 ? keywords : [...defaultKeywords];
   const url = `${SITE_CONFIG.url}${path}`;
-  const ogImage = image || `${SITE_CONFIG.url}/og-image.jpg`;
+  const ogImage = image || `${SITE_CONFIG.url}/og-image.webp`;
 
   const openGraphBase = {
     title: siteTitle,
