@@ -17,8 +17,19 @@ export async function getBlogBySlug(slug: string) {
 
 export async function deleteBlog(id: string) {
   try {
+    // Get blog to check if published
+    const [blog] = await db.select().from(blogs).where(eq(blogs.id, id))
+
     await db.delete(blogs).where(eq(blogs.id, id))
+
+    // Revalidate dashboard
     revalidatePath('/dashboard')
+
+    // If published, revalidate blog listing pages
+    if (blog?.published) {
+      revalidatePath('/[locale]/blog', 'layout')
+    }
+
     return { success: true }
   } catch (error) {
     return { error: 'Failed to delete blog' }
@@ -31,7 +42,13 @@ export async function togglePublish(id: string, currentStatus: boolean) {
       .update(blogs)
       .set({ published: !currentStatus })
       .where(eq(blogs.id, id))
+
+    // Revalidate dashboard
     revalidatePath('/dashboard')
+
+    // Always revalidate blog listing (published status changed)
+    revalidatePath('/[locale]/blog', 'layout')
+
     return { success: true }
   } catch (error) {
     return { error: 'Failed to update blog' }

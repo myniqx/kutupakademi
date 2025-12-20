@@ -1,10 +1,11 @@
 import { db } from '@/db'
 import { blogs } from '@/db/schema'
-import { eq, and, ne, sql } from 'drizzle-orm'
+import { eq, and } from 'drizzle-orm'
 import { notFound } from 'next/navigation'
 import { BlogContentTemplate } from '@/components/templates/blog-content-template'
 import type { Metadata } from 'next'
 import { extractHeadings } from '@/lib/markdown/extract-headings'
+import { getBlogCards } from '@/lib/query/blog'
 
 type BlogPostPageProps = {
   params: Promise<{ locale: string; slug: string }>
@@ -67,12 +68,12 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     notFound()
   }
 
-  const randomBlogs = await db
-    .select()
-    .from(blogs)
-    .where(and(eq(blogs.published, true), ne(blogs.id, blog.id)))
-    .orderBy(sql`RANDOM()`)
-    .limit(3)
+  const relatedBlogs = await getBlogCards({
+    locale,
+    max: 3,
+    exceptId: blog.id,
+    orderBy: 'random'
+  })
 
 
   const isTurkish = locale === 'tr'
@@ -112,7 +113,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       summary={summary}
       locale={locale as 'tr' | 'en'}
       author={blog.author}
-      relatedBlogs={randomBlogs}
+      relatedBlogs={relatedBlogs}
     />
   )
 }

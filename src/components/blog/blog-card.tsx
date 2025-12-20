@@ -1,28 +1,25 @@
 import { Link } from '@/i18n/routing'
 import Image from 'next/image'
-import { Calendar, Clock, ArrowRight } from 'lucide-react'
+import { Calendar, ArrowRight } from 'lucide-react'
 import { GlowCard } from '@/components/ui/glow-card'
-import type { Blog } from '@/db/schema'
-import { CardContent } from '../ui/card'
 
-interface BlogCardProps {
-  blog: Blog
-  locale: 'tr' | 'en'
+export type BlogCardData = {
+  id: string
+  slug: string
+  title: string
+  description: string | null
+  summary: string | null
+  coverImage: string | null
+  createdAt: Date
 }
 
-function calculateReadingTime(content: string): number {
-  const wordsPerMinute = 200
-  const words = content.trim().split(/\s+/).length
-  return Math.ceil(words / wordsPerMinute)
+interface BlogCardProps {
+  blog: BlogCardData
+  locale: 'tr' | 'en'
 }
 
 export function BlogCard({ blog, locale }: BlogCardProps) {
   const isTurkish = locale === 'tr'
-  const title = isTurkish ? blog.title_tr : blog.title_en || blog.title_tr
-  const summary = isTurkish ? blog.summary_tr : blog.summary_en || blog.summary_tr
-  const description = isTurkish ? blog.description_tr : blog.description_en || blog.description_tr
-  const content = isTurkish ? blog.content_tr : blog.content_en || blog.content_tr
-  const readingTime = calculateReadingTime(content)
 
   return (
     <Link href={`/blog/${blog.slug}`} className="block h-full group">
@@ -39,7 +36,7 @@ export function BlogCard({ blog, locale }: BlogCardProps) {
             <div className="relative h-48 shrink-0 overflow-hidden bg-muted">
               <Image
                 src={blog.coverImage}
-                alt={title}
+                alt={blog.title}
                 fill
                 className="object-cover transition-transform duration-500 group-hover:scale-110"
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -61,30 +58,24 @@ export function BlogCard({ blog, locale }: BlogCardProps) {
                   )}
                 </time>
               </div>
-              <div className="flex items-center gap-1.5">
-                <Clock className="h-3.5 w-3.5" />
-                <span>
-                  {readingTime} {isTurkish ? 'dk okuma' : 'min read'}
-                </span>
-              </div>
             </div>
 
             {/* Title */}
             <h3 className="text-xl font-bold mb-3 text-foreground group-hover:text-primary transition-colors line-clamp-2">
-              {title}
+              {blog.title}
             </h3>
 
             {/* Description */}
-            {description && (
+            {blog.description && (
               <p className="text-sm text-muted-foreground mb-4 line-clamp-2 leading-relaxed">
-                {description}
+                {blog.description}
               </p>
             )}
 
             {/* Summary */}
-            {summary && (
+            {blog.summary && (
               <p className="text-sm text-muted-foreground/80 mb-4 line-clamp-2 leading-relaxed">
-                {summary}
+                {blog.summary}
               </p>
             )}
 

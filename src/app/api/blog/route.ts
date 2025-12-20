@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
+import { revalidatePath } from 'next/cache'
 import { db } from '@/db'
 import { blogs } from '@/db/schema'
 import { eq } from 'drizzle-orm'
@@ -21,6 +22,11 @@ export async function POST(request: NextRequest) {
       published: body.published || false,
     }).returning()
 
+    // If published, revalidate blog listing pages
+    if (body.published) {
+      revalidatePath('/[locale]/blog', 'layout')
+    }
+
     return NextResponse.json({ success: true, blog: newBlog })
   } catch (error) {
     console.error('Error creating blog:', error)
@@ -35,6 +41,9 @@ export async function PUT(request: NextRequest) {
     if (!body.id) {
       return NextResponse.json({ error: 'Blog ID is required' }, { status: 400 })
     }
+
+    // Get current blog state to check if published status changed
+    const [oldBlog] = await db.select().from(blogs).where(eq(blogs.id, body.id))
 
     const [updatedBlog] = await db
       .update(blogs)
@@ -54,6 +63,17 @@ export async function PUT(request: NextRequest) {
       })
       .where(eq(blogs.id, body.id))
       .returning()
+
+    // Revalidate if:
+    // - Was published (content changed, visible in listing)
+    // - Is published now (draft → published, new in listing)
+    // - Published status changed (published → draft, removed from listing)
+    const wasPublished = oldBlog?.published
+    const isPublished = body.published
+
+    if (wasPublished || isPublished) {
+      revalidatePath('/[locale]/blog', 'layout')
+    }
 
     return NextResponse.json({ success: true, blog: updatedBlog })
   } catch (error) {

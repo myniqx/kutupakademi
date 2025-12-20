@@ -1,8 +1,7 @@
-import { BlogCard } from './blog-card'
-import type { Blog } from '@/db/schema'
+import { BlogCard, type BlogCardData } from './blog-card'
 
 interface BlogGridProps {
-  blogs: Blog[]
+  blogs: BlogCardData[]
   locale: 'tr' | 'en'
   max?: number
 }

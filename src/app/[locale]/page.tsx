@@ -7,12 +7,8 @@ import { StatsSection } from '@/components/home/stats-section';
 import { Testimonials } from '@/components/home/testimonials';
 import { HOMEPAGE } from '@/constants/homepage';
 import { LogoPlaceholder } from '@/components/ui/logo-placeholder';
-import { AnimatedLogo } from '@/components/ui/animated-logo';
-import { LogoDebugPanel } from '@/components/ui/logo-debug-panel';
 import { BlogGrid } from '@/components/blog/blog-grid';
-import { db } from '@/db';
-import { blogs } from '@/db/schema';
-import { eq, desc } from 'drizzle-orm';
+import { getBlogCards } from '@/lib/query/blog';
 import { Link } from '@/i18n/routing';
 import { ArrowRight } from 'lucide-react';
 
@@ -25,12 +21,7 @@ export default async function Home({ params }: HomeProps) {
   const t = await getTranslations('home');
   const tCommon = await getTranslations('common');
 
-  const recentBlogs = await db
-    .select()
-    .from(blogs)
-    .where(eq(blogs.published, true))
-    .orderBy(desc(blogs.createdAt))
-    .limit(3);
+  const recentBlogs = await getBlogCards({ locale, max: 3 });
 
   return (
     <div className="flex min-h-screen flex-col bg-background">

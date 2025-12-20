@@ -5,7 +5,7 @@ import { BlogSummary } from '@/components/blog/blog-summary';
 import Image from 'next/image';
 import { Clock, Calendar, User } from 'lucide-react';
 import { ContentMetaData } from './types';
-import type { Blog } from '@/db/schema';
+import type { BlogCardData } from '@/components/blog/blog-card';
 import { getTranslations } from 'next-intl/server';
 import { SummaryButton } from './provider/summary-button';
 import { SummaryProvider } from './provider/summary-provider';
@@ -16,7 +16,7 @@ type BlogContentTemplateProps = {
   summary: string | null;
   locale: 'tr' | 'en';
   author?: string | null;
-  relatedBlogs?: Blog[];
+  relatedBlogs?: BlogCardData[];
   preview?: boolean;
 };
 
