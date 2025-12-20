@@ -5,8 +5,6 @@ import { serialize } from 'next-mdx-remote/serialize'
 import { useEffect, useState } from 'react'
 import remarkGfm from 'remark-gfm'
 import rehypePrettyCode from 'rehype-pretty-code'
-import rehypeSlug from 'rehype-slug'
-import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import type { MDXRemoteSerializeResult } from 'next-mdx-remote'
 import { mdxComponents } from './mdx-components'
 import { MDXImage } from './mdx-image'
@@ -32,8 +30,6 @@ export function MDXContentClient({ source, slug }: MDXContentClientProps) {
           mdxOptions: {
             remarkPlugins: [remarkGfm],
             rehypePlugins: [
-              //      rehypeSlug,
-              //      [rehypeAutolinkHeadings, { behavior: 'wrap' }],
               [
                 rehypePrettyCode,
                 {

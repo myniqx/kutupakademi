@@ -21,7 +21,7 @@ export async function generateMetadata({
         ? 'Kutup Akademi olarak 10 yılı aşkın deneyimimizle akademisyenlere ve öğrencilere veri analizi eğitimi ve danışmanlık hizmeti sunuyoruz.'
         : 'As Kutup Akademi, we provide data analysis education and consultancy services to academics and students with over 10 years of experience.',
     locale: locale as 'tr' | 'en',
-    path: '/hakkimizda',
+    path: locale === 'en' ? '/en/hakkimizda' : '/hakkimizda',
   });
 }
 

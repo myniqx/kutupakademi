@@ -51,11 +51,11 @@ export function Logo({ x, y, w = 40, h, rounded = false, border = false, classNa
       }
     >
       <Image
-        src="/kutupakademi.svg"
+        src="/kutupakademi.webp"
         alt={alt}
         width={w}
         height={w}
-        className="object-contain"
+        className="object-contain mix-blend-multiply dark:mix-blend-screen"
         priority
       />
     </div>

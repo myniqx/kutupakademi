@@ -3,10 +3,27 @@ import { HeroMiddle } from '@/components/sections/hero-middle';
 import { SITE_CONFIG } from '@/constants/site';
 import { Mail, Phone, MapPin } from 'lucide-react';
 import { getTranslations } from 'next-intl/server';
+import { generateMeta } from '@/constants/seo';
+import type { Metadata } from 'next';
 
 type ContactPageProps = {
   params: Promise<{ locale: string }>;
 };
+
+export async function generateMetadata({
+  params,
+}: ContactPageProps): Promise<Metadata> {
+  const { locale } = await params;
+
+  return generateMeta({
+    title: locale === 'tr' ? 'İletişim' : 'Contact',
+    description: locale === 'tr'
+      ? 'Bize ulaşın. Sorularınız için iletişim bilgilerimizi kullanın.'
+      : 'Contact us. Use our contact information for your questions.',
+    locale: locale as 'tr' | 'en',
+    path: locale === 'en' ? '/en/iletisim' : '/iletisim',
+  });
+}
 
 export default async function ContactPage({ params }: ContactPageProps) {
   const { locale } = await params;

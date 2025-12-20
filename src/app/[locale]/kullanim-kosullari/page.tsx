@@ -20,7 +20,7 @@ export async function generateMetadata({
         ? 'Kutup Akademi kullanım koşulları. Hizmetlerimizi kullanırken uymanız gereken kurallar ve sorumluluklarınız hakkında bilgi edinin.'
         : 'Kutup Akademi terms of service. Learn about the rules and responsibilities when using our services.',
     locale: locale as 'tr' | 'en',
-    path: '/kullanim-kosullari',
+    path: locale === 'en' ? '/en/kullanim-kosullari' : '/kullanim-kosullari',
   });
 }
 

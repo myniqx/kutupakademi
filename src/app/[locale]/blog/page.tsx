@@ -2,9 +2,26 @@ import { BlogGridPaginated } from '@/components/blog/blog-grid-paginated'
 import { HeroMiddle } from '@/components/sections/hero-middle'
 import { getTranslations } from 'next-intl/server'
 import { getBlogCards } from '@/lib/query/blog'
+import { generateMeta } from '@/constants/seo'
+import type { Metadata } from 'next'
 
 type BlogPageProps = {
   params: Promise<{ locale: string }>
+}
+
+export async function generateMetadata({
+  params,
+}: BlogPageProps): Promise<Metadata> {
+  const { locale } = await params;
+
+  return generateMeta({
+    title: locale === 'tr' ? 'Blog' : 'Blog',
+    description: locale === 'tr'
+      ? 'Veri analizi, SPSS, akademik yazı ve tez danışmanlığı konularında yazılarımızı okuyun.'
+      : 'Read our articles on data analysis, SPSS, academic writing, and thesis consulting.',
+    locale: locale as 'tr' | 'en',
+    path: locale === 'en' ? '/en/blog' : '/blog',
+  });
 }
 
 export default async function BlogPage({ params }: BlogPageProps) {

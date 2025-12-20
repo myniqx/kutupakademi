@@ -3,7 +3,7 @@ import { Resend } from 'resend';
 import { generateEmailHTML, generateEmailSubject } from '@/lib/email/templates';
 import { SITE_CONFIG } from '@/constants/site';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const resend = new Resend(process.env.RESEND_API_KEY || 'fake-api-key');
 
 export async function POST(request: NextRequest) {
   try {

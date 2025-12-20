@@ -1,31 +1,131 @@
 const fs = require('fs');
 const path = require('path');
 
-const themeColors = require('../src/config/theme-colors.json');
+// ============================================================================
+// BASE COLORS - Edit these to update the entire theme
+// ============================================================================
+const BASE_COLORS = {
+  primary: '#2B2B2B',    // Dark gray/black
+  secondary: '#707070',  // Medium gray
+  accent: '#5B9BD5',     // Blue from logo
+};
 
-function generateThemeCSS() {
+// ============================================================================
+// Color Manipulation Helpers
+// ============================================================================
+
+function hexToRgb(hex) {
+  const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+  return result ? {
+    r: parseInt(result[1], 16),
+    g: parseInt(result[2], 16),
+    b: parseInt(result[3], 16)
+  } : null;
+}
+
+function rgbToHex(r, g, b) {
+  return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1).toUpperCase();
+}
+
+function lighten(hex, percent) {
+  const rgb = hexToRgb(hex);
+  if (!rgb) return hex;
+
+  const amount = Math.round(255 * (percent / 100));
+  const r = Math.min(255, rgb.r + amount);
+  const g = Math.min(255, rgb.g + amount);
+  const b = Math.min(255, rgb.b + amount);
+
+  return rgbToHex(r, g, b);
+}
+
+function darken(hex, percent) {
+  const rgb = hexToRgb(hex);
+  if (!rgb) return hex;
+
+  const amount = Math.round(255 * (percent / 100));
+  const r = Math.max(0, rgb.r - amount);
+  const g = Math.max(0, rgb.g - amount);
+  const b = Math.max(0, rgb.b - amount);
+
+  return rgbToHex(r, g, b);
+}
+
+// ============================================================================
+// Theme Generation
+// ============================================================================
+
+function generateTheme() {
+  return {
+    light: {
+      background: '#FFFFFF',
+      foreground: BASE_COLORS.primary,
+      card: '#FFFFFF',
+      cardForeground: BASE_COLORS.primary,
+      popover: '#FFFFFF',
+      popoverForeground: BASE_COLORS.primary,
+      primary: BASE_COLORS.primary,
+      primaryForeground: '#FFFFFF',
+      secondary: BASE_COLORS.secondary,
+      secondaryForeground: '#FFFFFF',
+      muted: lighten(BASE_COLORS.primary, 95),
+      mutedForeground: BASE_COLORS.secondary,
+      accent: BASE_COLORS.accent,
+      accentForeground: '#FFFFFF',
+      destructive: '#EF4444',
+      border: lighten(BASE_COLORS.primary, 90),
+      input: lighten(BASE_COLORS.primary, 90),
+      ring: BASE_COLORS.accent,
+    },
+    dark: {
+      background: darken(BASE_COLORS.primary, 10),
+      foreground: '#FAFAFA',
+      card: lighten(BASE_COLORS.primary, 5),
+      cardForeground: '#FAFAFA',
+      popover: lighten(BASE_COLORS.primary, 5),
+      popoverForeground: '#FAFAFA',
+      primary: BASE_COLORS.primary,
+      primaryForeground: '#FFFFFF',
+      secondary: BASE_COLORS.secondary,
+      secondaryForeground: '#FFFFFF',
+      muted: lighten(BASE_COLORS.primary, 15),
+      mutedForeground: lighten(BASE_COLORS.secondary, 30),
+      accent: BASE_COLORS.accent,
+      accentForeground: '#FFFFFF',
+      destructive: '#F87171',
+      border: lighten(BASE_COLORS.primary, 15),
+      input: lighten(BASE_COLORS.primary, 15),
+      ring: BASE_COLORS.accent,
+    }
+  };
+}
+
+// ============================================================================
+// CSS Generation
+// ============================================================================
+
+function toKebabCase(str) {
+  return str.replace(/([a-z0-9])([A-Z])/g, '$1-$2').toLowerCase();
+}
+
+function generateThemeCSS(theme) {
   const cssVariables = {
     light: [],
     dark: []
   };
 
-  // Convert camelCase to kebab-case
-  const toKebabCase = (str) => str.replace(/([a-z0-9])([A-Z])/g, '$1-$2').toLowerCase();
-
   // Generate CSS variables for light mode
-  Object.entries(themeColors.light).forEach(([key, value]) => {
-    const cssVar = `  --${toKebabCase(key)}: ${value};`;
-    cssVariables.light.push(cssVar);
+  Object.entries(theme.light).forEach(([key, value]) => {
+    cssVariables.light.push(`  --${toKebabCase(key)}: ${value};`);
   });
 
   // Generate CSS variables for dark mode
-  Object.entries(themeColors.dark).forEach(([key, value]) => {
-    const cssVar = `  --${toKebabCase(key)}: ${value};`;
-    cssVariables.dark.push(cssVar);
+  Object.entries(theme.dark).forEach(([key, value]) => {
+    cssVariables.dark.push(`  --${toKebabCase(key)}: ${value};`);
   });
 
-  const themeCSS = `/* AUTO-GENERATED - DO NOT EDIT MANUALLY */
-/* Edit src/config/theme-colors.json instead and run: npm run generate:theme */
+  return `/* AUTO-GENERATED - DO NOT EDIT MANUALLY */
+/* Edit scripts/generate-theme.js BASE_COLORS and run: pnpm theme */
 
 :root {
   --radius: 0.625rem;
@@ -62,19 +162,37 @@ ${cssVariables.dark.join('\n')}
   --sidebar-ring: oklch(0.556 0 0);
 }
 `;
-
-  return themeCSS;
 }
 
-// Generate and save the theme CSS
-const generatedCSS = generateThemeCSS();
-const outputPath = path.join(__dirname, '../src/styles/theme-variables.css');
+// ============================================================================
+// Main Execution
+// ============================================================================
 
-// Ensure the directory exists
+console.log('🎨 Generating theme from base colors...\n');
+console.log(`   Primary:   ${BASE_COLORS.primary}`);
+console.log(`   Secondary: ${BASE_COLORS.secondary}`);
+console.log(`   Accent:    ${BASE_COLORS.accent}\n`);
+
+// Generate theme colors
+const theme = generateTheme();
+
+// Generate CSS
+const generatedCSS = generateThemeCSS(theme);
+
+// Write CSS file
+const outputPath = path.join(__dirname, '../src/styles/theme-variables.css');
 const outputDir = path.dirname(outputPath);
+
 if (!fs.existsSync(outputDir)) {
   fs.mkdirSync(outputDir, { recursive: true });
 }
 
 fs.writeFileSync(outputPath, generatedCSS);
-console.log('✅ Theme CSS generated successfully at src/styles/theme-variables.css');
+
+console.log('✅ Theme CSS generated successfully!');
+console.log(`   Output: src/styles/theme-variables.css\n`);
+console.log('💡 Preview generated colors:');
+console.log(`   Light muted: ${theme.light.muted}`);
+console.log(`   Light border: ${theme.light.border}`);
+console.log(`   Dark background: ${theme.dark.background}`);
+console.log(`   Dark card: ${theme.dark.card}`);

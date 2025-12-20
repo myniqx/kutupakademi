@@ -20,7 +20,7 @@ export async function generateMetadata({
         ? 'Kutup Akademi gizlilik politikası. Kişisel verilerinizin nasıl toplandığı, kullanıldığı ve korunduğu hakkında bilgi edinin.'
         : 'Kutup Akademi privacy policy. Learn about how your personal data is collected, used, and protected.',
     locale: locale as 'tr' | 'en',
-    path: '/gizlilik-politikasi',
+    path: locale === 'en' ? '/en/gizlilik-politikasi' : '/gizlilik-politikasi',
   });
 }
 

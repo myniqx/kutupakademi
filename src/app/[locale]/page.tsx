@@ -10,10 +10,23 @@ import { BlogGrid } from '@/components/blog/blog-grid';
 import { getBlogCards } from '@/lib/query/blog';
 import { Link } from '@/i18n/routing';
 import { ArrowRight } from 'lucide-react';
+import { generateMeta } from '@/constants/seo';
+import type { Metadata } from 'next';
 
 type HomeProps = {
   params: Promise<{ locale: string }>;
 };
+
+export async function generateMetadata({
+  params,
+}: HomeProps): Promise<Metadata> {
+  const { locale } = await params;
+
+  return generateMeta({
+    locale: locale as 'tr' | 'en',
+    path: locale === 'en' ? '/en' : '',
+  });
+}
 
 export default async function Home({ params }: HomeProps) {
   const { locale } = await params;
@@ -33,10 +46,6 @@ export default async function Home({ params }: HomeProps) {
         primaryCta={{
           label: t('hero.cta.primary'),
           href: '/iletisim',
-        }}
-        secondaryCta={{
-          label: t('hero.cta.secondary'),
-          href: '/hizmetler',
         }}
       />
 

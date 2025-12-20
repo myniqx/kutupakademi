@@ -18,7 +18,7 @@ export async function generateMetadata({
         ? 'Akademik hizmetlerimiz için ücretsiz fiyat teklifi alın. Veri analizi, tez danışmanlığı ve istatistik analizi hizmetleri.'
         : 'Get a free quote for our academic services. Data analysis, thesis consultancy, and statistical analysis services.',
     locale: locale as 'tr' | 'en',
-    path: '/fiyat-talebi',
+    path: locale === 'en' ? '/en/fiyat-talebi' : '/fiyat-talebi',
   });
 }
 
@@ -34,7 +34,7 @@ export default async function PriceRequestPage({ params }: PriceRequestPageProps
       form: {
         title: 'Teklif Formu',
         description:
-          'Aşağıdaki formu doldurarak projenizhakkında bilgi verin. Ekibimiz en kısa sürede size özel bir fiyat teklifi ile geri dönüş yapacaktır.',
+          'Aşağıdaki formu doldurarak projeniz hakkında bilgi verin. Ekibimiz en kısa sürede size özel bir fiyat teklifi ile geri dönüş yapacaktır.',
       },
     },
     en: {

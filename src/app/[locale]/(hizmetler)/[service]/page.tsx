@@ -48,7 +48,7 @@ export async function generateMetadata({
     title: metadata[locale].title,
     description: metadata[locale].description || '',
     locale: locale as 'tr' | 'en',
-    path: `/${service}`,
+    path: locale === 'en' ? `/en/${service}` : `/${service}`,
   });
 }
 

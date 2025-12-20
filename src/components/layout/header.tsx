@@ -38,7 +38,7 @@ export function Header() {
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-3">
-            <Logo w={120} />
+            <Logo w={60} /> <span className='font-medium text-xl md:text-2xl'> {SITE_CONFIG.name[locale]}</span>
           </Link>
 
           {/* Desktop Navigation */}

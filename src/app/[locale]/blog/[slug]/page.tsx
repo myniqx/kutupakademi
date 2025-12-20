@@ -6,6 +6,7 @@ import { BlogContentTemplate } from '@/components/templates/blog-content-templat
 import type { Metadata } from 'next'
 import { extractHeadings } from '@/lib/markdown/extract-headings'
 import { getBlogCards } from '@/lib/query/blog'
+import { generateMeta, DEFAULT_SEO } from '@/constants/seo'
 
 type BlogPostPageProps = {
   params: Promise<{ locale: string; slug: string }>
@@ -13,10 +14,14 @@ type BlogPostPageProps = {
 
 export async function generateStaticParams() {
   const allBlogs = await db.select().from(blogs).where(eq(blogs.published, true))
+  const locales = ['tr', 'en'] as const
 
-  return allBlogs.map((blog) => ({
-    slug: blog.slug,
-  }))
+  return allBlogs.flatMap((blog) =>
+    locales.map((locale) => ({
+      locale,
+      slug: blog.slug,
+    }))
+  )
 }
 
 export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
@@ -37,23 +42,30 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
     ? blog.description_tr
     : blog.description_en || blog.description_tr
 
-  // Parse keywords from comma-separated string
-  const keywords = blog.keywords
+  // Parse blog-specific keywords
+  const blogKeywords = blog.keywords
     ? blog.keywords.split(',').map(k => k.trim()).filter(Boolean)
     : []
 
-  return {
+  // Combine default keywords with blog keywords
+  const allKeywords = [
+    ...DEFAULT_SEO.keywords[locale as 'tr' | 'en'],
+    ...blogKeywords,
+  ]
+
+  // Use generateMeta with article support
+  return generateMeta({
     title,
     description: description || undefined,
-    keywords: keywords.length > 0 ? keywords : undefined,
-    openGraph: {
-      title,
-      description: description || undefined,
-      type: 'article',
-      publishedTime: blog.createdAt.toISOString(),
-      authors: blog.author ? [blog.author] : ['KutupAkademi'],
-    },
-  }
+    keywords: allKeywords,
+    locale: locale as 'tr' | 'en',
+    path: locale === 'en' ? `/en/blog/${slug}` : `/blog/${slug}`,
+    image: blog.coverImage || undefined,
+    type: 'article',
+    publishedTime: blog.createdAt.toISOString(),
+    modifiedTime: blog.updatedAt.toISOString(),
+    authors: blog.author ? [blog.author] : ['KutupAkademi'],
+  })
 }
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {

@@ -5,6 +5,24 @@ import { Button, buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { VariantProps } from "class-variance-authority";
 
+// Helper function to get RGB from CSS variable
+function getCSSColorAsRGB(variableName: string): string {
+  if (typeof window === 'undefined') return '255, 199, 75'; // SSR fallback
+
+  const color = getComputedStyle(document.documentElement).getPropertyValue(variableName).trim();
+
+  // If it's already a HEX color
+  if (color.startsWith('#')) {
+    const hex = color.slice(1);
+    const r = parseInt(hex.slice(0, 2), 16);
+    const g = parseInt(hex.slice(2, 4), 16);
+    const b = parseInt(hex.slice(4, 6), 16);
+    return `${r}, ${g}, ${b}`;
+  }
+
+  return '255, 199, 75'; // Fallback to accent color
+}
+
 const INTENSITY_BLUR = {
   low: { outer: 0.2, inner: 0.3 },
   medium: { outer: 0.4, inner: 0.6 },
@@ -41,13 +59,21 @@ const GlowButton = React.forwardRef<HTMLButtonElement, GlowButtonProps>(
     intensity = 'medium',
     smoothness = 'normal',
     enableGlow = true,
-    glowColor = '100, 80, 220', // Primary purple/blue from theme
+    glowColor,
     children,
     ...props
   }, ref) => {
     const buttonRef = React.useRef<HTMLButtonElement>(null);
     const [mousePosition, setMousePosition] = React.useState({ x: 0, y: 0 });
     const [isHovered, setIsHovered] = React.useState(false);
+    const [accentRGB, setAccentRGB] = React.useState('255, 199, 75');
+
+    // Get accent color from CSS on mount
+    React.useEffect(() => {
+      setAccentRGB(getCSSColorAsRGB('--accent'));
+    }, []);
+
+    const finalGlowColor = glowColor || accentRGB;
 
     const mergedRef = React.useCallback(
       (node: HTMLButtonElement | null) => {
@@ -93,7 +119,7 @@ const GlowButton = React.forwardRef<HTMLButtonElement, GlowButtonProps>(
             )}
             style={{
               background: isHovered
-                ? `radial-gradient(400px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(${glowColor}, ${intensityValues.outer}), transparent 40%)`
+                ? `radial-gradient(400px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(${finalGlowColor}, ${intensityValues.outer}), transparent 40%)`
                 : 'transparent',
               filter: 'blur(20px)',
             }}
@@ -109,7 +135,7 @@ const GlowButton = React.forwardRef<HTMLButtonElement, GlowButtonProps>(
             )}
             style={{
               background: isHovered
-                ? `radial-gradient(200px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(${glowColor}, ${intensityValues.inner}), rgba(${glowColor}, ${intensityValues.inner * 0.6}) 40%, transparent 70%)`
+                ? `radial-gradient(200px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(${finalGlowColor}, ${intensityValues.inner}), rgba(${finalGlowColor}, ${intensityValues.inner * 0.6}) 40%, transparent 70%)`
                 : 'transparent',
             }}
           />
@@ -124,7 +150,7 @@ const GlowButton = React.forwardRef<HTMLButtonElement, GlowButtonProps>(
             )}
             style={{
               background: isHovered
-                ? `radial-gradient(400px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(${glowColor}, ${intensityValues.outer * 0.3}), transparent 50%)`
+                ? `radial-gradient(400px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(${finalGlowColor}, ${intensityValues.outer * 0.3}), transparent 50%)`
                 : 'transparent',
             }}
           />

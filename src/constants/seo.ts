@@ -9,6 +9,10 @@ type MetadataParams = {
   path?: string;
   image?: string;
   type?: 'website' | 'article';
+  // Article-specific fields
+  publishedTime?: string;
+  modifiedTime?: string;
+  authors?: string[];
 };
 
 export const DEFAULT_SEO = {
@@ -54,6 +58,9 @@ export function generateMeta({
   path = '',
   image,
   type = 'website',
+  publishedTime,
+  modifiedTime,
+  authors,
 }: MetadataParams = {}): Metadata {
   const siteTitle = title || DEFAULT_SEO.title[locale];
   const siteDescription = description || DEFAULT_SEO.description[locale];
@@ -61,27 +68,39 @@ export function generateMeta({
   const url = `${SITE_CONFIG.url}${path}`;
   const ogImage = image || `${SITE_CONFIG.url}/og-image.jpg`;
 
+  const openGraphBase = {
+    title: siteTitle,
+    description: siteDescription,
+    url,
+    siteName: SITE_CONFIG.name[locale],
+    images: [
+      {
+        url: ogImage,
+        width: 1200,
+        height: 630,
+        alt: siteTitle,
+      },
+    ],
+    locale: locale === 'tr' ? 'tr_TR' : 'en_US',
+    type,
+  };
+
+  // Article-specific Open Graph fields ekle
+  const openGraph = type === 'article' && (publishedTime || modifiedTime || authors)
+    ? {
+        ...openGraphBase,
+        ...(publishedTime && { publishedTime }),
+        ...(modifiedTime && { modifiedTime }),
+        ...(authors && { authors }),
+      }
+    : openGraphBase;
+
   return {
     title: siteTitle,
     description: siteDescription,
     keywords: siteKeywords,
-    authors: [{ name: SITE_CONFIG.name[locale] }],
-    openGraph: {
-      title: siteTitle,
-      description: siteDescription,
-      url,
-      siteName: SITE_CONFIG.name[locale],
-      images: [
-        {
-          url: ogImage,
-          width: 1200,
-          height: 630,
-          alt: siteTitle,
-        },
-      ],
-      locale: locale === 'tr' ? 'tr_TR' : 'en_US',
-      type,
-    },
+    authors: authors?.map(name => ({ name })) || [{ name: SITE_CONFIG.name[locale] }],
+    openGraph,
     twitter: {
       card: 'summary_large_image',
       title: siteTitle,
