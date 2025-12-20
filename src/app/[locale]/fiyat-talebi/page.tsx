@@ -140,7 +140,7 @@ export default async function PriceRequestPage({ params }: PriceRequestPageProps
                         className="bg-card border border-border rounded-lg p-5 hover:border-primary/50 transition-colors"
                       >
                         <div className="flex items-start gap-4">
-                          <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
+                          <div className="shrink-0 w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
                             <Icon className="h-5 w-5 text-primary" />
                           </div>
                           <div className="flex-1">

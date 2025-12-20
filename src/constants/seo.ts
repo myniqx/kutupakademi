@@ -15,7 +15,11 @@ type MetadataParams = {
   authors?: string[];
 };
 
-export const DEFAULT_SEO = {
+export const DEFAULT_SEO: {
+  title: { tr: string; en: string };
+  description: { tr: string; en: string };
+  keywords: { tr: string[]; en: string[] };
+} = {
   title: {
     tr: 'Kutup Akademi - Akademik Çalışma Desteği ve SPSS Analizi',
     en: 'Kutup Akademi - Academic Study Support and SPSS Analysis',
@@ -48,7 +52,7 @@ export const DEFAULT_SEO = {
       'bibliometric analysis',
     ],
   },
-} as const;
+};
 
 export function generateMeta({
   title = null,
@@ -62,9 +66,13 @@ export function generateMeta({
   modifiedTime,
   authors,
 }: MetadataParams = {}): Metadata {
-  const siteTitle = title || DEFAULT_SEO.title[locale];
-  const siteDescription = description || DEFAULT_SEO.description[locale];
-  const siteKeywords = keywords.length > 0 ? keywords : [...DEFAULT_SEO.keywords[locale]];
+  // Ensure locale is valid
+  const validLocale: 'tr' | 'en' = locale === 'en' ? 'en' : 'tr';
+
+  const siteTitle = title || DEFAULT_SEO.title[validLocale];
+  const siteDescription = description || DEFAULT_SEO.description[validLocale];
+  const defaultKeywords = DEFAULT_SEO.keywords[validLocale];
+  const siteKeywords = keywords.length > 0 ? keywords : [...defaultKeywords];
   const url = `${SITE_CONFIG.url}${path}`;
   const ogImage = image || `${SITE_CONFIG.url}/og-image.jpg`;
 
@@ -72,7 +80,7 @@ export function generateMeta({
     title: siteTitle,
     description: siteDescription,
     url,
-    siteName: SITE_CONFIG.name[locale],
+    siteName: SITE_CONFIG.name[validLocale],
     images: [
       {
         url: ogImage,
@@ -81,7 +89,7 @@ export function generateMeta({
         alt: siteTitle,
       },
     ],
-    locale: locale === 'tr' ? 'tr_TR' : 'en_US',
+    locale: validLocale === 'tr' ? 'tr_TR' : 'en_US',
     type,
   };
 
@@ -99,7 +107,7 @@ export function generateMeta({
     title: siteTitle,
     description: siteDescription,
     keywords: siteKeywords,
-    authors: authors?.map(name => ({ name })) || [{ name: SITE_CONFIG.name[locale] }],
+    authors: authors?.map(name => ({ name })) || [{ name: SITE_CONFIG.name[validLocale] }],
     openGraph,
     twitter: {
       card: 'summary_large_image',
@@ -121,8 +129,8 @@ export function generateMeta({
     alternates: {
       canonical: url,
       languages: {
-        'tr': locale === 'tr' ? url : `${SITE_CONFIG.url}${path}`,
-        'en': locale === 'en' ? url : `${SITE_CONFIG.url}/en${path}`,
+        'tr': validLocale === 'tr' ? url : `${SITE_CONFIG.url}${path}`,
+        'en': validLocale === 'en' ? url : `${SITE_CONFIG.url}/en${path}`,
         'x-default': `${SITE_CONFIG.url}${path}`,
       },
     },

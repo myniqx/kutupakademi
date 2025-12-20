@@ -128,7 +128,7 @@ function generateThemeCSS(theme) {
 /* Edit scripts/generate-theme.js BASE_COLORS and run: pnpm theme */
 
 :root {
-  --radius: 0.625rem;
+  --radius: 0.425rem;
 ${cssVariables.light.join('\n')}
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);

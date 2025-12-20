@@ -23,6 +23,11 @@
         "primary": "Contact Us",
         "secondary": "Our Services",
         "getFreeInfo": "Get Free Information"
+      },
+      "badges": {
+        "fastDelivery": "Fast Delivery",
+        "expertTeam": "Expert Team",
+        "support247": "24/7 Support"
       }
     },
     "partners": {

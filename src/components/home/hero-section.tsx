@@ -5,6 +5,7 @@ import { cn } from '@/lib/utils';
 import { GlowButton } from '@/components/ui/glow-button';
 import { ArrowRight, ChatCircle } from '@phosphor-icons/react';
 import { SnakeParticlesEffect } from '@/components/effects/snake-particles';
+import { useTranslations } from 'next-intl';
 
 interface HeroSectionProps {
   title: string;
@@ -29,6 +30,8 @@ export function HeroSection({
   secondaryCta,
   className,
 }: HeroSectionProps) {
+  const t = useTranslations('home.hero');
+
   return (
     <section className={cn('relative min-h-screen flex items-center py-20 md:py-32 overflow-hidden z-10', className)}>
       {/* Snake particles effect */}
@@ -97,15 +100,15 @@ export function HeroSection({
           <div className="pt-8 flex flex-wrap items-center justify-center lg:justify-start gap-6 text-sm text-muted-foreground">
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-              <span>Hızlı Teslimat</span>
+              <span>{t('badges.fastDelivery')}</span>
             </div>
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 rounded-full bg-blue-500 animate-pulse" />
-              <span>Uzman Ekip</span>
+              <span>{t('badges.expertTeam')}</span>
             </div>
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 rounded-full bg-purple-500 animate-pulse" />
-              <span>7/24 Destek</span>
+              <span>{t('badges.support247')}</span>
             </div>
           </div>
         </div>

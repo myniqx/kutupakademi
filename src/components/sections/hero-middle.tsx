@@ -2,14 +2,14 @@ import Image from 'next/image'
 
 interface HeroMiddleProps {
   imageSrc?: string
-  imageAlt: string
+  imageAlt?: string
   title: string
   subtitle?: string
 }
 
 export function HeroMiddle({
   imageSrc = '/blogs/blog-cover.webp',
-  imageAlt,
+  imageAlt = 'Kutup Akademi',
   title,
   subtitle
 }: HeroMiddleProps) {
@@ -25,7 +25,7 @@ export function HeroMiddle({
           priority
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
+        <div className="absolute inset-0 bg-linear-to-t from-background via-background/50 to-transparent" />
       </section>
 
       {/* Title and Subtitle */}

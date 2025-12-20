@@ -2,7 +2,7 @@
 /* Edit scripts/generate-theme.js BASE_COLORS and run: pnpm theme */
 
 :root {
-  --radius: 0.625rem;
+  --radius: 0.425rem;
   --background: #FFFFFF;
   --foreground: #2B2B2B;
   --card: #FFFFFF;

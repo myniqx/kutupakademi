@@ -29,6 +29,11 @@
         "primary": "Bize Ulaşın",
         "secondary": "Hizmetlerimiz",
         "getFreeInfo": "Ücretsiz Bilgi Alın"
+      },
+      "badges": {
+        "fastDelivery": "Hızlı Teslimat",
+        "expertTeam": "Uzman Ekip",
+        "support247": "7/24 Destek"
       }
     },
     "partners": {
