@@ -15,8 +15,10 @@ interface LocalizedInputProps {
   rows?: number
   value_tr?: string
   value_en?: string
-  slug: string
+  slug?: string
   onChange: (field: string, value: string) => void
+  onDeepLTranslate?: (sourceLang: Locale, targetLang: Locale) => Promise<void>
+  isTranslating?: boolean
 }
 
 export function LocalizedInput({
@@ -24,14 +26,15 @@ export function LocalizedInput({
   label,
   required = false,
   markdown = false,
-  showPreview = false,
   rows = 4,
   value_tr = '',
   value_en = '',
   slug,
   onChange,
+  onDeepLTranslate,
+  isTranslating = false,
 }: LocalizedInputProps) {
-  const [activeLocales, setActiveLocales] = useState<Locale[]>(['tr'])
+  const [activeLocales, setActiveLocales] = useState<Locale[]>(['tr', 'en'])
 
   const toggleLocale = (locale: Locale) => {
     if (activeLocales.includes(locale)) {
@@ -43,6 +46,31 @@ export function LocalizedInput({
   }
 
   const isActive = (locale: Locale) => activeLocales.includes(locale)
+
+  // Smart translate logic
+  const getTranslateTooltip = (): string => {
+    if (!onDeepLTranslate) return 'DeepL API key not configured'
+    if (isTranslating) return 'Translating...'
+    if (value_tr && value_en) return 'Both languages have content'
+    if (!value_tr && !value_en) return 'Please add content first'
+    return value_tr ? 'Translate TR → EN' : 'Translate EN → TR'
+  }
+
+  const canTranslate = (): boolean => {
+    if (!onDeepLTranslate || isTranslating) return false
+    // Can translate if exactly one language has content
+    return (!!value_tr && !value_en) || (!value_tr && !!value_en)
+  }
+
+  const handleTranslate = () => {
+    if (!onDeepLTranslate) return
+
+    if (value_tr && !value_en) {
+      onDeepLTranslate('tr', 'en')
+    } else if (!value_tr && value_en) {
+      onDeepLTranslate('en', 'tr')
+    }
+  }
 
   return (
     <div className="space-y-2">
@@ -75,16 +103,17 @@ export function LocalizedInput({
             </button>
           </div>
 
-          {/* TODO: DeepL Translate button */}
+          {/* DeepL Translate button */}
           <Button
             type="button"
             size="sm"
             variant="ghost"
             className="h-7 px-2 text-xs"
-            disabled
-            title="DeepL integration coming soon"
+            disabled={!canTranslate()}
+            onClick={handleTranslate}
+            title={getTranslateTooltip()}
           >
-            Translate
+            {isTranslating ? '⏳' : '🌐'} Translate
           </Button>
         </div>
       </div>

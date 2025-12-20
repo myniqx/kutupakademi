@@ -17,6 +17,7 @@ type BlogContentTemplateProps = {
   locale: 'tr' | 'en';
   author?: string | null;
   relatedBlogs?: Blog[];
+  preview?: boolean;
 };
 
 
@@ -40,6 +41,7 @@ export async function BlogContentTemplate({
   content,
   locale,
   author,
+  preview = false,
   summary,
   relatedBlogs = [],
 }: BlogContentTemplateProps) {
@@ -130,19 +132,22 @@ export async function BlogContentTemplate({
       <BlogPreviewTemplate content={content} headings={metadata.headings} slug={metadata.slug} />
 
       {/* Premium CTA Section */}
-      <CTASection locale={locale} />
+      {!preview && <>
+        <CTASection locale={locale} />
 
-      {/* Related Blog Posts */}
-      {relatedBlogs.length > 0 && (
-        <section className="py-16 md:py-24 bg-muted/30">
-          <div className="container mx-auto px-4">
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-              {relatedPostsTitle}
-            </h2>
-            <BlogGrid blogs={relatedBlogs} locale={locale} max={3} />
-          </div>
-        </section>
-      )}
+        {/* Related Blog Posts */}
+        {relatedBlogs.length > 0 && (
+          <section className="py-16 md:py-24 bg-muted/30">
+            <div className="container mx-auto px-4">
+              <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
+                {relatedPostsTitle}
+              </h2>
+              <BlogGrid blogs={relatedBlogs} locale={locale} max={3} />
+            </div>
+          </section>
+        )}
+      </>
+      }
     </div>
   );
 }

@@ -17,7 +17,7 @@ export function extractHeadings(markdown: string): Heading[] {
       const text = match[2].trim();
       const id = slugify(text);
 
-      headings.push({ id, text, level });
+      headings.push({ id, text: text.replace(/(^|\s)\*\*|\*\*($|\s)/g, '$1').trim(), level });
     }
   }
 

@@ -5,7 +5,8 @@ import { useRouter } from 'next/navigation'
 import { deleteBlog, togglePublish } from '@/app/actions/blog'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
-import { ExternalLink, Eye, EyeOff, Trash2, ArrowUpDown } from 'lucide-react'
+import { ExternalLink, Eye, EyeOff, Trash2, ArrowUpDown, Pencil } from 'lucide-react'
+import { BlogPreviewDialog } from './blog-preview-dialog'
 import type { Blog } from '@/db/schema'
 
 interface BlogListProps {
@@ -20,6 +21,32 @@ export function BlogList({ blogs }: BlogListProps) {
   const [deletingId, setDeletingId] = useState<string | null>(null)
   const [filter, setFilter] = useState<FilterType>('all')
   const [sort, setSort] = useState<SortType>('newest')
+  const [previewBlog, setPreviewBlog] = useState<Blog | null>(null)
+  const [previewOpen, setPreviewOpen] = useState(false)
+
+  // Check if blog is ready to publish
+  const isReadyToPublish = (blog: Blog): boolean => {
+    // Helper to check if string is not empty
+    const hasValue = (str: string | null | undefined): boolean => {
+      return !!str && str.trim().length > 0
+    }
+
+    const isReady = (
+      hasValue(blog.slug) &&
+      hasValue(blog.title_tr) &&
+      hasValue(blog.title_en) &&
+      hasValue(blog.content_tr) &&
+      hasValue(blog.content_en) &&
+      hasValue(blog.description_tr) &&
+      hasValue(blog.description_en) &&
+      hasValue(blog.summary_tr) &&
+      hasValue(blog.summary_en) &&
+      hasValue(blog.coverImage) &&
+      hasValue(blog.keywords)
+    )
+
+    return isReady
+  }
 
   // Filter and sort blogs
   const processedBlogs = useMemo(() => {
@@ -72,13 +99,14 @@ export function BlogList({ blogs }: BlogListProps) {
     router.refresh()
   }
 
-  function handleOpenInNewTab(e: React.MouseEvent, slug: string) {
+  function handleEdit(e: React.MouseEvent, id: string) {
     e.stopPropagation()
-    window.open(`/blog/${slug}`, '_blank')
+    router.push(`/dashboard/blog/edit/${id}`)
   }
 
-  function handleCardClick(id: string) {
-    router.push(`/dashboard/blog/edit/${id}`)
+  function handleCardClick(blog: Blog) {
+    setPreviewBlog(blog)
+    setPreviewOpen(true)
   }
 
   const publishedCount = blogs.filter(b => b.published).length
@@ -157,21 +185,30 @@ export function BlogList({ blogs }: BlogListProps) {
             <Card
               key={blog.id}
               className="p-6 cursor-pointer hover:shadow-md transition-shadow"
-              onClick={() => handleCardClick(blog.id)}
+              onClick={() => handleCardClick(blog)}
             >
               <div className="flex items-start justify-between gap-4">
                 <div className="flex-1">
                   <div className="flex items-center gap-3 mb-2">
                     <h3 className="text-lg font-semibold line-clamp-1">{blog.title_tr}</h3>
-                    {blog.published ? (
-                      <span className="px-2 py-1 text-xs bg-green-100 text-green-700 rounded">
-                        Published
-                      </span>
-                    ) : (
-                      <span className="px-2 py-1 text-xs bg-orange-100 text-orange-700 rounded">
-                        Draft
-                      </span>
-                    )}
+                    <div className="flex items-center gap-2">
+                      {blog.published ? (
+                        <span className="px-2 py-1 text-xs bg-green-100 text-green-700 rounded">
+                          Published
+                        </span>
+                      ) : (
+                        <>
+                          <span className="px-2 py-1 text-xs bg-orange-100 text-orange-700 rounded">
+                            Draft
+                          </span>
+                          {isReadyToPublish(blog) && (
+                            <span className="px-2 py-1 text-xs bg-blue-100 text-blue-700 rounded">
+                              Ready to Publish
+                            </span>
+                          )}
+                        </>
+                      )}
+                    </div>
                   </div>
 
                   <div className="flex items-center gap-4 text-xs text-muted-foreground">
@@ -199,13 +236,11 @@ export function BlogList({ blogs }: BlogListProps) {
                   <Button
                     size="sm"
                     variant="outline"
-                    onClick={(e) => handleOpenInNewTab(e, blog.slug)}
-                    title="Yeni sekmede aç"
+                    onClick={(e) => handleEdit(e, blog.id)}
+                    title="Düzenle"
                   >
-                    <ExternalLink className="h-4 w-4" />
+                    <Pencil className="h-4 w-4" />
                   </Button>
-
-
 
                   <Button
                     size="sm"
@@ -222,6 +257,13 @@ export function BlogList({ blogs }: BlogListProps) {
           ))
         )}
       </div>
+
+      {/* Preview Dialog */}
+      <BlogPreviewDialog
+        blog={previewBlog}
+        open={previewOpen}
+        onOpenChange={setPreviewOpen}
+      />
     </div>
   )
 }

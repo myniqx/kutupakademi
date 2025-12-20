@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef, useCallback } from 'react'
 import { useRouter } from 'next/navigation'
 import { LocalizedInput } from './localized-input'
 import { Button } from '@/components/ui/button'
@@ -35,14 +35,20 @@ export function BlogEditor({ blog, mode }: BlogEditorProps) {
     coverImage: blog?.coverImage || '',
   })
 
+  // Track initial data and unsaved changes
+  const initialDataRef = useRef<string>(JSON.stringify(formData))
+  const debounceTimerRef = useRef<NodeJS.Timeout | null>(null)
+  const safetyIntervalRef = useRef<NodeJS.Timeout | null>(null)
+  const hasUnsavedChanges = JSON.stringify(formData) !== initialDataRef.current
+
   const [keywordInput, setKeywordInput] = useState('')
   const [isSummarizing, setIsSummarizing] = useState(false)
   const [isTranslating, setIsTranslating] = useState<string | false>(false) // 'summary' or 'content'
+  const [deeplTranslatingField, setDeeplTranslatingField] = useState<string | null>(null)
   const keywords = formData.keywords
     ? formData.keywords.split(',').map(k => k.trim()).filter(Boolean)
     : []
 
-  const slug = formData.slug || ''
   const isDevelopment = process.env.NODE_ENV === 'development'
 
   useEffect(() => {
@@ -120,7 +126,7 @@ export function BlogEditor({ blog, mode }: BlogEditorProps) {
     setIsSummarizing(true)
 
     try {
-      const prompt = `Aşağıdaki blog yazısını kısa ve öz bir şekilde maddeler halinde özetle. Özet için markdown formatı kullan başka hiç bir şey yapma.
+      const prompt = `Aşağıdaki blog yazısını maddeler halinde özetle. Özet için markdown formatı kullan başka hiç bir şey yapma.
 
 Blog İçeriği:
 ${formData.content_tr}
@@ -151,7 +157,40 @@ ${formData.content_tr}
     }
   }
 
-  const handleAITranslate = async (field: 'summary' | 'content') => {
+  const translateWithAI = async (sourceText: string, targetField: string): Promise<boolean> => {
+    const prompt = `Aşağıdaki Türkçe metni İngilizce'ye çevir.
+Türkçe Metin:
+${sourceText}
+
+English Translation:`
+
+    try {
+      const response = await fetch('/api/ollama', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          model: 'aya:8b',
+          prompt,
+        }),
+      })
+
+      const data = await response.json()
+
+      if (data.success) {
+        handleFieldChange(targetField, data.response.trim())
+        return true
+      } else {
+        alert(`Hata: ${data.error}`)
+        return false
+      }
+    } catch (error) {
+      console.error('AI translate error:', error)
+      alert('Ollama bağlantısı başarısız. Ollama çalışıyor mu kontrol edin.')
+      return false
+    }
+  }
+
+  const handleAITranslate = async (field: 'title' | 'description' | 'summary' | 'content') => {
     const sourceTrField = `${field}_tr` as keyof typeof formData
     const targetEnField = `${field}_en` as keyof typeof formData
     const sourceText = formData[sourceTrField]
@@ -167,53 +206,88 @@ ${formData.content_tr}
     }
 
     setIsTranslating(field)
+    await translateWithAI(sourceText as string, targetEnField)
+    setIsTranslating(false)
+  }
+
+  const handleDeepLTranslate = async (field: string, sourceLang: 'tr' | 'en', targetLang: 'tr' | 'en') => {
+    const sourceField = `${field}_${sourceLang}` as keyof typeof formData
+    const targetField = `${field}_${targetLang}` as keyof typeof formData
+    const sourceText = formData[sourceField]
+
+    if (!sourceText) {
+      alert('Source text is empty!')
+      return
+    }
+
+    setDeeplTranslatingField(field)
 
     try {
-      const prompt = `Aşağıdaki Türkçe metni İngilizce'ye çevir. Markdown formatını koru, sadece çeviriyi yap, başka hiçbir şey ekleme.
-
-Türkçe Metin:
-${sourceText}
-
-İngilizce Çeviri:`
-
-      const response = await fetch('/api/ollama', {
+      const response = await fetch('/api/deepl', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          model: 'aya:8b',
-          prompt,
+          text: sourceText,
+          sourceLang,
+          targetLang,
         }),
       })
 
       const data = await response.json()
 
       if (data.success) {
-        handleFieldChange(targetEnField, data.response.trim())
+        handleFieldChange(targetField, data.translatedText)
       } else {
-        alert(`Hata: ${data.error}`)
+        alert(`DeepL Error: ${data.error}`)
       }
     } catch (error) {
-      console.error('AI translate error:', error)
-      alert('Ollama bağlantısı başarısız. Ollama çalışıyor mu kontrol edin.')
+      console.error('DeepL translation error:', error)
+      alert('Failed to translate with DeepL. Check if API key is configured.')
     } finally {
-      setIsTranslating(false)
+      setDeeplTranslatingField(null)
     }
   }
 
-  const isPublishable = () => {
-    return !!(
-      formData.slug &&
-      formData.title_tr &&
-      formData.content_tr
-    )
+  const handleFixContent = () => {
+    if (!formData.content_tr) return
+
+    let fixedContent = formData.content_tr
+
+    // Remove all emojis (including symbols like ⚠️, ⏱️, ✅, etc.)
+    const emojiRegex = /[\u{1F600}-\u{1F64F}\u{1F300}-\u{1F5FF}\u{1F680}-\u{1F6FF}\u{1F900}-\u{1F9FF}\u{1FA00}-\u{1FAFF}\u{2600}-\u{26FF}\u{2700}-\u{27BF}\u{231A}-\u{231B}\u{23E9}-\u{23F3}\u{25AA}-\u{25AB}\u{25B6}\u{25C0}\u{25FB}-\u{25FE}\u{2B05}-\u{2B07}\u{2B1B}-\u{2B1C}\u{3030}\u{303D}\u{3297}\u{3299}\u{FE0F}]/gu
+    fixedContent = fixedContent.replace(emojiRegex, '')
+
+    // Fix markdown tables: replace | | with |\n|
+    fixedContent = fixedContent.replace(/\|\s+\|/g, '|\n|')
+
+    handleFieldChange('content_tr', fixedContent)
   }
 
-  const handleSave = async (publish: boolean = false, isAutoSave: boolean = false) => {
+  const isPublishable = !!(
+    formData.slug &&
+    formData.title_tr &&
+    formData.title_en &&
+    formData.content_en &&
+    formData.content_tr &&
+    formData.description_tr &&
+    formData.description_en &&
+    formData.summary_tr &&
+    formData.summary_en &&
+    formData.coverImage
+  )
+
+  const handleSave = useCallback(async (publish: boolean = false, isAutoSave: boolean = false) => {
+    // Skip auto save if no changes
+    if (isAutoSave && !hasUnsavedChanges) {
+      return
+    }
+
     setIsSaving(isAutoSave ? 'auto' : (publish ? 'publish' : 'draft'))
 
     const payload = {
       ...formData,
-      published: publish
+      // Preserve existing published status on auto save
+      published: isAutoSave ? (blog?.published || false) : publish
     }
 
     try {
@@ -225,6 +299,9 @@ ${sourceText}
 
       if (response.ok) {
         setLastSaved(new Date())
+        // Update initial data ref after successful save
+        initialDataRef.current = JSON.stringify(formData)
+
         // Only redirect to dashboard when publishing
         if (publish && !isAutoSave) {
           router.push('/dashboard')
@@ -237,17 +314,59 @@ ${sourceText}
     } finally {
       setIsSaving(false)
     }
-  }
+  }, [formData, hasUnsavedChanges, blog?.published, blog?.id, mode, router])
 
+  // Auto save with debounce (10 seconds after user stops typing)
   useEffect(() => {
-    if (mode === 'edit' && formData.title_tr) {
-      const interval = setInterval(() => {
-        handleSave(false, true)
-      }, 30000)
+    if (mode !== 'edit' || !formData.title_tr) return
 
-      return () => clearInterval(interval)
+    // Clear existing debounce timer
+    if (debounceTimerRef.current) {
+      clearTimeout(debounceTimerRef.current)
     }
-  }, [formData, mode])
+
+    // Set new debounce timer (10 seconds)
+    debounceTimerRef.current = setTimeout(() => {
+      handleSave(false, true)
+    }, 10000)
+
+    return () => {
+      if (debounceTimerRef.current) {
+        clearTimeout(debounceTimerRef.current)
+      }
+    }
+  }, [formData, mode, handleSave])
+
+  // Safety interval (2 minutes) - backup auto save
+  useEffect(() => {
+    if (mode !== 'edit' || !formData.title_tr) return
+
+    safetyIntervalRef.current = setInterval(() => {
+      handleSave(false, true)
+    }, 120000) // 2 minutes
+
+    return () => {
+      if (safetyIntervalRef.current) {
+        clearInterval(safetyIntervalRef.current)
+      }
+    }
+  }, [mode, formData.title_tr, handleSave])
+
+  // Warn user about unsaved changes before leaving
+  useEffect(() => {
+    const handleBeforeUnload = (e: BeforeUnloadEvent) => {
+      if (hasUnsavedChanges) {
+        e.preventDefault()
+        e.returnValue = ''
+      }
+    }
+
+    window.addEventListener('beforeunload', handleBeforeUnload)
+
+    return () => {
+      window.removeEventListener('beforeunload', handleBeforeUnload)
+    }
+  }, [hasUnsavedChanges])
 
   return (
     <div className="min-h-screen p-8">
@@ -269,8 +388,10 @@ ${sourceText}
                 <span className="text-sm text-muted-foreground">
                   {isSaving === 'auto' ? (
                     <span className="text-blue-600">Saving...</span>
+                  ) : hasUnsavedChanges && lastSaved ? (
+                    <span className="text-amber-600">Unsaved changes</span>
                   ) : lastSaved ? (
-                    <span>Saved {new Date(lastSaved).toLocaleTimeString()}</span>
+                    <span className="text-green-600">Saved {new Date(lastSaved).toLocaleTimeString()}</span>
                   ) : null}
                 </span>
               )}
@@ -288,7 +409,7 @@ ${sourceText}
 
             <Button
               onClick={() => handleSave(true)}
-              disabled={!!isSaving || !isPublishable()}
+              disabled={!!isSaving || !isPublishable}
             >
               {isSaving === 'publish' ? 'Publishing...' : 'Save & Publish'}
             </Button>
@@ -423,24 +544,72 @@ ${sourceText}
               )}
             </div>
 
-            <LocalizedInput
-              name="title"
-              label="Title"
-              required
-              value_tr={formData.title_tr}
-              value_en={formData.title_en}
-              onChange={handleFieldChange}
-              slug={slug}
-            />
+            {/* Title with AI Translate */}
+            <div className="space-y-2">
+              <div className="flex items-center justify-between">
+                <label className="text-sm font-medium">
+                  Title <span className="text-red-500">*</span>
+                </label>
+                {isDevelopment && (
+                  <Button
+                    type="button"
+                    size="sm"
+                    variant="outline"
+                    onClick={() => handleAITranslate('title')}
+                    disabled={isTranslating === 'title' || !formData.title_tr}
+                    className="h-7 text-xs"
+                  >
+                    {isTranslating === 'title' ? (
+                      <>⏳ Çevriliyor...</>
+                    ) : (
+                      <>🌐 AI ile Çevir</>
+                    )}
+                  </Button>
+                )}
+              </div>
+              <LocalizedInput
+                name="title"
+                label=""
+                required
+                value_tr={formData.title_tr}
+                value_en={formData.title_en}
+                onChange={handleFieldChange}
+                onDeepLTranslate={(src, tgt) => handleDeepLTranslate('title', src, tgt)}
+                isTranslating={deeplTranslatingField === 'title'}
+              />
+            </div>
 
-            <LocalizedInput
-              name="description"
-              label="Description"
-              slug={slug}
-              value_tr={formData.description_tr}
-              value_en={formData.description_en}
-              onChange={handleFieldChange}
-            />
+            {/* Description with AI Translate */}
+            <div className="space-y-2">
+              <div className="flex items-center justify-between">
+                <label className="text-sm font-medium">Description</label>
+                {isDevelopment && (
+                  <Button
+                    type="button"
+                    size="sm"
+                    variant="outline"
+                    onClick={() => handleAITranslate('description')}
+                    disabled={isTranslating === 'description' || !formData.description_tr}
+                    className="h-7 text-xs"
+                  >
+                    {isTranslating === 'description' ? (
+                      <>⏳ Çevriliyor...</>
+                    ) : (
+                      <>🌐 AI ile Çevir</>
+                    )}
+                  </Button>
+                )}
+              </div>
+              <LocalizedInput
+                name="description"
+                label=""
+                value_tr={formData.description_tr}
+                value_en={formData.description_en}
+                onChange={handleFieldChange}
+                onDeepLTranslate={(src, tgt) => handleDeepLTranslate('description', src, tgt)}
+                isTranslating={deeplTranslatingField === 'description'}
+              />
+            </div>
 
             {/* Summary with AI Buttons */}
             <div className="space-y-2">
@@ -487,7 +656,8 @@ ${sourceText}
                 value_tr={formData.summary_tr}
                 value_en={formData.summary_en}
                 onChange={handleFieldChange}
-                slug={slug}
+                onDeepLTranslate={(src, tgt) => handleDeepLTranslate('summary', src, tgt)}
+                isTranslating={deeplTranslatingField === 'summary'}
               />
             </div>
 
@@ -498,20 +668,32 @@ ${sourceText}
                   Content <span className="text-red-500">*</span>
                 </label>
                 {isDevelopment && (
-                  <Button
-                    type="button"
-                    size="sm"
-                    variant="outline"
-                    onClick={() => handleAITranslate('content')}
-                    disabled={isTranslating === 'content' || !formData.content_tr}
-                    className="h-7 text-xs"
-                  >
-                    {isTranslating === 'content' ? (
-                      <>⏳ Çevriliyor...</>
-                    ) : (
-                      <>🌐 AI ile Çevir</>
-                    )}
-                  </Button>
+                  <div className="flex items-center gap-2">
+                    <Button
+                      type="button"
+                      size="sm"
+                      variant="outline"
+                      onClick={handleFixContent}
+                      disabled={!formData.content_tr}
+                      className="h-7 text-xs"
+                    >
+                      Fix
+                    </Button>
+                    <Button
+                      type="button"
+                      size="sm"
+                      variant="outline"
+                      onClick={() => handleAITranslate('content')}
+                      disabled={isTranslating === 'content' || !formData.content_tr}
+                      className="h-7 text-xs"
+                    >
+                      {isTranslating === 'content' ? (
+                        <>⏳ Çevriliyor...</>
+                      ) : (
+                        <>🌐 AI ile Çevir</>
+                      )}
+                    </Button>
+                  </div>
                 )}
               </div>
               <LocalizedInput
@@ -524,7 +706,8 @@ ${sourceText}
                 value_tr={formData.content_tr}
                 value_en={formData.content_en}
                 onChange={handleFieldChange}
-                slug={slug}
+                onDeepLTranslate={(src, tgt) => handleDeepLTranslate('content', src, tgt)}
+                isTranslating={deeplTranslatingField === 'content'}
               />
             </div>
           </div>

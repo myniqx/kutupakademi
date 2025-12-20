@@ -15,7 +15,7 @@ interface MarkdownEditorProps {
   rows?: number
   required?: boolean
   name?: string
-  slug: string
+  slug?: string
 }
 
 export function MarkdownEditor({
