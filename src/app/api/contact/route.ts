@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { Resend } from 'resend';
-import { generateEmailHTML, generateEmailSubject } from '@/lib/email/templates';
+import { generateEmailHTML, generateEmailSubject } from '@/lib/email/templates.ts';
 import { SITE_CONFIG } from '@/constants/site';
 
 const resend = new Resend(process.env.RESEND_API_KEY || 'fake-api-key');
@@ -17,9 +17,13 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    console.log('Contact form data:', data);
+
     // Generate email HTML and subject
     const emailHTML = generateEmailHTML(data);
+    console.log('Email HTML:', emailHTML);
     const subject = generateEmailSubject(data);
+    console.log('Email subject:', subject);
 
     // Send email via Resend
     const result = await resend.emails.send({
