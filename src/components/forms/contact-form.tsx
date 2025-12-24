@@ -67,7 +67,7 @@ export function ContactForm() {
           {...register('name')}
           type="text"
           id="name"
-          className="w-full px-4 py-2 border border-input bg-background text-foreground rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
+          className="w-full px-4 py-2 border border-border bg-background text-foreground rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
         />
         {errors.name && (
           <p className="mt-1 text-sm text-destructive">{errors.name.message}</p>
@@ -85,7 +85,7 @@ export function ContactForm() {
           {...register('email')}
           type="email"
           id="email"
-          className="w-full px-4 py-2 border border-input bg-background text-foreground rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
+          className="w-full px-4 py-2 border border-border bg-background text-foreground rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
         />
         {errors.email && (
           <p className="mt-1 text-sm text-destructive">{errors.email.message}</p>
@@ -101,9 +101,10 @@ export function ContactForm() {
         </label>
         <textarea
           {...register('message')}
+          type="text"
           id="message"
           rows={5}
-          className="w-full px-4 py-2 border border-input bg-background text-foreground rounded-md focus:outline-none focus:ring-2 focus:ring-primary resize-none"
+          className="w-full px-4 py-2 border border-border bg-background text-foreground rounded-md focus:outline-none focus:ring-2 focus:ring-primary resize-none"
         />
         {errors.message && (
           <p className="mt-1 text-sm text-destructive">{errors.message.message}</p>
