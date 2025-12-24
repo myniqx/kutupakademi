@@ -23,7 +23,7 @@ export async function POST(request: NextRequest) {
 
     // Send email via Resend
     const result = await resend.emails.send({
-      from: 'Kutup Akademi Website <onboarding@resend.dev>', // You'll need to configure your domain
+      from: 'Kutup Akademi Website <sandbox@resend.dev>',
       to: SITE_CONFIG.contact.email,
       subject: subject,
       html: emailHTML,
