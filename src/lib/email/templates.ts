@@ -66,7 +66,7 @@ function formatStudyLevel(value: string): string {
 export function generateEmailHTML(data: FormData): string {
   const formType = getFormType(data);
   const subject = getEmailSubject(formType);
-  const logoUrl = `${SITE_CONFIG.url}/kutupakademi.svg`;
+  const logoUrl = `${SITE_CONFIG.url}/kutupakademii.webp`;
   const timestamp = new Date().toLocaleString('tr-TR', {
     dateStyle: 'full',
     timeStyle: 'short',
