@@ -51,7 +51,7 @@ export function Logo({ x, y, w = 40, h, rounded = false, border = false, classNa
       }
     >
       <Image
-        src="/kutupakademi.webp"
+        src="/kutupakademii.webp"
         alt={alt}
         width={w}
         height={w}

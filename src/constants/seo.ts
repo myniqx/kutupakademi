@@ -74,7 +74,7 @@ export function generateMeta({
   const defaultKeywords = DEFAULT_SEO.keywords[validLocale];
   const siteKeywords = keywords.length > 0 ? keywords : [...defaultKeywords];
   const url = `${SITE_CONFIG.url}${path}`;
-  const ogImage = image || `${SITE_CONFIG.url}/og-image.webp`;
+  const ogImage = image || `${SITE_CONFIG.url}/og-image.png`;
 
   const openGraphBase = {
     title: siteTitle,
@@ -85,7 +85,7 @@ export function generateMeta({
       {
         url: ogImage,
         width: 1200,
-        height: 630,
+        height: 600,
         alt: siteTitle,
       },
     ],
@@ -96,11 +96,11 @@ export function generateMeta({
   // Article-specific Open Graph fields ekle
   const openGraph = type === 'article' && (publishedTime || modifiedTime || authors)
     ? {
-        ...openGraphBase,
-        ...(publishedTime && { publishedTime }),
-        ...(modifiedTime && { modifiedTime }),
-        ...(authors && { authors }),
-      }
+      ...openGraphBase,
+      ...(publishedTime && { publishedTime }),
+      ...(modifiedTime && { modifiedTime }),
+      ...(authors && { authors }),
+    }
     : openGraphBase;
 
   return {
