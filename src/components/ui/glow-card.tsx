@@ -110,13 +110,13 @@ const GlowCard = React.forwardRef<HTMLDivElement, GlowCardProps>(
         onMouseMove={handleMouseMove}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
-        className={cn("relative group", className)}
+        className={cn("relative group h-full", className)}
       >
         {/* Outer blur glow */}
         {(mode === 'border' || mode === 'both') && (
           <div
             className={cn(
-              "pointer-events-none absolute -inset-1 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity z-0",
+              "pointer-events-none absolute -inset-1 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity z-0 h-[calc(100%+0.5rem)]",
               transitionClass
             )}
             style={{
@@ -132,7 +132,7 @@ const GlowCard = React.forwardRef<HTMLDivElement, GlowCardProps>(
         {(mode === 'border' || mode === 'both') && (
           <div
             className={cn(
-              "pointer-events-none absolute -inset-px rounded-xl opacity-0 group-hover:opacity-100 transition-opacity z-10",
+              "pointer-events-none absolute -inset-px rounded-xl opacity-0 group-hover:opacity-100 transition-opacity z-10 h-[calc(100%+2px)]",
               transitionClass
             )}
             style={{
@@ -147,7 +147,7 @@ const GlowCard = React.forwardRef<HTMLDivElement, GlowCardProps>(
         {(mode === 'background' || mode === 'both') && (
           <div
             className={cn(
-              "pointer-events-none absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity z-10",
+              "pointer-events-none absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity z-10 h-full",
               transitionClass
             )}
             style={{
@@ -160,7 +160,7 @@ const GlowCard = React.forwardRef<HTMLDivElement, GlowCardProps>(
 
         <Card
           className={cn(
-            "relative z-20 transition-all",
+            "relative z-20 transition-all h-full",
             mode === 'border' && "group-hover:border-[rgba(var(--primary),0.3)]",
             cardClassName
           )}

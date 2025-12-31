@@ -14,6 +14,78 @@ export const SERVICE_SLUGS = [
 
 export type ServiceSlug = typeof SERVICE_SLUGS[number];
 
+export const SERVICE_CATEGORIES = {
+  quantitative: {
+    id: 'quantitative',
+    icon: 'ChartBar',
+    title: {
+      tr: 'Nicel Veri Analizi',
+      en: 'Quantitative Data Analysis',
+    },
+    description: {
+      tr: 'İstatistiksel analiz ve nicel araştırma yöntemleri',
+      en: 'Statistical analysis and quantitative research methods',
+    },
+    services: [
+      'spss-veri-analizi-yaptirma-2',
+      'yapisal-esitlik-modellemesi-analizi',
+      'spss-odevi-yaptirma',
+      'spss-egitimi-ile-veri-analizi',
+      'spss-ile-olcek-gelistirme-ve-uyarlama-hizmeti',
+      'g-power-ile-orneklem-buyuklugu-hesaplama-analizi',
+    ] as ServiceSlug[],
+  },
+  qualitative: {
+    id: 'qualitative',
+    icon: 'MagnifyingGlass',
+    title: {
+      tr: 'Nitel Veri Analizi',
+      en: 'Qualitative Data Analysis',
+    },
+    description: {
+      tr: 'Tematik analiz ve nitel araştırma yöntemleri',
+      en: 'Thematic analysis and qualitative research methods',
+    },
+    services: [
+      'maxqda-ile-tematik-analiz-hizmeti',
+    ] as ServiceSlug[],
+  },
+  literature: {
+    id: 'literature',
+    icon: 'Books',
+    title: {
+      tr: 'Literatür Analizi',
+      en: 'Literature Analysis',
+    },
+    description: {
+      tr: 'Bibliyometrik ve meta analiz hizmetleri',
+      en: 'Bibliometric and meta-analysis services',
+    },
+    services: [
+      'vosviewer-ile-bibliyometrik-analiz-yaptirma',
+      'meta-analiz-yaptirma',
+    ] as ServiceSlug[],
+  },
+  consulting: {
+    id: 'consulting',
+    icon: 'GraduationCap',
+    title: {
+      tr: 'Tez & Danışmanlık',
+      en: 'Thesis & Consulting',
+    },
+    description: {
+      tr: 'Akademik tez danışmanlığı ve düzenleme hizmetleri',
+      en: 'Academic thesis consulting and editing services',
+    },
+    services: [
+      'tez-danismanligi',
+      'tez-duzenleme-hizmetleri',
+    ] as ServiceSlug[],
+  },
+} as const;
+
+export type ServiceCategoryId = keyof typeof SERVICE_CATEGORIES;
+
 export type ServiceData = {
   title: {
     tr: string;

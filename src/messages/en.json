@@ -4,7 +4,8 @@
     "contactUs": "Contact Us",
     "learnMore": "Learn More",
     "getStarted": "Get Started",
-    "viewAll": "View All"
+    "viewAll": "View All",
+    "moreServices": "more services"
   },
   "nav": {
     "home": "Home",
@@ -35,8 +36,8 @@
       "subtitle": "We work together with our trusted solution partners"
     },
     "about": {
-      "title": "Global Scale Data Analysis and Foreign Language Education Services",
-      "description": "We provide professional support for your academic studies. We are with you with our expert team in data analysis, statistical consulting and foreign language education."
+      "title": "Global Scale Data Analysis Services",
+      "description": "We provide professional support for your academic studies. We are with you with our expert team in data analysis and statistical consulting."
     },
     "services": {
       "title": "Our Services",

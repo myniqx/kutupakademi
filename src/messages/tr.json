@@ -10,7 +10,8 @@
     "contactUs": "İletişime Geç",
     "learnMore": "Daha Fazla Bilgi",
     "getStarted": "Başlayın",
-    "viewAll": "Tümünü Gör"
+    "viewAll": "Tümünü Gör",
+    "moreServices": "hizmet daha"
   },
   "nav": {
     "home": "Ana Sayfa",
@@ -41,8 +42,8 @@
       "subtitle": "Güvenilir çözüm ortaklarımızla birlikte çalışıyoruz"
     },
     "about": {
-      "title": "Küresel Ölçekte Veri Analizi ve Yabancı Dil Eğitimi Hizmeti",
-      "description": "Akademik çalışmalarınızda size profesyonel destek sağlıyoruz. Veri analizi, istatistiksel danışmanlık ve yabancı dil eğitimi konularında uzman ekibimizle yanınızdayız."
+      "title": "Küresel Ölçekte Veri Analizi Hizmeti",
+      "description": "Akademik çalışmalarınızda size profesyonel destek sağlıyoruz. Veri analizi ve istatistiksel danışmanlık konularında uzman ekibimizle yanınızdayız."
     },
     "services": {
       "title": "Hizmetlerimiz",

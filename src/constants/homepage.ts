@@ -1,32 +1,4 @@
 export const HOMEPAGE = {
-  hero: {
-    title: {
-      tr: 'Veri Analizi, Eğitim & Danışmanlık',
-      en: 'Data Analysis, Education & Consulting',
-    },
-    subtitle: {
-      tr: 'En kaliteli eğitimleri ve en etkin çözümleri en hızlı bulabileceğiniz yerdesiniz',
-      en: 'Your destination for the highest quality education and most effective solutions in the shortest time',
-    },
-    description: {
-      tr: 'Kutup yıldızı olmayı ilke edinen ekibimiz, bu isimle sizlere akademik alanda hizmet sunmak için hazırdır.',
-      en: 'Our team, which adopts being the North Star as a principle, is ready to serve you in the academic field with this name.',
-    },
-    cta: {
-      primary: {
-        tr: 'Bize Ulaşın',
-        en: 'Contact Us',
-      },
-      secondary: {
-        tr: 'Hizmetlerimiz',
-        en: 'Our Services',
-      },
-      getFreeInfo: {
-        tr: 'Ücretsiz Bilgi Alın',
-        en: 'Get Free Information',
-      },
-    },
-  },
   partners: {
     title: {
       tr: 'Teknoloji Ortaklarımız',
@@ -58,16 +30,6 @@ export const HOMEPAGE = {
         logo: '/partners/partner-5.webp',
       },
     ],
-  },
-  about: {
-    title: {
-      tr: 'Küresel Ölçekte Veri Analizi ve Yabancı Dil Eğitimi Hizmeti',
-      en: 'Global Scale Data Analysis and Foreign Language Education Services',
-    },
-    description: {
-      tr: 'Akademik çalışmalarınızda size profesyonel destek sağlıyoruz. Veri analizi, istatistiksel danışmanlık ve yabancı dil eğitimi konularında uzman ekibimizle yanınızdayız.',
-      en: 'We provide professional support for your academic studies. We are with you with our expert team in data analysis, statistical consulting and foreign language education.',
-    },
   },
   services: {
     title: {
@@ -108,21 +70,7 @@ export const HOMEPAGE = {
           tr: 'Tez danışmanlığı, makale yazımı ve akademik çalışmalarınızda profesyonel destek sağlıyoruz.',
           en: 'We provide professional support in thesis consulting, article writing and your academic studies.',
         },
-      },
-      {
-        icon: 'Translate',
-        title: {
-          tr: 'Yabancı Dil Eğitimi',
-          en: 'Foreign Language Education',
-        },
-        description: {
-          tr: 'Takım işbirliğini güçlendirin',
-          en: 'Strengthen team collaboration',
-        },
-        details: {
-          tr: 'Akademik İngilizce ve diğer yabancı dil eğitimleriyle global ölçekte iletişim kurmanızı sağlıyoruz.',
-          en: 'We enable you to communicate globally with Academic English and other foreign language trainings.',
-        },
+
       },
     ],
   },

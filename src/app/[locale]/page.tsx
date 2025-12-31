@@ -1,11 +1,11 @@
 import { getTranslations } from 'next-intl/server';
 import { HeroSection } from '@/components/home/hero-section';
 import { TechnologyPartners } from '@/components/home/technology-partners';
-import { ServiceCard } from '@/components/home/service-card';
+import { CategoryServiceCard } from '@/components/home/category-service-card';
 import { ProcessSteps } from '@/components/home/process-steps';
 import { StatsSection } from '@/components/home/stats-section';
 import { Testimonials } from '@/components/home/testimonials';
-import { HOMEPAGE } from '@/constants/homepage';
+import { SERVICE_CATEGORIES } from '@/constants/services';
 import { BlogGrid } from '@/components/blog/blog-grid';
 import { getBlogCards } from '@/lib/query/blog';
 import { Link } from '@/i18n/routing';
@@ -83,15 +83,15 @@ export default async function Home({ params }: HomeProps) {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-            {HOMEPAGE.services.list.map((service, index) => (
-              <ServiceCard
-                key={index}
-                icon={service.icon as keyof typeof import('@phosphor-icons/react')}
-                title={service.title.tr}
-                description={service.description.tr}
-                details={service.details.tr}
-                href="/hizmetler"
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+            {Object.values(SERVICE_CATEGORIES).map((category) => (
+              <CategoryServiceCard
+                key={category.id}
+                icon={category.icon as keyof typeof import('@phosphor-icons/react')}
+                title={category.title[locale as 'tr' | 'en']}
+                description={category.description[locale as 'tr' | 'en']}
+                services={category.services}
+                locale={locale as 'tr' | 'en'}
               />
             ))}
           </div>
