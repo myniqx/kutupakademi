@@ -10,24 +10,60 @@ export const HOMEPAGE = {
     },
     list: [
       {
-        name: 'Partner 1',
-        logo: '/partners/partner-1.webp',
+        name: 'AMOS',
+        logo: '/partners/amos.webp',
       },
       {
-        name: 'Partner 2',
-        logo: '/partners/partner-2.webp',
+        name: 'Comprehensive Meta Analysis',
+        logo: '/partners/comprehensive-meta-analysis.webp',
       },
       {
-        name: 'Partner 3',
-        logo: '/partners/partner-3.webp',
+        name: 'G*Power',
+        logo: '/partners/gpower.webp',
       },
       {
-        name: 'Partner 4',
-        logo: '/partners/partner-4.webp',
+        name: 'Jamovi',
+        logo: '/partners/jamovi.webp',
       },
       {
-        name: 'Partner 5',
-        logo: '/partners/partner-5.webp',
+        name: 'JASP',
+        logo: '/partners/jasp.webp',
+      },
+      {
+        name: 'MAXQDA',
+        logo: '/partners/maxqda.webp',
+      },
+      {
+        name: 'Minitab',
+        logo: '/partners/minitab.webp',
+      },
+      {
+        name: 'Power BI',
+        logo: '/partners/power-bi.webp',
+      },
+      {
+        name: 'Python',
+        logo: '/partners/python.webp',
+      },
+      {
+        name: 'R',
+        logo: '/partners/r.webp',
+      },
+      {
+        name: 'SPSS',
+        logo: '/partners/spss.webp',
+      },
+      {
+        name: 'SQL',
+        logo: '/partners/sql.webp',
+      },
+      {
+        name: 'VOSviewer',
+        logo: '/partners/vosviewer.webp',
+      },
+      {
+        name: 'Winsteps',
+        logo: '/partners/winsteps.webp',
       },
     ],
   },
