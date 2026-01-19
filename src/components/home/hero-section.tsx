@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
 import { GlowButton } from '@/components/ui/glow-button';
-import { ArrowRight, ChatCircle } from '@phosphor-icons/react';
+import { ArrowRight, ChatCircle, WhatsappLogo } from '@phosphor-icons/react';
 import { SnakeParticlesEffect } from '@/components/effects/snake-particles';
 import { useTranslations } from 'next-intl';
 
@@ -85,13 +85,20 @@ export function HeroSection({
             {secondaryCta && (
               <GlowButton
                 mode="both"
-                variant="outline"
                 size="lg"
                 asChild
+                glowColor="37, 211, 102"
+                className="bg-[#25D366] hover:bg-[#22c55e] text-white border-none"
               >
-                <Link href={secondaryCta.href}>
+                <a
+                  href={secondaryCta.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group"
+                >
+                  <WhatsappLogo size={20} className="mr-2" weight="duotone" />
                   {secondaryCta.label}
-                </Link>
+                </a>
               </GlowButton>
             )}
           </div>

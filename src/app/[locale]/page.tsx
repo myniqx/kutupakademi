@@ -1,17 +1,18 @@
-import { getTranslations } from 'next-intl/server';
-import { HeroSection } from '@/components/home/hero-section';
-import { TechnologyPartners } from '@/components/home/technology-partners';
-import { CategoryServiceCard } from '@/components/home/category-service-card';
-import { ProcessSteps } from '@/components/home/process-steps';
-import { StatsSection } from '@/components/home/stats-section';
-import { Testimonials } from '@/components/home/testimonials';
-import { SERVICE_CATEGORIES } from '@/constants/services';
-import { BlogGrid } from '@/components/blog/blog-grid';
-import { getBlogCards } from '@/lib/query/blog';
-import { Link } from '@/i18n/routing';
-import { ArrowRight } from 'lucide-react';
-import { generateMeta } from '@/constants/seo';
-import type { Metadata } from 'next';
+import { getTranslations } from "next-intl/server";
+import { HeroSection } from "@/components/home/hero-section";
+import { TechnologyPartners } from "@/components/home/technology-partners";
+import { CategoryServiceCard } from "@/components/home/category-service-card";
+import { ProcessSteps } from "@/components/home/process-steps";
+import { StatsSection } from "@/components/home/stats-section";
+import { Testimonials } from "@/components/home/testimonials";
+import { SERVICE_CATEGORIES } from "@/constants/services";
+import { BlogGrid } from "@/components/blog/blog-grid";
+import { getBlogCards } from "@/lib/query/blog";
+import { Link } from "@/i18n/routing";
+import { ArrowRight } from "lucide-react";
+import { generateMeta } from "@/constants/seo";
+import { SITE_CONFIG } from "@/constants/site";
+import type { Metadata } from "next";
 
 type HomeProps = {
   params: Promise<{ locale: string }>;
@@ -23,29 +24,37 @@ export async function generateMetadata({
   const { locale } = await params;
 
   return generateMeta({
-    locale: locale as 'tr' | 'en',
-    path: locale === 'en' ? '/en' : '',
+    locale: locale as "tr" | "en",
+    path: locale === "en" ? "/en" : "",
   });
 }
 
 export default async function Home({ params }: HomeProps) {
   const { locale } = await params;
-  const t = await getTranslations('home');
-  const tCommon = await getTranslations('common');
+  const t = await getTranslations("home");
+  const tCommon = await getTranslations("common");
 
   const recentBlogs = await getBlogCards({ locale, max: 3 });
 
+  const whatsappNumber = SITE_CONFIG.contact.whatsapp
+    .replace(/\s+/g, "")
+    .replace("+", "");
+  const whatsappUrl = `https://wa.me/${whatsappNumber}`;
+
   return (
     <div className="flex min-h-screen flex-col bg-background">
-
       {/* Hero Section */}
       <HeroSection
-        title={t('hero.title')}
-        subtitle={t('hero.subtitle')}
-        description={t('hero.description')}
+        title={t("hero.title")}
+        subtitle={t("hero.subtitle")}
+        description={t("hero.description")}
         primaryCta={{
-          label: t('hero.cta.primary'),
-          href: '/iletisim',
+          label: t("hero.cta.primary"),
+          href: "/iletisim",
+        }}
+        secondaryCta={{
+          label: t("hero.cta.whatsapp"),
+          href: whatsappUrl,
         }}
       />
 
@@ -58,11 +67,9 @@ export default async function Home({ params }: HomeProps) {
         <div className="min-h-[50vh] flex items-center py-16 md:py-24 relative z-50">
           <div className="container mx-auto px-4 w-full">
             <div className="max-w-4xl mx-auto text-center space-y-6">
-              <h2 className="text-3xl md:text-4xl font-bold">
-                {t('about.title')}
-              </h2>
+              <h2 className="text-3xl md:text-4xl font-bold">{t("about.title")}</h2>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                {t('about.description')}
+                {t("about.description")}
               </p>
             </div>
           </div>
@@ -71,15 +78,13 @@ export default async function Home({ params }: HomeProps) {
 
       {/* Services Section - Section 4 */}
       <section className="min-h-screen flex items-center py-16 md:py-24 relative z-10">
-
         <div className="container mx-auto px-4 w-full relative z-50">
-
           <div className="text-center mb-16 relative z-50 ">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              {t('services.title')}
+              {t("services.title")}
             </h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              {t('services.subtitle')}
+              {t("services.subtitle")}
             </p>
           </div>
 
@@ -87,11 +92,11 @@ export default async function Home({ params }: HomeProps) {
             {Object.values(SERVICE_CATEGORIES).map((category) => (
               <CategoryServiceCard
                 key={category.id}
-                icon={category.icon as keyof typeof import('@phosphor-icons/react')}
-                title={category.title[locale as 'tr' | 'en']}
-                description={category.description[locale as 'tr' | 'en']}
+                icon={category.icon as keyof typeof import("@phosphor-icons/react")}
+                title={category.title[locale as "tr" | "en"]}
+                description={category.description[locale as "tr" | "en"]}
                 services={category.services}
-                locale={locale as 'tr' | 'en'}
+                locale={locale as "tr" | "en"}
               />
             ))}
           </div>
@@ -119,22 +124,26 @@ export default async function Home({ params }: HomeProps) {
           <div className="container mx-auto px-4 w-full relative z-50">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                {t('blog.title')}
+                {t("blog.title")}
               </h2>
               <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-                {t('blog.subtitle')}
+                {t("blog.subtitle")}
               </p>
             </div>
 
             <div className="max-w-7xl mx-auto">
-              <BlogGrid blogs={recentBlogs} locale={locale as 'tr' | 'en'} max={3} />
+              <BlogGrid
+                blogs={recentBlogs}
+                locale={locale as "tr" | "en"}
+                max={3}
+              />
 
               <div className="text-center mt-12">
                 <Link
                   href="/blog"
                   className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-colors"
                 >
-                  <span>{tCommon('viewAll')}</span>
+                  <span>{tCommon("viewAll")}</span>
                   <ArrowRight className="h-4 w-4" />
                 </Link>
               </div>

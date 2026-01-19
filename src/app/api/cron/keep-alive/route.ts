@@ -4,8 +4,12 @@ import { getBlogs } from '@/app/actions/blog'
 export async function GET(request: NextRequest) {
   try {
     // Verify request is from Vercel Cron
+    // Vercel sends this header automatically for cron jobs
+    const isVercelCron = request.headers.get('x-vercel-cron') === '1'
     const authHeader = request.headers.get('authorization')
-    if (authHeader !== `Bearer ${process.env.CRON_SECRET}`) {
+    const isValidSecret = authHeader === `Bearer ${process.env.CRON_SECRET}`
+
+    if (!isVercelCron && !isValidSecret) {
       console.error('[Keep-Alive Cron] Unauthorized access attempt')
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
     }
