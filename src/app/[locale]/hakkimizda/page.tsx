@@ -31,8 +31,8 @@ export default async function AboutPage({ params }: AboutPageProps) {
   const content = {
     tr: {
       hero: {
-        greeting: 'Merhaba, Ben Selim Vakkas',
-        subtitle: 'Kutupakademi.com Kurucusu ve Veri Analisti',
+        greeting: 'Kutup Akademi\'ye Hoş Geldiniz!',
+        subtitle: "Akademik çalışma ve yayın desteği, SPSS istatistik analiz ve danışmanlık hizmetleri",
       },
       about: {
         title: 'Hakkımızda',
@@ -76,8 +76,8 @@ export default async function AboutPage({ params }: AboutPageProps) {
     },
     en: {
       hero: {
-        greeting: 'Hello, I\'m Selim Vakkas',
-        subtitle: 'Founder of Kutupakademi.com and Data Analyst',
+        greeting: 'Welcome to Kutup Akademi!',
+        subtitle: 'Academic work and publication support, SPSS statistical analysis and consultancy services',
       },
       about: {
         title: 'About Us',

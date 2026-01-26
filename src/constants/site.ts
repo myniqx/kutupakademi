@@ -4,8 +4,8 @@ export const SITE_CONFIG = {
     en: "Kutup Akademi",
   },
   description: {
-    tr: "Akademik çalışma desteği, SPSS analizi, tez danışmanlığı ve akademik İngilizce hizmetleri",
-    en: "Academic study support, SPSS analysis, thesis consulting, and academic English services",
+    tr: "Akademik çalışma ve yayın desteği, SPSS istatistik analiz ve danışmanlık hizmetleri",
+    en: "Academic work and publication support, SPSS statistical analysis and consultancy services"
   },
   contact: {
     email: "kutupakademi34@gmail.com",
