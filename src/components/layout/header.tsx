@@ -57,9 +57,14 @@ export function Header() {
                             <li key={child.href} className="break-inside-avoid mb-3">
                               {child.children ? (
                                 <div className="rounded-lg border border-border bg-card/60 backdrop-blur-sm p-3 space-y-2">
-                                  <p className="text-sm font-semibold text-foreground">
-                                    {child.label[locale]}
-                                  </p>
+                                  <NavigationMenuLink asChild>
+                                    <Link
+                                      href={child.href}
+                                      className="block text-sm font-semibold text-foreground hover:text-primary transition-colors"
+                                    >
+                                      {child.label[locale]}
+                                    </Link>
+                                  </NavigationMenuLink>
                                   <ul className="space-y-1">
                                     {child.children.map((subChild) => (
                                       <li key={subChild.href}>
@@ -166,18 +171,26 @@ function MobileMenu({
         <li key={item.href}>
           {item.children ? (
             <div>
-              <button
-                onClick={() => toggleItem(item.href)}
-                className="flex w-full items-center justify-between rounded-md px-3 py-2 text-sm font-medium hover:bg-accent hover:text-accent-foreground"
-              >
-                <span>{item.label[locale]}</span>
-                <ChevronDown
-                  className={cn(
-                    "h-4 w-4 transition-transform",
-                    openItems.has(item.href) && "rotate-180"
-                  )}
-                />
-              </button>
+              <div className="flex items-center gap-2">
+                <Link
+                  href={item.href}
+                  onClick={onClose}
+                  className="flex-1 rounded-md px-3 py-2 text-sm font-medium hover:bg-accent hover:text-accent-foreground"
+                >
+                  {item.label[locale]}
+                </Link>
+                <button
+                  onClick={() => toggleItem(item.href)}
+                  className="rounded-md px-2 py-2 text-sm font-medium hover:bg-accent hover:text-accent-foreground"
+                >
+                  <ChevronDown
+                    className={cn(
+                      "h-4 w-4 transition-transform",
+                      openItems.has(item.href) && "rotate-180"
+                    )}
+                  />
+                </button>
+              </div>
               {openItems.has(item.href) && (
                 <MobileMenu
                   items={item.children}

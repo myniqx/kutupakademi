@@ -24,6 +24,12 @@ const SERVICE_SLUGS = [
   'meta-analiz-yaptirma',
   'tez-danismanligi',
   'tez-duzenleme-hizmetleri',
+  'nitel-veri-analizi-yaptirma',
+  'qualitative-data-analysis-service',
+  'akademik-danismanlik',
+  'academic-consulting',
+  'spss-danismanlik-hizmeti',
+  'spss-consulting-service',
   ...BLOG_SLUGS
 ];
 

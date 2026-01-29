@@ -8,7 +8,7 @@ export interface Heading {
 
 export function extractHeadings(markdown: string): Heading[] {
   const headings: Heading[] = [];
-  const lines = markdown.split('\n');
+  const lines = markdown.split(/\r?\n/);
 
   for (const line of lines) {
     const match = line.match(/^(#{2,3})\s+(.+)$/);

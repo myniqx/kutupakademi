@@ -29,8 +29,22 @@ export const MAIN_MENU: MenuItem[] = [
       },
       {
         label: { tr: 'SPSS Danışmanlık Hizmeti', en: 'SPSS Consulting Service' },
-        href: '#',
+        href: '/spss-danismanlik-hizmeti',
         children: [
+          {
+            label: {
+              tr: 'SPSS Analizi Yaptırma',
+              en: 'SPSS Analysis Service',
+            },
+            href: '/spss-analizi-yaptirma',
+          },
+          {
+            label: {
+              tr: 'SPSS Analiz Ücretleri',
+              en: 'SPSS Analysis Prices',
+            },
+            href: '/spss-analiz-ucretleri',
+          },
           {
             label: {
               tr: 'SPSS Veri Analizi Yaptırma',
@@ -60,10 +74,17 @@ export const MAIN_MENU: MenuItem[] = [
       },
       {
         label: {
+          tr: 'Vosviewer ile Bibliyometrik Analiz Yaptırma',
+          en: 'Bibliometric Analysis with Vosviewer',
+        },
+        href: '/vosviewer-ile-bibliyometrik-analiz-yaptirma',
+      },
+      {
+        label: {
           tr: 'Nitel Veri Analizi Yaptırma',
           en: 'Qualitative Data Analysis Service',
         },
-        href: '#',
+        href: '/nitel-veri-analizi-yaptirma',
         children: [
           {
             label: {
@@ -74,13 +95,7 @@ export const MAIN_MENU: MenuItem[] = [
           },
         ],
       },
-      {
-        label: {
-          tr: 'Vosviewer ile Bibliyometrik Analiz Yaptırma',
-          en: 'Bibliometric Analysis with Vosviewer',
-        },
-        href: '/vosviewer-ile-bibliyometrik-analiz-yaptirma',
-      },
+
       {
         label: {
           tr: 'G Power ile Örneklem Büyüklüğü Hesaplama Analizi',
@@ -94,7 +109,7 @@ export const MAIN_MENU: MenuItem[] = [
       },
       {
         label: { tr: 'Akademik Danışmanlık', en: 'Academic Consulting' },
-        href: '#',
+        href: '/akademik-danismanlik',
         children: [
           {
             label: { tr: 'Tez Danışmanlığı', en: 'Thesis Consulting' },
