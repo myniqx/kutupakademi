@@ -3,10 +3,14 @@ import { generateMeta } from '@/constants/seo';
 import { ServiceContentTemplate } from '@/components/templates/service-content-template';
 import { getContentMetadata, getContentMarkdown } from '@/components/templates/libs/content';
 import type { Metadata } from 'next';
+import { generateMetadata as blogMetadata } from "../../blog/[slug]/page"
+import BlogPostPage from '../../blog/[slug]/page';
 
 type ServicePageProps = {
   params: Promise<{ locale: 'tr' | 'en'; service: string }>;
 };
+
+const BLOG_SLUGS = ["spss-analizi-yaptirma", "spss-analiz-ucretleri"]
 
 const SERVICE_SLUGS = [
   'yapisal-esitlik-modellemesi-analizi',
@@ -20,6 +24,7 @@ const SERVICE_SLUGS = [
   'meta-analiz-yaptirma',
   'tez-danismanligi',
   'tez-duzenleme-hizmetleri',
+  ...BLOG_SLUGS
 ];
 
 export async function generateStaticParams() {
@@ -41,7 +46,7 @@ export async function generateMetadata({
   const metadata = await getContentMetadata(service);
 
   if (!metadata) {
-    return {};
+    return blogMetadata({ params: Promise.resolve({ locale, slug: service }) });
   }
 
   return generateMeta({
@@ -54,6 +59,10 @@ export async function generateMetadata({
 
 export default async function ServicePage({ params }: ServicePageProps) {
   const { locale, service } = await params;
+
+  if (BLOG_SLUGS.includes(service)) {
+    return <BlogPostPage params={Promise.resolve({ locale: locale, slug: service })} />
+  }
 
   const [metadata, content] = await Promise.all([
     getContentMetadata(service),

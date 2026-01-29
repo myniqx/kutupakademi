@@ -9,7 +9,7 @@ import { getBlogCards } from '@/lib/query/blog'
 import { generateMeta, DEFAULT_SEO } from '@/constants/seo'
 
 type BlogPostPageProps = {
-  params: Promise<{ locale: string; slug: string }>
+  params: Promise<{ locale: "tr" | "en"; slug: string }>
 }
 
 export async function generateStaticParams() {
