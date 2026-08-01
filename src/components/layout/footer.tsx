@@ -123,8 +123,15 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Bottom Bar */}
+        {/* Disclaimer */}
         <div className="mt-12 border-t border-border pt-8">
+          <p className="text-xs text-muted-foreground leading-relaxed">
+            {SITE_CONFIG.disclaimer[locale]}
+          </p>
+        </div>
+
+        {/* Bottom Bar */}
+        <div className="mt-8 border-t border-border pt-8">
           <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
             <p className="text-sm text-muted-foreground">
               © {currentYear} {SITE_CONFIG.name[locale]}.{' '}

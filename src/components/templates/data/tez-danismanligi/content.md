@@ -1,12 +1,12 @@
 # Tez Danışmanlığı Hizmeti
 
-Tez, makale ve proje ödevleri birbirlerinden farklı isimlerle anılsa da kapsam yönü haricinde birbirleriyle aynı bölümlerden oluşup hazırlanma süreçlerinde aynı aşamalardan geçmektedir. Bu süreçlerde hiç kuşkusuz hata yapılması, gereksiz detaylara girilmesi kaçınılmazdır. Ancak, bu türden hatalara en az düşecek veya belki de hiç düşmeyecek şekilde tez, makale veya proje ödevi hazırlanabilmesi mümkündür.
+Tez, makale ve proje ödevleri birbirlerinden farklı isimlerle anılsa da kapsam yönü haricinde birbirleriyle aynı bölümlerden oluşup aynı aşamalardan geçmektedir. Bu süreçlerde hiç kuşkusuz hata yapılması, gereksiz detaylara girilmesi kaçınılmazdır. Ancak, doğru danışmanlık desteğiyle bu türden hatalara en az düşecek veya belki de hiç düşmeyecek şekilde çalışmanızı tamamlamanız mümkündür.
 
 Araştırma yöntemleri konusunda yıllar içerisinde edindiği tecrübeleri akademik prensipler süzgecinden geçirerek, uzman akademik kadrosuyla Kutup Akademi siz değerli araştırmacılara yol göstermeye hazırdır. Literatür taraması, yöntem, hipotez geliştirme, veri analizi, tartışma, sonuç ve kaynakça hazırlanmasında ve bunların APA standartları çerçevesinde yazılmasında ihtiyaç duyacağınız tüm tez danışmanlığı hizmetini eksiksiz ve aksaksız bir şekilde sizlere sunmaktayız.
 
 ## Tez Danışmanlığı Hizmetlerimiz
 
-Tez ve makalenizdeki bölümlerin hazırlanmasında sizlere taslaklar ve modeller sunarak yazım sürecinde yardımcı olmaktayız. Tüm bu süreçte, kesintisiz iletişim desteği sağlayarak yaşanabilecek hataları ortadan kaldırıp yazım aşamasının ilerlemesi için var gücümüzle yanınızdayız. Çalışmanızın profesyoneller tarafından değerlendirilmesini ve tüm aşamalarda profesyonel bir destek almak istiyorsanız Kutup Akademi her zaman yanınızda.
+Tez ve makalenizdeki bölümlerin oluşturulmasında sizlere yön göstererek danışmanlık sürecinde yardımcı olmaktayız. Tüm bu süreçte, kesintisiz iletişim desteği sağlayarak yaşanabilecek hataları ortadan kaldırıp çalışmanızın ilerlemesi için var gücümüzle yanınızdayız. Çalışmanızın profesyoneller tarafından değerlendirilmesini ve tüm aşamalarda profesyonel bir destek almak istiyorsanız Kutup Akademi her zaman yanınızda.
 
 ### 1. Akademik Danışmanlık
 
@@ -19,16 +19,16 @@ Akademik danışmanlık hizmetimiz kapsamında:
 - **Tartışma ve Sonuç:** Bulguların bilimsel bir çerçevede yorumlanması
 - **Kaynakça Düzenleme:** APA, Harvard, Chicago gibi standartlara uygun kaynak gösterimi
 
-### 2. Tez Yazım Desteği
+### 2. Tez Süreci Danışmanlığı
 
-Tez yazım sürecinizde her aşamada yanınızdayız:
+Tez sürecinizde her aşamada yanınızdayız:
 
-- **Konu Belirleme:** Orijinal ve akademik değeri yüksek tez konusu seçimi
-- **Tez Önerisi Hazırlama:** Danışman onayı için profesyonel tez önerisi hazırlığı
-- **Giriş Bölümü:** Problem durumu, amaç, önem ve sınırlılıkların yazılması
-- **Yöntem Bölümü:** Araştırma modeli, evren-örneklem, veri toplama araçlarının detaylandırılması
-- **Bulgular Bölümü:** Analiz sonuçlarının tablo ve grafiklerle sunumu
-- **Tartışma ve Sonuç:** Bulguların literatürle ilişkilendirilmesi ve önerilerin sunulması
+- **Konu Belirleme:** Orijinal ve akademik değeri yüksek tez konusu seçiminde rehberlik
+- **Tez Önerisi Hazırlama:** Danışman onayı için profesyonel tez önerisi danışmanlığı
+- **Giriş Bölümü:** Problem durumu, amaç, önem ve sınırlılıkların belirlenmesinde yönlendirme
+- **Yöntem Bölümü:** Araştırma modeli, evren-örneklem, veri toplama araçlarının detaylandırılmasında destek
+- **Bulgular Bölümü:** Analiz sonuçlarının tablo ve grafiklerle sunumuna dair danışmanlık
+- **Tartışma ve Sonuç:** Bulguların literatürle ilişkilendirilmesi ve önerilerin sunulmasında yönlendirme
 
 ### 3. Akademik Yazım Standartları
 

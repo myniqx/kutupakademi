@@ -32,7 +32,7 @@ export function BlogCard({ blog, locale }: BlogCardProps) {
       >
         <div className="flex flex-col flex-1 overflow-hidden">
           {/* Cover Image */}
-          {blog.coverImage && (
+          {blog.coverImage?.trim() && (
             <div className="relative h-48 shrink-0 overflow-hidden bg-muted">
               <Image
                 src={blog.coverImage}

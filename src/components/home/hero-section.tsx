@@ -37,13 +37,6 @@ export function HeroSection({
       {/* Snake particles effect */}
       <SnakeParticlesEffect />
 
-      {/* Background gradient effects */}
-      <div className="absolute inset-0 z-0">
-        <div className="absolute top-1/4 left-1/4 w-125 h-125 bg-primary/20 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-1/4 right-1/4 w-100 h-100 bg-primary/15 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-150 h-150 bg-primary/5 rounded-full blur-3xl" />
-      </div>
-
       <div className="container mx-auto px-4 w-full pt-16 relative z-50">
         <div className="max-w-4xl lg:max-w-none lg:w-1/2 space-y-8">
           {/* Main title with gradient */}
