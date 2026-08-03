@@ -1,16 +1,16 @@
 {
 	"date": "2025-09-18T10:30:00+00:00",
-	"lastModified": "2025-09-18T10:30:00+00:00",
+	"lastModified": "2026-08-03T00:00:00+03:00",
 
 	"slug": "akademik-danismanlik",
 	"tr": {
 		"title": "Akademik Danışmanlık",
-		"description": "Tez danışmanlık hizmeti ile akademik çalışmalarınızda profesyonel destek alın. Tez yazım sürecinde planlama, metodoloji ve literatür tarama desteği.",
+		"description": "Araştırma planlama, literatür tarama stratejisi, yöntem seçimi ve araştırmacının kendi metnini geliştirmesine yönelik akademik danışmanlık.",
 		"url": "https://kutupakademi.com/akademik-danismanlik/"
 	},
 	"en": {
 		"title": "Academic Consulting",
-		"description": "Get professional support in your academic studies with thesis consulting service. Planning, methodology and literature review support in the thesis writing process.",
+		"description": "Academic consulting for research planning, literature review strategy, method selection, and improving the researcher’s own writing.",
 		"url": "https://kutupakademi.com/en/academic-consulting/"
 	}
 }

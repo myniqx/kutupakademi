@@ -1,147 +1,72 @@
-# Tez Düzenleme Hizmetleri
+# Tez Biçim ve Dil İncelemesi
 
-Akademik çalışmalarınızın en zahmetli kısımlarından birisi de hazırlanmış çalışmanın baştan sona hem içerik uygunluğunun kontrol edilmesidir. Bu işlem biraz Microsoft Office Word programı bilgisi gerektirdiğinden, biraz da uzun çalışma sonucu araştırmacının odaklanma düzeyi düştüğünden, yorucu görünmektedir.
+Tez biçim ve dil incelemesi, araştırmacının tamamladığı metni üniversitenin yazım kılavuzu ve seçilen kaynak gösterme standardı bakımından gözden geçiren editoryal bir destektir. Çalışmanın bilimsel içeriği, yorumları ve yazarlığı araştırmacıya ait kalır.
 
-Kutup Akademi olarak, tez düzenleme sürecinizde size profesyonel destek sunarak akademik çalışmanızın her aşamada standartlara uygun olmasını sağlıyoruz. Uzman kadromuz, tezinizin biçimsel ve içerik açısından eksiksiz bir hale gelmesi için titizlikle çalışmaktadır.
+> **Editoryal sınır:** Bu hizmet tez yazımı veya tez bölümü üretimi değildir. Araştırma sorusu, yöntem, bulgu ve sonuçlar değiştirilmez; araştırmacı adına yeni akademik içerik oluşturulmaz.
 
-## Tez Düzenleme Hizmetlerimiz
+## Biçimsel Kontroller
 
-Kapak sayfası hazırlama, içindekiler, tablo boyutları, roma rakamı ve kullandığımız rakamlarla sayfa numaraları ayarlama, intihal oranı düşürme, kaynakça hazırlama ve metin içi atıfları düzenleme gibi tez düzenleme işleri ciddi bir detaycılık ve titizlik gerektirmektedir.
+- Kapak, onay, özet ve diğer ön sayfaların kılavuza uygunluğu
+- İçindekiler, tablo, şekil, kısaltma ve ek listelerinin düzeni
+- Sayfa numarası, kenar boşluğu, yazı tipi, satır aralığı ve paragraf ayarları
+- Tablo ve şekil başlıklarının numaralandırılması ve metindeki yönlendirmelerle uyumu
+- Bölüm başlıkları, dipnotlar, ekler, üst bilgi ve alt bilgi düzeni
 
-### 1. Biçimsel Düzenleme Hizmetleri
+## Kaynakça ve Atıf Kontrolü
 
-**Kapak Sayfası ve Ön Sayfalar:**
-- Üniversite standartlarına uygun kapak sayfası tasarımı
-- Onay sayfası, önsöz, teşekkür ve özet sayfalarının düzenlenmesi
-- İçindekiler, tablolar listesi, şekiller listesi otomatik oluşturulması
-- Kısaltmalar ve semboller listesinin hazırlanması
+- Metin içi atıflarla kaynakça kayıtlarının karşılaştırılması
+- APA, Harvard, Chicago, MLA, IEEE veya Vancouver biçiminin tutarlılığı
+- Eksik yazar, yıl, başlık, DOI ve erişim bilgilerinin araştırmacıya bildirilmesi
+- Kaynak yönetim programlarından aktarılan kayıtların biçimsel kontrolü
 
-**Sayfa Düzeni ve Numaralandırma:**
-- Roma rakamı ve Arap rakamlarıyla sayfa numaralarının doğru yerleştirilmesi
-- Üst bilgi ve alt bilgi düzenlemeleri
-- Sayfa kenar boşlukları ve paragraf ayarları
-- Satır aralıkları ve yazı tipi standartlaştırması
+Kaynakların gerçekliği ve çalışmada gerçekten kullanılıp kullanılmadığı araştırmacı tarafından doğrulanır. Olmayan veya doğrulanamayan kaynak oluşturulmaz.
 
-**Tablo ve Şekil Düzenlemeleri:**
-- Tablo başlıklarının APA, Harvard veya Chicago formatına uygun düzenlenmesi
-- Şekil ve grafiklerin boyutlandırılması
-- Tablo ve şekillerin metin içinde doğru konumlandırılması
-- Görsel kalitesinin artırılması
+## Dil ve Anlatım İncelemesi
 
-### 2. İçerik Düzenleme Hizmetleri
+- Yazım, noktalama ve dil bilgisi kontrolü
+- Anlamı değiştirmeden açıklık ve akıcılık önerileri
+- Kavram ve terim kullanımındaki tutarsızlıkların işaretlenmesi
+- Uzun veya belirsiz cümleler için düzeltme önerileri
 
-**Kaynakça ve Atıf Yönetimi:**
-- APA 7, Harvard, Chicago gibi standartlara uygun kaynakça hazırlanması
-- Metin içi atıfların tutarlı ve doğru yapılması
-- Eksik veya hatalı kaynakların tespiti ve düzeltilmesi
-- Kaynak sıralama ve biçimlendirme kontrolü
+Esaslı değişiklikler mümkün olduğunda değişiklikleri izle yöntemiyle sunulur. Araştırmacı her öneriyi kabul etme veya reddetme kararını kendisi verir.
 
-**Akademik Dil ve Anlatım:**
-- Dil bilgisi ve yazım kurallarına uygunluk kontrolü
-- Cümle yapılarının akademik yazıma uygun düzenlenmesi
-- Tutarlılık ve akıcılık sağlanması
-- Teknik terimlerin doğru kullanımının kontrolü
+## Benzerlik Raporu Desteği
 
-**İntihal Kontrolü ve Düzeltme:**
-- Turnitin, iThenticate gibi programlarla intihal oranı tespiti
-- Yüksek benzerlik gösteren bölümlerin yeniden ifade edilmesi
-- Kaynak gösterimlerinin eksiksiz yapılması
-- Akademik dürüstlük standartlarına tam uyum
+Benzerlik yüzdesi tek başına intihal kararı değildir. Varsa kurum tarafından sağlanan rapor; doğru alıntı, kaynak gösterimi, yöntemsel kalıp ifadeler ve hatalı eşleşmeler bakımından araştırmacıyla birlikte yorumlanır.
 
-### 3. Akademik Çeviri Hizmetleri
+- Belirli bir benzerlik oranına düşürme garantisi verilmez.
+- Kaynak gizlemek veya tespit sistemlerini atlatmak amacıyla yeniden yazım yapılmaz.
+- Sorunlu bölümlerde doğru alıntı, özetleme ve kaynak gösterme ilkeleri açıklanır.
+- Araştırmacının kendi cümlesini etik biçimde geliştirmesi için örnekli geri bildirim verilir.
 
-Aynı zamanda, çalışmanın istediğiniz bölümlerinin İngilizce'ye çevrilmesi de yine sizlere sunduğumuz hizmetler arasındadır. Akademik İngilizce'ye hakim uzman personelimiz tarafından ihtiyaç duyduğunuz çeviri hizmetlerini de sunmaktayız.
+## Çalışma Akışı
 
-**İngilizce Çeviri Hizmetlerimiz:**
-- Özet (Abstract) çevirisi
-- Başlık ve anahtar kelime çevirisi
-- Tam metin çevirisi
-- Akademik terminolojiye hakimiyet
-- Native speaker kontrolü
+1. **Kapsam kontrolü:** Metnin araştırmacı tarafından hazırlanmış olduğu ve istenen editoryal işlemler doğrulanır.
+2. **Kılavuz incelemesi:** Üniversitenin güncel tez yazım kılavuzu ve varsa enstitü şablonu değerlendirilir.
+3. **Biçim ve dil kontrolü:** Belirlenen kapsamda teknik düzenlemeler ve gerekçeli dil önerileri uygulanır.
+4. **Araştırmacı incelemesi:** Değişiklikler araştırmacıya açıklanır ve içerik kararları araştırmacı tarafından verilir.
+5. **Son kontrol:** Kabul edilen düzeltmelerin biçimsel tutarlılığı kontrol edilir.
 
-**Dil Desteği:**
-- Türkçe-İngilizce çeviri
-- İngilizce-Türkçe çeviri
-- Proofreading ve editörlük
-- Dil bilgisi kontrolü
+## Hizmet İçin Gerekli Belgeler
 
-## Tez Düzenleme Sürecimiz
-
-**1. Analiz ve Değerlendirme:**
-Teziniz detaylı olarak incelenir ve düzenleme gereksinimleri belirlenir.
-
-**2. Teknik Düzenlemeler:**
-Biçimsel standartlara uygun olarak tüm teknik düzenlemeler yapılır.
-
-**3. İçerik Kontrolü:**
-Kaynak gösterimleri, atıflar ve akademik dil kontrol edilir.
-
-**4. İntihal Kontrolü:**
-Benzerlik oranı tespit edilir ve gerekli düzeltmeler yapılır.
-
-**5. Kalite Kontrolü:**
-Son bir kez tüm düzenlemeler gözden geçirilir.
-
-**6. Teslimat:**
-Tamamlanan çalışma sizinle paylaşılır ve gerekirse revizyon yapılır.
-
-## Hangi Üniversite Formatlarını Destekliyoruz?
-
-- APA 7. Edisyon (American Psychological Association)
-- Harvard Referencing System
-- Chicago Manual of Style
-- MLA (Modern Language Association)
-- IEEE (Institute of Electrical and Electronics Engineers)
-- Vancouver Style
-- Özel üniversite şablonları ve formatları
-
-## Tez Düzenleme Hizmetimizin Avantajları
-
-**Profesyonel Ekip:**
-Akademik yazım standartlarına hakim uzman kadromuz, tezinizi en iyi şekilde düzenler.
-
-**Zaman Tasarrufu:**
-Teknik düzenlemelere harcayacağınız zamanı araştırmanıza odaklanmak için kullanabilirsiniz.
-
-**Standartlara Tam Uyum:**
-Üniversitenizin belirlediği tüm biçimsel kurallara eksiksiz uygunluk sağlanır.
-
-**Hatasız Sonuç:**
-Titiz kontrol sürecimiz sayesinde hata payı minimize edilir.
-
-**Revizyon Garantisi:**
-Teslimat sonrası gerekli düzeltmeler hızla yapılır.
-
-**Gizlilik Güvencesi:**
-Tüm çalışmalarınız gizlilik prensipleri çerçevesinde korunur.
-
-## Tez Düzenleme İçin Nelere İhtiyacımız Var?
-
-- Tezinizin son hali (Word formatında)
-- Üniversitenizin tez yazım kılavuzu
-- Özel istekleriniz ve düzenleme gereksinimleri
-- Teslim tarihi bilgisi
+- Araştırmacının hazırladığı güncel Word dosyası
+- Üniversite veya enstitünün güncel yazım kılavuzu
+- Kullanılan atıf sistemi
+- Özellikle kontrol edilmesi istenen biçim ve dil başlıkları
+- Danışmanlık için hedef tarih
 
 ## Sıkça Sorulan Sorular
 
-### Tez düzenleme süreci ne kadar sürer?
+### Metnimin içeriği yeniden yazılır mı?
 
-Tezin uzunluğuna ve düzenleme gereksinimlerine bağlı olarak ortalama 3-7 gün içinde tamamlanır.
+Hayır. İçerik ve akademik yorum araştırmacıya aittir. Dil önerileri anlamı koruyacak şekilde sunulur; yeni tez bölümü veya argüman üretilmez.
 
-### İntihal oranını ne kadar düşürebilirsiniz?
+### Benzerlik oranı için garanti veriliyor mu?
 
-Genellikle %15'in altına düşürmeyi hedefleriz. Ancak bazı durumlarda orijinal metinlerin yapısına bağlı olarak bu oran değişebilir.
+Hayır. Evrensel bir kabul oranı bulunmadığından yüzde garantisi verilmez. Kurumunuzun kuralları esas alınır ve rapor etik kaynak kullanımı açısından değerlendirilir.
 
-### Hangi Word sürümlerini destekliyorsunuz?
+### Hangi biçimler incelenebilir?
 
-Microsoft Word 2010 ve üzeri tüm sürümleri destekliyoruz.
+Üniversiteye özgü tez kılavuzlarının yanı sıra APA, Harvard, Chicago, MLA, IEEE ve Vancouver gibi yaygın sistemler incelenebilir.
 
-### Düzenleme sonrası revizyon yapılabilir mi?
-
-Evet, teslimat sonrası gerekli revizyonlar ücretsiz olarak yapılır.
-
-## İletişim
-
-Tez düzenleme hizmetlerimiz hakkında detaylı bilgi almak ve fiyat teklifi almak için bizimle iletişime geçebilirsiniz. Akademik yolculuğunuzun son aşamasında size destek olmaktan mutluluk duyarız.
-
-**Profesyonel tez düzenleme hizmeti ile çalışmanızı standartlara uygun hale getirin!**
+Kendi hazırladığınız tezin biçim, kaynakça veya dil bakımından incelenmesi için danışmanlık talebi oluşturabilirsiniz.

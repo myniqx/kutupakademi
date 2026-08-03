@@ -1,4 +1,4 @@
-# Meta-Analysis Service
+# Meta-Analysis Method and Application Consulting
 
 ![](./featured-image.webp)
 
@@ -6,7 +6,9 @@ Meta-analysis is a powerful analysis method that calculates a general effect siz
 
 What distinguishes it from other analysis types is that it works not with individual data but with statistical outputs of published studies. For this reason, meta-analysis both creates a higher impact in academic publications and systematically makes sense of the pile of information in the literature.
 
-If you also want to produce strong results from the literature in your thesis or scientific publications, we can support you with our professional meta-analysis service. In the continuation of the page, you can examine all processes from methodology to reporting step by step and contact us immediately to have a meta-analysis performed.
+This page introduces the main stages of the method. Applied consulting is available for researchers who want guidance on search strategy, data extraction plans, model selection, and understanding the limits of their own outputs.
+
+> **Service boundary:** Literature selection, academic assessment, interpretation, and the final text remain the researcher’s responsibility. Consulting does not include preparing a thesis, article, or publication-ready report on behalf of a researcher.
 
 ## What is Meta-Analysis?
 
@@ -115,23 +117,22 @@ Limitations such as quality of studies included in the analysis, methodological 
 
 ![how to write a meta-analysis](./image-2.webp)
 
-## Get Meta-Analysis Service
+## Scope of Meta-Analysis Consulting
 
-Performing meta-analysis requires expertise and statistical knowledge. It is recommended that you get professional support to avoid mistakes in both the analysis and writing process and to produce a study with high scientific validity.
+Meta-analysis requires a protocol defined in advance and reported transparently. Consulting helps researchers learn this process and justify their own decisions.
 
 ![meta-analysis service](./image-3.webp)
 
-Within the scope of service:
+Consulting can cover:
 
-- Literature review
-- Determination of inclusion/exclusion criteria
-- Application of effect size and models
-- Heterogeneity test (I²) and Q-Test statistical significance evaluation
-- Publication bias test (Egger's test) and funnel plot interpretation
-- Preparation of forest and funnel plots
-- Translation of results into scientific language
-- Preparation of publication-ready meta-analysis report
+- Review of the researcher’s search strategy
+- Assessment of consistency in inclusion and exclusion criteria
+- Explanation of data-extraction forms and double-checking approaches
+- Teaching assumptions behind effect sizes and model options
+- Demonstrating how to read heterogeneity and publication-bias outputs
+- Applied guidance for producing forest and funnel plots
+- Feedback on the researcher’s own report against PRISMA and transparency criteria
 
 we provide support.
 
-You can get a quote immediately from the form on the **[Contact](https://www.kutupakademi.com/iletisim/)** page. You can visit our **[Services](https://www.kutupakademi.com/hizmetlerimiz/)** page to explore our other professional support areas. Or you can contact us directly through our WhatsApp communication line. Call now!
+You can reach us through the **[contact](https://www.kutupakademi.com/iletisim/)** page for methodological guidance while conducting your own meta-analysis.

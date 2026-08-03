@@ -10,6 +10,7 @@
 		"theme": "node scripts/generate-theme.js",
 		"scrape": "tsx scripts/scrape-content.ts",
 		"import:blogs": "tsx scripts/import-blogs-to-db.ts",
+		"revise:guidance-blogs": "tsx scripts/revise-guidance-blogs.ts",
 		"db:generate": "drizzle-kit generate",
 		"db:migrate": "drizzle-kit migrate",
 		"db:push": "drizzle-kit push",

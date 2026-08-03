@@ -3,13 +3,51 @@ import { revalidatePath } from 'next/cache'
 import { db } from '@/db'
 import { blogs } from '@/db/schema'
 import { eq } from 'drizzle-orm'
+import { getAuthenticatedUser } from '@/lib/auth/user'
+import { z } from 'zod'
+
+const blogPayloadSchema = z.object({
+  slug: z.string().trim().min(1).max(180).regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/),
+  author: z.string().trim().max(120).optional().nullable(),
+  keywords: z.string().trim().max(1000).optional().nullable(),
+  title_tr: z.string().trim().min(1).max(240),
+  title_en: z.string().trim().max(240).optional().nullable(),
+  description_tr: z.string().trim().max(500).optional().nullable(),
+  description_en: z.string().trim().max(500).optional().nullable(),
+  summary_tr: z.string().trim().max(5000).optional().nullable(),
+  summary_en: z.string().trim().max(5000).optional().nullable(),
+  content_tr: z.string().trim().min(1).max(250000),
+  content_en: z.string().trim().max(250000).optional().nullable(),
+  coverImage: z.string().trim().max(2000).optional().nullable(),
+  published: z.boolean().optional(),
+})
+
+const updateBlogPayloadSchema = blogPayloadSchema.extend({
+  id: z.string().uuid(),
+})
+
+async function isAuthorized() {
+  return Boolean(await getAuthenticatedUser())
+}
 
 export async function POST(request: NextRequest) {
   try {
-    const body = await request.json()
+    if (!(await isAuthorized())) {
+      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+    }
+
+    const parsedBody = blogPayloadSchema.safeParse(await request.json())
+
+    if (!parsedBody.success) {
+      return NextResponse.json({ error: 'Invalid blog data' }, { status: 400 })
+    }
+
+    const body = parsedBody.data
 
     const [newBlog] = await db.insert(blogs).values({
       slug: body.slug,
+      author: body.author || null,
+      keywords: body.keywords || null,
       title_tr: body.title_tr,
       title_en: body.title_en || null,
       description_tr: body.description_tr || null,
@@ -19,7 +57,7 @@ export async function POST(request: NextRequest) {
       content_tr: body.content_tr,
       content_en: body.content_en || null,
       coverImage: body.coverImage || null,
-      published: body.published || false,
+      published: body.published ?? false,
     }).returning()
 
     // If published, revalidate blog listing pages
@@ -36,11 +74,17 @@ export async function POST(request: NextRequest) {
 
 export async function PUT(request: NextRequest) {
   try {
-    const body = await request.json()
-
-    if (!body.id) {
-      return NextResponse.json({ error: 'Blog ID is required' }, { status: 400 })
+    if (!(await isAuthorized())) {
+      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
     }
+
+    const parsedBody = updateBlogPayloadSchema.safeParse(await request.json())
+
+    if (!parsedBody.success) {
+      return NextResponse.json({ error: 'Invalid blog data' }, { status: 400 })
+    }
+
+    const body = parsedBody.data
 
     // Get current blog state to check if published status changed
     const [oldBlog] = await db.select().from(blogs).where(eq(blogs.id, body.id))
@@ -49,6 +93,8 @@ export async function PUT(request: NextRequest) {
       .update(blogs)
       .set({
         slug: body.slug,
+        author: body.author || null,
+        keywords: body.keywords || null,
         title_tr: body.title_tr,
         title_en: body.title_en || null,
         description_tr: body.description_tr || null,
@@ -58,7 +104,7 @@ export async function PUT(request: NextRequest) {
         content_tr: body.content_tr,
         content_en: body.content_en || null,
         coverImage: body.coverImage || null,
-        published: body.published || false,
+        published: body.published ?? false,
         updatedAt: new Date(),
       })
       .where(eq(blogs.id, body.id))

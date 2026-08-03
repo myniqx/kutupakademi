@@ -4,11 +4,13 @@
 
 Sample size calculation with G Power is the process of scientifically determining how many participants are needed in a statistical analysis. This calculation is essential for research results to be reliable and valid. Analyses conducted with too few participants may miss important differences, while working with more participants than necessary can lead to waste of time and resources. Therefore, especially in academic studies, determining the correct sample size is a fundamental requirement.
 
-In the continuation of the page, you can find all the steps of the sample calculation process using GPower in detail, why this process is critical, and how it can be applied in which test types. If you also want to achieve reliable results with a correctly calculated sample, you can benefit from our GPower analysis service and carry out the process more healthily by taking advantage of the guidance offered by this page.
+The remainder of this page explains the core steps of sample-size calculation in GPower, why the process matters, and which inputs are required for different test families.
+
+> **Consulting scope:** Test family, effect-size rationale, alpha, power, and sample inputs are reviewed with the researcher. Research decisions, academic interpretation, and the final report belong to the researcher.
 
 ## What is GPower Analysis?
 
-Power analysis is a statistical method for calculating the probability of revealing a real effect in a planned research. The basic answer to the question "What is power analysis?" is to guarantee the statistical power of the study by determining the minimum number of participants needed. Especially in academic research, the correct determination of power level, sample size and alpha level is of critical importance to reach reliable results.
+Power analysis evaluates the probability of detecting an effect of a specified size in a planned study. Sample size, effect size, alpha, and target power are considered together; the calculation alone does not guarantee study validity.
 
 [GPower](https://www.psychologie.hhu.de/arbeitsgruppen/allgemeine-psychologie-und-arbeitspsychologie/gpower) is a software that has been developed for power analysis in statistical analyses and can be used free of charge. This software allows sample size calculation for various test types, while also enabling the assessment of analysis power in existing studies.
 
@@ -114,18 +116,16 @@ Sample size indicates the minimum number of participants required for the resear
 
 **What should the effect size be in power analysis?**
 
-The effect size to be used in power analysis varies according to the nature of the study, but commonly accepted values are: small effect = 0.2, medium effect = 0.5, large effect = 0.8. If there are similar studies in past literature, the effect size values they reported can be referenced.
+The effect size used in power analysis depends on the research question, test family, and measurement scale. It should be justified using previous studies, pilot data, or the smallest effect that is meaningful in the field whenever possible. Generic classifications should not be used without context.
 
 ## How is power calculated?
 
 Power (statistical power) is the probability that a study will detect a real difference and is generally targeted at 80% (0.80) or higher. In GPower, analysis power can be calculated by entering effect size, alpha level and sample size. High power value reduces the risk of false negative results.
 
-## Verify Your Sample Calculation with Professional Support
+## Applied GPower Consulting
 
-Although using GPower software may seem technically simple, choosing the right test, estimating effect size and adjusting error rates require expertise. Therefore, it is important to get professional support, especially in important academic studies such as publications or theses.
+Although GPower may appear technically simple, selecting the correct test, tail, effect size, and error rates requires methodological justification. In applied consulting, researchers learn the software using their own design, justify each input, and document the calculation so it can be reproduced.
 
-With consultancy service, not only calculation, but also interpretation of the obtained results, conversion to academic writing and preparation of presentation files when necessary can be provided. In this way, it becomes easier both to receive positive feedback from advisor opinions and to ensure scientific consistency.
-
-Ready analysis outputs are presented to you together with tables and graphs. Whether you request only calculation or a comprehensive analysis report, we are with you with solutions suitable for your academic goals. You can reach us immediately by filling out the [contact form](https://www.kutupakademi.com/iletisim/) or through our whatsapp line and get a price quote. For your other analysis assistance requests, you can visit our [services](https://www.kutupakademi.com/hizmetlerimiz/) page.
+Use the [contact form](https://www.kutupakademi.com/iletisim/) to share the test family you want to learn and your research design.
 
 Quick Contact Line

@@ -4,11 +4,13 @@
 
 G Power ile örneklem büyüklüğü hesaplama, bir istatistiksel analizde kaç katılımcıya ihtiyaç duyulduğunu bilimsel olarak belirleme sürecidir. Bu hesaplama, araştırma sonuçlarının güvenilir ve geçerli olabilmesi için gereklidir. Çok az sayıda katılımcı ile yapılan analizler, önemli farkları kaçırabilirken; gereğinden fazla katılımcı ile çalışmak zaman ve kaynak israfına neden olabilir. Bu nedenle, özellikle akademik çalışmalarda, doğru örneklem büyüklüğü belirlemek temel bir ihtiyaçtır.
 
-Sayfanın devamında, GPower kullanarak örneklem hesaplama sürecinin tüm adımlarını, bu sürecin neden kritik olduğunu ve hangi test türlerinde nasıl uygulanabileceğini detaylı bir şekilde bulabilirsiniz. Eğer siz de doğru hesaplanmış bir örneklem ile güvenilir sonuçlara ulaşmak istiyorsanız, GPower analiz hizmetimizden faydalanabilir ve bu sayfanın sunduğu rehberlikten yararlanarak süreci daha sağlıklı yürütebilirsiniz.
+Sayfanın devamında GPower kullanarak örneklem hesaplama sürecinin temel adımlarını, bu sürecin neden kritik olduğunu ve farklı test türlerinde hangi girdilerin gerektiğini bulabilirsiniz.
+
+> **Danışmanlık kapsamı:** Test ailesi, etki büyüklüğü gerekçesi, alfa, güç ve örneklem girdileri araştırmacıyla birlikte değerlendirilir. Araştırma kararları, akademik yorum ve nihai rapor araştırmacıya aittir.
 
 ## GPower Analizi Nedir?​
 
-Power analizi, planlanan bir araştırmada gerçek bir etkinin ortaya çıkarılma olasılığını hesaplamaya yönelik istatistiksel bir yöntemdir. “Power analizi nedir?” sorusunun temel cevabı; minimum kaç katılımcıya ihtiyaç olduğunu belirleyerek çalışmanın istatistiksel gücünü garanti altına almaktır. Özellikle akademik araştırmalarda güç düzeyi, örneklem büyüklüğü ve alfa seviyesinin doğru belirlenmesi güvenilir sonuçlara ulaşmak için kritik öneme sahiptir.
+Power analizi, planlanan bir araştırmada belirli büyüklükteki bir etkiyi saptama olasılığını değerlendiren istatistiksel bir yöntemdir. Örneklem büyüklüğü, etki büyüklüğü, alfa ve hedef güç birlikte ele alınır; hesaplama tek başına çalışmanın geçerliliğini garanti etmez.
 
 [GPower](https://www.psychologie.hhu.de/arbeitsgruppen/allgemeine-psychologie-und-arbeitspsychologie/gpower), istatistiksel analizlerde güç analizi yapmak için geliştirilmiş, üretimsiz olarak kullanılabilecek bir yazılımdır. Bu yazılım, çeşitli test türleri için örneklem büyüklüğü hesaplamaya imkan tanırken, aynı zamanda mevcut çalışmalarda analiz gücünü de değerlendirmeye olanak verir.
 
@@ -114,18 +116,16 @@ GPower’daki “effect size” (etki büyüklüğü), değişkenler arasındaki
 
 **Güç analizinde etki büyüklüğü kaç olmalı?​**
 
-Güç analizinde kullanılacak etki büyüklüğü çalışmanın doğasına göre değişir, ancak yaygın kabul gören değerler şunlardır: küçük etki = 0.2, orta etki = 0.5, büyük etki = 0.8. Eğer geçmiş literatürde benzer çalışmalar varsa, onların rapor ettiği etki büyüklüğü değerleri referans alınabilir.
+Güç analizinde kullanılacak etki büyüklüğü araştırma sorusuna, test türüne ve ölçüm ölçeğine göre değişir. Etki büyüklüğü; mümkünse önceki çalışmalar, pilot veri veya alan açısından anlamlı en küçük etki kullanılarak gerekçelendirilmelidir. Genel sınıflandırmalar bağlamdan bağımsız biçimde kullanılmamalıdır.
 
 ## Power nasıl hesaplanır?​
 
 Power (istatistiksel güç), bir çalışmanın gerçek bir farkı tespit etme olasılığıdır ve genellikle %80 (0.80) veya üzeri hedeflenir. GPower’da etki büyüklüğü, alfa seviyesi ve örneklem sayısı girilerek analiz gücü hesaplanabilir. Yüksek power değeri, yanlış negatif sonuç riskini azaltır.
 
-## Profesyonel Destekle Örneklem Hesaplamanızı Doğrulayın​
+## GPower Uygulama Danışmanlığı​
 
-GPower yazılımını kullanmak teknik olarak basit görünse de, doğru test seçimi, etki büyüklüğü tahmini ve hata oranlarının ayarlanması uzmanlık gerektirir. Bu nedenle, özellikle yayın ya da tez gibi önemli akademik çalışmalarda profesyonel destek almak önemlidir.
+GPower yazılımını kullanmak teknik olarak basit görünse de doğru test, kuyruk yönü, etki büyüklüğü ve hata oranlarını seçmek yöntemsel gerekçe gerektirir. Uygulamalı danışmanlıkta araştırmacı kendi tasarımı üzerinden yazılım adımlarını öğrenir, girdilerini gerekçelendirir ve çıktıyı yeniden üretebilecek biçimde belgeler.
 
-Danışmanlık hizmeti ile sadece hesaplama değil, elde edilen sonuçların yorumlanması, akademik yazıma dönüştürülmesi ve gerekli durumlarda sunum dosyalarının hazırlanması da sağlanabilir. Bu sayede hem danışman görüşlerinden olumlu dönüt almak hem de bilimsel tutarlılığı sağlamak kolaylaşır.
-
-Hazır analiz çıktıları, tablo ve grafiklerle birlikte size sunulur. İster sadece hesaplama ister tam kapsamı bir analiz raporu talep edin, akademik hedeflerinize uygun çözümlerle yanınızdayız. [İletişim formunu](https://www.kutupakademi.com/iletisim/) doldurarak veya whatsapp hattımızdan bize hemen ulaşabilir, fiyat teklifi alabilirsiniz. Diğer analiz yardımı talepleriniz için [hizmetlerimiz](https://www.kutupakademi.com/hizmetlerimiz/) sayfasına göz atabilirsiniz. 
+[İletişim formunu](https://www.kutupakademi.com/iletisim/) kullanarak öğrenmek istediğiniz test türünü ve araştırma tasarımınızı paylaşabilirsiniz.
 
 Hızlı İletişim Hattı

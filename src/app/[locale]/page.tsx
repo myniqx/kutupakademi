@@ -3,8 +3,6 @@ import { HeroSection } from "@/components/home/hero-section";
 import { TechnologyPartners } from "@/components/home/technology-partners";
 import { CategoryServiceCard } from "@/components/home/category-service-card";
 import { ProcessSteps } from "@/components/home/process-steps";
-import { StatsSection } from "@/components/home/stats-section";
-import { Testimonials } from "@/components/home/testimonials";
 import { SERVICE_CATEGORIES } from "@/constants/services";
 import { BlogGrid } from "@/components/blog/blog-grid";
 import { getBlogCards } from "@/lib/query/blog";
@@ -108,17 +106,7 @@ export default async function Home({ params }: HomeProps) {
         <ProcessSteps className="bg-muted/30 relative z-50" />
       </div>
 
-      {/* Stats Section - Section 6 */}
-      <div className="relative z-10">
-        <StatsSection className="relative z-50" />
-      </div>
-
-      {/* Testimonials - Section 7 */}
-      <div className="relative z-10">
-        <Testimonials className="bg-muted/30 relative z-50" />
-      </div>
-
-      {/* Blog Section - Section 8 */}
+      {/* Blog Section */}
       {recentBlogs.length > 0 && (
         <section className="min-h-screen flex items-center py-16 md:py-24 relative z-10">
           <div className="container mx-auto px-4 w-full relative z-50">

@@ -5,9 +5,16 @@ import { db } from '@/db'
 import { images } from '@/db/schema'
 import { eq } from 'drizzle-orm'
 import { createClient } from '@/lib/supabase/server'
+import { getAuthenticatedUser } from '@/lib/auth/user'
 
 export async function getImages() {
   try {
+    const user = await getAuthenticatedUser()
+
+    if (!user) {
+      return []
+    }
+
     const allImages = await db.select().from(images).orderBy(images.uploadedAt)
     return allImages
   } catch (error) {
@@ -51,7 +58,7 @@ export async function uploadImage(formData: FormData) {
     const buffer = Buffer.from(arrayBuffer)
 
     // Upload to Supabase Storage
-    const { data: uploadData, error: uploadError } = await supabase.storage
+    const { error: uploadError } = await supabase.storage
       .from('images')
       .upload(filename, buffer, {
         contentType: 'image/webp',

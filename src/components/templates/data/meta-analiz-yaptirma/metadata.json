@@ -1,17 +1,17 @@
 {
 	"date": "2025-10-28T10:39:30+00:00",
-	"lastModified": "2025-10-28T10:39:30+00:00",
+	"lastModified": "2026-08-03T00:00:00+03:00",
 
 	"slug": "meta-analiz-yaptirma",
 	"cover": "featured-image.webp",
 	"tr": {
-		"title": "Meta Analiz Yaptırma",
-		"description": "Meta analiz yaptırma hizmetiyle literatürdeki çalışmaları birleştirip güçlü sonuçlara ulaşın. Profesyonel destek alın, araştırmanı yükselt.",
+		"title": "Meta-Analiz Yöntem ve Uygulama Danışmanlığı",
+		"description": "Kendi meta-analiz çalışmanız için tarama stratejisi, veri çıkarımı, model seçimi ve çıktı yorumlama ilkelerini uygulamalı olarak öğrenin.",
 		"url": "https://kutupakademi.com/meta-analiz-yaptirma/"
 	},
 	"en": {
-		"title": "Meta-Analysis Service",
-		"description": "Combine studies from the literature and reach powerful results with meta-analysis service. Get professional support, elevate your research.",
+		"title": "Meta-Analysis Method and Application Consulting",
+		"description": "Learn search strategy, data extraction, model selection, and output interpretation principles for your own meta-analysis.",
 		"url": "https://kutupakademi.com/en/meta-analysis-service/"
 	}
 }

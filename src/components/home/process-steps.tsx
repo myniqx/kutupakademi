@@ -1,6 +1,7 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
+import { useLocale } from 'next-intl';
 import { cn } from '@/lib/utils';
 import { HOMEPAGE } from '@/constants/homepage';
 import * as PhosphorIcons from '@phosphor-icons/react';
@@ -11,6 +12,7 @@ interface ProcessStepsProps {
 
 export function ProcessSteps({ className }: ProcessStepsProps) {
   const t = useTranslations('home.process');
+  const locale = useLocale() === 'en' ? 'en' : 'tr';
 
   return (
     <section className={cn('min-h-screen flex items-center py-16 md:py-24', className)}>
@@ -52,9 +54,9 @@ export function ProcessSteps({ className }: ProcessStepsProps) {
                 </div>
 
                 {/* Content */}
-                <h3 className="text-xl font-bold mb-3">{step.title.tr}</h3>
+                <h3 className="text-xl font-bold mb-3">{step.title[locale]}</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed max-w-xs">
-                  {step.description.tr}
+                  {step.description[locale]}
                 </p>
 
                 {/* Arrow between steps (desktop only) */}

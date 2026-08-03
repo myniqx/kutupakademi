@@ -1,75 +1,59 @@
-# Tez Danışmanlığı Hizmeti
+# Tez Danışmanlığı
 
-Tez, makale ve proje ödevleri birbirlerinden farklı isimlerle anılsa da kapsam yönü haricinde birbirleriyle aynı bölümlerden oluşup aynı aşamalardan geçmektedir. Bu süreçlerde hiç kuşkusuz hata yapılması, gereksiz detaylara girilmesi kaçınılmazdır. Ancak, doğru danışmanlık desteğiyle bu türden hatalara en az düşecek veya belki de hiç düşmeyecek şekilde çalışmanızı tamamlamanız mümkündür.
+Tez danışmanlığı, araştırmacının kendi tezini bilimsel ve planlı biçimde yürütebilmesi için yöntemsel rehberlik, öğrenme desteği ve yapılandırılmış geri bildirim sunar. Amaç, araştırmacının karar verme ve akademik yazım becerilerini güçlendirmektir.
 
-Araştırma yöntemleri konusunda yıllar içerisinde edindiği tecrübeleri akademik prensipler süzgecinden geçirerek, uzman akademik kadrosuyla Kutup Akademi siz değerli araştırmacılara yol göstermeye hazırdır. Literatür taraması, yöntem, hipotez geliştirme, veri analizi, tartışma, sonuç ve kaynakça hazırlanmasında ve bunların APA standartları çerçevesinde yazılmasında ihtiyaç duyacağınız tüm tez danışmanlığı hizmetini eksiksiz ve aksaksız bir şekilde sizlere sunmaktayız.
+> **Açık kapsam:** Tez veya tez bölümleri danışan adına yazılmaz; tez önerisi, bulgular, tartışma ya da sonuç bölümü teslim edilecek çalışma olarak hazırlanmaz. Nihai kararlar, yorumlar ve metin araştırmacıya aittir.
 
-## Tez Danışmanlığı Hizmetlerimiz
+## Danışmanlık Konuları
 
-Tez ve makalenizdeki bölümlerin oluşturulmasında sizlere yön göstererek danışmanlık sürecinde yardımcı olmaktayız. Tüm bu süreçte, kesintisiz iletişim desteği sağlayarak yaşanabilecek hataları ortadan kaldırıp çalışmanızın ilerlemesi için var gücümüzle yanınızdayız. Çalışmanızın profesyoneller tarafından değerlendirilmesini ve tüm aşamalarda profesyonel bir destek almak istiyorsanız Kutup Akademi her zaman yanınızda.
+### Araştırma Sorusu ve Planlama
 
-### 1. Akademik Danışmanlık
+- Konunun kapsamını ve araştırılabilirliğini değerlendirme
+- Amaç, araştırma sorusu ve hipotezler arasındaki tutarlılığı kontrol etme
+- Uygulanabilir bir çalışma takvimi ve kontrol listesi oluşturma
+- Etik kurul, veri izni ve açık bilim gereklilikleri hakkında genel yönlendirme
 
-Akademik danışmanlık hizmetimiz kapsamında:
+### Literatür Taraması
 
-- **Literatür Taraması:** Konunuzla ilgili güncel ve kapsamlı literatür araştırması yapılması
-- **Yöntem Belirleme:** Araştırmanıza uygun metodolojinin seçilmesi ve uygulanması
-- **Hipotez Geliştirme:** Bilimsel kriterlere uygun hipotez oluşturulması
-- **Veri Analizi:** İstatistiksel analizlerin doğru yöntemlerle yapılması
-- **Tartışma ve Sonuç:** Bulguların bilimsel bir çerçevede yorumlanması
-- **Kaynakça Düzenleme:** APA, Harvard, Chicago gibi standartlara uygun kaynak gösterimi
+- Uygun veri tabanlarını ve anahtar kelimeleri belirleme
+- Dahil etme ve dışlama ölçütlerini yapılandırma
+- Kaynakları temalara göre sınıflandırma yöntemini öğretme
+- Araştırmacının hazırladığı literatür sentezine yapı ve atıf kullanımı açısından geri bildirim verme
 
-### 2. Tez Süreci Danışmanlığı
+### Yöntem ve Analiz Planı
 
-Tez sürecinizde her aşamada yanınızdayız:
+- Nicel, nitel veya karma yöntem seçeneklerinin varsayımlarını açıklama
+- Evren, örneklem ve veri toplama araçları arasındaki uyumu değerlendirme
+- Analiz planındaki varsayımları ve raporlama gerekliliklerini açıklama
+- Araştırmacının ürettiği analiz çıktılarının nasıl okunacağını uygulamalı olarak gösterme
 
-- **Konu Belirleme:** Orijinal ve akademik değeri yüksek tez konusu seçiminde rehberlik
-- **Tez Önerisi Hazırlama:** Danışman onayı için profesyonel tez önerisi danışmanlığı
-- **Giriş Bölümü:** Problem durumu, amaç, önem ve sınırlılıkların belirlenmesinde yönlendirme
-- **Yöntem Bölümü:** Araştırma modeli, evren-örneklem, veri toplama araçlarının detaylandırılmasında destek
-- **Bulgular Bölümü:** Analiz sonuçlarının tablo ve grafiklerle sunumuna dair danışmanlık
-- **Tartışma ve Sonuç:** Bulguların literatürle ilişkilendirilmesi ve önerilerin sunulmasında yönlendirme
+### Akademik Yazım Geri Bildirimi
 
-### 3. Akademik Yazım Standartları
+- Bölümler arasındaki mantıksal akışı değerlendirme
+- Akademik dil, kavram tutarlılığı ve paragraf yapısı için öneriler sunma
+- Atıf ve kaynakça biçimlerini kontrol listesiyle inceleme
+- Araştırmacının kendi yorumlarını kanıtlarla ilişkilendirmesine yardımcı olma
 
-Tüm çalışmalarınızda akademik yazım kurallarına uygunluğu sağlıyoruz:
+### Savunma Hazırlığı
 
-- APA 7. Edisyon formatında yazım desteği
-- Kaynak gösterimi ve atıf kontrolü
-- İntihal denetimi ve özgünlük garantisi
-- Akademik dil ve anlatım düzenlemesi
-- Tez şablonuna uygun biçimlendirme
+- Araştırmacının hazırladığı sunumu süre, akış ve anlaşılabilirlik açısından değerlendirme
+- Olası jüri soruları üzerinden prova yapma
+- Yöntem tercihlerini ve sınırlılıkları açık biçimde anlatma pratiği
 
-### 4. İstatistiksel Analiz Desteği
+## Danışmanlık Süreci
 
-Veri analizlerinizde profesyonel destek:
+1. **Ön değerlendirme:** Mevcut çalışma, ihtiyaç ve öğrenme hedefi belirlenir.
+2. **Kapsamlandırma:** Görüşme başlıkları ve araştırmacının sorumlulukları yazılı hâle getirilir.
+3. **Uygulamalı görüşmeler:** Kavram ve yöntemler araştırmacının kendi materyali üzerinden açıklanır.
+4. **Geri bildirim:** Araştırmacının hazırladığı içerik, gerekçeli geliştirme önerileriyle değerlendirilir.
+5. **İlerleme kontrolü:** Yapılan düzeltmeler ve sonraki adımlar birlikte gözden geçirilir.
 
-- SPSS, AMOS, Jamovi ile istatistiksel analizler
-- Betimsel ve çıkarımsal istatistik uygulamaları
-- Geçerlilik ve güvenilirlik testleri
-- Faktör analizi, regresyon, ANOVA gibi ileri düzey analizler
-- Sonuçların akademik formatta raporlanması
+## Hizmete Dahil Olmayan İşlemler
 
-## Tez Danışmanlığı Sürecimiz
+- Araştırmacı adına tez, makale, ödev, proje veya sınav çalışması yazılması
+- Tez önerisinin veya tez bölümlerinin teslim edilecek metin olarak hazırlanması
+- Kaynak uydurma, veri üretme, sonuç değiştirme veya etik ihlali gizleme
+- Belirli bir benzerlik oranı, kabul, yayın veya başarı garantisi verilmesi
+- Kurumun resmî tez danışmanı ya da etik kurulunun yerine karar verilmesi
 
-**1. İlk Görüşme:** Tez konunuz, hedefleriniz ve ihtiyaçlarınız değerlendirilir
-
-**2. Planlama:** Çalışma takvimi ve aşamaları belirlenir
-
-**3. Uygulama:** Belirlenen plan doğrultusunda danışmanlık hizmeti verilir
-
-**4. Geri Bildirim:** Her aşamada düzenli iletişim ve geri bildirim sağlanır
-
-**5. Revizyon:** Gerekli düzeltmeler ve iyileştirmeler yapılır
-
-## Neden Kutup Akademi?
-
-- **Uzman Kadro:** Alanında deneyimli akademisyenler ve uzmanlardan oluşan ekip
-- **Kesintisiz İletişim:** 7/24 iletişim desteği ve hızlı geri dönüş
-- **Gizlilik Garantisi:** Tüm çalışmalarınızın gizliliği korunur
-- **Kalite Güvencesi:** Akademik standartlara tam uygunluk
-- **Zamanında Teslimat:** Belirlenen sürelere kesin uyum
-
-## İletişim
-
-Tez danışmanlığı hizmetlerimiz hakkında detaylı bilgi almak ve randevu oluşturmak için bizimle iletişime geçebilirsiniz. Akademik yolculuğunuzda size rehberlik etmekten mutluluk duyarız.
+Tezinizi kendiniz yürütürken ihtiyaç duyduğunuz yöntemsel rehberlik ve geri bildirim için danışmanlık talebi oluşturabilirsiniz.

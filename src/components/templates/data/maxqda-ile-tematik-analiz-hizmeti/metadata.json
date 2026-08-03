@@ -1,17 +1,17 @@
 {
 	"date": "2025-10-03T07:28:10+00:00",
-	"lastModified": "2025-10-03T07:28:10+00:00",
+	"lastModified": "2026-08-03T00:00:00+03:00",
 
 	"slug": "maxqda-ile-tematik-analiz-hizmeti",
 	"cover": "featured-image.webp",
 	"tr": {
-		"title": "MAXQDA ile Tematik Analiz Hizmeti",
-		"description": "MAXQDA ile tematik analiz hizmeti alın, tematik analiz teknikleriyle nitel verilerinizi profesyonelce yorumlayın ve MAXQDA ile görselleştirin!",
+		"title": "MAXQDA ile Tematik Analiz Danışmanlığı",
+		"description": "Kendi nitel verinizi MAXQDA ile kodlamak, tema geliştirmek ve analiz sürecini şeffaf biçimde belgelemek için uygulamalı danışmanlık alın.",
 		"url": "https://kutupakademi.com/maxqda-ile-tematik-analiz-hizmeti/"
 	},
 	"en": {
-		"title": "Thematic Analysis Service with MAXQDA",
-		"description": "Get thematic analysis service with MAXQDA, professionally interpret your qualitative data with thematic analysis techniques and visualize with MAXQDA!",
+		"title": "Thematic Analysis Consulting with MAXQDA",
+		"description": "Applied consulting for coding your own qualitative data, developing themes, and documenting the analysis process transparently in MAXQDA.",
 		"url": "https://kutupakademi.com/en/thematic-analysis-service-with-maxqda/"
 	}
 }

@@ -15,11 +15,13 @@ interface PriceRequestFormData {
   department: string;
   workTitle: string;
   studyLevel: string;
+  serviceType: string;
   submissionDate: string;
   additionalInfo?: string;
+  scopeDeclaration: boolean;
 }
 
-type FormData = ContactFormData | PriceRequestFormData;
+type FormData = ContactFormData | PriceRequestFormData | Record<string, unknown>;
 
 function isPriceRequestForm(data: FormData): data is PriceRequestFormData {
   return 'workTitle' in data;
@@ -44,8 +46,10 @@ function formatFieldLabel(key: string): { tr: string; en: string } {
     department: { tr: 'Bölüm', en: 'Department' },
     workTitle: { tr: 'Çalışma Başlığı', en: 'Work Title' },
     studyLevel: { tr: 'Çalışma Seviyesi', en: 'Study Level' },
-    submissionDate: { tr: 'Teslim Tarihi', en: 'Submission Date' },
+    serviceType: { tr: 'Talep Edilen Destek', en: 'Requested Support' },
+    submissionDate: { tr: 'Hedef Tarih', en: 'Target Date' },
     additionalInfo: { tr: 'Ek Bilgiler', en: 'Additional Info' },
+    scopeDeclaration: { tr: 'Akademik Sorumluluk Beyanı', en: 'Academic Responsibility Declaration' },
   };
 
   return labels[key] || { tr: key, en: key };
@@ -63,6 +67,28 @@ function formatStudyLevel(value: string): string {
   return levels[value] || value;
 }
 
+function formatServiceType(value: string): string {
+  const serviceTypes: Record<string, string> = {
+    dataAnalysis: 'Nicel Veri Analizi Desteği / Quantitative Data Analysis Support',
+    qualitativeAnalysis: 'Nitel Veri Analizi Desteği / Qualitative Data Analysis Support',
+    researchMethod: 'Araştırma Yöntemi Danışmanlığı / Research Method Consulting',
+    thesisReview: 'Tez Biçim ve Dil İncelemesi / Thesis Formatting and Language Review',
+    presentation: 'Sunum Geliştirme ve Prova / Presentation Development and Rehearsal',
+    other: 'Diğer Danışmanlık Talebi / Other Consulting Request',
+  };
+
+  return serviceTypes[value] || value;
+}
+
+function escapeHtml(value: string): string {
+  return value
+    .replaceAll('&', '&amp;')
+    .replaceAll('<', '&lt;')
+    .replaceAll('>', '&gt;')
+    .replaceAll('"', '&quot;')
+    .replaceAll("'", '&#039;');
+}
+
 export function generateEmailHTML(data: FormData): string {
   const formType = getFormType(data);
   const subject = getEmailSubject(formType);
@@ -74,7 +100,7 @@ export function generateEmailHTML(data: FormData): string {
 
   // Create table rows
   const rows = Object.entries(data)
-    .filter(([_, value]) => value !== undefined && value !== '')
+    .filter(([, value]) => value !== undefined && value !== '')
     .map(([key, value]) => {
       const label = formatFieldLabel(key);
       let displayValue = String(value);
@@ -83,6 +109,16 @@ export function generateEmailHTML(data: FormData): string {
       if (key === 'studyLevel') {
         displayValue = formatStudyLevel(displayValue);
       }
+
+      if (key === 'serviceType') {
+        displayValue = formatServiceType(displayValue);
+      }
+
+      if (key === 'scopeDeclaration') {
+        displayValue = displayValue === 'true' ? 'Onaylandı / Confirmed' : 'Onaylanmadı / Not confirmed';
+      }
+
+      displayValue = escapeHtml(displayValue);
 
       return `
         <tr>

@@ -4,19 +4,38 @@ import { revalidatePath } from 'next/cache'
 import { db } from '@/db'
 import { blogs } from '@/db/schema'
 import { eq } from 'drizzle-orm'
+import { getAuthenticatedUser } from '@/lib/auth/user'
 
 export async function getBlogs() {
+  const user = await getAuthenticatedUser()
+
+  if (!user) {
+    throw new Error('Unauthorized')
+  }
+
   const allBlogs = await db.select().from(blogs).orderBy(blogs.createdAt)
   return allBlogs
 }
 
 export async function getBlogBySlug(slug: string) {
+  const user = await getAuthenticatedUser()
+
+  if (!user) {
+    throw new Error('Unauthorized')
+  }
+
   const [blog] = await db.select().from(blogs).where(eq(blogs.slug, slug))
   return blog
 }
 
 export async function deleteBlog(id: string) {
   try {
+    const user = await getAuthenticatedUser()
+
+    if (!user) {
+      return { error: 'Unauthorized' }
+    }
+
     // Get blog to check if published
     const [blog] = await db.select().from(blogs).where(eq(blogs.id, id))
 
@@ -31,13 +50,19 @@ export async function deleteBlog(id: string) {
     }
 
     return { success: true }
-  } catch (error) {
+  } catch {
     return { error: 'Failed to delete blog' }
   }
 }
 
 export async function togglePublish(id: string, currentStatus: boolean) {
   try {
+    const user = await getAuthenticatedUser()
+
+    if (!user) {
+      return { error: 'Unauthorized' }
+    }
+
     await db
       .update(blogs)
       .set({ published: !currentStatus })
@@ -50,7 +75,7 @@ export async function togglePublish(id: string, currentStatus: boolean) {
     revalidatePath('/[locale]/blog', 'layout')
 
     return { success: true }
-  } catch (error) {
+  } catch {
     return { error: 'Failed to update blog' }
   }
 }
