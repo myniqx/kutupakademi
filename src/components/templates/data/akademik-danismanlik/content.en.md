@@ -1,17 +1,39 @@
-With our academic consulting service, preparing your thesis, articles, and projects will now be much easier! We guide you in preparing your work, which you prepare with great care to make it perfect, the way you want it.
+# Academic Consulting
 
-## Thesis Consulting Service
+Academic consulting is a guidance process that helps researchers plan their own work, justify methodological decisions, and improve scientific communication skills. Kutup Akademi follows a model that preserves the researcher’s authorship and academic responsibility.
 
-We offer a range of services within the scope of thesis consulting. First of all, the most important task when starting a study is to plan the study in all its details. In this context, it is necessary to determine the objectives and establish appropriate hypotheses to achieve those objectives. Then comes the review of the relevant literature, and at this stage, comprehensive research is conducted on your thesis topic. In addition, the research design is created in the method section and scales appropriate to your hypotheses are selected. Then, statistical analyses are performed in the findings section. Thus, the validity of the hypotheses determined at the beginning of the study is tested. Finally, your study is completed with the discussion and conclusion sections. Along with this, in this process, you are informed about what needs to be done in the mentioned sections. Additionally, detailed planning is provided regarding what path you should follow. As a result, making the right decisions at the right time will prevent the waste of effort, time, and money you will spend in the process.
+> **Service boundary:** We do not prepare theses, articles, assignments, projects, or exam work on behalf of a client. Research decisions and the final text remain the researcher’s responsibility throughout the consulting process.
 
-## Thesis Advisor Duties
+## What Does Consulting Cover?
 
-The duties of a thesis advisor are to assist the researcher in the thesis preparation process. For example, in literature review, the researcher may not be able to address the subject in sufficient detail. In this context, the thesis advisor shows the researcher how to access the necessary sources. Thus, it enables a more comprehensive review of the thesis topic. Furthermore, the researcher may experience difficulties in creating the research design and following the steps to be taken. For instance, the thesis advisor helps in creating research designs and steps that are appropriate for the thesis objective. In summary, the thesis advisor's duty is to take on a guiding role for the researcher when needed during the writing and implementation stages of the thesis. Briefly, as Kutupakademi, we provide all the necessary academic support at all stages of the thesis when you need it.
+- Reviewing the scope and feasibility of a research question
+- Developing database, keyword, and screening strategies for a literature review
+- Comparing research design and methodology options
+- Reviewing data collection and analysis plans against scientific criteria
+- Giving feedback on the researcher’s own text for language, structure, and source use
+- Explaining the limits, assumptions, and reporting principles of findings
+- Providing rehearsal and feedback for a thesis defense or academic presentation
 
-## Importance of Thesis Academic Consulting Services
+## How Does the Process Work?
 
-Thesis academic consulting services help researchers achieve higher quality in their theses along with compliance with academic standards. These services also provide support for difficulties that researchers may encounter during their thesis work. In addition, they offer resources that will help researchers succeed in their theses.
+### 1. Defining the Need
 
-## Academic Consulting
+The researcher shares the topic, current stage, and difficulties encountered. The consulting scope, intended learning outcomes, and timeline are clarified during the initial meeting.
 
-As a result, academic consulting is a matter of discipline along with a system. To summarize, it provides assistance to researchers on topics such as thesis success planning, thesis writing techniques, and thesis defense during the thesis writing process. In this context, our mission as Kutupakademi is to help you make the right choices and lead you to the results you aim for in your study. In addition, our most important mission is to provide consulting services to you based on scientific criteria while doing these. Our institution, which has guided many national and international researchers, is ready to guide you with its experience.
+### 2. Methodological Guidance
+
+No single approach is imposed as the only option. The assumptions, strengths, and limitations of alternatives are explained so the researcher can make an informed decision.
+
+### 3. Practice and Feedback
+
+The researcher advances their own work. Plans, analysis outputs, or draft text are reviewed for consistency, transparency, and academic writing standards. Feedback includes the reasoning behind each recommendation.
+
+### 4. Final Review
+
+Citations, alignment between methods and findings, transparent limitations, and compliance with the institution’s writing guide are assessed using a structured checklist.
+
+## Researcher Responsibility
+
+Consulting does not replace an official university supervisor or peer review. Permissions for data, analysis choices, interpretations, source accuracy, and the submitted text remain the researcher’s responsibility.
+
+Contact us for guidance focused on developing your own work in line with scientific principles.

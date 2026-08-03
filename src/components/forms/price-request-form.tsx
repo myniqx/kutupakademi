@@ -13,8 +13,12 @@ const priceRequestSchema = z.object({
   department: z.string().min(2, 'Bölüm bilgisi gereklidir / Department is required'),
   workTitle: z.string().min(5, 'Çalışma başlığı gereklidir / Work title is required'),
   studyLevel: z.string().min(1, 'Çalışma seviyesi seçiniz / Study level is required'),
+  serviceType: z.string().min(1, 'Destek türü seçiniz / Select a support type'),
   submissionDate: z.string().min(1, 'Teslim tarihi gereklidir / Submission date is required'),
   additionalInfo: z.string().optional(),
+  scopeDeclaration: z.boolean().refine((value) => value, {
+    message: 'Kapsam beyanını onaylamalısınız / You must accept the scope declaration',
+  }),
 });
 
 type PriceRequestData = z.infer<typeof priceRequestSchema>;
@@ -34,6 +38,9 @@ export function PriceRequestForm({ locale }: PriceRequestFormProps) {
     formState: { errors },
   } = useForm<PriceRequestData>({
     resolver: zodResolver(priceRequestSchema),
+    defaultValues: {
+      scopeDeclaration: false,
+    },
   });
 
   const onSubmit = async (data: PriceRequestData) => {
@@ -70,8 +77,10 @@ export function PriceRequestForm({ locale }: PriceRequestFormProps) {
       department: 'Bölümünüz',
       workTitle: 'Çalışmanızın Başlığı',
       studyLevel: 'Çalışmanızın Seviyesi',
-      submissionDate: 'Çalışmanızın Teslim Tarihi',
+      serviceType: 'Talep Ettiğiniz Destek',
+      submissionDate: 'Danışmanlık İçin Hedef Tarihiniz',
       additionalInfo: 'Eklemek İstedikleriniz',
+      scopeDeclaration: 'Talebimin danışmanlık veya teknik destek kapsamında olduğunu ve teslim edilecek akademik çalışmanın yazarı ile akademik sorumlusunun ben olduğumu kabul ediyorum.',
       submit: 'Teklif Al !',
       submitting: 'Gönderiliyor...',
       success: 'Talebiniz başarıyla gönderildi. En kısa sürede size dönüş yapacağız.',
@@ -84,6 +93,15 @@ export function PriceRequestForm({ locale }: PriceRequestFormProps) {
         phd: 'Doktora',
         journal: 'Hakemli Dergide Yayın',
       },
+      serviceTypeOptions: {
+        placeholder: 'Seçiniz...',
+        dataAnalysis: 'Nicel Veri Analizi Desteği',
+        qualitativeAnalysis: 'Nitel Veri Analizi Desteği',
+        researchMethod: 'Araştırma Yöntemi Danışmanlığı',
+        thesisReview: 'Tez Biçim ve Dil İncelemesi',
+        presentation: 'Sunum Geliştirme ve Prova',
+        other: 'Diğer Danışmanlık Talebi',
+      },
     },
     en: {
       name: 'Full Name',
@@ -92,8 +110,10 @@ export function PriceRequestForm({ locale }: PriceRequestFormProps) {
       department: 'Your Department',
       workTitle: 'Title of Your Work',
       studyLevel: 'Level of Your Study',
-      submissionDate: 'Submission Date',
+      serviceType: 'Requested Support',
+      submissionDate: 'Target Date for Consulting',
       additionalInfo: 'Additional Information',
+      scopeDeclaration: 'I confirm that my request is for consulting or technical support and that I remain the author and academically responsible person for the work to be submitted.',
       submit: 'Get Quote !',
       submitting: 'Submitting...',
       success: 'Your request has been sent successfully. We will get back to you soon.',
@@ -105,6 +125,15 @@ export function PriceRequestForm({ locale }: PriceRequestFormProps) {
         masterThesis: 'Master with Thesis',
         phd: 'PhD',
         journal: 'Journal Publication',
+      },
+      serviceTypeOptions: {
+        placeholder: 'Select...',
+        dataAnalysis: 'Quantitative Data Analysis Support',
+        qualitativeAnalysis: 'Qualitative Data Analysis Support',
+        researchMethod: 'Research Method Consulting',
+        thesisReview: 'Thesis Formatting and Language Review',
+        presentation: 'Presentation Development and Rehearsal',
+        other: 'Other Consulting Request',
       },
     },
   };
@@ -259,6 +288,32 @@ export function PriceRequestForm({ locale }: PriceRequestFormProps) {
         </div>
       </div>
 
+      {/* Support Type */}
+      <div>
+        <label
+          htmlFor="serviceType"
+          className="block text-sm font-medium text-foreground mb-2"
+        >
+          {content.serviceType} *
+        </label>
+        <select
+          {...register('serviceType')}
+          id="serviceType"
+          className="w-full px-4 py-3 border border-border bg-background text-foreground rounded-lg focus:outline-none focus:ring-2 focus:ring-primary transition-all"
+        >
+          <option value="">{content.serviceTypeOptions.placeholder}</option>
+          <option value="dataAnalysis">{content.serviceTypeOptions.dataAnalysis}</option>
+          <option value="qualitativeAnalysis">{content.serviceTypeOptions.qualitativeAnalysis}</option>
+          <option value="researchMethod">{content.serviceTypeOptions.researchMethod}</option>
+          <option value="thesisReview">{content.serviceTypeOptions.thesisReview}</option>
+          <option value="presentation">{content.serviceTypeOptions.presentation}</option>
+          <option value="other">{content.serviceTypeOptions.other}</option>
+        </select>
+        {errors.serviceType && (
+          <p className="mt-1 text-sm text-destructive">{errors.serviceType.message}</p>
+        )}
+      </div>
+
       {/* Additional Info */}
       <div>
         <label
@@ -274,6 +329,22 @@ export function PriceRequestForm({ locale }: PriceRequestFormProps) {
           className="w-full px-4 py-3 border border-border bg-background text-foreground rounded-lg focus:outline-none focus:ring-2 focus:ring-primary transition-all resize-none"
           placeholder={content.additionalInfo}
         />
+      </div>
+
+      {/* Academic responsibility declaration */}
+      <div className="rounded-lg border border-border bg-muted/30 p-4">
+        <label htmlFor="scopeDeclaration" className="flex items-start gap-3 text-sm leading-relaxed">
+          <input
+            {...register('scopeDeclaration')}
+            id="scopeDeclaration"
+            type="checkbox"
+            className="mt-1 h-4 w-4 shrink-0 rounded border-border accent-primary"
+          />
+          <span>{content.scopeDeclaration} *</span>
+        </label>
+        {errors.scopeDeclaration && (
+          <p className="mt-2 text-sm text-destructive">{errors.scopeDeclaration.message}</p>
+        )}
       </div>
 
       {/* Status Messages */}

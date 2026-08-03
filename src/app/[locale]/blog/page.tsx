@@ -7,6 +7,7 @@ import type { Metadata } from 'next'
 
 type BlogPageProps = {
   params: Promise<{ locale: string }>
+  searchParams: Promise<{ page?: string }>
 }
 
 export async function generateMetadata({
@@ -24,11 +25,14 @@ export async function generateMetadata({
   });
 }
 
-export default async function BlogPage({ params }: BlogPageProps) {
+export default async function BlogPage({ params, searchParams }: BlogPageProps) {
   const { locale } = await params
+  const { page: pageParam } = await searchParams
   const t = await getTranslations('blog')
 
   const publishedBlogs = await getBlogCards({ locale })
+  const parsedPage = Number.parseInt(pageParam || '1', 10)
+  const currentPage = Number.isFinite(parsedPage) && parsedPage > 0 ? parsedPage : 1
 
   return (
     <div className="min-h-screen bg-background">
@@ -45,6 +49,7 @@ export default async function BlogPage({ params }: BlogPageProps) {
           <BlogGridPaginated
             blogs={publishedBlogs}
             locale={locale as 'tr' | 'en'}
+            currentPage={currentPage}
             itemsPerPage={9}
           />
 

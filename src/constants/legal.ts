@@ -2,7 +2,7 @@ export const LEGAL_CONTENT = {
   privacyPolicy: {
     tr: `# Gizlilik Politikası
 
-Son Güncelleme: 15 Aralık 2025
+Son Güncelleme: 3 Ağustos 2026
 
 ## Giriş
 
@@ -90,7 +90,7 @@ Bu gizlilik politikasını zaman zaman güncelleyebiliriz. Önemli değişiklikl
 `,
     en: `# Privacy Policy
 
-Last Updated: December 15, 2025
+Last Updated: August 3, 2026
 
 ## Introduction
 
@@ -180,7 +180,7 @@ We may update this privacy policy from time to time. We will notify you of signi
   termsOfService: {
     tr: `# Kullanım Koşulları
 
-Son Güncelleme: 15 Aralık 2025
+Son Güncelleme: 3 Ağustos 2026
 
 ## Genel Koşullar
 
@@ -188,13 +188,15 @@ Son Güncelleme: 15 Aralık 2025
 
 ## Hizmet Tanımı
 
-{{companyName}}, akademik çalışma desteği, SPSS analizi, tez danışmanlığı ve akademik İngilizce hizmetleri sunmaktadır. Sunulan hizmetler şunları içerir:
+{{companyName}}, araştırmacının kendi çalışmasını geliştirmesine yönelik danışmanlık, eğitim ve teknik analiz desteği sunmaktadır. Sunulan hizmetler şunları içerir:
 
-- İstatistiksel veri analizi ve raporlama
-- SPSS, R, Python gibi yazılımlarla analiz desteği
-- Akademik İngilizce düzenleme ve çeviri
-- Tez ve makale danışmanlığı
+- İstatistiksel yöntem ve veri analizi desteği
+- SPSS, R, Python gibi yazılımlara yönelik uygulamalı rehberlik
+- Araştırmacının kendi metnine akademik dil ve biçim geri bildirimi
+- Tez ve makale süreçlerinde yöntem danışmanlığı
 - Akademik araştırma metodolojisi danışmanlığı
+
+{{companyName}}, öğrenci veya danışan adına teslim edilmek üzere tez, makale, ödev, proje ya da sınav çalışması hazırlamaz. Nihai akademik kararlar, yorumlar ve teslim edilen metin kullanıcıya aittir.
 
 ## Kullanıcı Sorumlulukları
 
@@ -227,11 +229,11 @@ Müşterilerimizin sağladığı veri ve dokümanlar üzerindeki tüm haklar mü
 - Hizmet başladıktan sonra yapılan iptal taleplerinde tamamlanan iş oranına göre ücretlendirme yapılır
 - İade talepleri {{email}} adresine e-posta ile yapılabilir
 
-### Teslimat
+### Danışmanlık Çıktılarının Paylaşılması
 
-- Teslim süreleri hizmet başlangıcında karşılıklı olarak belirlenir
-- Müşteri kaynaklı gecikmeler teslimat süresini etkileyebilir
-- Tamamlanan çalışmalar e-posta veya belirlenen dijital platform üzerinden teslim edilir
+- Görüşme ve geri bildirim takvimi hizmet başlangıcında karşılıklı olarak belirlenir
+- Kullanıcı kaynaklı gecikmeler danışmanlık takvimini etkileyebilir
+- Eğitim notları, teknik çıktılar ve geri bildirimler e-posta veya belirlenen dijital platform üzerinden paylaşılabilir
 
 ## Gizlilik
 
@@ -267,7 +269,7 @@ Bu web sitesini kullanarak yukarıdaki koşulları okuduğunuzu ve kabul ettiği
 `,
     en: `# Terms of Service
 
-Last Updated: December 15, 2025
+Last Updated: August 3, 2026
 
 ## General Terms
 
@@ -275,13 +277,15 @@ By using {{companyName}}'s website and services, you agree to these terms of ser
 
 ## Service Description
 
-{{companyName}} provides academic study support, SPSS analysis, thesis consulting, and academic English services. The services offered include:
+{{companyName}} provides consulting, education, and technical analysis support designed to help researchers develop their own work. Services include:
 
-- Statistical data analysis and reporting
-- Analysis support with software such as SPSS, R, Python
-- Academic English editing and translation
-- Thesis and article consulting
+- Statistical method and data analysis support
+- Applied guidance for software such as SPSS, R, and Python
+- Academic language and formatting feedback on the researcher’s own text
+- Method consulting during thesis and article processes
 - Academic research methodology consulting
+
+{{companyName}} does not prepare theses, articles, assignments, projects, or exam work to be submitted on behalf of students or clients. Final academic decisions, interpretations, and submitted text belong to the user.
 
 ## User Responsibilities
 
@@ -314,11 +318,11 @@ All rights to data and documents provided by our customers belong to our custome
 - For cancellation requests made after service commencement, charges are based on the proportion of completed work
 - Refund requests can be made via email to {{email}}
 
-### Delivery
+### Sharing Consulting Outputs
 
-- Delivery times are mutually determined at service commencement
-- Customer-caused delays may affect delivery time
-- Completed work is delivered via email or the designated digital platform
+- Session and feedback schedules are agreed at the start of the service
+- User-caused delays may affect the consulting schedule
+- Learning notes, technical outputs, and feedback may be shared by email or the designated digital platform
 
 ## Privacy
 

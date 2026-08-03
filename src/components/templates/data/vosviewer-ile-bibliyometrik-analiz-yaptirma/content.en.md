@@ -1,8 +1,10 @@
-# Bibliometric Analysis Service with VOSviewer
+# Bibliometric Analysis Consulting with VOSviewer
 
 ![](./featured-image.webp)
 
-**Bibliometric analysis** is a powerful research method that enables systematic examination of academic literature. If you want to review the literature, identify trends or analyze academic impact in your research, our **professional bibliometric analysis service with VOSviewer** is just for you.
+**Bibliometric analysis** examines the structure of academic literature through quantitative indicators and networks. VOSviewer consulting provides applied guidance as researchers export, clean, map, and assess the limits of their own data.
+
+> **Service boundary:** Database selection, search strategy, screening decisions, academic interpretation, and the final text belong to the researcher. We do not prepare a thesis, article, or publication-ready report on behalf of a researcher.
 
 ## What is Bibliometric Analysis?
 
@@ -108,12 +110,13 @@ Co-authorship analysis focuses on understanding collaboration networks by examin
 
 You are on the right track to increase the visibility of your academic production.
 
-## Advantages of Having Professional Bibliometric Analysis Done
+## Scope of Bibliometric Analysis Consulting
 
-- **Time saving:** Database filtering, data cleaning and visualization processes take time.
-- **Academic suitability:** The reports we prepare comply with academic writing rules such as APA, MLA.
-- **Data-driven presentation:** You obtain scientifically strong presentations with visual maps, graphics and keyword distributions.
-- **Advisor approval:** You increase your chances of approval by strengthening the literature section in your thesis or article.
+- Reviewing search strategy and data-export settings
+- Using a thesaurus file to clean author, institution, and keyword names
+- Justifying network type, counting method, and threshold values
+- Explaining how to read network, density, and overlay visualizations
+- Feedback on the researcher’s own methods and findings text for transparent reporting
 
 ## Frequently Asked Questions (FAQ)
 
@@ -134,10 +137,6 @@ As examples:
 - "Academic impact and citation analysis of an author"
   are examples of bibliometric analysis.
 
-## Have Bibliometric Analysis Done Immediately
+## Applied VOSviewer Guidance
 
-If you also want to present a comprehensive, visual and scientific literature analysis in your work, we are with you with our **professional bibliometric analysis service**.
-
-Make a difference with your work supported by visual maps prepared with VOSviewer, field analyses and academically compliant reports!
-
-**Contact us immediately by filling out the [price request form](https://www.kutupakademi.com/fiyat-talebi/) or through the WhatsApp line, let's start your analysis process together.**
+You can receive applied consulting on VOSviewer setup, data cleaning, mapping, and output interpretation while conducting your own bibliometric analysis. Share your need and learning objective through the [price request form](https://www.kutupakademi.com/fiyat-talebi/).

@@ -1,6 +1,4 @@
-'use client'
-
-import { useState, useRef } from 'react'
+import Link from 'next/link'
 import { BlogCard, type BlogCardData } from './blog-card'
 import { Button } from '@/components/ui/button'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
@@ -8,46 +6,50 @@ import { ChevronLeft, ChevronRight } from 'lucide-react'
 interface BlogGridPaginatedProps {
   blogs: BlogCardData[]
   locale: 'tr' | 'en'
+  currentPage?: number
   itemsPerPage?: number
 }
 
 export function BlogGridPaginated({
   blogs,
   locale,
-  itemsPerPage = 9
+  currentPage = 1,
+  itemsPerPage = 9,
 }: BlogGridPaginatedProps) {
-  const [currentPage, setCurrentPage] = useState(1)
-  const gridRef = useRef<HTMLDivElement>(null)
+  const totalPages = Math.max(1, Math.ceil(blogs.length / itemsPerPage))
+  const safeCurrentPage = Math.min(Math.max(currentPage, 1), totalPages)
+  const startIndex = (safeCurrentPage - 1) * itemsPerPage
+  const currentBlogs = blogs.slice(startIndex, startIndex + itemsPerPage)
+  const basePath = locale === 'en' ? '/en/blog' : '/blog'
 
-  const totalPages = Math.ceil(blogs.length / itemsPerPage)
-  const startIndex = (currentPage - 1) * itemsPerPage
-  const endIndex = startIndex + itemsPerPage
-  const currentBlogs = blogs.slice(startIndex, endIndex)
+  const pageHref = (page: number) => page === 1 ? basePath : `${basePath}?page=${page}`
 
-  const goToPage = (page: number) => {
-    setCurrentPage(page)
-    // Scroll to grid top with offset for header
-    if (gridRef.current) {
-      const elementPosition = gridRef.current.getBoundingClientRect().top
-      const offsetPosition = elementPosition + window.pageYOffset - 100
+  const getPageNumbers = () => {
+    const pages: (number | 'ellipsis-start' | 'ellipsis-end')[] = []
 
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      })
+    if (totalPages <= 7) {
+      return Array.from({ length: totalPages }, (_, index) => index + 1)
     }
-  }
 
-  const goToPreviousPage = () => {
-    if (currentPage > 1) {
-      goToPage(currentPage - 1)
-    }
-  }
+    pages.push(1)
 
-  const goToNextPage = () => {
-    if (currentPage < totalPages) {
-      goToPage(currentPage + 1)
+    if (safeCurrentPage > 3) {
+      pages.push('ellipsis-start')
     }
+
+    const start = Math.max(2, safeCurrentPage - 1)
+    const end = Math.min(totalPages - 1, safeCurrentPage + 1)
+
+    for (let page = start; page <= end; page += 1) {
+      pages.push(page)
+    }
+
+    if (safeCurrentPage < totalPages - 2) {
+      pages.push('ellipsis-end')
+    }
+
+    pages.push(totalPages)
+    return pages
   }
 
   if (blogs.length === 0) {
@@ -60,117 +62,64 @@ export function BlogGridPaginated({
     )
   }
 
-  const getPageNumbers = () => {
-    const pages: (number | string)[] = []
-    const showEllipsis = totalPages > 7
-
-    if (!showEllipsis) {
-      // Show all pages if total is 7 or less
-      for (let i = 1; i <= totalPages; i++) {
-        pages.push(i)
-      }
-    } else {
-      // Always show first page
-      pages.push(1)
-
-      if (currentPage > 3) {
-        pages.push('...')
-      }
-
-      // Show pages around current page
-      const start = Math.max(2, currentPage - 1)
-      const end = Math.min(totalPages - 1, currentPage + 1)
-
-      for (let i = start; i <= end; i++) {
-        pages.push(i)
-      }
-
-      if (currentPage < totalPages - 2) {
-        pages.push('...')
-      }
-
-      // Always show last page
-      pages.push(totalPages)
-    }
-
-    return pages
-  }
-
   return (
-    <div ref={gridRef} className="space-y-8">
-      {/* Blog Grid */}
+    <div className="space-y-8">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 auto-rows-fr">
         {currentBlogs.map((blog) => (
           <BlogCard key={blog.id} blog={blog} locale={locale} />
         ))}
       </div>
 
-      {/* Pagination Controls */}
       {totalPages > 1 && (
-        <div className="flex items-center justify-center gap-2 pt-8">
-          {/* Previous Button */}
-          <Button
-            variant="outline"
-            size="icon"
-            onClick={goToPreviousPage}
-            disabled={currentPage === 1}
-            className="h-9 w-9"
-          >
-            <ChevronLeft className="h-4 w-4" />
+        <nav aria-label={locale === 'tr' ? 'Blog sayfaları' : 'Blog pages'} className="flex items-center justify-center gap-2 pt-8">
+          <Button asChild={safeCurrentPage > 1} variant="outline" size="icon" disabled={safeCurrentPage === 1} className="h-9 w-9">
+            {safeCurrentPage > 1 ? (
+              <Link href={pageHref(safeCurrentPage - 1)} aria-label={locale === 'tr' ? 'Önceki sayfa' : 'Previous page'}>
+                <ChevronLeft className="h-4 w-4" />
+              </Link>
+            ) : (
+              <span><ChevronLeft className="h-4 w-4" /></span>
+            )}
           </Button>
 
-          {/* Page Numbers */}
           <div className="flex items-center gap-1">
-            {getPageNumbers().map((page, index) => {
-              if (page === '...') {
-                return (
-                  <span
-                    key={`ellipsis-${index}`}
-                    className="px-3 py-2 text-muted-foreground"
-                  >
-                    ...
-                  </span>
-                )
+            {getPageNumbers().map((page) => {
+              if (typeof page !== 'number') {
+                return <span key={page} className="px-3 py-2 text-muted-foreground">…</span>
               }
 
-              const pageNumber = page as number
-              const isActive = pageNumber === currentPage
+              const isActive = page === safeCurrentPage
 
               return (
-                <Button
-                  key={pageNumber}
-                  variant={isActive ? 'default' : 'outline'}
-                  size="sm"
-                  onClick={() => goToPage(pageNumber)}
-                  className="h-9 min-w-9"
-                >
-                  {pageNumber}
+                <Button key={page} asChild={!isActive} variant={isActive ? 'default' : 'outline'} size="sm" className="h-9 min-w-9">
+                  {isActive ? (
+                    <span aria-current="page">{page}</span>
+                  ) : (
+                    <Link href={pageHref(page)} aria-label={`${locale === 'tr' ? 'Sayfa' : 'Page'} ${page}`}>{page}</Link>
+                  )}
                 </Button>
               )
             })}
           </div>
 
-          {/* Next Button */}
-          <Button
-            variant="outline"
-            size="icon"
-            onClick={goToNextPage}
-            disabled={currentPage === totalPages}
-            className="h-9 w-9"
-          >
-            <ChevronRight className="h-4 w-4" />
+          <Button asChild={safeCurrentPage < totalPages} variant="outline" size="icon" disabled={safeCurrentPage === totalPages} className="h-9 w-9">
+            {safeCurrentPage < totalPages ? (
+              <Link href={pageHref(safeCurrentPage + 1)} aria-label={locale === 'tr' ? 'Sonraki sayfa' : 'Next page'}>
+                <ChevronRight className="h-4 w-4" />
+              </Link>
+            ) : (
+              <span><ChevronRight className="h-4 w-4" /></span>
+            )}
           </Button>
-        </div>
+        </nav>
       )}
 
-      {/* Page Info */}
       {totalPages > 1 && (
-        <div className="text-center text-sm text-muted-foreground">
+        <p className="text-center text-sm text-muted-foreground">
           {locale === 'tr'
-            ? `Sayfa ${currentPage} / ${totalPages} (Toplam ${blogs.length} yazı)`
-            : `Page ${currentPage} of ${totalPages} (${blogs.length} posts total)`
-          }
-        </div>
+            ? `Sayfa ${safeCurrentPage} / ${totalPages} (Toplam ${blogs.length} yazı)`
+            : `Page ${safeCurrentPage} of ${totalPages} (${blogs.length} posts total)`}
+        </p>
       )}
     </div>
   )

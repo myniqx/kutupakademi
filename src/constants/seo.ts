@@ -21,12 +21,12 @@ export const DEFAULT_SEO: {
   keywords: { tr: string[]; en: string[] };
 } = {
   title: {
-    tr: 'Kutup Akademi - Akademik Çalışma Desteği ve SPSS Analizi',
-    en: 'Kutup Akademi - Academic Study Support and SPSS Analysis',
+    tr: 'Kutup Akademi - Araştırma Danışmanlığı ve Veri Analizi',
+    en: 'Kutup Akademi - Research Consulting and Data Analysis',
   },
   description: {
-    tr: 'Tez, makale, proje danışmanlığı, SPSS veri analizi, akademik İngilizce ve araştırma metodolojisi konularında profesyonel destek hizmetleri.',
-    en: 'Professional support services in thesis, article, project consulting, SPSS data analysis, academic English, and research methodology.',
+    tr: 'Araştırma planlama, yöntem danışmanlığı, veri analizi, akademik metin incelemesi ve sunum geliştirme alanlarında bilimsel rehberlik.',
+    en: 'Scientific guidance in research planning, methodology, data analysis, academic text review, and presentation development.',
   },
   keywords: {
     tr: [
@@ -73,7 +73,11 @@ export function generateMeta({
   const siteDescription = description || DEFAULT_SEO.description[validLocale];
   const defaultKeywords = DEFAULT_SEO.keywords[validLocale];
   const siteKeywords = keywords.length > 0 ? keywords : [...defaultKeywords];
-  const url = `${SITE_CONFIG.url}${path}`;
+  const localeNeutralPath = path === '/en' ? '' : path.replace(/^\/en(?=\/)/, '');
+  const localizedPath = validLocale === 'en'
+    ? `/en${localeNeutralPath}`
+    : localeNeutralPath;
+  const url = `${SITE_CONFIG.url}${localizedPath}`;
   const ogImage = image || `${SITE_CONFIG.url}/og-image.png`;
 
   const openGraphBase = {
@@ -129,9 +133,9 @@ export function generateMeta({
     alternates: {
       canonical: url,
       languages: {
-        'tr': validLocale === 'tr' ? url : `${SITE_CONFIG.url}${path}`,
-        'en': validLocale === 'en' ? url : `${SITE_CONFIG.url}/en${path}`,
-        'x-default': `${SITE_CONFIG.url}${path}`,
+        'tr': `${SITE_CONFIG.url}${localeNeutralPath}`,
+        'en': `${SITE_CONFIG.url}/en${localeNeutralPath}`,
+        'x-default': `${SITE_CONFIG.url}${localeNeutralPath}`,
       },
     },
   };

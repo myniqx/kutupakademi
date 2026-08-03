@@ -1,4 +1,4 @@
-# Meta Analiz Yaptırma
+# Meta-Analiz Yöntem ve Uygulama Danışmanlığı
 
 ![](./featured-image.webp)
 
@@ -6,7 +6,9 @@ Meta analiz; çok sayıda bağımsız bilimsel çalışmanın istatistiksel bulg
 
 Diğer analiz türlerinden farkı, bireysel verilerle değil, yayımlanmış çalışmaların istatistiksel çıktılarıyla çalışmasıdır. Bu nedenle, meta analiz hem akademik yayınlarda daha yüksek etki yaratır hem de literatürdeki bilgi yığınını sistemli biçimde anlamlandırır.
 
-Eğer siz de tezinizde ya da bilimsel yayınlarınızda literatürden güçlü sonuçlar üretmek istiyorsanız, profesyonel meta analiz hizmetimizle size destek olabiliriz. Sayfanın devamında, yöntemden raporlamaya kadar tüm süreçleri adım adım inceleyebilir, meta analiz yaptırmak için hemen bizimle iletişime geçebilirsiniz.
+Bu sayfada yöntemin temel aşamalarını öğrenebilir; kendi meta-analiz çalışmanız için tarama stratejisi, veri çıkarım planı, model seçimi ve çıktıların sınırlarını anlama konularında uygulamalı danışmanlık alabilirsiniz.
+
+> **Hizmet sınırı:** Literatür seçimi, akademik değerlendirme, sonuçların yorumu ve nihai metin araştırmacıya aittir. Danışmanlık, araştırmacı adına tez, makale veya yayına hazır rapor hazırlanmasını kapsamaz.
 
 ## Meta Analiz Nedir?
 
@@ -115,23 +117,22 @@ Analize dahil edilen çalışmaların kalitesi, yöntem farkları ve yayın yanl
 
 ![meta analiz nasıl yazılır](./image-2.webp)
 
-## Meta Analiz Yaptırma Hizmeti Alın
+## Meta-Analiz Danışmanlığı Kapsamı
 
-Meta analiz yapmak uzmanlık ve istatistiksel bilgi gerektirir. Gerek analiz gerekse yazım sürecinde hata yapmamak ve bilimsel geçerliliği yüksek bir çalışma ortaya koymak için profesyonel destek almanız önerilir.
+Meta-analiz, önceden belirlenmiş ve şeffaf biçimde raporlanan bir protokol gerektirir. Danışmanlık, araştırmacının bu süreci öğrenmesine ve kendi kararlarını gerekçelendirmesine yardımcı olur.
 
 ![metaanalizi yaptırma hizmeti](./image-3.webp)
 
-Hizmet kapsamında:
+Danışmanlık kapsamında:
 
-- Literatür taraması
-- Dahil/dışlama kriterlerinin belirlenmesi
-- Etki büyüklüğü ve modellerin uygulanması
-- Heterojenlik testi (I²) ve Q-Testi istatistiksel anlamlılık değerlendirmesi
-- Yayın yanlılığı testi (Egger’s testi ) ve funnel plot yorumlaması
-- Forest ve funnel plot’ların hazırlanması
-- Sonuçların bilimsel dile çevrilmesi
-- Yayına hazır meta analiz raporu hazırlanması
+- Araştırmacının hazırladığı tarama stratejisinin gözden geçirilmesi
+- Dahil etme ve dışlama ölçütlerinin tutarlılığının değerlendirilmesi
+- Veri çıkarım formu ve çift kontrol yaklaşımının açıklanması
+- Etki büyüklüğü ve model seçeneklerinin varsayımlarının öğretilmesi
+- Heterojenlik ve yayın yanlılığı çıktılarının nasıl okunacağının gösterilmesi
+- Forest ve funnel plot üretiminin uygulamalı olarak anlatılması
+- Araştırmacının kendi raporuna PRISMA ve şeffaflık ölçütleri açısından geri bildirim verilmesi
 
 için destek veriyoruz.
 
-**[İletişim](https://www.kutupakademi.com/iletisim/)** sayfasında yer alan formdan hemen teklif alabilirsiniz. Diğer profesyonel destek alanlarımızı keşfetmek için **[Hizmetlerimiz](https://www.kutupakademi.com/hizmetlerimiz/)** sayfasına göz atabilirsiniz. Ya da whatsapp iletişim hattımızdan direk bizimle irtibata geçebilirsiniz. Hemen arayın!
+Kendi meta-analiz çalışmanızı yürütürken yöntemsel rehberlik almak için **[iletişim](https://www.kutupakademi.com/iletisim/)** sayfasından bize ulaşabilirsiniz.

@@ -1,10 +1,12 @@
-# Thematic Analysis Service with MAXQDA
+# Thematic Analysis Consulting with MAXQDA
 
 ![](./featured-image.webp)
 
 Qualitative data analysis is an important method used to gain in-depth insights in research. Especially **thematic analysis with MAXQDA** offers powerful tools to systematically organize and interpret data. In this article, we will discuss in detail how to perform thematic analysis using [MAXQDA](https://www.maxqda.com/tr), coding processes and reporting techniques.
 
-However, it is also possible to get professional support to increase the scientific quality of your research and obtain more reliable results. Thanks to our content and thematic analysis service with MAXQDA, your data is carefully examined, reports prepared in accordance with academic standards and contribution is made to the value of your studies. If you also want to receive content and thematic analysis support with MAXQDA in your thesis, article or research, you can [contact](https://kutupakademi.com/iletisim/) us, and you can also have the opportunity to learn all the details of the method and apply it in your own studies with the step-by-step guide in the continuation of this article.
+Applied consulting guides researchers as they import their own data into MAXQDA, build a codebook, maintain analytical memos, and connect the themes they develop to evidence.
+
+> **Service boundary:** Coding decisions, theme development, academic interpretation, and the final report belong to the researcher. We do not prepare a thesis, article, or submission-ready findings section on behalf of a researcher.
 
 ## What is Thematic Analysis and Why is it Important?
 
@@ -215,15 +217,15 @@ Make the analysis process reliable by establishing logical connections between c
 **Creating a Coding Structure Appropriate to Research Questions:**
 The coding process should proceed in a way that directly answers the basic research questions of your study.
 
-## MAXQDA Thematic Analysis Service Prices and Packages
+## Factors That Define the Scope of MAXQDA Consulting
 
-Qualitative data analysis services pricing varies according to:
+The scope of consulting sessions varies according to:
 
 - The size of the data set,
 - Coding and theme extraction process,
-- Reporting format.
+- The software and method steps the researcher wants to learn.
 
-Contact us for information about the most affordable qualitative data analysis services!
+Contact us for applied method support while building your own MAXQDA project.
 
 ## Frequently Asked Questions (FAQ)
 
@@ -241,6 +243,6 @@ Thematic analysis, content analysis, discourse analysis and narrative analysis c
 
 ## Conclusion: Strengthen Your Research by Performing Thematic Analysis with MAXQDA
 
-MAXQDA offers powerful tools for **qualitative data analysis and thematic analysis**. **Having thematic analysis done with MAXQDA** helps you process your data more systematically and increase the reliability of your academic studies.
+MAXQDA offers powerful tools for **qualitative data analysis and thematic analysis**. Systematic use of the software helps researchers trace coding decisions and document the analysis process transparently.
 
-**If you also want to have a professional thematic analysis done or receive [qualitative data analysis](https://kutupakademi.com/nitel-veri-analizi-yaptirma/) support, contact us immediately!** If you want to see a professional thematic analysis example, be sure to contact us!
+To receive method and software guidance while conducting your own thematic analysis, see our [qualitative data analysis consulting](https://kutupakademi.com/nitel-veri-analizi-yaptirma/) page or contact us.

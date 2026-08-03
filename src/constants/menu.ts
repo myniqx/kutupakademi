@@ -74,15 +74,15 @@ export const MAIN_MENU: MenuItem[] = [
       },
       {
         label: {
-          tr: 'Vosviewer ile Bibliyometrik Analiz Yaptırma',
-          en: 'Bibliometric Analysis with Vosviewer',
+          tr: 'VOSviewer Bibliyometrik Analiz Danışmanlığı',
+          en: 'VOSviewer Bibliometric Analysis Consulting',
         },
         href: '/vosviewer-ile-bibliyometrik-analiz-yaptirma',
       },
       {
         label: {
-          tr: 'Nitel Veri Analizi Yaptırma',
-          en: 'Qualitative Data Analysis Service',
+          tr: 'Nitel Veri Analizi Danışmanlığı',
+          en: 'Qualitative Data Analysis Consulting',
         },
         href: '/nitel-veri-analizi-yaptirma',
         children: [
@@ -104,7 +104,7 @@ export const MAIN_MENU: MenuItem[] = [
         href: '/g-power-ile-orneklem-buyuklugu-hesaplama-analizi',
       },
       {
-        label: { tr: 'Meta Analiz Yaptırma', en: 'Meta Analysis Service' },
+        label: { tr: 'Meta-Analiz Yöntem Danışmanlığı', en: 'Meta-Analysis Method Consulting' },
         href: '/meta-analiz-yaptirma',
       },
       {
@@ -116,7 +116,7 @@ export const MAIN_MENU: MenuItem[] = [
             href: '/tez-danismanligi',
           },
           {
-            label: { tr: 'Tez Düzenleme Hizmetleri', en: 'Thesis Editing Services' },
+            label: { tr: 'Tez Biçim ve Dil İncelemesi', en: 'Thesis Formatting and Language Review' },
             href: '/tez-duzenleme-hizmetleri',
           },
         ],

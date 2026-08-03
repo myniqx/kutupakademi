@@ -1,147 +1,72 @@
-# Thesis Editing Services
+# Thesis Formatting and Language Review
 
-One of the most laborious parts of your academic work is checking the content appropriateness of the prepared work from beginning to end. This process seems tiring both because it requires some Microsoft Office Word program knowledge and because the researcher's level of focus decreases as a result of long work.
+Thesis formatting and language review is editorial support for a text completed by the researcher, checked against the university’s writing guide and the selected citation style. Scientific content, interpretation, and authorship remain with the researcher.
 
-As Kutup Akademi, we provide you with professional support in your thesis editing process, ensuring that your academic work complies with standards at every stage. Our expert staff works meticulously to make your thesis complete in terms of form and content.
+> **Editorial boundary:** This service is not thesis writing or thesis chapter production. Research questions, methods, findings, and conclusions are not replaced, and no new academic content is created on behalf of the researcher.
 
-## Our Thesis Editing Services
+## Formatting Checks
 
-Thesis editing tasks such as preparing the cover page, table of contents, table sizes, adjusting page numbers with Roman numerals and the numerals we use, reducing plagiarism rate, preparing bibliography and arranging in-text citations require serious meticulousness and care.
+- Compliance of cover, approval, abstract, and other front matter with the guide
+- Structure of contents, tables, figures, abbreviations, and appendices lists
+- Page numbers, margins, fonts, line spacing, and paragraph settings
+- Numbering of tables and figures and alignment with references in the text
+- Section headings, footnotes, appendices, headers, and footers
 
-### 1. Formal Editing Services
+## Citation and Reference Review
 
-**Cover Page and Front Pages:**
-- Cover page design in accordance with university standards
-- Arrangement of approval page, preface, acknowledgments and abstract pages
-- Automatic creation of table of contents, list of tables, list of figures
-- Preparation of abbreviations and symbols list
+- Comparing in-text citations with reference-list entries
+- Consistency with APA, Harvard, Chicago, MLA, IEEE, or Vancouver style
+- Flagging missing author, year, title, DOI, or access information for the researcher
+- Formatting checks for records exported from reference-management software
 
-**Page Layout and Numbering:**
-- Correct placement of page numbers with Roman numerals and Arabic numerals
-- Header and footer arrangements
-- Page margins and paragraph settings
-- Standardization of line spacing and font
+The researcher verifies that each source exists and was actually used. We do not create nonexistent or unverifiable references.
 
-**Table and Figure Arrangements:**
-- Arrangement of table titles in accordance with APA, Harvard or Chicago format
-- Sizing of figures and graphics
-- Correct positioning of tables and figures in the text
-- Improving visual quality
+## Language Review
 
-### 2. Content Editing Services
+- Spelling, punctuation, and grammar checks
+- Clarity and flow suggestions that preserve meaning
+- Flagging inconsistent concepts and terminology
+- Suggestions for long or ambiguous sentences
 
-**Bibliography and Citation Management:**
-- Preparation of bibliography in accordance with standards such as APA 7, Harvard, Chicago
-- Making in-text citations consistent and correct
-- Detection and correction of missing or incorrect sources
-- Source sorting and formatting control
+Substantive suggestions are presented with tracked changes whenever possible. The researcher decides whether to accept or reject every suggestion.
 
-**Academic Language and Expression:**
-- Grammar and spelling rules compliance control
-- Arranging sentence structures in accordance with academic writing
-- Ensuring consistency and fluency
-- Checking the correct use of technical terms
+## Similarity Report Guidance
 
-**Plagiarism Control and Correction:**
-- Plagiarism rate detection with programs such as Turnitin, iThenticate
-- Re-expression of sections showing high similarity
-- Making source citations complete
-- Full compliance with academic honesty standards
+A similarity percentage alone is not a plagiarism decision. If the institution provides a report, it can be reviewed with the researcher for proper quotations, citations, standard methodological phrases, and incorrect matches.
 
-### 3. Academic Translation Services
+- No guarantee is given for reducing a text to a specific percentage.
+- Text is not rewritten to conceal sources or bypass detection systems.
+- Proper quotation, summarizing, and citation principles are explained for problematic passages.
+- Examples help the researcher improve their own wording ethically.
 
-At the same time, translation of the parts you want of your work into English is also among the services we offer you. We also provide the translation services you need by our expert staff who are proficient in Academic English.
+## Workflow
 
-**Our English Translation Services:**
-- Abstract translation
-- Title and keyword translation
-- Full text translation
-- Mastery of academic terminology
-- Native speaker control
+1. **Scope check:** We confirm that the text was prepared by the researcher and identify requested editorial work.
+2. **Guide review:** The current university writing guide and any graduate-school template are reviewed.
+3. **Formatting and language check:** Technical changes and reasoned language suggestions are applied within scope.
+4. **Researcher review:** Changes are explained, and all content decisions are made by the researcher.
+5. **Final check:** Accepted changes are reviewed for formatting consistency.
 
-**Language Support:**
-- Turkish-English translation
-- English-Turkish translation
-- Proofreading and editing
-- Grammar check
+## Documents Needed
 
-## Our Thesis Editing Process
-
-**1. Analysis and Evaluation:**
-Your thesis is examined in detail and editing requirements are determined.
-
-**2. Technical Arrangements:**
-All technical arrangements are made in accordance with formal standards.
-
-**3. Content Control:**
-Reference citations, citations and academic language are checked.
-
-**4. Plagiarism Control:**
-Similarity rate is detected and necessary corrections are made.
-
-**5. Quality Control:**
-All arrangements are reviewed one last time.
-
-**6. Delivery:**
-The completed work is shared with you and revisions are made if necessary.
-
-## Which University Formats Do We Support?
-
-- APA 7th Edition (American Psychological Association)
-- Harvard Referencing System
-- Chicago Manual of Style
-- MLA (Modern Language Association)
-- IEEE (Institute of Electrical and Electronics Engineers)
-- Vancouver Style
-- Special university templates and formats
-
-## Advantages of Our Thesis Editing Service
-
-**Professional Team:**
-Our expert staff who are proficient in academic writing standards organize your thesis in the best way.
-
-**Time Saving:**
-You can use the time you would spend on technical arrangements to focus on your research.
-
-**Full Compliance with Standards:**
-Full compliance with all formal rules determined by your university is ensured.
-
-**Error-Free Result:**
-Thanks to our meticulous control process, the margin of error is minimized.
-
-**Revision Guarantee:**
-Necessary corrections are made quickly after delivery.
-
-**Confidentiality Assurance:**
-All your work is protected within the framework of confidentiality principles.
-
-## What Do We Need for Thesis Editing?
-
-- Final version of your thesis (in Word format)
-- Thesis writing guide of your university
-- Your special requests and editing requirements
-- Delivery date information
+- The current Word file prepared by the researcher
+- The university or graduate school’s current writing guide
+- The citation style in use
+- Specific formatting or language points to be reviewed
+- A target date for consulting
 
 ## Frequently Asked Questions
 
-### How long does the thesis editing process take?
+### Will my content be rewritten?
 
-It is completed on average within 3-7 days depending on the length of the thesis and editing requirements.
+No. Content and academic interpretation belong to the researcher. Language suggestions preserve meaning; no new thesis chapter or argument is produced.
 
-### How much can you reduce the plagiarism rate?
+### Is a similarity percentage guaranteed?
 
-We generally aim to reduce it below 15%. However, in some cases this rate may vary depending on the structure of the original texts.
+No. There is no universal acceptable percentage. Your institution’s rules apply, and the report is reviewed from an ethical source-use perspective.
 
-### Which Word versions do you support?
+### Which formats can be reviewed?
 
-We support all versions of Microsoft Word 2010 and above.
+University-specific thesis guides and common styles such as APA, Harvard, Chicago, MLA, IEEE, and Vancouver can be reviewed.
 
-### Can revisions be made after editing?
-
-Yes, necessary revisions are made free of charge after delivery.
-
-## Contact
-
-You can contact us to get detailed information about our thesis editing services and get a price quote. We are happy to support you in the final stage of your academic journey.
-
-**Make your work comply with standards with professional thesis editing service!**
+You can submit a consulting request for formatting, reference, or language review of a thesis you prepared yourself.

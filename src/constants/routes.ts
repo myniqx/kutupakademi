@@ -60,8 +60,8 @@ export const ROUTES: RouteItem[] = [
       },
       {
         label: {
-          tr: 'Nitel Veri Analizi Yaptırma',
-          en: 'Qualitative Data Analysis Service',
+          tr: 'Nitel Veri Analizi Danışmanlığı',
+          en: 'Qualitative Data Analysis Consulting',
         },
         href: '/nitel-veri-analizi',
         children: [
@@ -76,8 +76,8 @@ export const ROUTES: RouteItem[] = [
       },
       {
         label: {
-          tr: 'Vosviewer ile Bibliyometrik Analiz Yaptırma',
-          en: 'Bibliometric Analysis with Vosviewer',
+          tr: 'VOSviewer Bibliyometrik Analiz Danışmanlığı',
+          en: 'VOSviewer Bibliometric Analysis Consulting',
         },
         href: '/vosviewer-ile-bibliyometrik-analiz-yaptirma',
       },
@@ -89,7 +89,7 @@ export const ROUTES: RouteItem[] = [
         href: '/g-power-ile-orneklem-buyuklugu-hesaplama-analizi',
       },
       {
-        label: { tr: 'Meta Analiz Yaptırma', en: 'Meta Analysis Service' },
+        label: { tr: 'Meta-Analiz Yöntem Danışmanlığı', en: 'Meta-Analysis Method Consulting' },
         href: '/meta-analiz-yaptirma',
       },
       {
@@ -101,7 +101,7 @@ export const ROUTES: RouteItem[] = [
             href: '/tez-danismanligi',
           },
           {
-            label: { tr: 'Tez Düzenleme Hizmetleri', en: 'Thesis Editing Services' },
+            label: { tr: 'Tez Biçim ve Dil İncelemesi', en: 'Thesis Formatting and Language Review' },
             href: '/tez-duzenleme-hizmetleri',
           },
         ],

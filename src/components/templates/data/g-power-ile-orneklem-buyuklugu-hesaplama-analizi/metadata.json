@@ -1,16 +1,16 @@
 {
 	"date": "2025-11-16T18:20:32+00:00",
-	"lastModified": "2025-11-16T18:20:32+00:00",
+	"lastModified": "2026-08-03T00:00:00+03:00",
 	"slug": "g-power-ile-orneklem-buyuklugu-hesaplama-analizi",
 	"cover": "featured-image.webp",
 	"tr": {
 		"title": "G Power ile Örneklem Büyüklüğü Hesaplama Analizi",
-		"description": "G Power ile örneklem büyüklüğü hesaplama ve güç analizi adımlarını öğrenin — araştırmanız için doğru katılımcı sayısını profesyonelce belirle.",
+		"description": "G Power ile örneklem büyüklüğü ve güç analizi adımlarını öğrenin; kendi araştırmanız için test ve girdileri yöntemsel olarak gerekçelendirin.",
 		"url": "https://kutupakademi.com/g-power-ile-orneklem-buyuklugu-hesaplama-analizi/"
 	},
 	"en": {
 		"title": "Sample Size Calculation and Analysis with G Power",
-		"description": "Learn the steps of sample size calculation and power analysis with G Power — professionally determine the right number of participants for your research.",
+		"description": "Learn sample-size and power-analysis steps in G Power and justify the test and inputs for your own research design.",
 		"url": "https://kutupakademi.com/en/sample-size-calculation-and-analysis-with-g-power/"
 	}
 }

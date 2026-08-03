@@ -27,18 +27,18 @@
         "getFreeInfo": "Get Free Information"
       },
       "badges": {
-        "fastDelivery": "Fast Delivery",
+        "fastDelivery": "Structured Consulting",
         "expertTeam": "Expert Team",
-        "support247": "24/7 Support"
+        "support247": "Transparent Scope"
       }
     },
     "partners": {
-      "title": "Our Technology Partners",
-      "subtitle": "We work together with our trusted solution partners"
+      "title": "Technologies We Use",
+      "subtitle": "Software tools used in research and analysis workflows"
     },
     "about": {
       "title": "Global Scale Data Analysis Services",
-      "description": "We provide professional support for your academic studies. We are with you with our expert team in data analysis and statistical consulting."
+      "description": "We provide data analysis, method selection, and academic process consulting so researchers can develop their own work in line with scientific criteria."
     },
     "services": {
       "title": "Our Services",
@@ -46,7 +46,7 @@
     },
     "process": {
       "title": "Our Work Process",
-      "subtitle": "We manage your project professionally from start to finish"
+      "subtitle": "A transparent consulting process that preserves the researcher’s responsibility"
     },
     "stats": {
       "title": "Kutup Akademi in Numbers",

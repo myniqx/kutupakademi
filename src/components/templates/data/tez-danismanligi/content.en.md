@@ -1,75 +1,59 @@
-# Thesis Consultancy Service
+# Thesis Consulting
 
-Although thesis, article and project assignments are called by different names, except for the scope aspect, they consist of the same sections and go through the same stages in the preparation processes. In these processes, it is inevitable to make mistakes and get into unnecessary details. However, it is possible to prepare a thesis, article or project assignment in a way that will minimize or perhaps not make such mistakes at all.
+Thesis consulting provides methodological guidance, learning support, and structured feedback so researchers can conduct their own theses scientifically and systematically. The aim is to strengthen the researcher’s decision-making and academic writing skills.
 
-Kutup Akademi is ready to guide you, valuable researchers, by filtering the experiences it has gained over the years on research methods through the filter of academic principles with its expert academic staff. We provide you with all the thesis consultancy services you will need in literature review, method, hypothesis development, data analysis, discussion, conclusion and bibliography preparation and writing them within the framework of APA standards completely and smoothly.
+> **Clear scope:** We do not write a thesis or thesis chapters on behalf of a client. A thesis proposal, findings, discussion, or conclusion is not prepared as submission-ready work. Final decisions, interpretations, and text belong to the researcher.
 
-## Our Thesis Consultancy Services
+## Consulting Topics
 
-We assist you in the writing process by presenting you with drafts and models in the preparation of sections in your thesis and article. Throughout this whole process, we are with you with all our power to eliminate possible errors by providing uninterrupted communication support and to progress the writing stage. If you want your work to be evaluated by professionals and to receive professional support at all stages, Kutup Akademi is always with you.
+### Research Question and Planning
 
-### 1. Academic Consultancy
+- Reviewing the scope and researchability of the topic
+- Checking alignment among the purpose, research question, and hypotheses
+- Creating a feasible timeline and progress checklist
+- General guidance on ethics review, data permissions, and open science requirements
 
-Within the scope of our academic consultancy service:
+### Literature Review
 
-- **Literature Review:** Conducting current and comprehensive literature research on your topic
-- **Method Determination:** Selection and application of appropriate methodology for your research
-- **Hypothesis Development:** Creating hypotheses in accordance with scientific criteria
-- **Data Analysis:** Performing statistical analyses with correct methods
-- **Discussion and Conclusion:** Interpreting findings within a scientific framework
-- **Bibliography Arrangement:** Reference citation in accordance with standards such as APA, Harvard, Chicago
+- Identifying suitable databases and keywords
+- Structuring inclusion and exclusion criteria
+- Teaching methods for organizing sources by theme
+- Giving feedback on the researcher’s own synthesis for structure and citation use
 
-### 2. Thesis Writing Support
+### Method and Analysis Plan
 
-We are with you at every stage of your thesis writing process:
+- Explaining assumptions behind quantitative, qualitative, or mixed-method options
+- Reviewing alignment among population, sample, and data collection tools
+- Explaining assumptions and reporting requirements in an analysis plan
+- Demonstrating how to read analysis outputs produced by the researcher
 
-- **Topic Determination:** Selection of original and academically valuable thesis topic
-- **Thesis Proposal Preparation:** Professional thesis proposal preparation for advisor approval
-- **Introduction Section:** Writing problem statement, purpose, importance and limitations
-- **Method Section:** Detailing research model, population-sample, data collection tools
-- **Findings Section:** Presentation of analysis results with tables and graphs
-- **Discussion and Conclusion:** Relating findings to literature and presenting recommendations
+### Academic Writing Feedback
 
-### 3. Academic Writing Standards
+- Reviewing the logical flow between sections
+- Suggesting improvements to academic language, conceptual consistency, and paragraph structure
+- Checking citations and references with a structured checklist
+- Helping the researcher connect their own interpretations to evidence
 
-We ensure compliance with academic writing rules in all your works:
+### Defense Preparation
 
-- Writing support in APA 7th Edition format
-- Reference citation and citation control
-- Plagiarism check and originality guarantee
-- Academic language and expression arrangement
-- Formatting in accordance with thesis template
+- Reviewing the researcher’s own slides for timing, flow, and clarity
+- Rehearsing possible committee questions
+- Practicing clear explanations of method choices and limitations
 
-### 4. Statistical Analysis Support
+## Consulting Process
 
-Professional support in your data analyses:
+1. **Initial review:** The current work, need, and learning objective are identified.
+2. **Scope:** Session topics and researcher responsibilities are documented.
+3. **Applied sessions:** Concepts and methods are explained using the researcher’s own material.
+4. **Feedback:** The researcher’s draft is assessed with reasoned improvement suggestions.
+5. **Progress review:** Revisions and next steps are reviewed together.
 
-- Statistical analyses with SPSS, AMOS, Jamovi
-- Descriptive and inferential statistics applications
-- Validity and reliability tests
-- Advanced analyses such as factor analysis, regression, ANOVA
-- Reporting results in academic format
+## Work Not Included
 
-## Our Thesis Consultancy Process
+- Writing a thesis, article, assignment, project, or exam work on behalf of a researcher
+- Preparing a thesis proposal or thesis chapter as submission-ready text
+- Fabricating sources or data, altering results, or concealing an ethics violation
+- Guaranteeing a similarity percentage, acceptance, publication, or academic outcome
+- Replacing an official supervisor or ethics committee in academic decisions
 
-**1. Initial Meeting:** Your thesis topic, goals and needs are evaluated
-
-**2. Planning:** Work schedule and stages are determined
-
-**3. Implementation:** Consultancy service is provided according to the determined plan
-
-**4. Feedback:** Regular communication and feedback is provided at every stage
-
-**5. Revision:** Necessary corrections and improvements are made
-
-## Why Kutup Akademi?
-
-- **Expert Staff:** Team consisting of academics and experts experienced in their field
-- **Uninterrupted Communication:** 24/7 communication support and fast response
-- **Confidentiality Guarantee:** The confidentiality of all your work is protected
-- **Quality Assurance:** Full compliance with academic standards
-- **On-Time Delivery:** Strict adherence to determined deadlines
-
-## Contact
-
-You can contact us to get detailed information about our thesis consultancy services and make an appointment. We are happy to guide you on your academic journey.
+You can request consulting for methodological guidance and feedback while conducting your thesis yourself.

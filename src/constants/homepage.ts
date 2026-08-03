@@ -1,12 +1,12 @@
 export const HOMEPAGE = {
   partners: {
     title: {
-      tr: 'Teknoloji Ortaklarımız',
-      en: 'Our Technology Partners',
+      tr: 'Kullandığımız Teknolojiler',
+      en: 'Technologies We Use',
     },
     subtitle: {
-      tr: 'Güvenilir çözüm ortaklarımızla birlikte çalışıyoruz',
-      en: 'We work together with our trusted solution partners',
+      tr: 'Araştırma ve analiz süreçlerinde yararlandığımız yazılım araçları',
+      en: 'Software tools used in research and analysis workflows',
     },
     list: [
       {
@@ -103,8 +103,8 @@ export const HOMEPAGE = {
           en: 'Develop leadership skills',
         },
         details: {
-          tr: 'Tez danışmanlığı, makale yazımı ve akademik çalışmalarınızda profesyonel destek sağlıyoruz.',
-          en: 'We provide professional support in thesis consulting, article writing and your academic studies.',
+          tr: 'Araştırma planlama, yöntem seçimi, akademik yazım ilkeleri ve araştırmacının kendi metnini geliştirmesi için danışmanlık sağlıyoruz.',
+          en: 'We provide consulting on research planning, method selection, academic writing principles, and helping researchers improve their own texts.',
         },
 
       },
@@ -116,8 +116,8 @@ export const HOMEPAGE = {
       en: 'Our Work Process',
     },
     subtitle: {
-      tr: 'Projenizi baştan sona profesyonelce yönetiyoruz',
-      en: 'We manage your project professionally from start to finish',
+      tr: 'Araştırmacının sorumluluğunu koruyan şeffaf bir danışmanlık süreci',
+      en: 'A transparent consulting process that preserves the researcher’s responsibility',
     },
     steps: [
       {
@@ -128,20 +128,20 @@ export const HOMEPAGE = {
           en: 'Planning',
         },
         description: {
-          tr: 'Proje süreçleri belirlenir, çalışma planı hazırlanır',
-          en: 'Project processes are determined, work plan is prepared',
+          tr: 'İhtiyaç ve danışmanlık kapsamı birlikte netleştirilir',
+          en: 'The need and consulting scope are clarified together',
         },
       },
       {
         number: 2,
         icon: 'Gear',
         title: {
-          tr: 'İşlem',
-          en: 'Processing',
+          tr: 'Rehberlik',
+          en: 'Guidance',
         },
         description: {
-          tr: 'Uzman ekip tarafından işleme alınır',
-          en: 'Processed by expert team',
+          tr: 'Yöntem, araç ve uygulama adımları araştırmacıyla paylaşılır',
+          en: 'Methods, tools, and practical steps are shared with the researcher',
         },
       },
       {
@@ -152,20 +152,20 @@ export const HOMEPAGE = {
           en: 'Quality Control',
         },
         description: {
-          tr: 'Uzman onayı alınır',
-          en: 'Expert approval obtained',
+          tr: 'Araştırmacının kendi çıktıları bilimsel ölçütlerle gözden geçirilir',
+          en: 'The researcher’s own outputs are reviewed against scientific criteria',
         },
       },
       {
         number: 4,
         icon: 'CheckCircle',
         title: {
-          tr: 'Teslimat',
-          en: 'Delivery',
+          tr: 'Geri Bildirim',
+          en: 'Feedback',
         },
         description: {
-          tr: 'Belirlenen tarihte teslim edilir',
-          en: 'Delivered on the specified date',
+          tr: 'Geliştirme önerileri ve izlenecek sonraki adımlar paylaşılır',
+          en: 'Improvement suggestions and next steps are shared',
         },
       },
     ],

@@ -1,6 +1,13 @@
 import { NextRequest, NextResponse } from 'next/server'
+import { getAuthenticatedUser } from '@/lib/auth/user'
 
 export async function POST(request: NextRequest) {
+  const user = await getAuthenticatedUser()
+
+  if (!user) {
+    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+  }
+
   const apiKey = process.env.DEEPL_API_KEY
 
   if (!apiKey) {

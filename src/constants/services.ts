@@ -168,8 +168,8 @@ export const SERVICES: Record<ServiceSlug, ServiceData> = {
         {
           title: { tr: 'Analiz ve Raporlama', en: 'Analysis and Reporting' },
           description: {
-            tr: 'Detaylı analiz sonuçları ve yorumlarını sunarız.',
-            en: 'We provide detailed analysis results and interpretations.',
+            tr: 'Model çıktılarının varsayımlarını ve okuma ilkelerini araştırmacıyla değerlendiririz.',
+            en: 'We review model assumptions and output-reading principles with the researcher.',
           },
         },
       ],
@@ -471,12 +471,12 @@ export const SERVICES: Record<ServiceSlug, ServiceData> = {
   },
   'vosviewer-ile-bibliyometrik-analiz-yaptirma': {
     title: {
-      tr: 'Vosviewer ile Bibliyometrik Analiz Yaptırma',
-      en: 'Bibliometric Analysis with Vosviewer',
+      tr: 'VOSviewer Bibliyometrik Analiz Danışmanlığı',
+      en: 'VOSviewer Bibliometric Analysis Consulting',
     },
     description: {
-      tr: 'Bilimsel literatür analizi için Vosviewer ile bibliyometrik analiz hizmeti.',
-      en: 'Bibliometric analysis service with Vosviewer for scientific literature analysis.',
+      tr: 'Bilimsel literatürü VOSviewer ile haritalamak ve çıktıları doğru yorumlamak için uygulamalı danışmanlık.',
+      en: 'Applied consulting for mapping scientific literature with VOSviewer and interpreting outputs correctly.',
     },
     shortDescription: {
       tr: 'Literatür analizi için bibliyometrik analiz.',
@@ -509,8 +509,8 @@ export const SERVICES: Record<ServiceSlug, ServiceData> = {
         {
           title: { tr: 'Analiz', en: 'Analysis' },
           description: {
-            tr: 'Vosviewer ile bibliyometrik analiz yaparız.',
-            en: 'We perform bibliometric analysis with Vosviewer.',
+            tr: 'Araştırmacının verileriyle VOSviewer uygulamasını birlikte yürütürüz.',
+            en: 'We work through the VOSviewer workflow together using the researcher’s data.',
           },
         },
         {
@@ -587,8 +587,8 @@ export const SERVICES: Record<ServiceSlug, ServiceData> = {
   },
   'meta-analiz-yaptirma': {
     title: {
-      tr: 'Meta Analiz Yaptırma',
-      en: 'Meta Analysis Service',
+      tr: 'Meta-Analiz Yöntem Danışmanlığı',
+      en: 'Meta-Analysis Method Consulting',
     },
     description: {
       tr: 'Birden fazla çalışmanın bulgularını birleştiren meta analiz hizmeti.',
@@ -618,22 +618,22 @@ export const SERVICES: Record<ServiceSlug, ServiceData> = {
         {
           title: { tr: 'Literatür Tarama', en: 'Literature Search' },
           description: {
-            tr: 'Sistematik literatür taraması yaparız.',
-            en: 'We conduct systematic literature search.',
+            tr: 'Araştırmacının tarama stratejisini ve eleme ölçütlerini gözden geçiririz.',
+            en: 'We review the researcher’s search strategy and screening criteria.',
           },
         },
         {
           title: { tr: 'Veri Çıkarma', en: 'Data Extraction' },
           description: {
-            tr: 'Çalışmalardan veri çıkarımı yaparız.',
-            en: 'We extract data from studies.',
+            tr: 'Veri çıkarım formunun nasıl oluşturulacağını ve kontrol edileceğini gösteririz.',
+            en: 'We demonstrate how to create and verify a data-extraction form.',
           },
         },
         {
           title: { tr: 'Meta Analiz', en: 'Meta Analysis' },
           description: {
-            tr: 'İstatistiksel meta analiz gerçekleştiririz.',
-            en: 'We perform statistical meta-analysis.',
+            tr: 'Meta-analiz uygulamasını ve çıktıların sınırlarını araştırmacıyla değerlendiririz.',
+            en: 'We review the meta-analysis workflow and output limitations with the researcher.',
           },
         },
       ],
@@ -649,25 +649,25 @@ export const SERVICES: Record<ServiceSlug, ServiceData> = {
       en: 'Thesis Consulting',
     },
     description: {
-      tr: 'Yüksek lisans ve doktora tezi sürecinizde profesyonel danışmanlık.',
-      en: 'Professional consulting for your masters and doctoral thesis process.',
+      tr: 'Kendi yüksek lisans veya doktora tezinizi yürütürken yöntemsel danışmanlık ve geri bildirim.',
+      en: 'Methodological consulting and feedback while conducting your own master’s or doctoral thesis.',
     },
     shortDescription: {
-      tr: 'Tez yazım sürecinde kapsamlı destek.',
-      en: 'Comprehensive support in thesis writing process.',
+      tr: 'Araştırmacının kendi tezini geliştirmesine yönelik rehberlik.',
+      en: 'Guidance focused on helping researchers develop their own theses.',
     },
     features: {
       tr: [
         'Konu seçimi ve literatür taraması',
         'Metodoloji planlaması',
         'Veri analizi desteği',
-        'Yazım ve düzenleme',
+        'Araştırmacının metnine yazım geri bildirimi',
       ],
       en: [
         'Topic selection and literature review',
         'Methodology planning',
         'Data analysis support',
-        'Writing and editing',
+        'Writing feedback on the researcher’s draft',
       ],
     },
     process: {
@@ -703,16 +703,16 @@ export const SERVICES: Record<ServiceSlug, ServiceData> = {
   },
   'tez-duzenleme-hizmetleri': {
     title: {
-      tr: 'Tez Düzenleme Hizmetleri',
-      en: 'Thesis Editing Services',
+      tr: 'Tez Biçim ve Dil İncelemesi',
+      en: 'Thesis Formatting and Language Review',
     },
     description: {
-      tr: 'Tezinizin akademik standartlara uygun şekilde düzenlenmesi ve formatlanması.',
-      en: 'Editing and formatting your thesis according to academic standards.',
+      tr: 'Kendi hazırladığınız tezin biçim, kaynakça, dil ve anlatım açısından editoryal incelenmesi.',
+      en: 'Editorial review of your own thesis for formatting, references, language, and clarity.',
     },
     shortDescription: {
-      tr: 'Profesyonel tez düzenleme ve formatlama.',
-      en: 'Professional thesis editing and formatting.',
+      tr: 'Yazarlığı araştırmacıda kalan biçim ve dil incelemesi.',
+      en: 'Formatting and language review that preserves researcher authorship.',
     },
     features: {
       tr: [
@@ -748,8 +748,8 @@ export const SERVICES: Record<ServiceSlug, ServiceData> = {
         {
           title: { tr: 'Kontrol', en: 'Check' },
           description: {
-            tr: 'Son kontrolleri yapıp teslim ederiz.',
-            en: 'We perform final checks and deliver.',
+            tr: 'Kabul edilen editoryal değişikliklerin tutarlılığını kontrol ederiz.',
+            en: 'We check the consistency of accepted editorial changes.',
           },
         },
       ],

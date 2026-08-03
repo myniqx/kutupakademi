@@ -1,16 +1,16 @@
 {
 	"date": "2025-10-28T10:51:06+00:00",
-	"lastModified": "2025-10-28T10:51:06+00:00",
+	"lastModified": "2026-08-03T00:00:00+03:00",
 	"slug": "vosviewer-ile-bibliyometrik-analiz-yaptirma",
 	"cover": "featured-image.webp",
 	"tr": {
-		"title": "Vosviewer ile Bibliyometrik Analiz Yaptırma",
-		"description": "VOSviewer ile bibliyometrik analiz hizmeti: yayınlarınızı görselleştiriyoruz, ağ haritalama yapıyoruz Araştırma sürecinizde üstün destek alın.",
+		"title": "VOSviewer ile Bibliyometrik Analiz Danışmanlığı",
+		"description": "Kendi bibliyometrik verinizi VOSviewer ile temizlemek, haritalamak ve çıktıları doğru yorumlamak için uygulamalı danışmanlık alın.",
 		"url": "https://kutupakademi.com/vosviewer-ile-bibliyometrik-analiz-yaptirma/"
 	},
 	"en": {
-		"title": "Bibliometric Analysis Service with VOSviewer",
-		"description": "Bibliometric analysis service with VOSviewer: we visualize your publications, we do network mapping. Get superior support in your research process.",
+		"title": "Bibliometric Analysis Consulting with VOSviewer",
+		"description": "Applied consulting for cleaning, mapping, and correctly interpreting your own bibliometric data with VOSviewer.",
 		"url": "https://kutupakademi.com/en/bibliometric-analysis-service-with-vosviewer/"
 	}
 }

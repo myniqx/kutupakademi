@@ -1,8 +1,10 @@
-# Vosviewer ile Bibliyometrik Analiz Yaptırma
+# VOSviewer ile Bibliyometrik Analiz Danışmanlığı
 
 ![](./featured-image.webp)
 
-**Bibliyometrik analiz**, akademik literatürün sistematik olarak incelenmesini sağlayan güçlü bir araştırma yöntemidir. Eğer araştırmanızda alan yazın taraması yapmak, trendleri belirlemek veya akademik etkiyi analiz etmek istiyorsanız, sunudğumuz **VOSviewer ile profesyonel bibliyometrik analiz yaptırma hizmeti** tam size göre.
+**Bibliyometrik analiz**, akademik literatürün yapısını sayısal göstergeler ve ağlar üzerinden inceleyen bir araştırma yöntemidir. VOSviewer danışmanlığı, araştırmacının kendi veri setini doğru biçimde dışa aktarması, temizlemesi, haritalaması ve görsellerin sınırlarını değerlendirmesi için uygulamalı rehberlik sunar.
+
+> **Hizmet sınırı:** Veri tabanı seçimi, arama stratejisi, eleme kararları, akademik yorum ve nihai metin araştırmacıya aittir. Araştırmacı adına tez, makale veya yayına hazır rapor hazırlanmaz.
 
 ## Bibliyometrik Analiz Nedir?​
 
@@ -108,12 +110,13 @@ Ortak yazar analizi, bilimsel makalelerde birden fazla yazarın birlikte çalı�
 
 Akademik üretiminizin görünürlüğünü artırmak için doğru yoldasınız.
 
-## Profesyonel Bibliyometrik Analiz Yaptırmanın Avantajları​
+## Bibliyometrik Analiz Danışmanlığının Kapsamı​
 
-- **Zamandan tasarruf:** Veritabanı filtreleme, veri temizleme ve görselleştirme süreçleri zaman alır.
-- **Akademik uygunluk:** Hazırladığımız raporlar APA, MLA gibi akademik yazım kurallarına uygundur.
-- **Veriye dayalı sunum:** Görsel haritalar, grafikler ve anahtar kelime dağılımları ile bilimsel olarak güçlü sunumlar elde edersiniz.
-- **Danışman onayı:** Tez ya da makalenizde literatür bölümünü güçlendirerek onay alma şansınızı artırırsınız.
+- Arama stratejisi ile veri dışa aktarma ayarlarının gözden geçirilmesi
+- Yazar, kurum ve anahtar kelime adlarının temizlenmesi için eş anlamlılar dosyası kullanımı
+- Ağ türü, sayım yöntemi ve eşik değerlerinin gerekçelendirilmesi
+- Harita, yoğunluk ve zaman katmanı görsellerinin nasıl okunacağının açıklanması
+- Araştırmacının kendi yöntem ve bulgular metnine şeffaf raporlama açısından geri bildirim
 
 ## Sık Sorulan Sorular (SSS)
 
@@ -134,10 +137,6 @@ En yaygın kullanılan programlar arasında [**VOSviewer**](https://www.vosviewe
 - “Bir yazarın akademik etkisi ve atıf analizi”  
   gibi çalışmalar bibliyometrik analize örnektir.
 
-## Hemen Bibliyometrik Analiz Yaptırın
+## Uygulamalı VOSviewer Rehberliği
 
-Eğer siz de çalışmanızda kapsamlı, görsel ve bilimsel bir literatür analizi sunmak istiyorsanız, **profesyonel bibliyometrik analiz hizmetimizle** yanınızdayız.
-
-VOSviewer ile hazırlanmış görsel haritalar, alan analizleri ve akademik uyumlu raporlarla desteklenen çalışmanızla fark yaratın!
-
-**Hemen bizimle [fiyat talebi formu](https://www.kutupakademi.com/fiyat-talebi/) doldurarak ya da whatsapp hattı üzerinden iletişime geçin, analiz sürecinizi birlikte başlatalım.**
+Kendi bibliyometrik analiz sürecinizi yürütürken VOSviewer kurulumu, veri temizleme, haritalama ve çıktı okuma konularında uygulamalı danışmanlık alabilirsiniz. [Fiyat talebi formu](https://www.kutupakademi.com/fiyat-talebi/) üzerinden ihtiyacınızı ve öğrenme hedefinizi paylaşabilirsiniz.
