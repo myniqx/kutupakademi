@@ -3,18 +3,16 @@ import { ROUTES, RouteItem } from '@/constants/routes';
 import { db } from '@/db';
 import { blogs } from '@/db/schema';
 import { eq } from 'drizzle-orm';
+import { getGuidanceBlogRevision } from '@/constants/guidance-blog-revisions';
 
 // These live database posts are intentionally outside the current revision scope.
 // Keep their existing discovery behavior unchanged until they are reviewed separately.
 const PROTECTED_BLOG_SLUGS = new Set([
   'aracilik-etkisi-analizi-yaptirma',
-  'biyoistatistik-odevi-yapma',
   'duzenleyici-degisken-analizi',
-  'ingilizce-odev-yaptirma',
   'norolojik-rehabilitasyon-arastirmalarinda-spss-analizi-yaptirmak',
   'ortopedi-arastirmalarinda-spss-analizi-yaptirmak',
   'piyasa-arastirmasi-icin-spss-analizi',
-  'seminer-odevi-yaptirma',
   'spss-analiz-ucretleri',
   'spss-analizi-yaptirma',
   'spss-anket-verisi-analizi',
@@ -33,8 +31,6 @@ const PROTECTED_BLOG_SLUGS = new Set([
   'spss-odevi-yapanlar',
   'spss-process-makro-odev',
   'tuketici-arastirmalari-icin-spss-analizi',
-  'yapay-zeka-ile-odev-yaptirma',
-  'yuksek-lisans-odev-yaptirma',
 ]);
 
 function getAllRoutes(items: RouteItem[]): string[] {
@@ -88,32 +84,37 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   const blogUrls = publishedBlogs
     .filter((post) => !PROTECTED_BLOG_SLUGS.has(post.slug))
-    .flatMap((post) => [
-      {
-        url: `${baseUrl}/blog/${post.slug}`,
-        lastModified: post.updatedAt,
-        changeFrequency: 'monthly' as const,
-        priority: 0.6,
-        alternates: {
-          languages: {
-            tr: `${baseUrl}/blog/${post.slug}`,
-            en: `${baseUrl}/en/blog/${post.slug}`,
+    .flatMap((post) => {
+      const revision = getGuidanceBlogRevision(post.slug);
+      const lastModified = revision ? new Date(revision.lastModified) : post.updatedAt;
+
+      return [
+        {
+          url: `${baseUrl}/blog/${post.slug}`,
+          lastModified,
+          changeFrequency: 'monthly' as const,
+          priority: 0.6,
+          alternates: {
+            languages: {
+              tr: `${baseUrl}/blog/${post.slug}`,
+              en: `${baseUrl}/en/blog/${post.slug}`,
+            },
           },
         },
-      },
-      {
-        url: `${baseUrl}/en/blog/${post.slug}`,
-        lastModified: post.updatedAt,
-        changeFrequency: 'monthly' as const,
-        priority: 0.6,
-        alternates: {
-          languages: {
-            tr: `${baseUrl}/blog/${post.slug}`,
-            en: `${baseUrl}/en/blog/${post.slug}`,
+        {
+          url: `${baseUrl}/en/blog/${post.slug}`,
+          lastModified,
+          changeFrequency: 'monthly' as const,
+          priority: 0.6,
+          alternates: {
+            languages: {
+              tr: `${baseUrl}/blog/${post.slug}`,
+              en: `${baseUrl}/en/blog/${post.slug}`,
+            },
           },
         },
-      },
-    ]);
+      ];
+    });
 
   return [...turkishUrls, ...englishUrls, ...blogUrls];
 }
