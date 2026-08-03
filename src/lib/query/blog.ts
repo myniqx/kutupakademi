@@ -2,6 +2,7 @@ import { db } from '@/db'
 import { blogs } from '@/db/schema'
 import { eq, desc, ne, and, sql } from 'drizzle-orm'
 import type { BlogCardData } from '@/components/blog/blog-card'
+import { getGuidanceBlogRevision } from '@/constants/guidance-blog-revisions'
 
 type GetBlogCardsParams = {
   locale: string
@@ -51,5 +52,18 @@ export async function getBlogCards({
     query = query.limit(max)
   }
 
-  return await query
+  const rows = await query
+
+  return rows.map((row) => {
+    const revision = getGuidanceBlogRevision(row.slug)
+    if (!revision) return row
+
+    const localized = isTurkish ? revision.tr : revision.en
+    return {
+      ...row,
+      title: localized.title,
+      description: localized.description,
+      summary: localized.summary,
+    }
+  })
 }

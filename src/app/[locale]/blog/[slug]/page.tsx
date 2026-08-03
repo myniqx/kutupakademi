@@ -7,6 +7,7 @@ import type { Metadata } from 'next'
 import { extractHeadings } from '@/lib/markdown/extract-headings'
 import { getBlogCards } from '@/lib/query/blog'
 import { generateMeta, DEFAULT_SEO } from '@/constants/seo'
+import { getGuidanceBlogRevision } from '@/constants/guidance-blog-revisions'
 
 type BlogPostPageProps = {
   params: Promise<{ locale: "tr" | "en"; slug: string }>
@@ -37,14 +38,17 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
   }
 
   const isTurkish = locale === 'tr'
-  const title = isTurkish ? blog.title_tr : blog.title_en || blog.title_tr
-  const description = isTurkish
+  const revision = getGuidanceBlogRevision(slug)
+  const localizedRevision = revision ? (isTurkish ? revision.tr : revision.en) : null
+  const title = localizedRevision?.title || (isTurkish ? blog.title_tr : blog.title_en || blog.title_tr)
+  const description = localizedRevision?.description || (isTurkish
     ? blog.description_tr
-    : blog.description_en || blog.description_tr
+    : blog.description_en || blog.description_tr)
 
   // Parse blog-specific keywords
-  const blogKeywords = blog.keywords
-    ? blog.keywords.split(',').map(k => k.trim()).filter(Boolean)
+  const keywords = revision?.keywords || blog.keywords
+  const blogKeywords = keywords
+    ? keywords.split(',').map(k => k.trim()).filter(Boolean)
     : []
 
   // Combine default keywords with blog keywords
@@ -63,7 +67,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
     image: blog.coverImage || undefined,
     type: 'article',
     publishedTime: blog.createdAt.toISOString(),
-    modifiedTime: blog.updatedAt.toISOString(),
+    modifiedTime: revision?.lastModified || blog.updatedAt.toISOString(),
     authors: blog.author ? [blog.author] : ['KutupAkademi'],
   })
 }
@@ -89,8 +93,10 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
 
   const isTurkish = locale === 'tr'
-  const content = isTurkish ? blog.content_tr : blog.content_en || blog.content_tr
-  const summary = isTurkish ? blog.summary_tr : blog.summary_en
+  const revision = getGuidanceBlogRevision(slug)
+  const localizedRevision = revision ? (isTurkish ? revision.tr : revision.en) : null
+  const content = localizedRevision?.content || (isTurkish ? blog.content_tr : blog.content_en || blog.content_tr)
+  const summary = localizedRevision?.summary || (isTurkish ? blog.summary_tr : blog.summary_en)
 
   // Calculate reading time from raw content
   const wordsPerMinute = 200
@@ -104,17 +110,17 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const metadata = {
     slug: blog.slug,
     date: blog.createdAt.toISOString(),
-    lastModified: blog.updatedAt.toISOString(),
+    lastModified: revision?.lastModified || blog.updatedAt.toISOString(),
     cover: blog.coverImage || undefined,
     readingTime,
     headings,
     tr: {
-      title: blog.title_tr,
-      description: blog.description_tr || '',
+      title: revision?.tr.title || blog.title_tr,
+      description: revision?.tr.description || blog.description_tr || '',
     },
     en: {
-      title: blog.title_en || blog.title_tr,
-      description: blog.description_en || blog.description_tr || '',
+      title: revision?.en.title || blog.title_en || blog.title_tr,
+      description: revision?.en.description || blog.description_en || blog.description_tr || '',
     },
   }
 
