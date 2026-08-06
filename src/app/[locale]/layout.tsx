@@ -9,6 +9,7 @@ import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
 import { generateMeta } from '@/constants/seo';
 import { SITE_CONFIG } from '@/constants/site';
+import { JsonLd } from '@/components/seo/json-ld';
 import "../globals.css";
 
 const ibmPlexSans = IBM_Plex_Sans({
@@ -59,10 +60,42 @@ export default async function LocaleLayout({
   }
 
   const messages = await getMessages();
+  const localizedName = SITE_CONFIG.name[locale as 'tr' | 'en'];
+  const localizedDescription = SITE_CONFIG.description[locale as 'tr' | 'en'];
+  const homeUrl = locale === 'en' ? `${SITE_CONFIG.url}/en` : SITE_CONFIG.url;
 
   return (
     <html lang={locale} suppressHydrationWarning>
       <head>
+        <JsonLd
+          data={[
+            {
+              '@context': 'https://schema.org',
+              '@type': 'Organization',
+              '@id': `${SITE_CONFIG.url}/#organization`,
+              name: localizedName,
+              url: SITE_CONFIG.url,
+              email: SITE_CONFIG.contact.email,
+              telephone: SITE_CONFIG.contact.phone,
+              address: {
+                '@type': 'PostalAddress',
+                addressLocality: locale === 'en' ? 'Pendik, Istanbul' : 'Pendik, İstanbul',
+                addressCountry: 'TR',
+              },
+              sameAs: Object.values(SITE_CONFIG.social).filter(Boolean),
+            },
+            {
+              '@context': 'https://schema.org',
+              '@type': 'WebSite',
+              '@id': `${SITE_CONFIG.url}/#website`,
+              url: homeUrl,
+              name: localizedName,
+              description: localizedDescription,
+              inLanguage: locale,
+              publisher: { '@id': `${SITE_CONFIG.url}/#organization` },
+            },
+          ]}
+        />
         <script
           dangerouslySetInnerHTML={{
             __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':

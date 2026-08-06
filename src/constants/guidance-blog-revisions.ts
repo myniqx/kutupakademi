@@ -8,19 +8,309 @@ export type LocalizedGuidanceArticle = {
   checks: string[]
   mistakes: string[]
   faq: Array<{ question: string; answer: string }>
+  customContent?: string
 }
 
 export type GuidanceBlogRevision = {
   slug: string
   keywords: string
   lastModified: string
+  coverImage?: string
   tr: LocalizedGuidanceArticle
   en: LocalizedGuidanceArticle
 }
 
-const LAST_MODIFIED = '2026-08-03T00:00:00.000Z'
+const LAST_MODIFIED = '2026-08-06T00:00:00.000Z'
 
 const revisions: GuidanceBlogRevision[] = [
+  {
+    slug: 'spss-analizi-yaptirma',
+    keywords: 'SPSS analizi yaptırma, SPSS danışmanlık, tez veri analizi, makale istatistik analizi, SPSS analysis consulting',
+    lastModified: LAST_MODIFIED,
+    coverImage: 'featured-image.webp',
+    tr: {
+      title: 'SPSS Analizi Yaptırma: Tez ve Makale İçin Doğru İstatistik Desteğini Seçme Rehberi',
+      description: 'Tez ve makale araştırmalarında SPSS danışmanlığı alırken veri hazırlama, test seçimi, varsayım kontrolü ve sonuçları öğrenerek yorumlama süreçlerini inceleyin.',
+      summary: '- SPSS desteği araştırma sorusu ve veri yapısıyla başlamalıdır.\n- Test seçimi varsayımlar ve bilimsel gerekçelerle açıklanmalıdır.\n- Akademik yorum, yazarlık ve nihai metin araştırmacıya aittir.',
+      introduction: '', goal: '', steps: [], checks: [], mistakes: [], faq: [],
+      customContent: `# SPSS Analizi Yaptırma: Tez ve Makale İçin Doğru İstatistik Desteğini Seçme Rehberi
+
+SPSS, sosyal bilimlerden sağlık bilimlerine kadar pek çok alanda araştırma verilerini düzenlemek ve istatistiksel yöntemleri uygulamak için kullanılan kapsamlı bir yazılımdır. Ancak güvenilir bir analiz yalnızca menüden bir test seçmekten ibaret değildir. Araştırma sorusunun doğru kurulması, değişkenlerin tanımlanması, veri kalitesinin incelenmesi, varsayımların kontrolü ve sonuçların araştırma tasarımının sınırları içinde yorumlanması gerekir.
+
+> **Hizmet sınırı:** Danışmanlık, araştırmacının kendi verisini ve analiz sürecini anlamasına yönelik bilimsel rehberliktir. Danışan veya öğrenci adına tez, makale, ödev, proje ya da sınav çalışması hazırlanmaz; akademik yorumlar ve nihai metin araştırmacı tarafından oluşturulur.
+
+## SPSS Analiz Desteği Neleri Kapsar?
+
+İstatistik danışmanlığı çalışmanın aşamasına ve araştırmacının ihtiyacına göre şekillenir. Süreçte araştırma sorusunun istatistiksel olarak değerlendirilebilir hâle getirilmesi, değişkenlerin ölçüm düzeylerinin belirlenmesi, veri dosyasının kontrol edilmesi ve uygun analiz seçeneklerinin karşılaştırılması ele alınabilir.
+
+Danışmanlık kapsamında şu konularda açıklayıcı destek sunulabilir:
+
+- Veri dosyasındaki değişken adları, kodlama biçimi ve eksik değerlerin kontrolü
+- Ters maddelerin ve ölçek puanlarının araştırmacıyla birlikte doğrulanması
+- Tanımlayıcı istatistiklerin ve grafiklerin nasıl okunacağının açıklanması
+- Araştırma sorusuna uygun parametrik veya parametrik olmayan test seçeneklerinin karşılaştırılması
+- Güvenirlik, korelasyon, grup karşılaştırması, regresyon ve benzeri yöntemlerin varsayımlarının incelenmesi
+- SPSS çıktılarındaki temel tabloların, etki büyüklüklerinin ve güven aralıklarının yorumlanma mantığının öğretilmesi
+- Araştırmacının kendi hazırladığı bulgu sunumuna yöntem ve tutarlılık açısından geri bildirim verilmesi
+
+## Analizden Önce Araştırma Tasarımını Netleştirin
+
+Bir analizin doğruluğu, kullanılan yazılımdan önce araştırma tasarımına bağlıdır. Kesitsel bir çalışma ile deneysel bir çalışma aynı yorum sınırlarına sahip değildir. Benzer biçimde bağımlı gruplar, bağımsız gruplar ve tekrarlı ölçümler farklı test seçenekleri gerektirir.
+
+Analize başlamadan önce en az şu sorular yanıtlanmalıdır:
+
+1. Araştırmanın temel sorusu ve varsa hipotezleri nelerdir?
+2. Bağımlı, bağımsız, aracı, düzenleyici veya kontrol değişkenleri hangileridir?
+3. Değişkenlerin ölçüm düzeyleri ve puanlama kuralları nedir?
+4. Örneklem nasıl oluşturulmuştur ve gruplar nasıl tanımlanmıştır?
+5. Sonuçlar hangi evrene ve hangi koşullara genellenebilir?
+
+Bu hazırlık, yalnızca doğru testi seçmeye değil, gereksiz analizlerden ve sonuçlara göre hipotez değiştirmek gibi bilimsel sorunlardan kaçınmaya da yardımcı olur.
+
+## Veri Hazırlama ve Nitelik Kontrolü
+
+Ham veri doğrudan analize alınmadan önce denetlenmelidir. Eksik değerler, yinelenen kayıtlar, hatalı kodlar ve aykırı gözlemler sonuçları ciddi biçimde etkileyebilir. Ölçek kullanılan araştırmalarda ters maddelerin doğru çevrilmesi ve alt boyut puanlarının ölçek yönergesine göre oluşturulması ayrıca önemlidir.
+
+[SPSS veri analizi süreci](/spss-veri-analizi-yaptirma-2) içinde veri temizleme kararlarının kayda geçirilmesi, yapılan her işlemin yeniden üretilebilmesini sağlar. Bir gözlemin analiz dışında bırakılması gerekiyorsa kararın bilimsel gerekçesi önceden tanımlanmalı; yalnızca sonucu değiştirdiği için veri çıkarılmamalıdır.
+
+## Doğru İstatistiksel Test Nasıl Seçilir?
+
+Tek bir “en iyi SPSS testi” yoktur. Test seçimi araştırma sorusuna, değişkenlerin türüne, grup yapısına, örneklem büyüklüğüne ve varsayımlara göre yapılır.
+
+- İki grubun ortalamalarını karşılaştırmak için bağımsız veya eşleştirilmiş testler düşünülebilir.
+- Üç ya da daha fazla grup için varyans analizi veya uygun alternatifleri değerlendirilebilir.
+- Değişkenler arasındaki ilişki için korelasyon; bir sonucu açıklamak veya yordamak için regresyon modelleri kullanılabilir.
+- Ölçek yapısını incelemek için açımlayıcı veya doğrulayıcı faktör analizi gerekebilir.
+- Varsayımlar karşılanmadığında dönüşüm, dayanıklı yöntem veya parametrik olmayan alternatifler tartışılabilir.
+
+Her durumda kararın yalnızca p-değerine değil, veri yapısına ve araştırma amacına dayanması gerekir. [SPSS danışmanlığı](/spss-danismanlik-hizmeti), bu seçeneklerin hangi gerekçelerle karşılaştırılabileceğini araştırmacıya açıklamayı amaçlar.
+
+## Varsayımlar Neden Önemlidir?
+
+Normallik, varyansların homojenliği, doğrusallık, bağımsızlık ve çoklu bağlantı gibi varsayımlar kullanılan yönteme göre değişir. Varsayım kontrolü, tek bir eşik değerine bakıp otomatik karar vermek değildir. Grafikler, örneklem büyüklüğü, artıklar ve yöntemin dayanıklılığı birlikte değerlendirilmelidir.
+
+Varsayım ihlali görüldüğünde araştırmacı alternatiflerin sonuç üzerindeki etkisini anlamalıdır. Böylece seçilen yaklaşım yöntem bölümünde açıkça gerekçelendirilebilir ve sonuçların sınırları dürüstçe tartışılabilir.
+
+## SPSS Çıktıları Nasıl Yorumlanmalıdır?
+
+SPSS çıktısı, akademik bulgu metninin kendisi değildir. Çıktıdaki tablolar araştırma sorusuyla ilişkilendirilmeli; test istatistiği, serbestlik derecesi, anlamlılık değeri, etki büyüklüğü ve mümkünse güven aralığı birlikte ele alınmalıdır. İstatistiksel anlamlılık, her zaman uygulamadaki önem anlamına gelmez.
+
+Danışmanlıkta tabloların hangi bilgiyi verdiği açıklanabilir ve araştırmacının kendi yorumunun yöntemle uyumu değerlendirilebilir. Bulguların literatürle karşılaştırılması, teorik anlamının kurulması ve nihai akademik anlatım ise araştırmacının sorumluluğundadır.
+
+## Danışmanlık Almadan Önce Hazırlanması Gerekenler
+
+Verimli bir görüşme için araştırma sorusu veya hipotezler, anonimleştirilmiş veri dosyası, değişken açıklamaları, kullanılan ölçeklerin puanlama yönergeleri ve kurumun yazım kılavuzu hazır olmalıdır. Kişisel ve hassas veriler paylaşılmadan önce anonimleştirilmeli, gerekli etik izinler ve veri güvenliği kuralları gözetilmelidir.
+
+Kendi analizini adım adım öğrenmek isteyen araştırmacılar [SPSS eğitimi](/spss-egitimi-ile-veri-analizi) seçeneğini değerlendirebilir. Hizmet kapsamı ve çalışmanın yoğunluğuna göre bilgi almak için [SPSS analiz ücretleri](/spss-analiz-ucretleri) sayfasını inceleyebilir veya [fiyat talebi](/fiyat-talebi) oluşturabilirsiniz.
+
+## Sonuç
+
+Nitelikli SPSS desteği, araştırmacının yerine karar veren kapalı bir işlem değil; analiz mantığını görünür kılan öğretici bir süreç olmalıdır. Araştırma sorusu, veri kalitesi, test gerekçesi, varsayımlar ve yorum sınırları birlikte ele alındığında sonuçlar daha şeffaf, yeniden üretilebilir ve bilimsel açıdan savunulabilir hâle gelir. Nihai analiz kararlarını anlayan ve metnini kendi oluşturan araştırmacı, çalışmasının akademik sorumluluğunu da korur.`,
+    },
+    en: {
+      title: 'SPSS Analysis Support: A Guide to Choosing the Right Statistical Consulting for a Thesis or Article',
+      description: 'Learn how data preparation, test selection, assumption checks, and interpretation should be handled when seeking SPSS consulting for research.',
+      summary: '- SPSS support should begin with the question and data structure.\n- Test choices require transparent scientific justification.\n- Interpretation, authorship, and the final text remain the researcher’s responsibility.',
+      introduction: '', goal: '', steps: [], checks: [], mistakes: [], faq: [],
+      customContent: `# SPSS Analysis Support: A Guide to Choosing the Right Statistical Consulting for a Thesis or Article
+
+SPSS is widely used to organize research data and apply statistical methods. Reliable analysis, however, involves more than selecting a command. The research question, variables, data quality, assumptions, and limits of the study design must be considered together.
+
+> **Service boundary:** Consulting helps researchers understand their own data and analysis process. No thesis, article, assignment, project, or exam submission is prepared on behalf of a client or student. Academic interpretation and the final text remain the researcher’s responsibility.
+
+## What SPSS Consulting Can Cover
+
+Support may include checking variable definitions and coding, reviewing missing values and scale scoring, comparing suitable tests, explaining assumptions, and teaching researchers how to read key SPSS tables. Feedback may also be provided on the methodological consistency of a findings section written by the researcher.
+
+## Clarify the Research Design First
+
+Before analysis, define the question, hypotheses, dependent and independent variables, measurement levels, group structure, sampling method, and limits of generalization. These decisions determine whether comparison, association, prediction, or latent-variable methods are appropriate.
+
+## Data Preparation and Quality Checks
+
+Raw data should be reviewed for missing values, duplicates, impossible codes, outliers, reverse-coded items, and scale-scoring rules. Decisions must be documented so the process can be reproduced. See the [SPSS data analysis process](/en/spss-veri-analizi-yaptirma-2) for further guidance.
+
+## Selecting an Appropriate Test
+
+There is no universal best test. The choice depends on the question, variable types, group structure, sample size, and assumptions. Group comparisons, correlation, regression, factor analysis, or suitable robust and non-parametric alternatives may be considered. [SPSS consulting](/en/spss-danismanlik-hizmeti) explains how these options can be justified rather than making unexplained decisions for the researcher.
+
+## Assumptions and Interpretation
+
+Normality, homogeneity, linearity, independence, and multicollinearity vary by method. Checks should combine plots, diagnostics, sample characteristics, and the robustness of the selected method. Output should be interpreted with the test statistic, uncertainty, effect size, and study limitations—not the p-value alone.
+
+SPSS output is not an academic findings section. Consulting can explain what tables mean and review the consistency of the researcher’s own interpretation. Connecting results to the literature and writing the final academic narrative remain the researcher’s work.
+
+## Preparing for a Consultation
+
+Prepare the research questions, an anonymized dataset, a variable dictionary, scale-scoring instructions, and the applicable institutional guide. Remove personal or sensitive information and observe all ethics and data-security requirements.
+
+Researchers who want to learn the process step by step may consider [SPSS training](/en/spss-egitimi-ile-veri-analizi). You can also review [SPSS analysis pricing](/en/spss-analiz-ucretleri) or submit a [price request](/en/fiyat-talebi).
+
+## Conclusion
+
+Good SPSS support is a transparent learning process. When the question, data quality, test rationale, assumptions, and interpretation limits are addressed together, results become more reproducible and scientifically defensible. Researchers retain academic responsibility by understanding the decisions and producing their own final text.`,
+    },
+  },
+  {
+    slug: 'spss-analiz-ucretleri',
+    keywords: 'SPSS analiz ücretleri, SPSS danışmanlık fiyatları, istatistik danışmanlığı, veri analizi fiyat teklifi, SPSS analysis pricing',
+    lastModified: LAST_MODIFIED,
+    tr: {
+      title: 'SPSS Analiz Ücretleri',
+      description: 'SPSS analiz danışmanlığı ücretlerini etkileyen veri yapısı, yöntem, varsayım kontrolleri, model karmaşıklığı ve çalışma kapsamını öğrenin.',
+      summary: '- Ücret, araştırmanın gerçek kapsamına göre belirlenir.\n- Değişken sayısı tek başına yeterli bir ölçüt değildir.\n- Tekliften önce veri, yöntem ve beklenen destek düzeyi netleştirilir.',
+      introduction: '', goal: '', steps: [], checks: [], mistakes: [], faq: [],
+      customContent: `# SPSS Analiz Ücretleri
+
+SPSS analiz danışmanlığı için tek ve sabit bir ücret belirtmek çoğu zaman sağlıklı değildir. Çünkü iki veri dosyası aynı sayıda değişken içerse bile araştırma soruları, veri temizleme ihtiyacı, kullanılacak yöntemler ve beklenen rehberlik düzeyi birbirinden farklı olabilir. Şeffaf bir teklif, çalışmanın gerçek kapsamı incelendikten sonra hazırlanmalıdır.
+
+> **Hizmet sınırı:** Ücretlendirme, araştırmacının kendi çalışmasına yönelik yöntem ve veri analizi danışmanlığını kapsar. Danışan veya öğrenci adına tez, makale, ödev, proje ya da sınav çalışması hazırlanmaz; nihai akademik yorum ve metin araştırmacıya aittir.
+
+## SPSS Analiz Ücretlerini Neler Etkiler?
+
+Fiyatı belirleyen temel unsur yalnızca satır veya değişken sayısı değil, verinin analize hazır hâle getirilmesi için gereken emek ve yöntemsel karmaşıklıktır.
+
+### Araştırma Sorusu ve Hipotez Sayısı
+
+Her hipotez ayrı bir test anlamına gelmeyebilir; bazı sorular tek bir model içinde birlikte değerlendirilebilir. Buna karşılık görünüşte kısa bir soru, çok sayıda varsayım kontrolü veya alternatif model gerektirebilir. Bu nedenle kapsam, hipotezlerin sayısından çok aralarındaki ilişki ve analiz planı üzerinden değerlendirilir.
+
+### Veri Dosyasının Hazırlık Düzeyi
+
+Değişkenlerin açık biçimde adlandırıldığı, kod kitabı bulunan ve eksik değerleri tanımlanmış bir veri seti daha hızlı incelenebilir. Hatalı kodlar, yinelenen kayıtlar, ters madde sorunları, birleştirilmesi gereken dosyalar veya belirsiz ölçek puanları ek çalışma gerektirir.
+
+### Kullanılacak Analiz Yöntemleri
+
+Tanımlayıcı istatistikler, basit grup karşılaştırmaları ve korelasyon analizi ile çok değişkenli regresyon, aracılık-düzenleyicilik, faktör analizi veya tekrarlı ölçüm modelleri aynı düzeyde değildir. Model sayısı, varsayım kontrolleri, alternatiflerin karşılaştırılması ve çıktıların açıklanması toplam çalışma süresini etkiler.
+
+### Örneklem ve Değişken Yapısı
+
+Örneklem büyüklüğü tek başına fiyatı belirlemez. Grup sayısı, bağımlı gözlemler, kategorik değişkenler, çoklu ölçümler ve eksik veri örüntüsü gibi özellikler analiz planını değiştirebilir. Ölçek kullanılan çalışmalarda alt boyutlar ve puanlama kuralları da ayrıca denetlenir.
+
+### Beklenen Danışmanlık Düzeyi
+
+Bazı araştırmacılar yalnızca yöntem seçeneklerini tartışmak isterken bazıları SPSS adımlarını uygulamalı biçimde öğrenmek, çıktıları birlikte incelemek ve kendi hazırladığı rapora geri bildirim almak isteyebilir. Görüşme sayısı, açıklama derinliği ve eğitim ihtiyacı teklif kapsamına yansır.
+
+## Tek Değişkenli ve Çok Değişkenli Analizlerin Farkı
+
+Tek değişkenli veya iki değişkenli incelemelerde veri yapısı daha sınırlı olabilir. Çok değişkenli modellerde ise değişkenler arası ilişkiler, çoklu bağlantı, model uyumu, artıklar ve alternatif modeller gibi ek kontroller gerekir. Bu fark, yalnızca yazılımda çalıştırılan komut sayısından değil, kararların bilimsel olarak gerekçelendirilmesi için gereken değerlendirmeden kaynaklanır.
+
+## Tez ve Makale Çalışmalarında Kapsam Nasıl Belirlenir?
+
+Tez ve makale araştırmalarında analiz, kurum veya dergi ölçütleriyle uyumlu olmalıdır. Çalışmanın tasarımı, yöntem bölümündeki plan, veri toplama biçimi ve hedef raporlama standardı birlikte incelenir. Danışmanlık; yöntemin mantığını açıklama ve araştırmacının kendi analiz kararlarını savunabilmesine yardımcı olma amacı taşır.
+
+[SPSS danışmanlık hizmetinin kapsamını](/spss-danismanlik-hizmeti) inceleyerek hangi desteğe ihtiyaç duyduğunuzu netleştirebilirsiniz. Analiz adımlarını kendiniz uygulamak istiyorsanız [SPSS eğitimi](/spss-egitimi-ile-veri-analizi) seçeneği daha uygun olabilir.
+
+## Fiyat Teklifi İçin Hangi Bilgiler Gereklidir?
+
+Sağlıklı bir ön değerlendirme için şu bilgilerin paylaşılması yararlıdır:
+
+- Araştırma konusu, amacı ve temel soruları
+- Anonimleştirilmiş veri dosyası veya değişken listesi
+- Örneklem büyüklüğü ve grup yapısı
+- Kullanılan ölçekler ile puanlama yönergeleri
+- Planlanan analizler veya yöntem konusunda karşılaşılan belirsizlikler
+- Kurum, danışman veya derginin özel raporlama beklentileri
+- İstenen görüşme, eğitim ve geri bildirim düzeyi
+- Gerçekçi çalışma takvimi
+
+Kişisel veya hassas veriler teklif aşamasında paylaşılmamalı; örnek dosyalar mutlaka anonimleştirilmelidir.
+
+## Neden Sabit Fiyat Listesi Yerine Kapsam Bazlı Teklif?
+
+Kapsam bazlı teklif, araştırmacının ihtiyaç duymadığı işlemler için ücret ödemesini önler ve hangi desteğin sunulacağını baştan görünür kılar. Teklifte analiz planı, olası kontroller, görüşme biçimi, teslim edilecek öğretici materyaller ve zamanlama açıkça belirtilmelidir. Analiz sonucunun anlamlı çıkacağına, belirli bir yayın veya akademik sonuca ulaşılacağına dair garanti verilmez.
+
+## Sonuç
+
+SPSS analiz ücreti; veri kalitesi, araştırma tasarımı, yöntemsel yoğunluk ve beklenen danışmanlık düzeyi birlikte değerlendirilerek belirlenir. Şeffaf bir ön inceleme hem kapsamın doğru kurulmasını hem de araştırmacının ne için destek aldığını bilmesini sağlar. Çalışmanızın kapsamına göre değerlendirme almak için kişisel verileri kaldırılmış bilgilerle [fiyat talebi oluşturabilirsiniz](/fiyat-talebi).`,
+    },
+    en: {
+      title: 'SPSS Analysis Pricing',
+      description: 'Learn how data readiness, methods, assumption checks, model complexity, and the requested level of consulting affect SPSS analysis pricing.',
+      summary: '- Pricing is based on the actual research scope.\n- Variable count alone is not a sufficient measure.\n- Data, methods, and the level of support are clarified before a quote.',
+      introduction: '', goal: '', steps: [], checks: [], mistakes: [], faq: [],
+      customContent: `# SPSS Analysis Pricing
+
+A single fixed price is rarely appropriate for SPSS consulting. Two datasets with the same number of variables may involve very different questions, data-cleaning needs, methods, and levels of guidance. A transparent quote should follow a review of the actual scope.
+
+> **Service boundary:** Pricing covers methodology and data-analysis consulting for the researcher’s own work. No thesis, article, assignment, project, or exam submission is prepared on behalf of a client or student. Final interpretation and academic writing remain the researcher’s responsibility.
+
+## What Affects the Price?
+
+Key factors include the relationship among research questions, data readiness, required cleaning and scoring, the complexity of statistical methods, sample and group structure, assumption checks, alternative models, and the amount of teaching or feedback requested.
+
+Descriptive analysis and a limited comparison are not equivalent to multivariable regression, mediation, moderation, factor analysis, or repeated-measures models. The difference reflects the scientific review needed to justify the decisions—not merely the number of software commands.
+
+## Defining Scope for a Thesis or Article
+
+The study design, planned methods, data-collection process, and institutional or journal requirements should be reviewed together. Consulting explains the methodological rationale and helps researchers understand and defend their own decisions. See the [scope of SPSS consulting](/en/spss-danismanlik-hizmeti), or consider [SPSS training](/en/spss-egitimi-ile-veri-analizi) if you want to apply the steps yourself.
+
+## Information Needed for a Quote
+
+- Research topic, purpose, and main questions
+- An anonymized dataset or variable list
+- Sample size and group structure
+- Scale-scoring instructions
+- Planned methods or current methodological questions
+- Institutional or journal reporting requirements
+- Requested meetings, training, and feedback
+- A realistic timeline
+
+Personal or sensitive data should not be shared during the quote stage; sample files must be anonymized.
+
+## Why Scope-Based Pricing Is More Transparent
+
+Scope-based pricing prevents unnecessary work and makes the support clear from the beginning. A quote should identify the analysis plan, checks, consultation format, educational materials, and timing. It cannot guarantee statistical significance, publication, a grade, or another academic outcome.
+
+## Conclusion
+
+SPSS consulting fees depend on data quality, research design, methodological intensity, and the requested level of guidance. A preliminary review makes the scope and responsibilities visible. You can submit an anonymized [price request](/en/fiyat-talebi) for an assessment.`,
+    },
+  },
+  {
+    slug: 'spss-ile-stres-ve-basa-cikma-stratejileri-analizi',
+    keywords: 'stres ölçeği analizi, başa çıkma stratejileri, SPSS veri analizi, psikoloji araştırmaları, stress and coping analysis',
+    lastModified: LAST_MODIFIED,
+    tr: {
+      title: 'SPSS ile Stres ve Başa Çıkma Stratejileri Analizi',
+      description: 'Stres ve başa çıkma verilerini SPSS ile değerlendirirken ölçek yapısı, varsayımlar, test seçimi ve sonuç yorumlama ilkelerini öğrenin.',
+      summary: '- Ölçek puanları araştırma sorusuna göre yapılandırılır.\n- Test seçimi veri yapısı ve varsayımlarla gerekçelendirilir.\n- Akademik yorum ve nihai metin araştırmacıya aittir.',
+      introduction: 'Stres ve başa çıkma stratejilerini inceleyen araştırmalarda yalnızca toplam puanları karşılaştırmak yeterli değildir. Ölçeklerin yönü, alt boyutları, güvenirliği ve araştırma tasarımı birlikte değerlendirilmelidir.',
+      goal: 'Amaç, araştırmacının veri yapısını tanıması, uygun analiz seçeneklerini gerekçelendirmesi ve çıktıları araştırma sorusunun sınırları içinde yorumlayabilmesidir.',
+      steps: [
+        'Ölçekteki ters maddeleri, alt boyutları ve puanlama yönergesini doğrulayın.',
+        'Eksik veri, aykırı değer ve dağılım özelliklerini analizden önce inceleyin.',
+        'Araştırma sorusuna göre grup karşılaştırması, ilişki veya yordama yaklaşımını belirleyin.',
+        'Seçilen testin varsayımlarını ve gerekli alternatifleri değerlendirin.',
+        'Etki büyüklüğü, güven aralığı ve sınırlılıkları sonuçlarla birlikte açıklayın.',
+      ],
+      checks: ['Ölçek puanlama yönergesi doğru uygulandı.', 'Test seçimi değişken ve örneklem yapısıyla uyumlu.', 'Varsayım kontrolleri raporlandı.', 'Sonuçlar nedensellik sınırları aşılmadan yorumlandı.'],
+      mistakes: ['Yalnızca p-değerine göre karar vermek.', 'Ters maddeleri ve alt boyutları kontrol etmemek.', 'Kesitsel ilişkileri nedensel etki olarak sunmak.'],
+      faq: [
+        { question: 'Hangi SPSS testi kullanılmalıdır?', answer: 'Tek bir standart test yoktur. Araştırma sorusu, ölçüm düzeyi, grup yapısı ve varsayımlar birlikte değerlendirilmelidir.' },
+        { question: 'Analiz sonuçları araştırmacı adına yazılır mı?', answer: 'Hayır. Test mantığı ve çıktıların nasıl okunacağı açıklanır; akademik yorum ve nihai metin araştırmacıya aittir.' },
+      ],
+    },
+    en: {
+      title: 'Analyzing Stress and Coping Strategies with SPSS',
+      description: 'Learn how scale structure, assumptions, test selection, and interpretation should be handled when analyzing stress and coping data in SPSS.',
+      summary: '- Scale scores are structured around the research question.\n- Test selection is justified by the data and assumptions.\n- Academic interpretation and the final text remain the researcher’s responsibility.',
+      introduction: 'Comparing total scores alone is not enough in research on stress and coping strategies. Scale direction, subscales, reliability, and study design need to be evaluated together.',
+      goal: 'The goal is to help researchers understand their data, justify appropriate analysis options, and interpret output within the limits of the research question.',
+      steps: [
+        'Verify reverse-coded items, subscales, and scoring instructions.',
+        'Review missing data, outliers, and distributional properties before analysis.',
+        'Choose a comparison, association, or prediction approach based on the research question.',
+        'Evaluate assumptions and suitable alternatives for the selected test.',
+        'Explain effect sizes, confidence intervals, and limitations with the results.',
+      ],
+      checks: ['Scoring instructions were applied correctly.', 'The test matches the variables and sample structure.', 'Assumption checks were reported.', 'Interpretation stays within causal limits.'],
+      mistakes: ['Making decisions from p-values alone.', 'Ignoring reverse-coded items or subscales.', 'Presenting cross-sectional associations as causal effects.'],
+      faq: [
+        { question: 'Which SPSS test should be used?', answer: 'There is no single standard test. The research question, measurement level, group structure, and assumptions must be considered together.' },
+        { question: 'Will the analysis results be written for the researcher?', answer: 'No. The method and output-reading process are explained; academic interpretation and the final text remain the researcher’s responsibility.' },
+      ],
+    },
+  },
   {
     slug: 'ingilizce-tez-yazma',
     keywords: 'İngilizce tez yazımı, akademik İngilizce, tez danışmanlığı, akademik dil, English thesis writing',
@@ -329,6 +619,8 @@ const revisions: GuidanceBlogRevision[] = [
 ]
 
 function buildContent(article: LocalizedGuidanceArticle, locale: 'tr' | 'en'): string {
+  if (article.customContent) return article.customContent
+
   const labels = locale === 'tr'
     ? {
         boundary: '> **Hizmet sınırı:** Danışan veya öğrenci adına teslim edilmek üzere tez, makale, ödev, proje ya da sınav çalışması hazırlanmaz. Sunulan destek; araştırmacının kendi çalışmasını planlaması, yöntemleri öğrenmesi ve kendi taslağını geliştirmesi için danışmanlık ve geri bildirimle sınırlıdır.',

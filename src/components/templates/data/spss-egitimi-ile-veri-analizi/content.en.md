@@ -71,7 +71,7 @@ After learning the basic functions of SPSS, you can apply statistical analyses m
 ### Ways to Do Professional Analysis After SPSS Training
 
 - **Turn to advanced SPSS analyses:** Learn advanced methods such as MANOVA, factor analysis.
-- **Benefit from statistical consultancy services:** You can speed up your development by receiving academic consultancy after SPSS training. To get more detailed information about our SPSS services, you can call immediately or visit our [SPSS Consultancy Service](https://www.kutupakademi.com/spss-danismanlik-hizmetleri/) page.
+- **Benefit from statistical consulting:** You can build confidence after SPSS training through guided methodological support. For details, visit our [SPSS Consulting Service](/en/spss-danismanlik-hizmeti) page.
 
 ## Conclusion: Gain Data Analysis Competency with SPSS Training
 
@@ -79,8 +79,8 @@ SPSS training is one of the most important tools for doing data analysis in the 
 
 **You can also start learning SPSS and specialize in data analysis with SPSS! If you want to access our SPSS trainings, call immediately!**
 
-If you are looking for a fast SPSS analysis service, take a look at our article on [SPSS Data Analysis Service](https://www.kutupakademi.com/spss-veri-analizi-yaptirma-hizmeti/) or call immediately!
+If you need methodological support during SPSS data analysis, visit our [SPSS Data Analysis Support](/en/spss-veri-analizi-yaptirma-2) page.
 
 If you have an assignment to prepare, visit our [SPSS Assignment Service](https://www.kutupakademi.com/spss-odevi-yaptirma/) page to get affordable and quality service or call immediately.
 
-For a more comprehensive service, you can visit our [SPSS Consultancy Services](https://www.kutupakademi.com/spss-danismanlik-hizmetleri/) page or call us immediately!
+For broader guidance, visit our [SPSS Consulting Service](/en/spss-danismanlik-hizmeti) page.

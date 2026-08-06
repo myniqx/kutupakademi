@@ -1,16 +1,17 @@
 {
 	"date": "2025-09-22T11:45:00+00:00",
 	"lastModified": "2025-09-22T11:45:00+00:00",
+	"cover": "featured-image.webp",
 
 	"slug": "spss-danismanlik-hizmeti",
 	"tr": {
 		"title": "SPSS Danışmanlık Hizmeti",
-		"description": "SPSS danışmanlık hizmeti ile veri analizi sürecinizde profesyonel destek alın. İstatistiksel analiz, hipotez testi ve akademik raporlama desteği.",
+		"description": "SPSS danışmanlık ile test seçimi, varsayım kontrolü, çıktı okuma ve araştırmacının kendi raporlama sürecini geliştirmesine yönelik rehberlik alın.",
 		"url": "https://kutupakademi.com/spss-danismanlik-hizmeti/"
 	},
 	"en": {
 		"title": "SPSS Consulting Service",
-		"description": "Get professional support in your data analysis process with SPSS consulting service. Statistical analysis, hypothesis testing and academic reporting support.",
+		"description": "Get guidance on test selection, assumption checks, output reading, and developing your own reporting process through SPSS consulting.",
 		"url": "https://kutupakademi.com/en/spss-consulting-service/"
 	}
 }
