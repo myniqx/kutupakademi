@@ -1,12 +1,10 @@
 # Yapısal Eşitlik Modellemesi Analizi
 
-![](./featured-image.webp)
+![Yapısal eşitlik modellemesi analiz ekranı](./featured-image.webp "compact")
 
 **Yapısal eşitlik modellemesi (SEM)**, çok değişkenli istatistik tekniklerinden biri olup, değişkenler arasındaki karmaşık ilişkileri modellemek için kullanılır. **Latent değişken modelleme, doğrulayıcı faktör analizi (DFA) ve yol analizi (path analysis)** gibi teknikleri içerir. SEM, özellikle sosyal bilimler, pazarlama, psikometri, finans ve sağlık bilimlerinde yaygın olarak kullanılır.
 
 Bu rehberde, yapısal eşitlik modellemesi kavramını detaylıca ele alacak, SEM’in avantajlarını, kullanılan yöntemleri ve uygulama alanlarını inceleyeceğiz.
-
-> **Danışmanlık kapsamı:** Model kurma mantığı, yazılım adımları, varsayım kontrolleri ve çıktıların nasıl okunacağı araştırmacıyla birlikte ele alınır. Hipotezler, akademik yorumlar ve nihai rapor araştırmacıya aittir; araştırmacı adına tez veya makale bölümü hazırlanmaz.
 
 ## Yapısal Eşitlik Modellemesi Neden Kullanılır?
 
@@ -48,25 +46,25 @@ SEM hangi alanlarda kullanılır?​
 - **SRMR (Standardized Root Mean Square Residual)** – Modelin gözlenen ve tahmin edilen korelasyon matrisi arasındaki farkı ölçer (**≤ 0.08 olmalı**).
 
 Bu indeksler, modelin veriyle ne kadar iyi uyum sağladığını değerlendirerek **SEM analizinin doğruluğunu** belirlemede kritik rol oynar.
-Yapısal Eşitlik Modeli Analizi Yöntemleri ve Teknikleri​
+## Yapısal Eşitlik Modeli Analizi Yöntemleri ve Teknikleri​
 
 Yapısal eşitlik modellemesi (SEM) ile analiz yaparken en çok kullanılan teknikler şunlardır:
 
 -**Doğrulayıcı Faktör Analizi (DFA)** – Belirli bir teorik modelin test edilmesi için kullanılır.  
 -**Yol Analizi (Path Analysis)** – Değişkenler arasındaki nedensel ilişkileri test eder.  
--**Aracı Değişken Analizi (Mediating Variable Analysis)** – Bir değişkenin bağımsız değişken ile bağımlı değişken arasındaki dolaylı etkisini ölçer. Bu analiz hakkında daha fazla bilgi edinmek için “[Aracı Değişken Analizi Nedir?](https://www.kutupakademi.com/araci-degisken-analizi/)” blog yazımızı inceleyebilirsiniz.   
--**Düzenleyici Değişken Analizi (Moderating Variable Analysis)** – Bir değişkenin iki değişken arasındaki ilişkinin gücünü veya yönünü nasıl etkilediğini belirler. Bu analiz hakkında daha fazla bilgi edinmek için “[Düzenleyici Değişken Analizi”](https://www.kutupakademi.com/duzenleyici-degisken-analizi/) blog yazımızı inceleyebilirsiniz.  
+- **Aracı Değişken Analizi (Mediating Variable Analysis)** – Bir değişkenin bağımsız değişken ile bağımlı değişken arasındaki dolaylı etkisini ölçer. Bu analiz hakkında daha fazla bilgi edinmek için [Aracılık Etkisi Analizi](https://www.kutupakademi.com/blog/aracilik-etkisi-analizi-yaptirma) yazımızı inceleyebilirsiniz.
+- **Düzenleyici Değişken Analizi (Moderating Variable Analysis)** – Bir değişkenin iki değişken arasındaki ilişkinin gücünü veya yönünü nasıl etkilediğini belirler. Bu analiz hakkında daha fazla bilgi edinmek için [Düzenleyici Değişken Analizi](https://www.kutupakademi.com/blog/duzenleyici-degisken-analizi) yazımızı inceleyebilirsiniz.
 -**Çoklu Grup Analizi** – Farklı gruplar arasında değişkenlerin nasıl çalıştığını karşılaştırır.
 
 Bu teknikler, **karmaşık değişken ilişkilerini anlamak ve modellenen teorik yapıyı doğrulamak** için güçlü analiz yöntemleri sunar.
-SEM Analizi İçin Kullanılan Yazılımlar​
+## SEM Analizi İçin Kullanılan Yazılımlar​
 
--**SPSS AMOS** – En yaygın kullanılan yazılımlardan biridir, grafiksel modelleme imkanı sunar.  
--**LISREL** – Özellikle **doğrulayıcı faktör analizi (CFA)** ve **yapısal eşitlik modellemesi (SEM)** için idealdir.  
--**Mplus** – **İleri düzey SEM analizleri**, **karmaşık modelleme** ve **çok düzeyli yapısal eşitlik modelleri** için geniş imkanlar sunar.  
--**SmartPLS** – **Kısmi En Küçük Kareler (PLS-SEM) yöntemi** ile yapısal eşitlik modeli analizi yapar.  
--**R Yazılımı (lavaan paketi)** – Açık kaynaklı **SEM analizi** yapmak için kullanılan güçlü bir pakettir.  
--**SPSS Hayes Process Macro** – **Aracı (mediatör) ve düzenleyici (moderatör) değişken analizleri** için geliştirilmiş, regresyon tabanlı SEM uygulamalarında sıkça kullanılan bir eklentidir.
+- **SPSS AMOS** – En yaygın kullanılan yazılımlardan biridir, grafiksel modelleme imkanı sunar.
+- **LISREL** – Özellikle **doğrulayıcı faktör analizi (CFA)** ve **yapısal eşitlik modellemesi (SEM)** için idealdir.
+- **Mplus** – **İleri düzey SEM analizleri**, **karmaşık modelleme** ve **çok düzeyli yapısal eşitlik modelleri** için geniş imkanlar sunar.
+- **SmartPLS** – **Kısmi En Küçük Kareler (PLS-SEM) yöntemi** ile yapısal eşitlik modeli analizi yapar.
+- **R Yazılımı (lavaan paketi)** – Açık kaynaklı **SEM analizi** yapmak için kullanılan güçlü bir pakettir.
+- **SPSS Hayes Process Macro** – **Aracı (mediatör) ve düzenleyici (moderatör) değişken analizleri** için geliştirilmiş, regresyon tabanlı SEM uygulamalarında sıkça kullanılan bir eklentidir.
 
 Bu yazılımlar, **teorik modelleri test etmek, değişkenler arasındaki ilişkileri modellemek ve karmaşık veri yapılarıyla çalışmak** için güçlü araçlar sunar.
 
@@ -92,20 +90,22 @@ Sosyal bilimler, işletme, ekonomi ve sağlık bilimlerinde yaygın olarak kulla
 
 SPSS AMOS, Lisrel ve Mplus en çok tercih edilen yazılımlardır.
 
-## SEM analizinde veri seti büyük olmalı mı?​
+**SEM analizinde veri seti büyük olmalı mı?​**
 
 Evet, SEM analizleri için yeterli gözlem sayısına sahip olmak gerekir.
 
-## Yapısal modelleme ile regresyon analizi arasındaki fark nedir?
+**Yapısal modelleme ile regresyon analizi arasındaki fark nedir?**
 
 SEM, yalnızca gözlemlenen değişkenleri değil, **latent değişkenleri** de analiz edebilir.
 
-## SEM uyum indeksleri nasıl yorumlanır?
+**SEM uyum indeksleri nasıl yorumlanır?**
 
 RMSEA, SRMR, CFI ve TLI gibi indeksler modelin iyi uyum gösterip göstermediğini belirler.
 
-## Sonuç: Yapısal Eşitlik Modellemesini Bilinçli Uygulayın
+## Sonuç: SEM Analizinde Hata Riskini Azaltın, Yöntemsel Niteliği Güçlendirin
 
-**Yapısal eşitlik modellemesi (SEM)**, karmaşık değişken ilişkilerini analiz etmenin en güvenilir yöntemlerinden biridir.
+Yapısal eşitlik modellemesi, doğru uygulandığında araştırmaya önemli yöntemsel katkı sağlar. Bununla birlikte yanlış kurulan bir aracı değişken modeli, bağlamdan kopuk yorumlanan uyum indeksleri veya göz ardı edilen varsayımlar, modelin güvenilirliğini zayıflatabilir.
 
-Kendi modelinizi kurarken **aracı değişken, düzenleyici değişken ve çoklu grup analizi** seçeneklerinin varsayımlarını öğrenmek ve çıktı okuma pratiği yapmak için danışmanlık talebi oluşturabilirsiniz.
+SEM sürecinde alınan danışmanlık; model kurma mantığını, yazılım adımlarını, varsayım kontrollerini ve çıktıların nasıl okunacağını araştırmacıyla birlikte ele alır. Araştırma soruları, hipotezler, akademik yorumlar ve nihai rapor araştırmacıya aittir; araştırmacı adına tez veya makale bölümü hazırlanmaz.
+
+Kendi modelinizde aracı değişken, düzenleyici değişken veya çoklu grup analizi seçeneklerini daha bilinçli değerlendirmek ve çıktı okuma pratiği yapmak için [ücretsiz fiyat teklifi](/fiyat-talebi) talebi oluşturabilirsiniz.

@@ -110,9 +110,11 @@ export const mdxComponents: MDXComponents = {
       )
     }
 
+    const isCompact = props.title === 'compact'
+
     // For relative paths, assume it's in public directory
     return (
-      <span className="block my-8">
+      <span className={`block my-8 ${isCompact ? 'mx-auto max-w-3xl' : ''}`}>
         <Image
           src={src}
           alt={alt || ''}

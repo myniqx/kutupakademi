@@ -8,6 +8,9 @@ import { extractHeadings } from '@/lib/markdown/extract-headings'
 import { getBlogCards } from '@/lib/query/blog'
 import { generateMeta, DEFAULT_SEO } from '@/constants/seo'
 import { getGuidanceBlogRevision } from '@/constants/guidance-blog-revisions'
+import { stripLeadingH1 } from '@/lib/markdown/strip-leading-h1'
+import { JsonLd } from '@/components/seo/json-ld'
+import { SITE_CONFIG } from '@/constants/site'
 
 type BlogPostPageProps = {
   params: Promise<{ locale: "tr" | "en"; slug: string }>
@@ -64,7 +67,9 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
     keywords: allKeywords,
     locale: locale as 'tr' | 'en',
     path: locale === 'en' ? `/en/blog/${slug}` : `/blog/${slug}`,
-    image: blog.coverImage || undefined,
+    image: revision?.coverImage
+      ? `/blogs/${slug}/${revision.coverImage}`
+      : blog.coverImage || undefined,
     type: 'article',
     publishedTime: blog.createdAt.toISOString(),
     modifiedTime: revision?.lastModified || blog.updatedAt.toISOString(),
@@ -95,7 +100,8 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const isTurkish = locale === 'tr'
   const revision = getGuidanceBlogRevision(slug)
   const localizedRevision = revision ? (isTurkish ? revision.tr : revision.en) : null
-  const content = localizedRevision?.content || (isTurkish ? blog.content_tr : blog.content_en || blog.content_tr)
+  const rawContent = localizedRevision?.content || (isTurkish ? blog.content_tr : blog.content_en || blog.content_tr)
+  const content = stripLeadingH1(rawContent)
   const summary = localizedRevision?.summary || (isTurkish ? blog.summary_tr : blog.summary_en)
 
   // Calculate reading time from raw content
@@ -111,7 +117,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     slug: blog.slug,
     date: blog.createdAt.toISOString(),
     lastModified: revision?.lastModified || blog.updatedAt.toISOString(),
-    cover: blog.coverImage || undefined,
+    cover: revision?.coverImage || blog.coverImage || undefined,
     readingTime,
     headings,
     tr: {
@@ -124,14 +130,52 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     },
   }
 
+  const pageTitle = metadata[locale].title
+  const articlePath = locale === 'en' ? `/en/blog/${slug}` : `/blog/${slug}`
+  const articleUrl = `${SITE_CONFIG.url}${articlePath}`
+  const imageUrl = metadata.cover
+    ? (metadata.cover.startsWith('http') ? metadata.cover : `${SITE_CONFIG.url}/blogs/${slug}/${metadata.cover}`)
+    : `${SITE_CONFIG.url}/blogs/blog-cover.webp`
+  const blogLabel = locale === 'tr' ? 'Blog' : 'Blog'
+  const homeLabel = locale === 'tr' ? 'Ana Sayfa' : 'Home'
+
   return (
-    <BlogContentTemplate
-      metadata={metadata}
-      content={content}
-      summary={summary}
-      locale={locale as 'tr' | 'en'}
-      author={blog.author}
-      relatedBlogs={relatedBlogs}
-    />
+    <>
+      <JsonLd
+        data={[
+          {
+            '@context': 'https://schema.org',
+            '@type': 'BlogPosting',
+            '@id': `${articleUrl}#article`,
+            headline: pageTitle,
+            description: localizedRevision?.description || (isTurkish ? blog.description_tr : blog.description_en || blog.description_tr),
+            image: imageUrl,
+            datePublished: blog.createdAt.toISOString(),
+            dateModified: metadata.lastModified,
+            inLanguage: locale,
+            mainEntityOfPage: articleUrl,
+            author: { '@type': 'Organization', name: blog.author || SITE_CONFIG.name[locale], url: SITE_CONFIG.url },
+            publisher: { '@id': `${SITE_CONFIG.url}/#organization` },
+          },
+          {
+            '@context': 'https://schema.org',
+            '@type': 'BreadcrumbList',
+            itemListElement: [
+              { '@type': 'ListItem', position: 1, name: homeLabel, item: locale === 'en' ? `${SITE_CONFIG.url}/en` : SITE_CONFIG.url },
+              { '@type': 'ListItem', position: 2, name: blogLabel, item: `${SITE_CONFIG.url}${locale === 'en' ? '/en/blog' : '/blog'}` },
+              { '@type': 'ListItem', position: 3, name: pageTitle, item: articleUrl },
+            ],
+          },
+        ]}
+      />
+      <BlogContentTemplate
+        metadata={metadata}
+        content={content}
+        summary={summary}
+        locale={locale as 'tr' | 'en'}
+        author={blog.author}
+        relatedBlogs={relatedBlogs}
+      />
+    </>
   )
 }

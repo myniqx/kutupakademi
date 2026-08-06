@@ -127,9 +127,9 @@ export default async function PriceRequestPage({ params }: PriceRequestPageProps
             {/* Right Column - Benefits */}
             <div className="lg:col-span-1 space-y-6">
               <div className="sticky top-24">
-                <h3 className="text-2xl md:text-3xl font-bold mb-6 text-foreground">
+                <h2 className="text-2xl md:text-3xl font-bold mb-6 text-foreground">
                   {t.benefits.title}
-                </h3>
+                </h2>
 
                 <div className="space-y-4">
                   {t.benefits.items.map((item, index) => {

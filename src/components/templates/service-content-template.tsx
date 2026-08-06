@@ -4,6 +4,9 @@ import Image from 'next/image';
 import { Clock, Calendar } from 'lucide-react';
 import { ContentMetaData } from './types';
 import { extractHeadings } from '@/lib/markdown/extract-headings';
+import { stripLeadingH1 } from '@/lib/markdown/strip-leading-h1';
+import { JsonLd } from '@/components/seo/json-ld';
+import { SITE_CONFIG } from '@/constants/site';
 
 type ServiceContentTemplateProps = {
   metadata: ContentMetaData;
@@ -38,11 +41,14 @@ export async function ServiceContentTemplate({
   content,
   locale,
 }: ServiceContentTemplateProps) {
+  const articleContent = stripLeadingH1(content);
   const coverImage = getCoverImagePath(metadata);
-  const readingTime = calculateReadingTime(content, locale);
-  const headings = extractHeadings(content);
+  const readingTime = calculateReadingTime(articleContent, locale);
+  const headings = extractHeadings(articleContent);
   const title = metadata[locale]?.title || (locale === 'tr' ? 'Blog' : 'Blog');
   const description = metadata[locale]?.description || '';
+  const servicePath = locale === 'en' ? `/en/${metadata.slug}` : `/${metadata.slug}`;
+  const serviceUrl = `${SITE_CONFIG.url}${servicePath}`;
 
   const formattedDate = metadata.date
     ? new Date(metadata.date).toLocaleDateString(locale === 'tr' ? 'tr-TR' : 'en-US', {
@@ -54,6 +60,29 @@ export async function ServiceContentTemplate({
 
   return (
     <div className="min-h-screen bg-background">
+      <JsonLd
+        data={[
+          {
+            '@context': 'https://schema.org',
+            '@type': 'Service',
+            '@id': `${serviceUrl}#service`,
+            name: title,
+            description,
+            url: serviceUrl,
+            inLanguage: locale,
+            provider: { '@id': `${SITE_CONFIG.url}/#organization` },
+            areaServed: { '@type': 'Country', name: 'Türkiye' },
+          },
+          {
+            '@context': 'https://schema.org',
+            '@type': 'BreadcrumbList',
+            itemListElement: [
+              { '@type': 'ListItem', position: 1, name: locale === 'tr' ? 'Ana Sayfa' : 'Home', item: locale === 'en' ? `${SITE_CONFIG.url}/en` : SITE_CONFIG.url },
+              { '@type': 'ListItem', position: 2, name: title, item: serviceUrl },
+            ],
+          },
+        ]}
+      />
       {/* Cover Image Section */}
       <section className="relative w-full h-[50vh] md:h-[60vh] overflow-hidden">
         <Image
@@ -101,7 +130,7 @@ export async function ServiceContentTemplate({
       </section>
 
       {/* Content Section */}
-      <BlogPreviewTemplate content={content} headings={headings} slug={metadata.slug} />
+      <BlogPreviewTemplate content={articleContent} headings={headings} slug={metadata.slug} />
 
       {/* Premium CTA Section */}
       <CTASection locale={locale} />

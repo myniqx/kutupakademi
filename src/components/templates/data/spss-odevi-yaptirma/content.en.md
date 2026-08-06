@@ -89,6 +89,6 @@ In conclusion, **SPSS assignment services** are a solution that **saves time and
 
 If you also want your **SPSS assignment to be delivered error-free, in accordance with academic standards and on time**, you can benefit from reliable consultancy services.
 
-If you need analysis support for your thesis studies, you can visit our [SPSS Data Analysis Service](https://www.kutupakademi.com/spss-veri-analizi-yaptirma-hizmeti/) page. Instead, you can also learn to do your analyses on your own by taking training. You can learn about our trainings by visiting our [Data Analysis with SPSS Training](https://www.kutupakademi.com/spss-egitimi/) page.
+If you want to learn analytical methods for your thesis research, review our [SPSS Data Analysis guide](/en/spss-veri-analizi-yaptirma-2). To learn to apply analyses independently, see [Data Analysis with SPSS Training](/en/spss-egitimi-ile-veri-analizi).
 
-**Contact us immediately to get professional SPSS support! To get more information about our SPSS services** [visit our SPSS Consultancy Service page](https://www.kutupakademi.com/hizmetlerimiz-spss-danismanlik-hizmeti/)
+To learn method options and how to read output under expert guidance, review our [SPSS Consulting Service](/en/spss-danismanlik-hizmeti).

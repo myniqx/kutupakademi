@@ -54,8 +54,8 @@ The most used techniques when analyzing with structural equation modeling (SEM) 
 
 - **Confirmatory Factor Analysis (CFA)** – Used to test a specific theoretical model.
 - **Path Analysis** – Tests causal relationships between variables.
-- **Mediating Variable Analysis** – Measures the indirect effect of a variable between the independent variable and the dependent variable. To learn more about this analysis, you can review our blog post "[What is Mediating Variable Analysis?](https://www.kutupakademi.com/araci-degisken-analizi/)".
-- **Moderating Variable Analysis** – Determines how a variable affects the strength or direction of the relationship between two variables. To learn more about this analysis, you can review our blog post "[Moderating Variable Analysis](https://www.kutupakademi.com/duzenleyici-degisken-analizi/)".
+- **Mediating Variable Analysis** – Measures the indirect effect of a variable between the independent variable and the dependent variable. To learn more, review our [Mediation Effect Analysis](https://www.kutupakademi.com/en/blog/aracilik-etkisi-analizi-yaptirma) article.
+- **Moderating Variable Analysis** – Determines how a variable affects the strength or direction of the relationship between two variables. To learn more, review our [Moderating Variable Analysis](https://www.kutupakademi.com/en/blog/duzenleyici-degisken-analizi) article.
 - **Multi-Group Analysis** – Compares how variables work between different groups.
 
 These techniques offer powerful analysis methods to **understand complex variable relationships and verify the modeled theoretical structure**.

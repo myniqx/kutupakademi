@@ -45,6 +45,9 @@ export default async function BlogPage({ params, searchParams }: BlogPageProps) 
 
       <div className="container mx-auto px-4 py-20">
         <div className="max-w-7xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold mb-10 text-foreground">
+            {locale === 'tr' ? 'Son Yazılar' : 'Latest Articles'}
+          </h2>
           {/* Blog Grid with Pagination */}
           <BlogGridPaginated
             blogs={publishedBlogs}
