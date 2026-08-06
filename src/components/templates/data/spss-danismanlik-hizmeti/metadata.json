@@ -1,16 +1,16 @@
 {
 	"date": "2025-09-22T11:45:00+00:00",
-	"lastModified": "2025-09-22T11:45:00+00:00",
+	"lastModified": "2026-08-06T00:00:00+03:00",
 	"cover": "featured-image.webp",
 
 	"slug": "spss-danismanlik-hizmeti",
 	"tr": {
-		"title": "SPSS Danışmanlık Hizmeti",
+		"title": "SPSS Danışmanlık: Tez ve Makale Sürecinde Doğru Analiz Kararları İçin Profesyonel Rehberlik",
 		"description": "SPSS danışmanlık ile test seçimi, varsayım kontrolü, çıktı okuma ve araştırmacının kendi raporlama sürecini geliştirmesine yönelik rehberlik alın.",
 		"url": "https://kutupakademi.com/spss-danismanlik-hizmeti/"
 	},
 	"en": {
-		"title": "SPSS Consulting Service",
+		"title": "SPSS Consulting: Professional Guidance for Sound Analysis Decisions in Theses and Articles",
 		"description": "Get guidance on test selection, assumption checks, output reading, and developing your own reporting process through SPSS consulting.",
 		"url": "https://kutupakademi.com/en/spss-consulting-service/"
 	}
