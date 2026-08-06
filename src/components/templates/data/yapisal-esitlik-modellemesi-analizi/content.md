@@ -102,7 +102,7 @@ SEM, yalnızca gözlemlenen değişkenleri değil, **latent değişkenleri** de 
 
 RMSEA, SRMR, CFI ve TLI gibi indeksler modelin iyi uyum gösterip göstermediğini belirler.
 
-## Sonuç: SEM Analizinde Hata Riskini Azaltın, Yöntemsel Niteliği Güçlendirin
+## Sonuç: SEM Analizinizde Hata Riskini Azaltın, Yayın Şansınızı Artırın
 
 Yapısal eşitlik modellemesi, doğru uygulandığında araştırmaya önemli yöntemsel katkı sağlar. Bununla birlikte yanlış kurulan bir aracı değişken modeli, bağlamdan kopuk yorumlanan uyum indeksleri veya göz ardı edilen varsayımlar, modelin güvenilirliğini zayıflatabilir.
 
