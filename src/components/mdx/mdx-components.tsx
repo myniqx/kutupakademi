@@ -114,7 +114,7 @@ export const mdxComponents: MDXComponents = {
 
     // For relative paths, assume it's in public directory
     return (
-      <span className={`block my-8 ${isCompact ? 'mx-auto max-w-3xl' : ''}`}>
+      <span className={`block my-8 ${isCompact ? 'mx-auto max-w-2xl' : ''}`}>
         <Image
           src={src}
           alt={alt || ''}
