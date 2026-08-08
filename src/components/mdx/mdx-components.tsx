@@ -110,7 +110,9 @@ export const mdxComponents: MDXComponents = {
       )
     }
 
-    const isCompact = props.title === 'compact'
+    const isCompact =
+  props.title === 'compact' ||
+  alt === 'Yapısal eşitlik modellemesi analiz ekranı'
 
     // For relative paths, assume it's in public directory
     return (
