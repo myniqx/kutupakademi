@@ -169,76 +169,105 @@ Good SPSS support is a transparent learning process. When the question, data qua
       introduction: '', goal: '', steps: [], checks: [], mistakes: [], faq: [],
       customContent: `# SPSS Analiz Ücretleri
 
-SPSS analiz danışmanlığı için tek ve sabit bir ücret belirtmek çoğu zaman sağlıklı değildir. Çünkü iki veri dosyası aynı sayıda değişken içerse bile araştırma soruları, veri temizleme ihtiyacı, kullanılacak yöntemler ve beklenen rehberlik düzeyi birbirinden farklı olabilir. Şeffaf bir teklif, çalışmanın gerçek kapsamı incelendikten sonra hazırlanmalıdır.
+SPSS analiz ücretleri konusunda en çok karşılaşılan soru şudur: “Neden herkes farklı fiyat veriyor?” Bunun nedeni, SPSS analiz hizmetlerinde tek tip bir çalışma modelinin olmamasıdır; bazı araştırmalar birkaç temel test ve kısa raporlama ile tamamlanırken, bazıları çok sayıda değişken, yoğun veri yapısı ve ileri düzey çok değişkenli analizler gerektirir. Bu yüzden SPSS analiz ücretleri sabit bir rakamla belirlenmez; asıl belirleyici olan, çalışmanızın analiz yoğunluğu ve analiz seviyesidir.
 
-> **Hizmet sınırı:** Ücretlendirme, araştırmacının kendi çalışmasına yönelik yöntem ve veri analizi danışmanlığını kapsar. Danışan veya öğrenci adına tez, makale, ödev, proje ya da sınav çalışması hazırlanmaz; nihai akademik yorum ve metin araştırmacıya aittir.
+Tez, makale ve proje çalışmalarında fiyatı doğru anlamanın yolu, yalnızca “kaç TL?” sorusuna odaklanmak değil, ücretin hangi teknik gerekçelerle oluştuğunu bilmektir. Eğer siz de teziniz veya makaleniz için gerçekçi bir ücretlendirme mantığı arıyorsanız, bu rehber tam olarak bu soruya cevap vermektedir.
 
 ## SPSS Analiz Ücretleri Neden Sabit Değildir?
 
-Fiyatı belirleyen temel unsur yalnızca satır veya değişken sayısı değil, verinin analize hazır hâle getirilmesi için gereken emek ve yöntemsel karmaşıklıktır.
+SPSS analiz ücretleri sabit değildir; çünkü her veri seti, her hipotez yapısı ve her araştırma tasarımı aynı miktarda uzmanlık, zaman ve raporlama emeği gerektirmez. Aynı program kullanılıyor olsa bile, bir çalışmada yalnızca temel betimsel istatistikler ve grup karşılaştırmaları yeterliyken, başka bir çalışmada regresyon, faktör analizi ya da daha ileri istatistiksel işlemler gerekebilir.
+
+Bu nedenle fiyatlandırma, “SPSS kullanıldı mı kullanılmadı mı?” sorusuna göre değil; çalışmanın kapsamına, veri yapısına ve uygulanacak analiz düzeyine göre belirlenir. 
 
 ## SPSS Analiz Ücretlerini Belirleyen İlk Parametre: Analizin Yoğunluğu
 
-### Araştırma Sorusu ve Hipotez Sayısı
+SPSS analiz ücretlerini etkileyen ilk temel unsur, analizin yoğunluğudur. Buradaki yoğunluk, yalnızca veri sayısının fazla olması anlamına gelmez; değişken sayısı, alt boyut sayısı, karşılaştırma sayısı, hipotez sayısı ve raporlanacak çıktı miktarı da bu yoğunluğun parçasıdır.
 
-Her hipotez ayrı bir test anlamına gelmeyebilir; bazı sorular tek bir model içinde birlikte değerlendirilebilir. Buna karşılık görünüşte kısa bir soru, çok sayıda varsayım kontrolü veya alternatif model gerektirebilir. Bu nedenle kapsam, hipotezlerin sayısından çok aralarındaki ilişki ve analiz planı üzerinden değerlendirilir.
+Analizin yoğunluğu arttıkça ücretin yükselmesinin temel nedenleri şunlardır:
 
-### Veri Dosyasının Hazırlık Düzeyi
+- Daha fazla değişken, daha fazla veri kontrolü ve kodlama düzeni gerektirir.
+- Daha fazla hipotez, daha fazla test uygulanması anlamına gelir.
+- Daha fazla alt boyut ve tablo, yorumlama süresini uzatır.
+- Daha yoğun veri yapısı, hata kontrolü ve raporlama yükünü artırır.
 
-Değişkenlerin açık biçimde adlandırıldığı, kod kitabı bulunan ve eksik değerleri tanımlanmış bir veri seti daha hızlı incelenebilir. Hatalı kodlar, yinelenen kayıtlar, ters madde sorunları, birleştirilmesi gereken dosyalar veya belirsiz ölçek puanları ek çalışma gerektirir.
+Örneğin 8–10 değişkenli, birkaç temel karşılaştırma içeren bir çalışma ile 40–50 değişkenli, çok sayıda alt boyut ve ilişkisel test barındıran bir tez aynı emek düzeyine sahip değildir. Bu nedenle ikisinin SPSS analiz ücreti de aynı olmaz.
+
+Kısacası, çalışmanız ne kadar kalabalık ve çok katmanlıysa, analiz yoğunluğu o kadar yükselir; bu da doğrudan fiyatlandırmaya yansır.
 
 ## SPSS Analiz Ücretlerini Belirleyen İkinci Parametre: Analizin Seviyesi
 
-### Kullanılacak Analiz Yöntemleri
+SPSS analiz ücretlerinde ikinci temel unsur, analizin seviyesidir. Burada belirleyici soru şudur: Çalışmanız yalnızca temel, tek değişkenli veya sınırlı karşılaştırmalı analizler mi gerektiriyor; yoksa daha ileri, çok değişkenli ve daha yüksek uzmanlık gerektiren analizler mi içeriyor?
 
-Tanımlayıcı istatistikler, basit grup karşılaştırmaları ve korelasyon analizi ile çok değişkenli regresyon, aracılık-düzenleyicilik, faktör analizi veya tekrarlı ölçüm modelleri aynı düzeyde değildir. Model sayısı, varsayım kontrolleri, alternatiflerin karşılaştırılması ve çıktıların açıklanması toplam çalışma süresini etkiler.
+Analizin seviyesi yükseldikçe ücretin artmasının nedeni, yalnızca daha fazla işlem yapılması değil; aynı zamanda daha yüksek metodolojik bilgi, daha dikkatli varsayım kontrolleri ve daha kapsamlı yorumlama ihtiyacıdır. Çünkü ileri düzey analizlerde hata payı küçülürken, yanlış analiz seçiminin çalışmaya vereceği zarar büyür.
 
-### Örneklem ve Değişken Yapısı
-
-Örneklem büyüklüğü tek başına fiyatı belirlemez. Grup sayısı, bağımlı gözlemler, kategorik değişkenler, çoklu ölçümler ve eksik veri örüntüsü gibi özellikler analiz planını değiştirebilir. Ölçek kullanılan çalışmalarda alt boyutlar ve puanlama kuralları da ayrıca denetlenir.
-
-### Beklenen Danışmanlık Düzeyi
-
-Bazı araştırmacılar yalnızca yöntem seçeneklerini tartışmak isterken bazıları SPSS adımlarını uygulamalı biçimde öğrenmek, çıktıları birlikte incelemek ve kendi hazırladığı rapora geri bildirim almak isteyebilir. Görüşme sayısı, açıklama derinliği ve eğitim ihtiyacı teklif kapsamına yansır.
+Bu yüzden SPSS analiz ücretlerini değerlendirirken yalnızca veri sayısına değil, analizlerin teknik düzeyine de bakmak gerekir.
 
 ## Univariate ve Multivariate Analizler Ücreti Nasıl Etkiler?
 
+Ücret belirlemede en kritik ayrımlardan biri, analizlerin univariate mi yoksa multivariate mi olduğudur. Bu ayrım, sizin özellikle vurgulamak istediğiniz “seviye” parametresinin en net karşılığıdır.
+
 ### Univariate analizler
 
-Tek değişkenli incelemeler bir değişkenin dağılımı, frekansı ve temel özellikleri üzerine yoğunlaşır. İşlem adımları ve varsayım yapısı çoğu zaman daha sınırlı olduğu için danışmanlık kapsamı daha düşük olabilir.
+Univariate analizler, tek bir değişkenin dağılımını ya da sınırlı düzeyde ilişkileri değerlendiren, görece daha temel ve daha düşük karmaşıklıktaki işlemleri kapsar. Betimsel istatistikler, frekans dağılımları ve bazı temel karşılaştırmalar bu gruba daha yakın kabul edilebilir.
+
+Bu tür analizlerde:
+
+- işlem adımları daha sınırlıdır,
+- analiz süreci daha kısa sürebilir,
+- yorumlama yapısı genelde daha basittir.
+
+Bu nedenle yalnızca temel ve sınırlı düzeyde univariate analizler içeren çalışmaların ücret seviyesi, çoğu zaman daha düşük kalır.
 
 ### Multivariate analizler
 
-Tek değişkenli veya iki değişkenli incelemelerde veri yapısı daha sınırlı olabilir. Çok değişkenli modellerde ise değişkenler arası ilişkiler, çoklu bağlantı, model uyumu, artıklar ve alternatif modeller gibi ek kontroller gerekir. Bu fark, yalnızca yazılımda çalıştırılan komut sayısından değil, kararların bilimsel olarak gerekçelendirilmesi için gereken değerlendirmeden kaynaklanır.
+Multivariate analizler ise birden fazla değişkenin birlikte değerlendirildiği, daha yüksek teknik yeterlik gerektiren, daha detaylı kontrol ve yorum isteyen analiz yapılarıdır. Regresyon, faktör analizi ve benzeri çok değişkenli yaklaşımlar bu seviyeyi temsil eder. Kutup Akademi’nin tez ve makale odaklı hizmet içeriğinde de çoklu regresyon, karma desenli ANOVA, faktör analizi ve SEM gibi ileri istatistiksel uygulamaların profesyonelce yürütüldüğü belirtilmektedir. 
+
+Bu tür analizlerde:
+
+- veri yapısının daha dikkatli hazırlanması gerekir,
+- varsayım kontrolleri daha kritik hâle gelir,
+- hata payı azaltılmalıdır,
+- sonuçların yorumlanması daha fazla uzmanlık ister.
+
+Bu nedenle multivariate analiz içeren çalışmaların SPSS analiz ücreti, yalnızca temel testler içeren çalışmalara göre daha yüksek olur.
 
 ## Tez ve Makale Çalışmalarında SPSS Analiz Ücreti Neden Değişir?
 
-Tez ve makale araştırmalarında analiz, kurum veya dergi ölçütleriyle uyumlu olmalıdır. Çalışmanın tasarımı, yöntem bölümündeki plan, veri toplama biçimi ve hedef raporlama standardı birlikte incelenir. Danışmanlık; yöntemin mantığını açıklama ve araştırmacının kendi analiz kararlarını savunabilmesine yardımcı olma amacı taşır.
+Tez ve makale çalışmalarında SPSS analiz ücretinin değişmesinin nedeni, her akademik çalışmanın aynı yapıda olmamasıdır. Bazı tezler yalnızca temel karşılaştırma ve ilişki analizleriyle tamamlanabilirken, bazıları hem yoğun veri yapısı hem de ileri analiz düzeyi nedeniyle çok daha kapsamlı bir çalışma gerektirir.
 
-[SPSS danışmanlık hizmetinin kapsamını](/spss-danismanlik-hizmeti) inceleyerek hangi desteğe ihtiyaç duyduğunuzu netleştirebilirsiniz. Analiz adımlarını kendiniz uygulamak istiyorsanız [SPSS eğitimi](/spss-egitimi-ile-veri-analizi) seçeneği daha uygun olabilir.
+Özellikle şu durumlar fiyatı artırabilir:
+
+- Ölçek veya alt boyut sayısının fazla olması,
+- Hipotez sayısının yüksek olması,
+- Farklı gruplar arasında çoklu karşılaştırmalar yapılması,
+- İleri düzey istatistiksel modelleme gereksinimi,
+- Teslim süresinin kısa olması,
+- Sonuçların tez veya makale formatına uygun ayrıntılı raporlanması.
+
+Bu nedenle “tez için SPSS analiz ücreti ne kadar?” sorusunun tek cümlelik, sabit bir cevabı yoktur. Net ücret, ancak çalışmanın yoğunluğu ve analiz seviyesi birlikte değerlendirildiğinde ortaya çıkar.
 
 ## SPSS Analiz Ücreti Alırken Hangi Bilgileri Hazır Tutmalısınız?
 
-Sağlıklı bir ön değerlendirme için şu bilgilerin paylaşılması yararlıdır:
+SPSS analiz ücreti almak istediğinizde, doğru ve hızlı fiyatlandırma için bazı temel bilgileri hazır bulundurmanız gerekir. Bu bilgiler, teklifin daha gerçekçi hazırlanmasını sağlar.
 
-- Araştırma konusu, amacı ve temel soruları
-- Anonimleştirilmiş veri dosyası veya değişken listesi
-- Örneklem büyüklüğü ve grup yapısı
-- Kullanılan ölçekler ile puanlama yönergeleri
-- Planlanan analizler veya yöntem konusunda karşılaşılan belirsizlikler
-- Kurum, danışman veya derginin özel raporlama beklentileri
-- İstenen görüşme, eğitim ve geri bildirim düzeyi
-- Gerçekçi çalışma takvimi
+Hazır tutulması gereken başlıca bilgiler:
 
-Kişisel veya hassas veriler teklif aşamasında paylaşılmamalı; örnek dosyalar mutlaka anonimleştirilmelidir.
+- Çalışmanın türü: tez, makale, ya da proje,
+- Veri setinin formatı: SPSS, Excel veya ham veri,
+- Değişken sayısı ve varsa alt boyut yapısı,
+- Hipotez sayısı veya araştırma soruları,
+- Beklenen analiz türleri,
+- Teslim süresi,
+
+Kutup Akademi’nin fiyat talebi sayfasında da kullanıcıya özel fiyat teklifi almak için form doldurulması istendiği açıkça görülmektedir. Ne kadar net bilgi paylaşırsanız, size verilecek SPSS analiz ücreti de o kadar isabetli olur. 
 
 ## SPSS Analiz Ücretleri İçin Net Teklif Nasıl Alınır?
 
-Kapsam bazlı teklif, araştırmacının ihtiyaç duymadığı işlemler için ücret ödemesini önler ve hangi desteğin sunulacağını baştan görünür kılar. Teklifte analiz planı, olası kontroller, görüşme biçimi, teslim edilecek öğretici materyaller ve zamanlama açıkça belirtilmelidir. Analiz sonucunun anlamlı çıkacağına, belirli bir yayın veya akademik sonuca ulaşılacağına dair garanti verilmez.
+SPSS analiz ücretleri hakkında genel aralıklar fikir verebilir; ancak sizin çalışmanız için gerçekçi ve net ücret ancak verinizin, değişken yapınızın ve ihtiyaç duyduğunuz analiz seviyesinin incelenmesiyle belirlenebilir.
 
-## Sonuç
+Bu noktada en doğru yaklaşım, tahmini rakamlara takılıp kalmak değil, çalışmanızı doğrudan değerlendirmeye açmaktır. Elinizdeki veri setini, değişken yapısını ve analiz beklentinizi temel bilgilerle birlikte ilettiğinizde, analizin yoğunluğu ve seviyesi değerlendirilerek size özel bir fiyatlandırma yapılabilir. Kutup Akademi’nin Ücretsiz Fiyat Teklifi formu da tam olarak bu amaçla kullanılmaktadır.
 
-SPSS analiz ücreti; veri kalitesi, araştırma tasarımı, yöntemsel yoğunluk ve beklenen danışmanlık düzeyi birlikte değerlendirilerek belirlenir. Şeffaf bir ön inceleme hem kapsamın doğru kurulmasını hem de araştırmacının ne için destek aldığını bilmesini sağlar. Çalışmanızın kapsamına göre değerlendirme almak için kişisel verileri kaldırılmış bilgilerle [fiyat talebi oluşturabilirsiniz](/fiyat-talebi).`,
+Teziniz veya makaleniz için SPSS analiz ücretini net biçimde öğrenmek istiyorsanız, vakit kaybetmeden [fiyat teklifi](/fiyat-talebi) talebi oluşturmanız en doğru adımdır. Çünkü ücret, genel tahminlerle değil; sizin çalışmanızın gerçek yükü, yoğunluğu ve analiz düzeyi üzerinden belirlenir.`,
     },
     en: {
       title: 'SPSS Analysis Pricing',
