@@ -35,7 +35,6 @@ const revisions: GuidanceBlogRevision[] = [
       introduction: '', goal: '', steps: [], checks: [], mistakes: [], faq: [],
       customContent: `# SPSS Analizi Yaptırma: Tez ve Makale İçin Doğru İstatistik Desteğini Seçme Rehberi
 
-# SPSS Analizi Yaptırma: Tez ve Makale İçin Doğru İstatistik Desteğini Seçme Rehberi
 
 Tez veya makale yazarken, “SPSS analizi yaptırma” kararı çoğu zaman yalnızca teknik bir tercih değil, aynı zamanda zaman yönetimi ve akademik risk açısından kritik bir dönüm noktasıdır. Verilerinizi topladıktan sonra, SPSS ile hangi testleri kullanmanız gerektiğine, varsayımları nasıl kontrol edeceğinize ve sonuçları nasıl raporlayacağınıza emin değilseniz, yanlış bir adım tüm çalışmanızın bilimsel güvenilirliğini zayıflatabilir.
 
@@ -113,7 +112,7 @@ SPSS analizi yaptırma kararı, tez ve makale çalışmalarınızın istatistiks
 
 Eğer bu satırları okuyorsanız, büyük ihtimalle tez veya makale sürecinizde SPSS analizi konusunda kararsızlık yaşıyor ya da zamanla yarışıyorsunuz demektir; bu noktadan sonra yalnızca daha fazla “bilgi toplamak” yerine, somut bir adım atmanız gerekir. SPSS analizi yaptırma sürecini netleştirmek ve kendi çalışmanız için gerçekçi bir ücret aralığı görmek istiyorsanız, şimdi beklemeden Kutup Akademi’nin [Ücretsiz Fiyat Teklifi](/fiyat-talebi) formunu doldurun; formu gönderdiğiniz anda verileriniz ve araştırma hedefleriniz incelenerek size özel analiz planı ve fiyat teklifi hazırlanır.
 
-Tezinizin istatistik bölümünü “nasıl yapacağım?” kaygısıyla uzatmak yerine, bugün SPSS analizi yaptırma talebinizi ileterek süreci profesyonel bir ekibe devredebilir, siz de teorik çerçeveye ve yazım aşamasına odaklanabilirsiniz. Şu anda formu doldurmanız, birkaç dakika sürecek küçük bir işlem; ama savunma gününde, elinizde güçlü ve tutarlı analiz sonuçlarıyla duruyor olmanız açısından büyük fark yaratacaktır.,
+Tezinizin istatistik bölümünü “nasıl yapacağım?” kaygısıyla uzatmak yerine, bugün SPSS analizi yaptırma talebinizi ileterek süreci profesyonel bir ekibe devredebilir, siz de teorik çerçeveye ve yazım aşamasına odaklanabilirsiniz. Şu anda formu doldurmanız, birkaç dakika sürecek küçük bir işlem; ama savunma gününde, elinizde güçlü ve tutarlı analiz sonuçlarıyla duruyor olmanız açısından büyük fark yaratacaktır.`,
     },
     en: {
       title: 'SPSS Analysis Support: A Guide to Choosing the Right Statistical Consulting for a Thesis or Article',
