@@ -26,5 +26,5 @@ export const SITE_CONFIG = {
     instagram: "https://instagram.com/kutupakademi",
     facebook: "https://facebook.com/kutupakademi",
   },
-  url: "https://kutupakademi.com",
+  url: "https://www.kutupakademi.com",
 } as const;
