@@ -4,6 +4,7 @@ import { db } from '@/db';
 import { blogs } from '@/db/schema';
 import { eq } from 'drizzle-orm';
 import { getGuidanceBlogRevision } from '@/constants/guidance-blog-revisions';
+import { SITE_CONFIG } from '@/constants/site';
 
 // These live database posts are intentionally outside the current revision scope.
 // Keep their existing discovery behavior unchanged until they are reviewed separately.
@@ -48,7 +49,7 @@ function getAllRoutes(items: RouteItem[]): string[] {
 }
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://kutupakademi.com';
+  const baseUrl = SITE_CONFIG.url;
 
   const routes = getAllRoutes(ROUTES);
   const publishedBlogs = await db
