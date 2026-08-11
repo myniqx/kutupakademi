@@ -50,11 +50,11 @@ Bu indeksler, modelin veriyle ne kadar iyi uyum sağladığını değerlendirere
 
 Yapısal eşitlik modellemesi (SEM) ile analiz yaparken en çok kullanılan teknikler şunlardır:
 
--**Doğrulayıcı Faktör Analizi (DFA)** – Belirli bir teorik modelin test edilmesi için kullanılır.  
--**Yol Analizi (Path Analysis)** – Değişkenler arasındaki nedensel ilişkileri test eder.  
+- **Doğrulayıcı Faktör Analizi (DFA)** – Belirli bir teorik modelin test edilmesi için kullanılır.
+- **Yol Analizi (Path Analysis)** – Değişkenler arasındaki nedensel ilişkileri test eder.
 - **Aracı Değişken Analizi (Mediating Variable Analysis)** – Bir değişkenin bağımsız değişken ile bağımlı değişken arasındaki dolaylı etkisini ölçer. Bu analiz hakkında daha fazla bilgi edinmek için [Aracılık Etkisi Analizi](https://www.kutupakademi.com/blog/aracilik-etkisi-analizi-yaptirma) yazımızı inceleyebilirsiniz.
 - **Düzenleyici Değişken Analizi (Moderating Variable Analysis)** – Bir değişkenin iki değişken arasındaki ilişkinin gücünü veya yönünü nasıl etkilediğini belirler. Bu analiz hakkında daha fazla bilgi edinmek için [Düzenleyici Değişken Analizi](https://www.kutupakademi.com/blog/duzenleyici-degisken-analizi) yazımızı inceleyebilirsiniz.
--**Çoklu Grup Analizi** – Farklı gruplar arasında değişkenlerin nasıl çalıştığını karşılaştırır.
+- **Çoklu Grup Analizi** – Farklı gruplar arasında değişkenlerin nasıl çalıştığını karşılaştırır.
 
 Bu teknikler, **karmaşık değişken ilişkilerini anlamak ve modellenen teorik yapıyı doğrulamak** için güçlü analiz yöntemleri sunar.
 ## SEM Analizi İçin Kullanılan Yazılımlar​
