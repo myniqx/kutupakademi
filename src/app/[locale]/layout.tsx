@@ -75,6 +75,12 @@ export default async function LocaleLayout({
               '@id': `${SITE_CONFIG.url}/#organization`,
               name: localizedName,
               url: SITE_CONFIG.url,
+              logo: {
+                '@type': 'ImageObject',
+                url: `${SITE_CONFIG.url}/kutupakademii.webp`,
+                width: 486,
+                height: 513,
+              },
               email: SITE_CONFIG.contact.email,
               telephone: SITE_CONFIG.contact.phone,
               address: {

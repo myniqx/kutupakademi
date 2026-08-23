@@ -6,39 +6,14 @@ import { eq } from 'drizzle-orm';
 import { getGuidanceBlogRevision } from '@/constants/guidance-blog-revisions';
 import { SITE_CONFIG } from '@/constants/site';
 
-// These live database posts are intentionally outside the current revision scope.
-// Keep their existing discovery behavior unchanged until they are reviewed separately.
-const PROTECTED_BLOG_SLUGS = new Set([
-  'aracilik-etkisi-analizi-yaptirma',
-  'duzenleyici-degisken-analizi',
-  'norolojik-rehabilitasyon-arastirmalarinda-spss-analizi-yaptirmak',
-  'ortopedi-arastirmalarinda-spss-analizi-yaptirmak',
-  'piyasa-arastirmasi-icin-spss-analizi',
-  'spss-analiz-ucretleri',
-  'spss-analizi-yaptirma',
-  'spss-anket-verisi-analizi',
-  'spss-ile-duygularin-analizi',
-  'spss-ile-egitimde-ogrenme-duzeylerini-analiz-etme',
-  'spss-ile-firmanizin-verimlilik-analizleri',
-  'spss-ile-isletmeniz-uzerine-analizler',
-  'spss-ile-kaygi-duzeyi-analizi',
-  'spss-ile-psikolojide-benlik-algisi-testi-veri-analizi',
-  'spss-ile-psikolojik-motivasyon-testi-veri-analizi-nasil-yapilir',
-  'spss-ile-rakip-firma-analizleri',
-  'spss-ile-saglik-psikolojisi-testleri-analizleri',
-  'spss-ile-sosyal-beceriler-ve-etkilesim-analizi',
-  'spss-ile-stres-ve-basa-cikma-stratejileri-analizi',
-  'spss-ile-zeka-ve-yetenek-testleri-arastirmalarinda-veri-analizi-nasil-yapilir',
-  'spss-odevi-yapanlar',
-  'spss-process-makro-odev',
-  'tuketici-arastirmalari-icin-spss-analizi',
-]);
-
 function getAllRoutes(items: RouteItem[]): string[] {
   const routes: string[] = [];
 
   for (const item of items) {
-    routes.push(item.href);
+    // Grouping-only entries have no page of their own; skip them.
+    if (item.href) {
+      routes.push(item.href);
+    }
 
     if (item.children) {
       routes.push(...getAllRoutes(item.children));
@@ -84,7 +59,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   }));
 
   const blogUrls = publishedBlogs
-    .filter((post) => !PROTECTED_BLOG_SLUGS.has(post.slug))
     .flatMap((post) => {
       const revision = getGuidanceBlogRevision(post.slug);
       const lastModified = revision ? new Date(revision.lastModified) : post.updatedAt;

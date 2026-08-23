@@ -89,7 +89,7 @@ export function generateMeta({
       {
         url: ogImage,
         width: 1200,
-        height: 600,
+        height: 630,
         alt: siteTitle,
       },
     ],

@@ -3,7 +3,8 @@ export type RouteItem = {
     tr: string;
     en: string;
   };
-  href: string;
+  /** Omit for grouping-only entries that have no page of their own. */
+  href?: string;
   children?: RouteItem[];
 };
 
@@ -18,7 +19,6 @@ export const ROUTES: RouteItem[] = [
   },
   {
     label: { tr: 'Hizmetlerimiz', en: 'Our Services' },
-    href: '/hizmetler',
     children: [
       {
         label: {
