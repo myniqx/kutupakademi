@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { MarkdownEditor } from './markdown-editor'
+import { SeoFieldBadge, type SeoFieldKey } from './seo-field-badge'
 
 type Locale = 'tr' | 'en'
 
@@ -19,6 +20,9 @@ interface LocalizedInputProps {
   onChange: (field: string, value: string) => void
   onDeepLTranslate?: (sourceLang: Locale, targetLang: Locale) => Promise<void>
   isTranslating?: boolean
+  /** Per-locale SEO badge shown inside each input. */
+  seoField_tr?: SeoFieldKey
+  seoField_en?: SeoFieldKey
 }
 
 export function LocalizedInput({
@@ -33,6 +37,8 @@ export function LocalizedInput({
   onChange,
   onDeepLTranslate,
   isTranslating = false,
+  seoField_tr,
+  seoField_en,
 }: LocalizedInputProps) {
   const [activeLocales, setActiveLocales] = useState<Locale[]>(['tr', 'en'])
 
@@ -49,7 +55,6 @@ export function LocalizedInput({
 
   // Smart translate logic
   const getTranslateTooltip = (): string => {
-    if (!onDeepLTranslate) return 'DeepL API key not configured'
     if (isTranslating) return 'Translating...'
     if (value_tr && value_en) return 'Both languages have content'
     if (!value_tr && !value_en) return 'Please add content first'
@@ -103,18 +108,20 @@ export function LocalizedInput({
             </button>
           </div>
 
-          {/* DeepL Translate button */}
-          <Button
-            type="button"
-            size="sm"
-            variant="ghost"
-            className="h-7 px-2 text-xs"
-            disabled={!canTranslate()}
-            onClick={handleTranslate}
-            title={getTranslateTooltip()}
-          >
-            {isTranslating ? '⏳' : '🌐'} Translate
-          </Button>
+          {/* DeepL Translate button — hidden unless the server has an API key */}
+          {onDeepLTranslate && (
+            <Button
+              type="button"
+              size="sm"
+              variant="ghost"
+              className="h-7 px-2 text-xs"
+              disabled={!canTranslate()}
+              onClick={handleTranslate}
+              title={getTranslateTooltip()}
+            >
+              {isTranslating ? '⏳' : '🌐'} Translate
+            </Button>
+          )}
         </div>
       </div>
 
@@ -122,25 +129,39 @@ export function LocalizedInput({
         {isActive('tr') && (
           <div>
             {markdown ? (
-              <MarkdownEditor
-                name={`${name}_tr`}
-                value={value_tr}
-                onChange={(value) => onChange(`${name}_tr`, value)}
-                rows={rows}
-                required={required}
-                placeholder={`${label} (Turkish)${required ? ' *' : ''}`}
-                slug={slug}
-              />
+              <>
+                {seoField_tr && (
+                  <div className="mb-1 flex justify-end">
+                    <SeoFieldBadge field={seoField_tr} value={value_tr} />
+                  </div>
+                )}
+                <MarkdownEditor
+                  name={`${name}_tr`}
+                  value={value_tr}
+                  onChange={(value) => onChange(`${name}_tr`, value)}
+                  rows={rows}
+                  required={required}
+                  placeholder={`${label} (Turkish)${required ? ' *' : ''}`}
+                  slug={slug}
+                />
+              </>
             ) : (
-              <input
-                type="text"
-                name={`${name}_tr`}
-                value={value_tr}
-                onChange={(e) => onChange(`${name}_tr`, e.target.value)}
-                required={required}
-                placeholder={`${label} (Turkish)${required ? ' *' : ''}`}
-                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
-              />
+              <div className="relative">
+                <input
+                  type="text"
+                  name={`${name}_tr`}
+                  value={value_tr}
+                  onChange={(e) => onChange(`${name}_tr`, e.target.value)}
+                  required={required}
+                  placeholder={`${label} (Turkish)${required ? ' *' : ''}`}
+                  className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary ${seoField_tr ? 'pr-20' : ''}`}
+                />
+                {seoField_tr && (
+                  <span className="absolute inset-y-0 right-2 flex items-center">
+                    <SeoFieldBadge field={seoField_tr} value={value_tr} />
+                  </span>
+                )}
+              </div>
             )}
           </div>
         )}
@@ -148,23 +169,37 @@ export function LocalizedInput({
         {isActive('en') && (
           <div>
             {markdown ? (
-              <MarkdownEditor
-                name={`${name}_en`}
-                value={value_en}
-                onChange={(value) => onChange(`${name}_en`, value)}
-                rows={rows}
-                placeholder={`${label} (English)`}
-                slug={slug}
-              />
+              <>
+                {seoField_en && (
+                  <div className="mb-1 flex justify-end">
+                    <SeoFieldBadge field={seoField_en} value={value_en} />
+                  </div>
+                )}
+                <MarkdownEditor
+                  name={`${name}_en`}
+                  value={value_en}
+                  onChange={(value) => onChange(`${name}_en`, value)}
+                  rows={rows}
+                  placeholder={`${label} (English)`}
+                  slug={slug}
+                />
+              </>
             ) : (
-              <input
-                type="text"
-                name={`${name}_en`}
-                value={value_en}
-                onChange={(e) => onChange(`${name}_en`, e.target.value)}
-                placeholder={`${label} (English)`}
-                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
-              />
+              <div className="relative">
+                <input
+                  type="text"
+                  name={`${name}_en`}
+                  value={value_en}
+                  onChange={(e) => onChange(`${name}_en`, e.target.value)}
+                  placeholder={`${label} (English)`}
+                  className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary ${seoField_en ? 'pr-20' : ''}`}
+                />
+                {seoField_en && (
+                  <span className="absolute inset-y-0 right-2 flex items-center">
+                    <SeoFieldBadge field={seoField_en} value={value_en} />
+                  </span>
+                )}
+              </div>
             )}
           </div>
         )}

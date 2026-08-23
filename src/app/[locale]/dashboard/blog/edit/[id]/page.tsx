@@ -19,5 +19,7 @@ export default async function EditBlogPage({ params }: { params: { id: string } 
     redirect('/dashboard')
   }
 
-  return <BlogEditor mode="edit" blog={blog} />
+  return (
+    <BlogEditor mode="edit" blog={blog} deeplEnabled={Boolean(process.env.DEEPL_API_KEY)} />
+  )
 }

@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
 import { useRouter } from 'next/navigation'
 import { LocalizedInput } from './localized-input'
+import { SeoFieldBadge } from './seo-field-badge'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
 import { generateSlug } from '@/lib/utils/slug'
@@ -14,9 +15,11 @@ import Image from 'next/image'
 interface BlogEditorProps {
   blog?: Blog
   mode: 'new' | 'edit'
+  /** DEEPL_API_KEY is set on the server; without it the translate button is hidden. */
+  deeplEnabled?: boolean
 }
 
-export function BlogEditor({ blog, mode }: BlogEditorProps) {
+export function BlogEditor({ blog, mode, deeplEnabled = false }: BlogEditorProps) {
   const router = useRouter()
   const [isSaving, setIsSaving] = useState<false | 'draft' | 'publish' | 'auto'>(false)
   const [lastSaved, setLastSaved] = useState<Date | null>(null)
@@ -422,14 +425,19 @@ English Translation:`
               <label className="text-sm font-medium mb-2 block">
                 Slug <span className="text-red-500">*</span>
               </label>
-              <input
-                type="text"
-                value={formData.slug}
-                onChange={(e) => handleFieldChange('slug', e.target.value)}
-                placeholder="blog-post-slug"
-                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
-                required
-              />
+              <div className="relative">
+                <input
+                  type="text"
+                  value={formData.slug}
+                  onChange={(e) => handleFieldChange('slug', e.target.value)}
+                  placeholder="blog-post-slug"
+                  className="w-full px-4 py-2 pr-20 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                  required
+                />
+                <span className="absolute inset-y-0 right-2 flex items-center">
+                  <SeoFieldBadge field="slug" value={formData.slug} />
+                </span>
+              </div>
               <p className="text-xs text-muted-foreground mt-1">
                 Auto-generated from Turkish title, but editable
               </p>
@@ -440,13 +448,18 @@ English Translation:`
               <label className="text-sm font-medium mb-2 block">
                 Author
               </label>
-              <input
-                type="text"
-                value={formData.author}
-                onChange={(e) => handleFieldChange('author', e.target.value)}
-                placeholder="Author name"
-                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
-              />
+              <div className="relative">
+                <input
+                  type="text"
+                  value={formData.author}
+                  onChange={(e) => handleFieldChange('author', e.target.value)}
+                  placeholder="Author name"
+                  className="w-full px-4 py-2 pr-20 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                />
+                <span className="absolute inset-y-0 right-2 flex items-center">
+                  <SeoFieldBadge field="author" value={formData.author} />
+                </span>
+              </div>
               <p className="text-xs text-muted-foreground mt-1">
                 Leave empty to use &quot;KutupAkademi&quot; as default
               </p>
@@ -480,24 +493,31 @@ English Translation:`
               )}
 
               {/* Keyword Input */}
-              <input
-                type="text"
-                value={keywordInput}
-                onChange={(e) => setKeywordInput(e.target.value)}
-                onKeyDown={handleKeywordInputKeyDown}
-                onBlur={handleAddKeyword}
-                placeholder=", ile keyword ekleyin..."
-                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
-              />
+              <div className="relative">
+                <input
+                  type="text"
+                  value={keywordInput}
+                  onChange={(e) => setKeywordInput(e.target.value)}
+                  onKeyDown={handleKeywordInputKeyDown}
+                  onBlur={handleAddKeyword}
+                  placeholder=", ile keyword ekleyin..."
+                  className="w-full px-4 py-2 pr-20 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                />
+                <span className="absolute inset-y-0 right-2 flex items-center">
+                  <SeoFieldBadge field="keywords" value={formData.keywords} />
+                </span>
+              </div>
               <p className="text-xs text-muted-foreground mt-1">
-                Press Enter or comma to add keywords. Used for SEO.
+                Eklemek için Enter veya virgül. Bu kelimelerin arama sıralamasındaki
+                karşılığı, aynı kelimelerin yazı metninde doğal olarak geçmesidir.
               </p>
             </div>
 
             {/* Cover Image */}
             <div>
-              <label className="text-sm font-medium mb-2 block">
+              <label className="mb-2 flex items-center gap-2 text-sm font-medium">
                 Cover Image
+                <SeoFieldBadge field="coverImage" value={formData.coverImage} className="ml-auto" />
               </label>
               {formData.coverImage ? (
                 <div className="relative border-2 border-gray-200 rounded-lg overflow-hidden">
@@ -571,10 +591,14 @@ English Translation:`
                 name="title"
                 label=""
                 required
+                seoField_tr="title_tr"
+                seoField_en="title_en"
                 value_tr={formData.title_tr}
                 value_en={formData.title_en}
                 onChange={handleFieldChange}
-                onDeepLTranslate={(src, tgt) => handleDeepLTranslate('title', src, tgt)}
+                onDeepLTranslate={
+                  deeplEnabled ? (src, tgt) => handleDeepLTranslate('title', src, tgt) : undefined
+                }
                 isTranslating={deeplTranslatingField === 'title'}
               />
             </div>
@@ -603,10 +627,16 @@ English Translation:`
               <LocalizedInput
                 name="description"
                 label=""
+                seoField_tr="description_tr"
+                seoField_en="description_en"
                 value_tr={formData.description_tr}
                 value_en={formData.description_en}
                 onChange={handleFieldChange}
-                onDeepLTranslate={(src, tgt) => handleDeepLTranslate('description', src, tgt)}
+                onDeepLTranslate={
+                  deeplEnabled
+                    ? (src, tgt) => handleDeepLTranslate('description', src, tgt)
+                    : undefined
+                }
                 isTranslating={deeplTranslatingField === 'description'}
               />
             </div>
@@ -653,10 +683,14 @@ English Translation:`
                 label=""
                 markdown
                 rows={4}
+                seoField_tr="summary_tr"
+                seoField_en="summary_en"
                 value_tr={formData.summary_tr}
                 value_en={formData.summary_en}
                 onChange={handleFieldChange}
-                onDeepLTranslate={(src, tgt) => handleDeepLTranslate('summary', src, tgt)}
+                onDeepLTranslate={
+                  deeplEnabled ? (src, tgt) => handleDeepLTranslate('summary', src, tgt) : undefined
+                }
                 isTranslating={deeplTranslatingField === 'summary'}
               />
             </div>
@@ -703,10 +737,14 @@ English Translation:`
                 markdown
                 showPreview
                 rows={20}
+                seoField_tr="content_tr"
+                seoField_en="content_en"
                 value_tr={formData.content_tr}
                 value_en={formData.content_en}
                 onChange={handleFieldChange}
-                onDeepLTranslate={(src, tgt) => handleDeepLTranslate('content', src, tgt)}
+                onDeepLTranslate={
+                  deeplEnabled ? (src, tgt) => handleDeepLTranslate('content', src, tgt) : undefined
+                }
                 isTranslating={deeplTranslatingField === 'content'}
               />
             </div>

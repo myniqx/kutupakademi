@@ -9,5 +9,5 @@ export default async function NewBlogPage() {
     redirect('/dashboard')
   }
 
-  return <BlogEditor mode="new" />
+  return <BlogEditor mode="new" deeplEnabled={Boolean(process.env.DEEPL_API_KEY)} />
 }
