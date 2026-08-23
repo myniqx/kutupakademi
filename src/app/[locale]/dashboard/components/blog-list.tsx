@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
 import { Eye, EyeOff, Trash2, ArrowUpDown, Pencil } from 'lucide-react'
 import { BlogPreviewDialog } from './blog-preview-dialog'
+import { ConfirmDialog, type ConfirmRequest } from './confirm-dialog'
 import type { Blog } from '@/db/schema'
 
 interface BlogListProps {
@@ -23,6 +24,8 @@ export function BlogList({ blogs }: BlogListProps) {
   const [sort, setSort] = useState<SortType>('newest')
   const [previewBlog, setPreviewBlog] = useState<Blog | null>(null)
   const [previewOpen, setPreviewOpen] = useState(false)
+  const [confirmRequest, setConfirmRequest] = useState<ConfirmRequest | null>(null)
+  const [isConfirmBusy, setIsConfirmBusy] = useState(false)
 
   // Check if blog is ready to publish
   const isReadyToPublish = (blog: Blog): boolean => {
@@ -78,25 +81,49 @@ export function BlogList({ blogs }: BlogListProps) {
     return filtered
   }, [blogs, filter, sort])
 
-  async function handleDelete(e: React.MouseEvent, id: string, title: string) {
+  function handleDelete(e: React.MouseEvent, id: string, title: string) {
     e.stopPropagation()
-    const confirmed = confirm(`"${title}" başlıklı blog yazısını silmek istediğinize emin misiniz?`)
+    setConfirmRequest({
+      title: 'Blog yazısını sil',
+      description: `"${title}" kalıcı olarak silinecek. Bu işlem geri alınamaz.`,
+      confirmLabel: 'Sil',
+      destructive: true,
+      onConfirm: async () => {
+        setIsConfirmBusy(true)
+        setDeletingId(id)
+        const result = await deleteBlog(id)
+        setDeletingId(null)
+        setIsConfirmBusy(false)
+        setConfirmRequest(null)
 
-    if (!confirmed) return
-
-    setDeletingId(id)
-    const result = await deleteBlog(id)
-
-    if (result.success) {
-      router.refresh()
-    }
-    setDeletingId(null)
+        if (result.success) {
+          router.refresh()
+        }
+      },
+    })
   }
 
-  async function handleTogglePublish(e: React.MouseEvent, id: string, currentStatus: boolean) {
+  function handleTogglePublish(e: React.MouseEvent, id: string, currentStatus: boolean, title: string) {
     e.stopPropagation()
-    await togglePublish(id, currentStatus)
-    router.refresh()
+
+    // Publishing is low-risk and reversible; only withdrawing needs a check.
+    if (!currentStatus) {
+      void togglePublish(id, currentStatus).then(() => router.refresh())
+      return
+    }
+
+    setConfirmRequest({
+      title: 'Yayından kaldır',
+      description: `"${title}" siteden kaldırılacak ve ziyaretçilere görünmeyecek. Yazı silinmez, istediğiniz zaman tekrar yayınlayabilirsiniz.`,
+      confirmLabel: 'Yayından kaldır',
+      onConfirm: async () => {
+        setIsConfirmBusy(true)
+        await togglePublish(id, currentStatus)
+        setIsConfirmBusy(false)
+        setConfirmRequest(null)
+        router.refresh()
+      },
+    })
   }
 
   function handleEdit(e: React.MouseEvent, id: string) {
@@ -221,7 +248,7 @@ export function BlogList({ blogs }: BlogListProps) {
                 <Button
                   size="sm"
                   variant="outline"
-                  onClick={(e) => handleTogglePublish(e, blog.id, blog.published)}
+                  onClick={(e) => handleTogglePublish(e, blog.id, blog.published, blog.title_tr)}
                   title={blog.published ? 'Yayından kaldır' : 'Yayınla'}
                   className="w-40"
                 >
@@ -263,6 +290,14 @@ export function BlogList({ blogs }: BlogListProps) {
         blog={previewBlog}
         open={previewOpen}
         onOpenChange={setPreviewOpen}
+      />
+
+      <ConfirmDialog
+        request={confirmRequest}
+        isBusy={isConfirmBusy}
+        onOpenChange={(open) => {
+          if (!open && !isConfirmBusy) setConfirmRequest(null)
+        }}
       />
     </div>
   )
