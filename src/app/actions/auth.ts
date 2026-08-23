@@ -2,7 +2,7 @@
 
 import { revalidatePath } from 'next/cache'
 import { createClient } from '@/lib/supabase/server'
-import { getAuthenticatedUser, isAllowedAdminEmail } from '@/lib/auth/user'
+import { getAuthenticatedUser } from '@/lib/auth/user'
 
 export async function login(formData: FormData) {
   const supabase = await createClient()
@@ -16,15 +16,6 @@ export async function login(formData: FormData) {
 
   if (error) {
     return { error: error.message }
-  }
-
-  const {
-    data: { user },
-  } = await supabase.auth.getUser()
-
-  if (!user || !isAllowedAdminEmail(user.email)) {
-    await supabase.auth.signOut()
-    return { error: 'Bu hesap yönetim paneline yetkili değil.' }
   }
 
   revalidatePath('/dashboard', 'page')

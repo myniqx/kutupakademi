@@ -1,6 +1,5 @@
 import { createServerClient } from '@supabase/ssr'
 import { NextResponse, type NextRequest } from 'next/server'
-import { SITE_CONFIG } from '@/constants/site'
 
 export async function updateSession(request: NextRequest) {
   let supabaseResponse = NextResponse.next({
@@ -36,19 +35,7 @@ export async function updateSession(request: NextRequest) {
   const dashboardIndex = pathSegments.indexOf('dashboard')
   const isProtectedDashboardPath =
     dashboardIndex !== -1 && dashboardIndex < pathSegments.length - 1
-  const configuredAdminEmails = process.env.ADMIN_EMAILS
-    ?.split(',')
-    .map((value) => value.trim().toLowerCase())
-    .filter(Boolean)
-  const allowedAdminEmails = configuredAdminEmails?.length
-    ? configuredAdminEmails
-    : [SITE_CONFIG.contact.email.toLowerCase()]
-  const isAdmin = Boolean(user?.email && allowedAdminEmails.includes(user.email.toLowerCase()))
-
-  if (
-    !isAdmin &&
-    isProtectedDashboardPath
-  ) {
+  if (!user && isProtectedDashboardPath) {
     const url = request.nextUrl.clone()
     url.pathname = pathSegments[0] === 'en' ? '/en/dashboard' : '/dashboard'
     return NextResponse.redirect(url)
