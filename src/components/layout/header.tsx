@@ -45,7 +45,7 @@ export function Header() {
           <NavigationMenu className="hidden lg:flex">
             <NavigationMenuList>
               {MAIN_MENU.map((item) => (
-                <NavigationMenuItem key={item.href === '#' ? item.label[locale] : item.href}>
+                <NavigationMenuItem key={item.href ?? item.label[locale]}>
                   {item.children ? (
                     <>
                       <NavigationMenuTrigger>
@@ -54,41 +54,54 @@ export function Header() {
                       <NavigationMenuContent>
                         <ul className="columns-2 w-125 gap-3 p-4 md:w-150">
                           {item.children.map((child) => (
-                            <li key={child.href} className="break-inside-avoid mb-3">
+                            <li
+                              key={child.href ?? child.label[locale]}
+                              className="break-inside-avoid mb-3"
+                            >
                               {child.children ? (
                                 <div className="rounded-lg border border-border bg-card/60 backdrop-blur-sm p-3 space-y-2">
+                                  {child.href ? (
+                                    <NavigationMenuLink asChild>
+                                      <Link
+                                        href={child.href}
+                                        className="block text-sm font-semibold text-foreground hover:text-primary transition-colors"
+                                      >
+                                        {child.label[locale]}
+                                      </Link>
+                                    </NavigationMenuLink>
+                                  ) : (
+                                    <span className="block text-sm font-semibold text-foreground">
+                                      {child.label[locale]}
+                                    </span>
+                                  )}
+                                  <ul className="space-y-1">
+                                    {child.children.map((subChild) =>
+                                      subChild.href ? (
+                                        <li key={subChild.href}>
+                                          <NavigationMenuLink asChild>
+                                            <Link
+                                              href={subChild.href}
+                                              className="block select-none rounded-md px-2 py-1.5 text-sm leading-tight no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                                            >
+                                              {subChild.label[locale]}
+                                            </Link>
+                                          </NavigationMenuLink>
+                                        </li>
+                                      ) : null
+                                    )}
+                                  </ul>
+                                </div>
+                              ) : (
+                                child.href && (
                                   <NavigationMenuLink asChild>
                                     <Link
                                       href={child.href}
-                                      className="block text-sm font-semibold text-foreground hover:text-primary transition-colors"
+                                      className="block select-none rounded-lg border border-border bg-card/60 backdrop-blur-sm p-3 text-sm font-medium leading-tight no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                                     >
                                       {child.label[locale]}
                                     </Link>
                                   </NavigationMenuLink>
-                                  <ul className="space-y-1">
-                                    {child.children.map((subChild) => (
-                                      <li key={subChild.href}>
-                                        <NavigationMenuLink asChild>
-                                          <Link
-                                            href={subChild.href}
-                                            className="block select-none rounded-md px-2 py-1.5 text-sm leading-tight no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
-                                          >
-                                            {subChild.label[locale]}
-                                          </Link>
-                                        </NavigationMenuLink>
-                                      </li>
-                                    ))}
-                                  </ul>
-                                </div>
-                              ) : (
-                                <NavigationMenuLink asChild>
-                                  <Link
-                                    href={child.href}
-                                    className="block select-none rounded-lg border border-border bg-card/60 backdrop-blur-sm p-3 text-sm font-medium leading-tight no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
-                                  >
-                                    {child.label[locale]}
-                                  </Link>
-                                </NavigationMenuLink>
+                                )
                               )}
                             </li>
                           ))}
@@ -96,12 +109,14 @@ export function Header() {
                       </NavigationMenuContent>
                     </>
                   ) : (
-                    <Link
-                      href={item.href}
-                      className="group inline-flex h-9 w-max items-center justify-center rounded-lg bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50"
-                    >
-                      {item.label[locale]}
-                    </Link>
+                    item.href && (
+                      <Link
+                        href={item.href}
+                        className="group inline-flex h-9 w-max items-center justify-center rounded-lg bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50"
+                      >
+                        {item.label[locale]}
+                      </Link>
+                    )
                   )}
                 </NavigationMenuItem>
               ))}
@@ -127,10 +142,10 @@ export function Header() {
                 </Button>
               </SheetTrigger>
               <SheetContent side="right" className="w-75 sm:w-100">
-                <SheetHeader>
+                <SheetHeader className="shrink-0">
                   <SheetTitle>{SITE_CONFIG.name[locale]}</SheetTitle>
                 </SheetHeader>
-                <nav className="mt-6">
+                <nav className="min-h-0 flex-1 overflow-y-auto overscroll-contain px-1 pb-6">
                   <MobileMenu items={MAIN_MENU} locale={locale} onClose={() => setMobileMenuOpen(false)} />
                 </nav>
               </SheetContent>
@@ -155,62 +170,82 @@ function MobileMenu({
 }) {
   const [openItems, setOpenItems] = useState<Set<string>>(new Set());
 
-  const toggleItem = (href: string) => {
+  const toggleItem = (key: string) => {
     const newOpenItems = new Set(openItems);
-    if (newOpenItems.has(href)) {
-      newOpenItems.delete(href);
+    if (newOpenItems.has(key)) {
+      newOpenItems.delete(key);
     } else {
-      newOpenItems.add(href);
+      newOpenItems.add(key);
     }
     setOpenItems(newOpenItems);
   };
 
   return (
     <ul className={cn("space-y-1", level > 0 && "ml-4 mt-2 border-l border-border pl-4")}>
-      {items.map((item) => (
-        <li key={item.href}>
-          {item.children ? (
-            <div>
-              <div className="flex items-center gap-2">
+      {items.map((item) => {
+        const key = item.href ?? item.label[locale];
+        const isOpen = openItems.has(key);
+
+        return (
+          <li key={key}>
+            {item.children ? (
+              <div>
+                {item.href ? (
+                  <div className="flex items-center gap-2">
+                    <Link
+                      href={item.href}
+                      onClick={onClose}
+                      className="flex-1 rounded-md px-3 py-2 text-sm font-medium hover:bg-accent hover:text-accent-foreground"
+                    >
+                      {item.label[locale]}
+                    </Link>
+                    <button
+                      type="button"
+                      onClick={() => toggleItem(key)}
+                      aria-expanded={isOpen}
+                      className="rounded-md px-2 py-2 text-sm font-medium hover:bg-accent hover:text-accent-foreground"
+                    >
+                      <ChevronDown
+                        className={cn("h-4 w-4 transition-transform", isOpen && "rotate-180")}
+                      />
+                    </button>
+                  </div>
+                ) : (
+                  <button
+                    type="button"
+                    onClick={() => toggleItem(key)}
+                    aria-expanded={isOpen}
+                    className="flex w-full items-center justify-between gap-2 rounded-md px-3 py-2 text-left text-sm font-medium hover:bg-accent hover:text-accent-foreground"
+                  >
+                    {item.label[locale]}
+                    <ChevronDown
+                      className={cn("h-4 w-4 shrink-0 transition-transform", isOpen && "rotate-180")}
+                    />
+                  </button>
+                )}
+                {isOpen && (
+                  <MobileMenu
+                    items={item.children}
+                    locale={locale}
+                    onClose={onClose}
+                    level={level + 1}
+                  />
+                )}
+              </div>
+            ) : (
+              item.href && (
                 <Link
                   href={item.href}
                   onClick={onClose}
-                  className="flex-1 rounded-md px-3 py-2 text-sm font-medium hover:bg-accent hover:text-accent-foreground"
+                  className="block rounded-md px-3 py-2 text-sm font-medium hover:bg-accent hover:text-accent-foreground"
                 >
                   {item.label[locale]}
                 </Link>
-                <button
-                  onClick={() => toggleItem(item.href)}
-                  className="rounded-md px-2 py-2 text-sm font-medium hover:bg-accent hover:text-accent-foreground"
-                >
-                  <ChevronDown
-                    className={cn(
-                      "h-4 w-4 transition-transform",
-                      openItems.has(item.href) && "rotate-180"
-                    )}
-                  />
-                </button>
-              </div>
-              {openItems.has(item.href) && (
-                <MobileMenu
-                  items={item.children}
-                  locale={locale}
-                  onClose={onClose}
-                  level={level + 1}
-                />
-              )}
-            </div>
-          ) : (
-            <Link
-              href={item.href}
-              onClick={onClose}
-              className="block rounded-md px-3 py-2 text-sm font-medium hover:bg-accent hover:text-accent-foreground"
-            >
-              {item.label[locale]}
-            </Link>
-          )}
-        </li>
-      ))}
+              )
+            )}
+          </li>
+        );
+      })}
     </ul>
   );
 }

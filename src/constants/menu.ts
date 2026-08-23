@@ -3,7 +3,8 @@ export type MenuItem = {
     tr: string;
     en: string;
   };
-  href: string;
+  /** Omit for grouping-only items that have no page of their own. */
+  href?: string;
   children?: MenuItem[];
 };
 
@@ -18,7 +19,6 @@ export const MAIN_MENU: MenuItem[] = [
   },
   {
     label: { tr: 'Hizmetlerimiz', en: 'Our Services' },
-    href: '/hizmetler',
     children: [
       {
         label: {
