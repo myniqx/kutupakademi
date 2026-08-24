@@ -91,4 +91,4 @@ Our team, experienced in psychometrics and biostatistics, assesses the structure
 
 Share your research topic, data structure, and the stage where you need support. To discuss data analysis consulting for your SPSS assignment, [contact us via WhatsApp](https://wa.me/905078334417) or [request a free quote](https://www.kutupakademi.com/fiyat-talebi).
 
-To better understand analysis methods in your thesis research, you can review our [SPSS Data Analysis guide](/en/spss-data-analysis-service/). To develop your SPSS skills, visit our [Data Analysis with SPSS Training](/en/data-analysis-with-spss-training/) page. For method selection and output interpretation, see our [SPSS Consulting Service](/en/spss-consulting-service/) page.
+To better understand analysis methods in your thesis research, you can review our [SPSS Data Analysis guide](/spss-veri-analizi-yaptirma-2).
