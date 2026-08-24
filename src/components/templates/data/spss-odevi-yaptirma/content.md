@@ -91,4 +91,4 @@ Psikometri ve biyoistatistik alanlarında deneyimli uzmanlardan oluşan ekibimiz
 
 Araştırma konunuzu, veri yapınızı ve ihtiyaç duyduğunuz destek aşamasını paylaşın. SPSS ödeviniz için veri analizi danışmanlığı kapsamını görüşmek üzere [WhatsApp hattımızdan bize ulaşın](https://wa.me/905078334417) veya [ücretsiz fiyat talebinde bulunun](https://www.kutupakademi.com/fiyat-talebi).
 
-Tez araştırmanızda analiz yöntemlerini daha iyi anlamak için [SPSS Veri Analizi rehberimizi](/spss-veri-analizi-yaptirma/) inceleyebilirsiniz. SPSS kullanım becerilerinizi geliştirmek için [SPSS Eğitimi ile Veri Analizi](/spss-egitimi-ile-veri-analizi/) sayfasına göz atabilirsiniz. Yöntem seçimi ve çıktı yorumlama süreci için [SPSS Danışmanlık Hizmeti](/spss-danismanlik-hizmeti/) sayfamızı inceleyebilirsiniz.
+Tez araştırmanızda analiz yöntemlerini daha iyi anlamak için [SPSS Veri Analizi rehberimizi](/spss-veri-analizi-yaptirma-2) inceleyebilirsiniz.
