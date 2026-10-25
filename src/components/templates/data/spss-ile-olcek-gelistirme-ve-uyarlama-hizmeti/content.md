@@ -196,7 +196,7 @@ Doğrulayıcı Faktör Analizi (DFA) ile yapı geçerliği, Cronbach Alpha ile i
 
 Ölçek uyarlama süreci, hem dilsel hem de istatistiksel açıdan yüksek dikkat ve uzmanlık gerektirir. Yanlış uygulamalar araştırmanızın bilimsel değerini düşürebilir. Bu nedenle, uzman danışmanlık hizmeti alarak ölçeğinizin akademik geçerliliğini güvence altına alabilirsiniz.
 
-![Ölçek uyarlama aşamaları](./image-1.webp)
+![Ölçek uyarlama aşamaları](/blogs/spss-ile-olcek-gelistirme-ve-uyarlama-hizmeti/olcek-uyarlama-asamalari.png)
 
 ## Ölçek Geliştirme ve Uyarlama Çalışmalarında Karşılaşılan Sorunlar
 
