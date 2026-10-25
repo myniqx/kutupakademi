@@ -4,7 +4,7 @@ Bilimsel araştırmaların geçerlilik ve güvenilirliğini artırmak için doğ
 
 Bir araştırmanın bilimsel değerini belirleyen en önemli unsurlardan biri, **ölçme aracının geçerli ve güvenilir olmasıdır**. Bu bağlamda, özgün bir **ölçek geliştirme çalışması**, yalnızca akademik başarıya ulaşmakla kalmaz, aynı zamanda alan literatürüne katkı sağlayacak kalıcı bir eser üretmenin kapısını aralar.
 
-![Ölçek geliştirme aşamaları](./featured-image.webp)
+![Ölçek geliştirme aşamaları](/blogs/spss-ile-olcek-gelistirme-ve-uyarlama-hizmeti/olcek-gelistirme-asamalari.png)
 
 Ancak bu süreç, yalnızca birkaç soru yazmaktan ibaret değildir. Aksine; dikkatli planlama, kuramsal bilgi, istatistiksel analiz becerisi ve etik ilkelere sadakat gerektirir. İşte profesyonel hizmet kapsamında yürütülen **ölçek geliştirme aşamaları**:
 
