@@ -168,77 +168,31 @@ Bu süreçte:
 
 tamamlanmış olur.
 
-## Ölçek Geliştirme Makalesi Hazırlama Desteği
-
-**Ölçek geliştirme süreci**, yalnızca geçerli ve güvenilir bir ölçme aracı üretmekle sınırlı değildir. Bu sürecin akademik değeri, aynı zamanda bilimsel bir yayın ya da tez bölümüne dönüştürülmesiyle ortaya çıkar. Yani, geliştirdiğiniz ölçek bilimsel bir rapora, yüksek lisans ya da doktora tezinize entegre edilebilecek nitelikte olmalıdır.
-
-Ancak çoğu araştırmacı, bu süreç sonunda elde ettiği analizleri doğru bir akademik yazıya dönüştürmekte zorlanır. Hem yazım kuralları hem de bilimsel yapı bakımından eksik ya da hatalı metinler, tez danışmanları ya da hakemli dergiler tarafından kabul edilmez. Bu noktada sunduğumuz **ölçek geliştirme makalesi hazırlama desteği**, sürecin akademik alana taşınmasında güçlü bir çözüm sunar.
-
-### Hangi Alanlarda Destek Sağlıyoruz?
-
-**1. Tez Bölümü Yazımı**
-
-Ölçek geliştirme çalışmanızın "Yöntem", "Bulgular", "Tartışma" ve "Sonuç" bölümleri, APA 7, MLA, Chicago gibi akademik yazım kurallarına uygun şekilde hazırlanır. Analiz sonuçları tablo ve grafiklerle desteklenir, istatistiksel bulgular doğru biçimde raporlanır.
-
-**2. Akademik Makale Hazırlığı**
-
-Ölçeğiniz ulusal ya da uluslararası hakemli dergilerde yayınlanmak üzere yapılandırılır. Literatürle ilişkilendirme, kuramsal çerçeve, analiz açıklamaları, tartışma ve öneri bölümleri eksiksiz bir bütünlük içinde sunulur.
-
-**3. Rapor Formatında Yayın Hazırlığı**
-
-Akademik olmayan ama bilimsel raporlama gerektiren durumlar için sade, kolay okunur ve görselleştirilmiş bir formatta rapor hazırlanır. Bu özellikle kurum içi projeler, akademik portföyler veya proje başvuruları için tercih edilir.
-
-### Dikkat Ettiğimiz Akademik Standartlar
-
-*   APA 7, MLA, Chicago gibi yazım sistemlerine uygunluk
-
-*   Geçerlik ve güvenilirlik bulgularının detaylı sunumu
-
-*   AFA ve DFA analizlerinin açıklayıcı biçimde yorumlanması
-
-*   Etik beyan, kısıtlılıklar ve gelecek çalışmalara öneriler
-
-*   Kaynakça biçimlendirme ve intihalden uzak içerik üretimi
-
-
-### Yayın Başvurularınız İçin Uluslararası Düzeyde Hazırlık
-
-Eğer geliştirdiğiniz ölçeği **hakemli bir dergide yayınlatmak** istiyorsanız, yalnızca istatistiksel analiz yetmez. Dergi kriterlerine uygun yapısal bütünlük, akademik üslup ve güçlü literatür desteği gerekir. Bu tür yazım süreçlerinde de yanınızdayız. Özellikle şu konularda danışmanlık sunuyoruz:
-
-*   Dergi seçimi ve hedefleme
-
-*   Makale yapısının dergiye göre düzenlenmesi
-
-*   Editöre mektup (cover letter) hazırlığı
-
-*   Revizyonlar için destekli geri bildirim yazımı
-
-
 ## Ölçek Uyarlama Aşamaları
 
 Akademik araştırmalarda kullanılan ölçeklerin, farklı dil ve kültürlerde geçerliliğini koruyarak kullanılabilmesi için **ölçek uyarlama** süreci büyük önem taşır. Eğer literatürde bulunan mevcut bir ölçeği kendi araştırmanıza uyarlamak istiyorsanız, aşağıdaki aşamaları dikkatle izlemeniz gerekir:
 
-#### 1. Ön Çeviri
+### 1. Ön Çeviri
 
 Orijinal ölçek, alan uzmanları tarafından hedef dile çevrilir. Anlam bütünlüğü korunarak teknik ve akademik uygunluk sağlanır.
 
-#### 2. Geri Çeviri (Back Translation)
+### 2. Geri Çeviri (Back Translation)
 
 Çevrilen metin, farklı bir uzman tarafından tekrar orijinal dile çevrilerek anlam kaymaları kontrol edilir.
 
-#### 3. Uzman Görüşü
+### 3. Uzman Görüşü
 
 Alanında uzman akademisyenlerden ve dil uzmanlarından görüş alınarak dilsel ve kavramsal uyum değerlendirilir.
 
-#### 4. Pilot Uygulama
+### 4. Pilot Uygulama
 
 Ölçek, hedef kitleye uygulanarak anlaşılabilirlik, süre ve madde tutarlılığı açısından test edilir.
 
-#### 5. Geçerlik ve Güvenirlik Analizleri
+### 5. Geçerlik ve Güvenirlik Analizleri
 
 Doğrulayıcı Faktör Analizi (DFA) ile yapı geçerliği, Cronbach Alpha ile iç tutarlılık gibi istatistiksel analizler yapılır.
 
-#### Profesyonel Destekle Avantaj Sağlayın
+-Profesyonel Destekle Avantaj Sağlayın_
 
 Ölçek uyarlama süreci, hem dilsel hem de istatistiksel açıdan yüksek dikkat ve uzmanlık gerektirir. Yanlış uygulamalar araştırmanızın bilimsel değerini düşürebilir. Bu nedenle, uzman danışmanlık hizmeti alarak ölçeğinizin akademik geçerliliğini güvence altına alabilirsiniz.
 
@@ -276,19 +230,19 @@ Bu riskleri ortadan kaldırmak adına, tecrübeli danışmanlık hizmeti almak s
 
 ## Sık Sorulan Sorular (SSS)
 
-### 1. Ölçek geliştirme hizmetiniz hangi alanları kapsıyor?
+1. Ölçek geliştirme hizmetiniz hangi alanları kapsıyor?
 
 Eğitim bilimleri, psikoloji, sosyoloji, sağlık bilimleri, yönetim ve organizasyon gibi sosyal bilimler başta olmak üzere birçok alanda ölçek geliştirme ve uyarlama desteği sağlıyoruz. Alanınıza özel kuramsal çerçeve ve analiz yöntemi belirlenmektedir.
 
-### 2. Yalnızca analiz aşamasında da destek alabilir miyim?
+2. Yalnızca analiz aşamasında da destek alabilir miyim?
 
 Evet. Sadece Açımlayıcı Faktör Analizi (AFA), Doğrulayıcı Faktör Analizi (DFA), güvenirlik testleri (Cronbach Alpha, test-tekrar test vb.) gibi teknik analizlerde de destek sunmaktayız.
 
-### 3. Ölçek geliştirme hizmetiniz özgün mü?
+3. Ölçek geliştirme hizmetiniz özgün mü?
 
 Kesinlikle. Her ölçek çalışması, sadece sizin araştırmanız için özel olarak tasarlanır. Hazır şablon ya da kopya içerik kullanılmaz. Süreç tamamen özgün, etik ilkelere uygun ve akademik geçerlilik taşıyan biçimde yürütülür.
 
-### 4. Süreç ne kadar sürer?
+4. Süreç ne kadar sürer?
 
 Süreç; talebin kapsamına, alanınıza, veri toplama hızınıza ve yapılacak analiz türüne göre değişkenlik gösterir. Ortalama olarak tam kapsamlı bir ölçek geliştirme hizmeti 2–4 hafta arasında tamamlanmaktadır. Hızlı teslim seçenekleri de mevcuttur.
 
