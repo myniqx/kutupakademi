@@ -4,7 +4,7 @@ Bilimsel araştırmaların geçerlilik ve güvenilirliğini artırmak için doğ
 
 Bir araştırmanın bilimsel değerini belirleyen en önemli unsurlardan biri, **ölçme aracının geçerli ve güvenilir olmasıdır**. Bu bağlamda, özgün bir **ölçek geliştirme çalışması**, yalnızca akademik başarıya ulaşmakla kalmaz, aynı zamanda alan literatürüne katkı sağlayacak kalıcı bir eser üretmenin kapısını aralar.
 
-![Ölçek geliştirme aşamaları](/blogs/spss-ile-olcek-gelistirme-ve-uyarlama-hizmeti/olcek-gelistirme-asamalari.png)
+![Ölçek geliştirme aşamaları](./olcek-gelistirme-asamalari.png)
 
 Ancak bu süreç, yalnızca birkaç soru yazmaktan ibaret değildir. Aksine; dikkatli planlama, kuramsal bilgi, istatistiksel analiz becerisi ve etik ilkelere sadakat gerektirir. İşte profesyonel hizmet kapsamında yürütülen **ölçek geliştirme aşamaları**:
 
@@ -196,7 +196,7 @@ Doğrulayıcı Faktör Analizi (DFA) ile yapı geçerliği, Cronbach Alpha ile i
 
 Ölçek uyarlama süreci, hem dilsel hem de istatistiksel açıdan yüksek dikkat ve uzmanlık gerektirir. Yanlış uygulamalar araştırmanızın bilimsel değerini düşürebilir. Bu nedenle, uzman danışmanlık hizmeti alarak ölçeğinizin akademik geçerliliğini güvence altına alabilirsiniz.
 
-![Ölçek uyarlama aşamaları](/blogs/spss-ile-olcek-gelistirme-ve-uyarlama-hizmeti/olcek-uyarlama-asamalari.png)
+![Ölçek uyarlama aşamaları](./olcek-uyarlama-asamalari.png)
 
 ## Ölçek Geliştirme ve Uyarlama Çalışmalarında Karşılaşılan Sorunlar
 
