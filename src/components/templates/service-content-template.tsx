@@ -42,7 +42,11 @@ export async function ServiceContentTemplate({
   locale,
 }: ServiceContentTemplateProps) {
   const articleContent = stripLeadingH1(content);
-  const coverImage = getCoverImagePath(metadata);
+    const coverImage =
+    locale === 'en' &&
+    metadata.slug === 'spss-ile-olcek-gelistirme-ve-uyarlama-hizmeti'
+      ? `/blogs/${metadata.slug}/scale-development-adaptation-cover-en_.png`
+      : getCoverImagePath(metadata);
   const readingTime = calculateReadingTime(articleContent, locale);
   const headings = extractHeadings(articleContent);
   const title = metadata[locale]?.title || (locale === 'tr' ? 'Blog' : 'Blog');
