@@ -89,6 +89,36 @@ Tüm analizler tamamlandıktan sonra, elde edilen bulgular akademik bir üslupla
 
 Bu rapor, tezinizin bir bölümü olarak kullanılabilir veya hakemli bir dergiye makale olarak gönderilebilir.
 
+## Ölçek Uyarlama Aşamaları
+
+Akademik araştırmalarda kullanılan ölçeklerin, farklı dil ve kültürlerde geçerliliğini koruyarak kullanılabilmesi için **ölçek uyarlama** süreci büyük önem taşır. Eğer literatürde bulunan mevcut bir ölçeği kendi araştırmanıza uyarlamak istiyorsanız, aşağıdaki aşamaları dikkatle izlemeniz gerekir:
+
+### 1. Ön Çeviri
+
+Orijinal ölçek, alan uzmanları tarafından hedef dile çevrilir. Anlam bütünlüğü korunarak teknik ve akademik uygunluk sağlanır.
+
+### 2. Geri Çeviri (Back Translation)
+
+Çevrilen metin, farklı bir uzman tarafından tekrar orijinal dile çevrilerek anlam kaymaları kontrol edilir.
+
+### 3. Uzman Görüşü
+
+Alanında uzman akademisyenlerden ve dil uzmanlarından görüş alınarak dilsel ve kavramsal uyum değerlendirilir.
+
+### 4. Pilot Uygulama
+
+Ölçek, hedef kitleye uygulanarak anlaşılabilirlik, süre ve madde tutarlılığı açısından test edilir.
+
+### 5. Geçerlik ve Güvenirlik Analizleri
+
+Doğrulayıcı Faktör Analizi (DFA) ile yapı geçerliği, Cronbach Alpha ile iç tutarlılık gibi istatistiksel analizler yapılır.
+
+_Profesyonel Destekle Avantaj Sağlayın_
+
+Ölçek uyarlama süreci, hem dilsel hem de istatistiksel açıdan yüksek dikkat ve uzmanlık gerektirir. Yanlış uygulamalar araştırmanızın bilimsel değerini düşürebilir. Bu nedenle, uzman danışmanlık hizmeti alarak ölçeğinizin akademik geçerliliğini güvence altına alabilirsiniz.
+
+![Ölçek uyarlama aşamaları](./olcek-uyarlama-asamalari.png)
+
 ## Ölçek Geliştirme Çalışması İçin Neden Profesyonel Hizmet Almalısınız?
 
 Ölçek geliştirme, sadece bir anket hazırlamak değildir; kuramsal derinlik, metodolojik hassasiyet ve istatistiksel doğruluk gerektiren çok katmanlı bir bilimsel süreçtir. Bu süreci doğru ve etkili şekilde yürütebilmek için zaman, deneyim, teknik bilgi ve analiz araçları gerekir. Ancak birçok lisansüstü öğrenci, akademisyen veya araştırmacı bu kaynakların tümüne aynı anda sahip olamayabilir.
@@ -167,36 +197,6 @@ Bu süreçte:
 - Daha çok kabul ve yayın şansı ile
 
 tamamlanmış olur.
-
-## Ölçek Uyarlama Aşamaları
-
-Akademik araştırmalarda kullanılan ölçeklerin, farklı dil ve kültürlerde geçerliliğini koruyarak kullanılabilmesi için **ölçek uyarlama** süreci büyük önem taşır. Eğer literatürde bulunan mevcut bir ölçeği kendi araştırmanıza uyarlamak istiyorsanız, aşağıdaki aşamaları dikkatle izlemeniz gerekir:
-
-### 1. Ön Çeviri
-
-Orijinal ölçek, alan uzmanları tarafından hedef dile çevrilir. Anlam bütünlüğü korunarak teknik ve akademik uygunluk sağlanır.
-
-### 2. Geri Çeviri (Back Translation)
-
-Çevrilen metin, farklı bir uzman tarafından tekrar orijinal dile çevrilerek anlam kaymaları kontrol edilir.
-
-### 3. Uzman Görüşü
-
-Alanında uzman akademisyenlerden ve dil uzmanlarından görüş alınarak dilsel ve kavramsal uyum değerlendirilir.
-
-### 4. Pilot Uygulama
-
-Ölçek, hedef kitleye uygulanarak anlaşılabilirlik, süre ve madde tutarlılığı açısından test edilir.
-
-### 5. Geçerlik ve Güvenirlik Analizleri
-
-Doğrulayıcı Faktör Analizi (DFA) ile yapı geçerliği, Cronbach Alpha ile iç tutarlılık gibi istatistiksel analizler yapılır.
-
--Profesyonel Destekle Avantaj Sağlayın_
-
-Ölçek uyarlama süreci, hem dilsel hem de istatistiksel açıdan yüksek dikkat ve uzmanlık gerektirir. Yanlış uygulamalar araştırmanızın bilimsel değerini düşürebilir. Bu nedenle, uzman danışmanlık hizmeti alarak ölçeğinizin akademik geçerliliğini güvence altına alabilirsiniz.
-
-![Ölçek uyarlama aşamaları](./olcek-uyarlama-asamalari.png)
 
 ## Ölçek Geliştirme ve Uyarlama Çalışmalarında Karşılaşılan Sorunlar
 

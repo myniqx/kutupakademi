@@ -4,7 +4,7 @@ Collecting data with the right tools is of great importance to increase the vali
 
 One of the most important factors determining the scientific value of a research is that the **measurement tool is valid and reliable**. In this context, an original **scale development study** not only achieves academic success, but also opens the door to producing a permanent work that will contribute to the field literature.
 
-![Scale development stages](./featured-image.webp)
+![Scale development stages](./scale-development-stages-en.png)
 
 However, this process is not just about writing a few questions. On the contrary; it requires careful planning, theoretical knowledge, statistical analysis skills and adherence to ethical principles. Here are the **scale development stages** carried out within the scope of professional service:
 
@@ -89,6 +89,36 @@ After all analyses are completed, the obtained findings are reported in an acade
 
 This report can be used as a chapter of your thesis or sent to a peer-reviewed journal as an article.
 
+## Scale Adaptation Stages
+
+In order for scales used in academic research to be used by preserving their validity in different languages and cultures, the **scale adaptation** process is of great importance. If you want to adapt an existing scale in the literature to your own research, you need to carefully follow the following stages:
+
+### 1. Initial Translation
+
+The original scale is translated into the target language by field experts. Technical and academic suitability is ensured by preserving meaning integrity.
+
+### 2. Back Translation
+
+The translated text is translated back to the original language by a different expert to check for semantic shifts.
+
+### 3. Expert Opinion
+
+Linguistic and conceptual harmony is evaluated by taking opinions from academics and language experts who are experts in the field.
+
+### 4. Pilot Application
+
+The scale is applied to the target audience and tested in terms of comprehensibility, time and item consistency.
+
+### 5. Validity and Reliability Analyses
+
+Statistical analyses such as structural validity with Confirmatory Factor Analysis (CFA), internal consistency with Cronbach Alpha are performed.
+
+_Gain Advantage with Professional Support_
+
+The scale adaptation process requires high attention and expertise both linguistically and statistically. Incorrect applications can reduce the scientific value of your research. For this reason, you can guarantee the academic validity of your scale by receiving expert consultancy service.
+
+![Scale adaptation stages](./scale-adaptation-stages-en.png)
+
 ## Why Should You Get Professional Service for Scale Development Study?
 
 Scale development is not just preparing a questionnaire; it is a multi-layered scientific process that requires theoretical depth, methodological sensitivity and statistical accuracy. To carry out this process correctly and effectively, time, experience, technical knowledge and analysis tools are needed. However, many graduate students, academics or researchers may not have all of these resources at the same time.
@@ -168,82 +198,6 @@ In summary; when the scale development process is carried out with a professiona
 
 it is completed.
 
-## Scale Development Article Preparation Support
-
-**The scale development process** is not limited to producing only a valid and reliable measurement tool. The academic value of this process also emerges by being transformed into a scientific publication or thesis chapter. That is, the scale you have developed should be of a quality that can be integrated into a scientific report, your master's or doctoral thesis.
-
-However, most researchers have difficulty converting the analyses they obtained at the end of this process into correct academic writing. Texts that are incomplete or erroneous in terms of both writing rules and scientific structure are not accepted by thesis advisors or peer-reviewed journals. At this point, our **scale development article preparation support** offers a strong solution in carrying the process to the academic field.
-
-### In Which Areas Do We Provide Support?
-
-**1. Thesis Chapter Writing**
-
-The "Method", "Findings", "Discussion" and "Conclusion" sections of your scale development study are prepared in accordance with academic writing rules such as APA 7, MLA, Chicago. Analysis results are supported with tables and graphs, statistical findings are reported correctly.
-
-**2. Academic Article Preparation**
-
-Your scale is structured to be published in national or international peer-reviewed journals. Relationship with literature, theoretical framework, analysis explanations, discussion and recommendation sections are presented in complete integrity.
-
-**3. Report Format Publication Preparation**
-
-For situations that require non-academic but scientific reporting, a report is prepared in a simple, easy-to-read and visualized format. This is especially preferred for in-house projects, academic portfolios or project applications.
-
-### Academic Standards We Pay Attention To
-
-* Compliance with writing systems such as APA 7, MLA, Chicago
-
-* Detailed presentation of validity and reliability findings
-
-* Explanatory interpretation of EFA and CFA analyses
-
-* Ethical statement, limitations and recommendations for future studies
-
-* Reference formatting and production of plagiarism-free content
-
-
-### International Level Preparation for Your Publication Applications
-
-If you want to **publish the scale you developed in a peer-reviewed journal**, not only statistical analysis is not enough. Structural integrity, academic style and strong literature support appropriate to journal criteria are needed. We are with you in such writing processes. We especially offer consultancy on the following subjects:
-
-* Journal selection and targeting
-
-* Editing the article structure according to the journal
-
-* Cover letter preparation
-
-* Supportive feedback writing for revisions
-
-
-## Scale Adaptation Stages
-
-In order for scales used in academic research to be used by preserving their validity in different languages and cultures, the **scale adaptation** process is of great importance. If you want to adapt an existing scale in the literature to your own research, you need to carefully follow the following stages:
-
-#### 1. Initial Translation
-
-The original scale is translated into the target language by field experts. Technical and academic suitability is ensured by preserving meaning integrity.
-
-#### 2. Back Translation
-
-The translated text is translated back to the original language by a different expert to check for semantic shifts.
-
-#### 3. Expert Opinion
-
-Linguistic and conceptual harmony is evaluated by taking opinions from academics and language experts who are experts in the field.
-
-#### 4. Pilot Application
-
-The scale is applied to the target audience and tested in terms of comprehensibility, time and item consistency.
-
-#### 5. Validity and Reliability Analyses
-
-Statistical analyses such as structural validity with Confirmatory Factor Analysis (CFA), internal consistency with Cronbach Alpha are performed.
-
-#### Gain Advantage with Professional Support
-
-The scale adaptation process requires high attention and expertise both linguistically and statistically. Incorrect applications can reduce the scientific value of your research. For this reason, you can guarantee the academic validity of your scale by receiving expert consultancy service.
-
-![Scale adaptation stages](./image-1.webp)
-
 ## Problems Encountered in Scale Development and Adaptation Studies
 
 Unfortunately, many researchers face the following problems:
@@ -276,19 +230,19 @@ To eliminate these risks, receiving experienced consultancy service is a very ap
 
 ## Frequently Asked Questions (FAQ)
 
-### 1. Which areas does your scale development service cover?
+1. Which areas does your scale development service cover?
 
 We provide scale development and adaptation support in many fields, especially social sciences such as educational sciences, psychology, sociology, health sciences, management and organization. Theoretical framework and analysis method specific to your field is determined.
 
-### 2. Can I get support only at the analysis stage?
+2. Can I get support only at the analysis stage?
 
 Yes. We also provide support only in technical analyses such as Exploratory Factor Analysis (EFA), Confirmatory Factor Analysis (CFA), reliability tests (Cronbach Alpha, test-retest, etc.).
 
-### 3. Is your scale development service original?
+3. Is your scale development service original?
 
 Absolutely. Each scale study is specially designed only for your research. No ready templates or copied content are used. The process is carried out entirely in an original, ethical and academically valid manner.
 
-### 4. How long does the process take?
+4. How long does the process take?
 
 The process varies according to the scope of the request, your field, data collection speed and the type of analysis to be performed. On average, a full-scope scale development service is completed in 2-4 weeks. Fast delivery options are also available.
 

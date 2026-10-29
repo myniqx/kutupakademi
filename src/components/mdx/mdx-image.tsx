@@ -31,13 +31,13 @@ export function MDXImage({ src, alt = '', slug }: MDXImageProps) {
     : `/blogs/${slug}/${imageName}`;
 
   const isScaleInfographic =
-    slug === 'spss-ile-olcek-gelistirme-ve-uyarlama-hizmeti' &&
-    (
-      imageUrl ===
-        `/blogs/${slug}/olcek-gelistirme-asamalari.png` ||
-      imageUrl ===
-        `/blogs/${slug}/olcek-uyarlama-asamalari.png`
-    );
+  slug === 'spss-ile-olcek-gelistirme-ve-uyarlama-hizmeti' &&
+  (
+    imageUrl === `/blogs/${slug}/olcek-gelistirme-asamalari.png` ||
+    imageUrl === `/blogs/${slug}/olcek-uyarlama-asamalari.png` ||
+    imageUrl === `/blogs/${slug}/scale-development-stages-en.png` ||
+    imageUrl === `/blogs/${slug}/scale-adaptation-stages-en.png`
+  );
 
   if (isScaleInfographic) {
     return (
