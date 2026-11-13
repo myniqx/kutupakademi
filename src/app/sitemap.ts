@@ -32,7 +32,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     .from(blogs)
     .where(eq(blogs.published, true));
 
-  const turkishUrls = routes.map((route) => ({
+    const excludedTurkishRoutes = new Set([
+    '/spss-danismanlik',
+    '/nitel-veri-analizi',
+  ]);
+
+  const turkishUrls = routes
+    .filter((route) => !excludedTurkishRoutes.has(route))
+    .map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: new Date(),
     changeFrequency: 'weekly' as const,
