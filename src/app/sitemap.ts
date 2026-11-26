@@ -32,13 +32,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     .from(blogs)
     .where(eq(blogs.published, true));
 
-    const excludedTurkishRoutes = new Set([
+    const excludedServiceRoutes = new Set([
     '/spss-danismanlik',
     '/nitel-veri-analizi',
   ]);
 
   const turkishUrls = routes
-    .filter((route) => !excludedTurkishRoutes.has(route))
+    .filter((route) => !excludedServiceRoutes.has(route))
     .map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: new Date(),
@@ -52,7 +52,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
   }));
 
-  const englishUrls = routes.map((route) => ({
+  const englishUrls = routes
+  .filter((route) => !excludedServiceRoutes.has(route))
+  .map((route) => ({
     url: `${baseUrl}/en${route}`,
     lastModified: new Date(),
     changeFrequency: 'weekly' as const,
