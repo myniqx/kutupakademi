@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { IBM_Plex_Sans, IBM_Plex_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { ThemeProvider } from "@/components/providers/theme-provider";
@@ -12,16 +12,27 @@ import { SITE_CONFIG } from '@/constants/site';
 import { JsonLd } from '@/components/seo/json-ld';
 import "../globals.css";
 
-const ibmPlexSans = IBM_Plex_Sans({
+// Fonts are self-hosted (see src/app/fonts/README.md). next/font/google downloads
+// fonts at build time and Next.js 16 fails the build when Google Fonts answers
+// with extensionless /l/font?kit= URLs (vercel/next.js#99114).
+const ibmPlexSans = localFont({
+  src: "../fonts/IBMPlexSans-Variable.woff2",
+  weight: "400 700",
+  style: "normal",
   variable: "--font-ibm-plex-sans",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  display: "swap",
 });
 
-const ibmPlexMono = IBM_Plex_Mono({
+const ibmPlexMono = localFont({
+  src: [
+    { path: "../fonts/IBMPlexMono-Regular.woff2", weight: "400", style: "normal" },
+    { path: "../fonts/IBMPlexMono-Medium.woff2", weight: "500", style: "normal" },
+    { path: "../fonts/IBMPlexMono-SemiBold.woff2", weight: "600", style: "normal" },
+    { path: "../fonts/IBMPlexMono-Bold.woff2", weight: "700", style: "normal" },
+  ],
   variable: "--font-ibm-plex-mono",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  display: "swap",
+  preload: false,
 });
 
 export async function generateMetadata({
