@@ -93,8 +93,8 @@ Eksik değerlerin yapısını incelemek ve uygun işlem stratejisini belirlemek 
 - Doğrusal ilişki yapısı
 - Çoklu bağlantı veya aykırı gözlem durumu
 
-  Bu kontroller sonucunda parametrik ya da non-parametrik test yaklaşımı seçilebilir. Örneğin, belirli koşullar sağlandığında grup ortalamalarının karşılaştırılması için parametrik yöntemler tercih edilebilirken; veri yapısı bu koşulları karşılamadığında farklı analiz seçenekleri değerlendirilmelidir.
-  Test seçimi konusunda neden belirli bir yöntemin kullanıldığını anlamak, araştırma sürecini daha bilinçli biçimde yürütmek isteyenler için önemlidir. Bu tür yöntemsel kararları birlikte ele almak isterseniz, **[SPSS Danışmanlık](https://www.kutupakademi.com/spss-danismanlik-hizmeti)** desteği ile analiz yaklaşımınızı araştırma tasarımınıza uygun biçimde değerlendirebilirsiniz.
+Bu kontroller sonucunda parametrik ya da non-parametrik test yaklaşımı seçilebilir. Örneğin, belirli koşullar sağlandığında grup ortalamalarının karşılaştırılması için parametrik yöntemler tercih edilebilirken; veri yapısı bu koşulları karşılamadığında farklı analiz seçenekleri değerlendirilmelidir.
+Test seçimi konusunda neden belirli bir yöntemin kullanıldığını anlamak, araştırma sürecini daha bilinçli biçimde yürütmek isteyenler için önemlidir. Bu tür yöntemsel kararları birlikte ele almak isterseniz, **[SPSS Danışmanlık](https://www.kutupakademi.com/spss-danismanlik-hizmeti)** desteği ile analiz yaklaşımınızı araştırma tasarımınıza uygun biçimde değerlendirebilirsiniz.
 
 ### Adım 6: Araştırma Sorularına Uygun SPSS Analizlerinin Uygulanması
 
@@ -102,41 +102,17 @@ Eksik değerlerin yapısını incelemek ve uygun işlem stratejisini belirlemek 
   
 Örnek analiz amaçları şunlardır:
 
-<div style={{ width: '100%', maxWidth: '680px', margin: '1.5rem auto' }}>
-  <table style={{ width: '100%', tableLayout: 'fixed', textAlign: 'left', margin: 0 }}>
-    <thead>
-      <tr>
-        <th scope="col">Araştırma amacı</th>
-        <th scope="col">Değerlendirilebilecek analiz yaklaşımı</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Katılımcıların genel özelliklerini tanımlamak</td>
-        <td>Frekans, yüzde, ortalama, standart sapma</td>
-      </tr>
-      <tr>
-        <td>İki grubun puanlarını karşılaştırmak</td>
-        <td>Grup karşılaştırma analizi</td>
-      </tr>
-      <tr>
-        <td>Üç veya daha fazla grubun puanlarını karşılaştırmak</td>
-        <td>Çoklu grup karşılaştırma analizi</td>
-      </tr>
-      <tr>
-        <td>İki değişken arasındaki ilişkiyi incelemek</td>
-        <td>Korelasyon analizi</td>
-      </tr>
-      <tr>
-        <td>Bir değişkenin başka bir değişkeni yordama gücünü incelemek</td>
-        <td>Regresyon analizi</td>
-      </tr>
-      <tr>
-        <td>Ölçek yapısını veya boyutlarını değerlendirmek</td>
-        <td>Faktör temelli analizler</td>
-      </tr>
-    </tbody>
-  </table>
+<div style={{ maxWidth: '760px', margin: '0 auto' }}>
+
+| Araştırma amacı | Değerlendirilebilecek analiz yaklaşımı |
+| --- | --- |
+| Katılımcıların genel özelliklerini tanımlamak | Frekans, yüzde, ortalama, standart sapma |
+| İki grubun puanlarını karşılaştırmak | Grup karşılaştırma analizi |
+| Üç veya daha fazla grubun puanlarını karşılaştırmak | Çoklu grup karşılaştırma analizi |
+| İki değişken arasındaki ilişkiyi incelemek | Korelasyon analizi |
+| Bir değişkenin başka bir değişkeni yordama gücünü incelemek | Regresyon analizi |
+| Ölçek yapısını veya boyutlarını değerlendirmek | Faktör temelli analizler |
+
 </div>
   
 Burada önemli olan, test adını bilmekten çok doğru analiz ailesini doğru soruya bağlamaktır. Aynı veri seti içinde farklı hipotezler için farklı analizler gerekebilir. Bu nedenle analiz planı, her araştırma sorusunun ayrı ayrı değerlendirilmesiyle oluşturulmalıdır.
