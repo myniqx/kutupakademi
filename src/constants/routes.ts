@@ -29,7 +29,7 @@ export const ROUTES: RouteItem[] = [
       },
       {
         label: { tr: 'SPSS Danışmanlık Hizmeti', en: 'SPSS Consulting Service' },
-        href: '/spss-danismanlik',
+        href: '/spss-danismanlik-hizmeti',
         children: [
           {
             label: {
@@ -63,7 +63,7 @@ export const ROUTES: RouteItem[] = [
           tr: 'Nitel Veri Analizi Danışmanlığı',
           en: 'Qualitative Data Analysis Consulting',
         },
-        href: '/nitel-veri-analizi',
+        href: '/nitel-veri-analizi-yaptirma',
         children: [
           {
             label: {
