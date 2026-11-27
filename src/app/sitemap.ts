@@ -23,6 +23,11 @@ function getAllRoutes(items: RouteItem[]): string[] {
   return routes;
 }
 
+// The English home page lives at /en (no trailing slash); /en/ redirects.
+function englishPath(route: string): string {
+  return route === '/' ? '/en' : `/en${route}`;
+}
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = SITE_CONFIG.url;
 
@@ -47,7 +52,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     alternates: {
       languages: {
         tr: `${baseUrl}${route}`,
-        en: `${baseUrl}/en${route}`,
+        en: `${baseUrl}${englishPath(route)}`,
       },
     },
   }));
@@ -55,14 +60,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const englishUrls = routes
   .filter((route) => !excludedServiceRoutes.has(route))
   .map((route) => ({
-    url: `${baseUrl}/en${route}`,
+    url: `${baseUrl}${englishPath(route)}`,
     lastModified: new Date(),
     changeFrequency: 'weekly' as const,
     priority: route === '/' ? 1 : 0.8,
     alternates: {
       languages: {
         tr: `${baseUrl}${route}`,
-        en: `${baseUrl}/en${route}`,
+        en: `${baseUrl}${englishPath(route)}`,
       },
     },
   }));
